@@ -1,0 +1,98 @@
+//============================================
+// Code builder for OpenScad
+// Site: https://github.com/niconson
+//============================================
+
+
+
+
+// Polylines
+
+
+// Footprint
+module fp_det_TRANSISTOR ()
+{
+    union()
+    {
+        // end of union
+    }
+    // end of module
+}
+
+
+// Footprint
+module Fdet_TRANSISTOR ()
+{
+    difference()
+    {
+        union()
+        {
+            translate([ 1.905,  -1.270,  0.0 ])
+                translate([ -0.000,  -0.000,  0.100 ])
+                fp_det_TRANSISTOR();
+
+            // pads
+            if( is_undef(drw_pads) ){} else if( drw_pads )
+            color( "Lavender" )
+            {
+                $fn=8;
+                difference()
+                {
+                    union()
+                    {
+                        translate([ 0.000, 0.000, -board_h/2.0 ])
+                         rotate(22.5)
+                          cylinder( h=board_h+0.100, d1=1.143, d2=1.143, center=true );
+                        translate([ 0.000, 0.000, -0.050 ])
+                          rotate( 22.500 )
+                            linear_extrude( 0.100 )
+                              circle( d=2.159 );
+                        translate([ 0.000, 0.000, -(board_h+0.050) ])
+                          rotate( 22.500 )
+                            linear_extrude( 0.100 )
+                              circle( d=2.159 );
+                        translate([ 1.905, -2.540, -board_h/2.0 ])
+                         rotate(22.5)
+                          cylinder( h=board_h+0.100, d1=1.143, d2=1.143, center=true );
+                        translate([ 1.905, -2.540, -0.050 ])
+                          rotate( 202.500 )
+                            linear_extrude( 0.100 )
+                              circle( d=2.159 );
+                        translate([ 1.905, -2.540, -(board_h+0.050) ])
+                          rotate( 202.500 )
+                            linear_extrude( 0.100 )
+                              circle( d=2.159 );
+                        translate([ 3.810, 0.000, -board_h/2.0 ])
+                         rotate(22.5)
+                          cylinder( h=board_h+0.100, d1=1.143, d2=1.143, center=true );
+                        translate([ 3.810, 0.000, -0.050 ])
+                          rotate( 202.500 )
+                            linear_extrude( 0.100 )
+                              circle( d=2.159 );
+                        translate([ 3.810, 0.000, -(board_h+0.050) ])
+                          rotate( 202.500 )
+                            linear_extrude( 0.100 )
+                              circle( d=2.159 );
+                        // end of union
+                    }
+                    translate([ 0.000, 0.000, -board_h/2.0 ])
+                     rotate(22.5)
+                      cylinder( h=board_h*2.0, d1=0.943, d2=0.943, center=true );
+                    translate([ 1.905, -2.540, -board_h/2.0 ])
+                     rotate(22.5)
+                      cylinder( h=board_h*2.0, d1=0.943, d2=0.943, center=true );
+                    translate([ 3.810, 0.000, -board_h/2.0 ])
+                     rotate(22.5)
+                      cylinder( h=board_h*2.0, d1=0.943, d2=0.943, center=true );
+                    // end of difference
+                }
+                // end of pins
+            }
+            // end of union
+        }
+        // end of difference
+    }
+    // end of module
+}
+
+

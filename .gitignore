@@ -1,2 +1,16 @@
-step_files/
-stl_files/
+# Python кэш
+__pycache__/
+*.pyc
+*.pyo
+
+# Мусор ОС и редакторов
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# Временные файлы Office (открытые документы)
+~$*.pptx
+~$*.docx
+~$*.xlsx

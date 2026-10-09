@@ -1,0 +1,96 @@
+//============================================
+// Code builder for OpenScad
+// Site: https://github.com/niconson
+//============================================
+
+
+
+
+// Polylines
+
+
+// Footprint
+module fp_det_DIP_8 ()
+{
+    union()
+    {
+        // end of union
+    }
+    // end of module
+}
+
+
+// Footprint
+module Fdet_DIP_8 ()
+{
+    difference()
+    {
+        union()
+        {
+            translate([ 3.810,  3.800,  0.0 ])
+                translate([ -0.000,  -0.000,  0.100 ])
+                fp_det_DIP_8();
+
+            // pads
+            if( is_undef(drw_pads) ){} else if( drw_pads )
+            color( "Lavender" )
+            {
+                $fn=8;
+                translate([ 0.000, 0.000, -0.050 ])
+                  linear_extrude( 0.100 )
+                    polygon([[ 0.600, 1.100 ],
+                            [ -0.600, 1.100 ],
+                            [ -0.600, -1.100 ],
+                            [ 0.600, -1.100 ]]);
+                translate([ 2.540, 0.000, -0.050 ])
+                  linear_extrude( 0.100 )
+                    polygon([[ 0.600, 1.100 ],
+                            [ -0.600, 1.100 ],
+                            [ -0.600, -1.100 ],
+                            [ 0.600, -1.100 ]]);
+                translate([ 5.080, 0.000, -0.050 ])
+                  linear_extrude( 0.100 )
+                    polygon([[ 0.600, 1.100 ],
+                            [ -0.600, 1.100 ],
+                            [ -0.600, -1.100 ],
+                            [ 0.600, -1.100 ]]);
+                translate([ 7.620, 0.000, -0.050 ])
+                  linear_extrude( 0.100 )
+                    polygon([[ 0.600, 1.100 ],
+                            [ -0.600, 1.100 ],
+                            [ -0.600, -1.100 ],
+                            [ 0.600, -1.100 ]]);
+                translate([ 7.620, 7.600, -0.050 ])
+                  linear_extrude( 0.100 )
+                    polygon([[ 0.600, 1.100 ],
+                            [ -0.600, 1.100 ],
+                            [ -0.600, -1.100 ],
+                            [ 0.600, -1.100 ]]);
+                translate([ 5.080, 7.600, -0.050 ])
+                  linear_extrude( 0.100 )
+                    polygon([[ 0.600, 1.100 ],
+                            [ -0.600, 1.100 ],
+                            [ -0.600, -1.100 ],
+                            [ 0.600, -1.100 ]]);
+                translate([ 2.540, 7.600, -0.050 ])
+                  linear_extrude( 0.100 )
+                    polygon([[ 0.600, 1.100 ],
+                            [ -0.600, 1.100 ],
+                            [ -0.600, -1.100 ],
+                            [ 0.600, -1.100 ]]);
+                translate([ 0.000, 7.600, -0.050 ])
+                  linear_extrude( 0.100 )
+                    polygon([[ 0.600, 1.100 ],
+                            [ -0.600, 1.100 ],
+                            [ -0.600, -1.100 ],
+                            [ 0.600, -1.100 ]]);
+                // end of pins
+            }
+            // end of union
+        }
+        // end of difference
+    }
+    // end of module
+}
+
+

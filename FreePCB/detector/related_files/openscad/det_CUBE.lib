@@ -1,0 +1,33 @@
+//  This cube is designed to create projections of printed 
+//  circuit board(PCB) parts independently from each other 
+//  on both the bottom and top sides.This is done by subtracting 
+//  the parts on the opposite side from the original 3D model 
+//  using the different() function.To obtain a projection of the 
+//  top - side parts, subtract the bottom - side parts, and vice versa.
+
+originX_det = -10.000;
+originY_det = -10.000;
+max_height_det = 120.000;
+module Draw_det_CUBE(side, frozen, space)
+{
+  if (is_undef(cube_scaleX) || is_undef(cube_scaleY) || is_undef(cube_scaleZ))
+  {
+    translate([max_height_det/2, max_height_det/2, 0])
+    translate([frozen?0:originX_det, frozen?0:originY_det, side?max_height_det/2-board_h:-max_height_det/2])
+    cube(max_height_det, center=true); 
+  }
+  else
+  {
+    translate([max_height_det/2, max_height_det/2, 0])
+    translate([frozen?0:originX_det, frozen?0:originY_det, side?(max_height_det/2*cube_scaleZ)-board_h:(-max_height_det/2*cube_scaleZ) ])
+    scale([cube_scaleX, cube_scaleY, cube_scaleZ])
+    cube(max_height_det, center=true); 
+    if(space > 0.01)
+    {
+      push_direction = side ? -1 : 1;
+      spaceAxisForCube = space + (max_height_det * cube_scaleZ);
+      translate([0, 0, push_direction * spaceAxisForCube])
+      Draw_det_CUBE(side, frozen, 0);
+    }
+  }
+}
