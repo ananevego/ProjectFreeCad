@@ -1,29 +1,536 @@
 import importlib.util
+import json
+import math
+import shlex
+import subprocess
 import sys
+import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
-
-MODULE = Path(__file__).parents[1] / 'src' / 'kicad_to_freepcb_footprint.py'
+PROJECT = Path(__file__).resolve().parents[1]
+MODULE = PROJECT / 'src' / 'kicad_to_freepcb_footprint.py'
 SPEC = importlib.util.spec_from_file_location('converter', MODULE)
 converter = importlib.util.module_from_spec(SPEC)
 sys.modules[SPEC.name] = converter
 SPEC.loader.exec_module(converter)
+FIXTURE = Path(__file__).parent / 'fixtures' / 'R_0805_2012Metric.kicad_mod'
+REAL_STL = PROJECT / 'stl_files' / 'Resistor_SMD.3dshapes' / 'R_0805_2012Metric.stl'
+TEST_STL_ROOT = None
+
+
+def decode_fpl(text):
+    """Independent structural reader for the emitted 2.428 subset.
+
+    This is a test oracle, not the native FreePCB loader. Enforces record arity,
+    name indexing, pin counts and the six-parameter inner_pad contract.
+    """
+    fields, pins, polys = {}, [], []
+    pin, poly = None, None
+    arities = {'name': {1}, 'author': {1}, 'package': {1}, 'description': {1},
+               'units': {1}, 'sel_rect': {4}, 'ref_text': {5}, 'value_text': {5},
+               'centroid': {4}, 'n_pins': {1}, 'pin': {6}, 'text': {8},
+               'outline_polyline': {6}, 'next_corner': {3}, 'close_polyline': {1},
+               'openscad_code': {1}}
+    for line in text.splitlines():
+        if not line.strip():
+            continue
+        key, raw = line.strip().split(':', 1)
+        values = shlex.split(raw, posix=True)
+        if key.endswith('_pad'):
+            assert len(values) == (6 if key == 'inner_pad' else 5), (key, values)
+        elif key.endswith('_mask') or key.endswith('_paste'):
+            assert len(values) == 5, (key, values)
+        else:
+            assert key in arities and len(values) in arities[key], (key, values)
+        if key == 'name':
+            assert line.startswith('name:'), 'Library index needs name at column zero'
+        if key == 'pin':
+            pin = {'name': values[0], 'hole': int(values[1]), 'x': int(values[2]),
+                   'y': int(values[3]), 'angle': int(values[4]), 'description': values[5]}
+            pins.append(pin)
+        elif key.endswith(('_pad', '_mask', '_paste')):
+            assert pin is not None
+            pin[key] = tuple(map(int, values))
+        elif key == 'outline_polyline':
+            width, x, y, visible, hatch, layer = map(int, values)
+            poly = {'width': width, 'points': [(x, y)], 'visible': visible,
+                    'hatch': hatch, 'layer': layer, 'closed': False}
+            polys.append(poly)
+        elif key == 'next_corner':
+            assert poly is not None
+            x, y, style = map(int, values)
+            assert style == 0
+            poly['points'].append((x, y))
+        elif key == 'close_polyline':
+            assert poly is not None and values == ['0']
+            poly['closed'] = True
+        else:
+            fields.setdefault(key, []).append(values)
+    assert int(fields['n_pins'][0][0]) == len(pins)
+    for p in pins:
+        assert 'top_pad' in p, 'Avoid the native default round pad'
+        for key in ('top_pad', 'bottom_pad', 'inner_pad'):
+            if key in p:
+                shape, size_y, left, right, radius = p[key][:5]
+                assert shape in range(7) and min(size_y, left, right, radius) >= 0
+                assert radius <= min(size_y / 2, (left + right) / 2)
+    return fields, pins, polys
+
+
+def source_pad(shape='rect', kind='smd', layers='"F.Cu" "F.Mask" "F.Paste"',
+               size='1.025 1.4', at='-0.9125 0', name='1', extra=''):
+    return f'(pad "{name}" {kind} {shape} (at {at}) (size {size}) (layers {layers}) {extra})'
+
+
+def convert_body(body, **kwargs):
+    kwargs.setdefault('stl_root', TEST_STL_ROOT)
+    return converter.convert(converter.parse_sexpr(f'(footprint "Demo" {body})'), **kwargs)
 
 
 class FootprintConverterTests(unittest.TestCase):
-    def test_converts_supported_smd_footprint(self):
-        source = '''(footprint "Demo" (fp_line (start -1 0) (end 1 0) (stroke (width 0.12)) (layer "F.SilkS")) (pad "1" smd roundrect (at -0.5 0) (size 1 1.2)) (pad "2" smd rect (at 0.5 0 90) (size 1 1.2)))'''
-        result, warnings = converter.convert(converter.parse_sexpr(source))
-        self.assertEqual(warnings, [])
-        self.assertIn('[footprints]', result)
-        self.assertIn('name: "Demo"', result)
-        self.assertIn('n_pins: 2', result)
-        self.assertIn('units: NM', result)
-        self.assertIn('value_text:', result)
-        self.assertIn('pin: "1" 0 0 0 0 ""', result)
-        self.assertIn('top_pad: 3 1000000 600000 600000 0', result)
-        self.assertIn('pin: "2" 0 1000000 0 90 ""', result)
+    @classmethod
+    def setUpClass(cls):
+        # Unit tests need only file metadata, never a real mesh. The actual
+        # repository STL is checked separately by the optional integration test.
+        global TEST_STL_ROOT
+        directory = tempfile.TemporaryDirectory()
+        cls.addClassCleanup(directory.cleanup)
+        TEST_STL_ROOT = Path(directory.name)
+        model = TEST_STL_ROOT / 'Resistor_SMD.3dshapes' / 'R_0805_2012Metric.stl'
+        model.parent.mkdir()
+        model.write_bytes(b'metadata-only test fixture, not STL geometry')
+
+    def test_r0805_complete_structure_and_values(self):
+        root = converter.parse_sexpr(FIXTURE.read_text())
+        result, warnings = converter.convert(root, stl_root=TEST_STL_ROOT)
+        fields, pads, polys = decode_fpl(result)
+        self.assertEqual(fields['name'], [['R_0805_2012Metric']])
+        self.assertEqual(fields['units'], [['NM']])
+        self.assertEqual(len(pads), 2)
+        self.assertEqual([(p['name'], p['x'], p['y'], p['hole']) for p in pads],
+                         [('1', -912500, 0, 0), ('2', 912500, 0, 0)])
+        for p in pads:
+            # shape, size_Y, X/2, X/2, radius: X=1.025; Y=1.4 mm.
+            self.assertEqual(p['top_pad'], (4, 1400000, 512500, 512500, 250000))
+            self.assertEqual(p['bottom_pad'], (0, 0, 0, 0, 0))
+            self.assertEqual(p['top_mask'][0], 99)
+            self.assertEqual(p['top_paste'][0], 99)
+            self.assertEqual(p['bottom_mask'][0], 0)
+            self.assertNotIn('inner_pad', p)
+        self.assertEqual(fields['ref_text'], [['1000000', '0', '1650000', '0', '150000']])
+        self.assertEqual(fields['value_text'], [['1000000', '0', '-1650000', '0', '150000']])
+        self.assertNotIn('centroid', fields)  # Native loader computes pad-bounds centre.
+        silk = [p for p in polys if p['layer'] == 4]
+        self.assertEqual([p['points'] for p in silk],
+                         [[(-227060, 735000), (227060, 735000)],
+                          [(-227060, -735000), (227060, -735000)]])
+        self.assertEqual([p['width'] for p in silk], [120000, 120000])
+        self.assertNotIn('text', fields)  # Unresolved dynamic reference is not a literal label.
+        self.assertTrue(any(w.startswith('TEXT_VARIABLE_UNRESOLVED:') for w in warnings))
+        code = [row[0] for row in fields['openscad_code']]
+        self.assertEqual(code[0], 'translate([0,0,0]) // (automatic adjustment when moving the footprint origin)')
+        self.assertEqual(code[1], 'scale([1,1,1]) // (automatic adjustment when changing the project units)')
+        self.assertEqual(code[-2:], ['  import(`R_0805_2012Metric.stl`);', '}'])
+        self.assertTrue(any(w.startswith('MODEL_FRAME_UNVERIFIED:') for w in warnings))
+        self.assertFalse(any(w.startswith('MODEL_MISSING:') for w in warnings))
+
+    def test_shape_mapping(self):
+        for shape, code, size, extra, radius in [
+            ('circle', 1, '1 1', '', 0), ('rect', 3, '1 2', '', 0),
+            ('oval', 5, '1 2', '', 0),
+            ('roundrect', 4, '1 2', '(roundrect_rratio 0.2)', 200000)]:
+            with self.subTest(shape=shape):
+                result, _ = convert_body(source_pad(shape=shape, size=size, extra=extra))
+                pad = decode_fpl(result)[1][0]
+                self.assertEqual(pad['top_pad'], (code, int(size.split()[1])*1000000,
+                                                  500000, 500000, radius))
+
+    def test_bottom_smd_no_default_top_copper(self):
+        result, _ = convert_body(source_pad(layers='"B.Cu" "B.Mask" "B.Paste"', at='2 3 30'))
+        pad = decode_fpl(result)[1][0]
+        self.assertEqual((pad['x'], pad['y'], pad['angle']), (2000000, -3000000, 330))
+        self.assertEqual(pad['top_pad'], (0, 0, 0, 0, 0))
+        self.assertEqual(pad['bottom_pad'], (3, 1400000, 512500, 512500, 0))
+        self.assertEqual(pad['top_mask'][0], 0)
+        self.assertEqual(pad['bottom_mask'][0], 99)
+
+    def test_pth_all_copper_with_six_parameter_inner_pad(self):
+        result, _ = convert_body(source_pad(kind='thru_hole', shape='oval', size='2 3',
+                                           layers='"*.Cu" "*.Mask"', extra='(drill 0.8)'))
+        pad = decode_fpl(result)[1][0]
+        self.assertEqual(pad['hole'], 800000)
+        self.assertEqual(pad['top_pad'], (5, 3000000, 1000000, 1000000, 0))
+        self.assertEqual(pad['bottom_pad'], pad['top_pad'])
+        self.assertEqual(pad['inner_pad'], (*pad['top_pad'], 0))
+        self.assertEqual(pad['top_paste'][0], 0)
+
+    def test_pth_outer_only_does_not_invent_inner_copper(self):
+        result, _ = convert_body(source_pad(kind='thru_hole', layers='"F.Cu" "B.Cu"', extra='(drill 0.5)'))
+        self.assertEqual(decode_fpl(result)[1][0]['inner_pad'], (0, 0, 0, 0, 0, 0))
+
+    def test_npth_is_hole_without_copper_or_paste(self):
+        result, warnings = convert_body(source_pad(kind='np_thru_hole', shape='circle',
+                                                  size='2 2', name='', layers='"*.Cu" "*.Mask"', extra='(drill 2)'))
+        pad = decode_fpl(result)[1][0]
+        self.assertEqual(pad['hole'], 2000000)
+        self.assertEqual(pad['name'], '__NPTH_1')
+        for key in ('top_pad', 'bottom_pad', 'inner_pad', 'top_paste', 'bottom_paste'):
+            self.assertEqual(pad[key][0], 0)
+        self.assertTrue(any(w.startswith('NPTH_LIMIT:') for w in warnings))
+
+    def test_silk_sides_old_and_new_width_and_coordinates(self):
+        body = source_pad() + '''
+          (fp_line (start 1 2) (end 3 4) (width 0.2) (layer "F.SilkS"))
+          (fp_rect (start -1 -2) (end 1 2) (stroke (width 0.1)) (layer "B.SilkS"))'''
+        polys = decode_fpl(convert_body(body)[0])[2]
+        self.assertEqual(polys[0]['layer'], 4)
+        self.assertEqual(polys[0]['points'], [(1000000, -2000000), (3000000, -4000000)])
+        self.assertEqual(polys[0]['width'], 200000)
+        self.assertEqual(polys[1]['layer'], 5)
+        self.assertTrue(polys[1]['closed'])
+
+    def test_texts_are_not_constants_and_hidden_field_stays_hidden(self):
+        body = source_pad() + '''
+          (fp_text reference "R?" (at 2 -3 90) (layer "F.SilkS")
+            (effects (font (size 0.8 0.8) (thickness 0.1))))
+          (fp_text value "custom" (at 4 5) (layer "F.Fab") hide
+            (effects (font (size 0.6 0.6) (thickness 0.07))))
+          (fp_text user "bottom label" (at -2 3 45) (layer "B.SilkS")
+            (effects (font (size 0.7 0.7) (thickness 0.08)) (justify mirror)))'''
+        fields = decode_fpl(convert_body(body)[0])[0]
+        self.assertEqual(fields['ref_text'][0], ['800000', '2000000', '3000000', '270', '100000'])
+        self.assertEqual(fields['value_text'][0], ['0', '4000000', '-5000000', '0', '70000'])
+        self.assertEqual(fields['text'][0], ['bottom label', '700000', '-2000000', '-3000000', '315', '80000', '1', '5'])
+
+    def test_no_first_pad_origin_translation_or_forced_centroid(self):
+        body = source_pad(at='2 3', name='1') + source_pad(at='4 5', name='2')
+        fields, pads, _ = decode_fpl(convert_body(body)[0])
+        self.assertEqual([(p['x'], p['y']) for p in pads], [(2000000, -3000000), (4000000, -5000000)])
+        self.assertNotIn('centroid', fields)  # Actual pad-bounds centre is (3,-4), not (0,0).
+
+    def test_missing_model_reports_and_does_not_import(self):
+        with tempfile.TemporaryDirectory() as temp:
+            body = source_pad() + '(model "${KICAD10_3DMODEL_DIR}/Missing.3dshapes/Absent.step")'
+            result, warnings = convert_body(body, stl_root=Path(temp))
+        self.assertNotIn('openscad_code', decode_fpl(result)[0])
+        self.assertTrue(any(w.startswith('MODEL_MISSING: Missing.3dshapes/Absent.stl') for w in warnings))
+
+    @unittest.skipUnless(REAL_STL.is_file(), 'Optional integration: existing R0805 STL unavailable')
+    def test_real_stl_match_without_opening_or_changing_it(self):
+        before = REAL_STL.stat()
+        ref = converter.ModelReference('${KICAD10_3DMODEL_DIR}/Resistor_SMD.3dshapes/R_0805_2012Metric.step')
+        with patch.object(Path, 'open', side_effect=AssertionError('Do not read STL geometry')):
+            matches = converter.match_models([ref], PROJECT / 'stl_files', [])
+        self.assertEqual(len(matches), 1)
+        self.assertEqual(matches[0].stl_path, REAL_STL.resolve())
+        self.assertEqual(str(matches[0].relative_path), 'Resistor_SMD.3dshapes/R_0805_2012Metric.stl')
+        after = REAL_STL.stat()
+        self.assertEqual((before.st_size, before.st_mtime_ns, before.st_ctime_ns, before.st_ino),
+                         (after.st_size, after.st_mtime_ns, after.st_ctime_ns, after.st_ino))
+
+    def test_same_basename_in_wrong_category_is_not_matched(self):
+        ref = converter.ModelReference('${KICAD10_3DMODEL_DIR}/Wrong.3dshapes/R_0805_2012Metric.step')
+        warnings = []
+        self.assertEqual(converter.match_models([ref], PROJECT / 'stl_files', warnings), [])
+        self.assertTrue(warnings[0].startswith('MODEL_MISSING:'))
+
+    def test_model_frame_override_is_separate_and_explicit(self):
+        body = source_pad() + '(model "Resistor_SMD.3dshapes/R_0805_2012Metric.step" (offset (xyz 1 2 3)))'
+        with self.assertRaisesRegex(converter.ConversionError, 'explicit target ModelTransform'):
+            convert_body(body)
+        result, warnings = convert_body(body, model_transform=converter.ModelTransform((1, 2, 3), (0, 0, 90)))
+        code = [row[0] for row in decode_fpl(result)[0]['openscad_code']]
+        self.assertEqual(code[3:6], ['  translate([1,2,3])', '  rotate([0,0,90])', '  scale([1,1,1])'])
+        self.assertTrue(any(w.startswith('MODEL_TRANSFORM_OVERRIDE:') for w in warnings))
+
+    def test_selected_inner_layers_rejected_instead_of_all_inner(self):
+        for kind, extra in [('smd', ''), ('thru_hole', '(drill 0.5)')]:
+            with self.subTest(kind=kind), self.assertRaisesRegex(converter.ConversionError, 'inner copper'):
+                convert_body(source_pad(kind=kind, layers='"F.Cu" "In1.Cu"', extra=extra))
+
+    def test_unsupported_copper_shapes_and_drills_fail_explicitly(self):
+        cases = [source_pad(shape='custom'), source_pad(shape='trapezoid'),
+                 source_pad(shape='circle', size='1 2'), source_pad(shape='roundrect'),
+                 source_pad(extra='(chamfer_ratio 0.1)'),
+                 source_pad(kind='thru_hole', extra='(drill oval 1 2)'),
+                 source_pad(kind='thru_hole', extra='(drill 1 (offset 0.2 0))'),
+                 source_pad(at='0 0 12.5'), source_pad(kind='connect'),
+                 source_pad(size='-1 2'), source_pad(layers='"F.Mask"'),
+                 source_pad(size='0.000001 1'), source_pad(at='3000 0')]
+        for source in cases:
+            with self.subTest(source=source), self.assertRaises(converter.ConversionError):
+                convert_body(source)
+
+    def test_no_model_reference_does_not_guess_from_footprint_name(self):
+        result, warnings = convert_body(source_pad(), footprint_name='R_0805_2012Metric')
+        self.assertNotIn('openscad_code', decode_fpl(result)[0])
+        self.assertTrue(any('no basename guessing' in w for w in warnings))
+
+    def test_unknown_graphic_is_reported(self):
+        result, warnings = convert_body(source_pad() + '(fp_curve (layer "B.SilkS"))')
+        decode_fpl(result)
+        self.assertTrue(any(w.startswith('GRAPHIC_SKIPPED:') for w in warnings))
+
+    def test_legacy_module_root(self):
+        root = converter.parse_sexpr('(module Demo ' + source_pad() + ')')
+        self.assertEqual(decode_fpl(converter.convert(root)[0])[0]['name'], [['Demo']])
+
+    def test_parser_rejects_multiple_roots_and_unbalanced_input(self):
+        for text in ['(footprint A)(footprint B)', '(footprint A', ')', '(footprint "A)']:
+            with self.subTest(text=text), self.assertRaises(converter.ConversionError):
+                converter.parse_sexpr(text)
+
+    def test_cli_writes_one_library_and_errors_preserve_existing_output(self):
+        with tempfile.TemporaryDirectory() as temp:
+            destination = Path(temp) / 'R0805.fpl'
+            command = [sys.executable, '-B', str(MODULE), str(FIXTURE), str(destination),
+                       '--stl-root', str(TEST_STL_ROOT)]
+            result = subprocess.run(command, capture_output=True, text=True)
+            self.assertEqual(result.returncode, 0, result.stderr)
+            expected, _ = converter.convert(converter.parse_sexpr(FIXTURE.read_text()), stl_root=TEST_STL_ROOT)
+            self.assertEqual(destination.read_text(encoding='cp1251'), expected)
+            decode_fpl(expected)
+            invalid = Path(temp) / 'bad.kicad_mod'
+            invalid.write_text('(footprint Bad ' + source_pad(shape='custom') + ')')
+            result = subprocess.run([sys.executable, '-B', str(MODULE), str(invalid), str(destination)],
+                                    capture_output=True, text=True)
+            self.assertEqual(result.returncode, 1)
+            self.assertEqual(destination.read_text(encoding='cp1251'), expected)
+            self.assertIn('Unsupported KiCad pad shape', result.stderr)
+
+    def test_cli_refuses_output_in_existing_model_storage(self):
+        result = subprocess.run([sys.executable, '-B', str(MODULE), str(FIXTURE), str(REAL_STL)],
+                                capture_output=True, text=True)
+        self.assertEqual(result.returncode, 1)
+        self.assertIn('Output cannot be inside model storage', result.stderr)
+
+    def test_saved_r0805_is_reproducible(self):
+        expected, _ = converter.convert(converter.parse_sexpr(FIXTURE.read_text()), stl_root=TEST_STL_ROOT)
+        saved = (PROJECT / 'output' / 'R_0805_2012Metric.fpl').read_text(encoding='cp1251')
+        self.assertEqual(saved, expected)
+        decode_fpl(saved)
+
+    def test_circle_tessellation_bounds_chord_error_and_layer(self):
+        body = source_pad() + '''(fp_circle (center 2 3) (end 3 3)
+            (stroke (width 0.12)) (fill no) (layer "B.SilkS"))'''
+        result, warnings = convert_body(body, curve_tolerance=0.005)
+        poly = decode_fpl(result)[2][0]
+        self.assertEqual(poly['layer'], 5)
+        self.assertEqual(poly['width'], 120000)
+        self.assertTrue(poly['closed'])
+        points = [(x / 1e6, y / 1e6) for x, y in poly['points']]
+        self.assertGreater(len(points), 8)
+        for a, b in zip(points, points[1:] + points[:1]):
+            midpoint = ((a[0]+b[0])/2, (a[1]+b[1])/2)
+            error = abs(1 - math.dist(midpoint, (2, -3)))
+            self.assertLessEqual(error, 0.005)
+        self.assertTrue(any(w.startswith('CURVE_APPROXIMATED:') for w in warnings))
+
+    def test_arc_keeps_direction_endpoints_and_major_sweep(self):
+        for mid, end, expected_sign in [('0 1', '-1 0', -1), ('-1 0', '0 1', 1)]:
+            with self.subTest(mid=mid):
+                body = source_pad() + f'''(fp_arc (start 1 0) (mid {mid}) (end {end})
+                    (stroke (width 0.1)) (layer "F.SilkS"))'''
+                poly = decode_fpl(convert_body(body)[0])[2][0]
+                self.assertFalse(poly['closed'])
+                self.assertEqual(poly['points'][0], (1000000, 0))
+                self.assertEqual(poly['points'][-1], tuple(int(float(v)*1e6) * sign
+                                                         for v, sign in zip(end.split(), [1, -1])))
+                self.assertGreater(poly['points'][1][1] * expected_sign, 0)
+                for a, b in zip(poly['points'], poly['points'][1:]):
+                    midpoint = ((a[0]+b[0])/2e6, (a[1]+b[1])/2e6)
+                    self.assertLessEqual(abs(1 - math.hypot(*midpoint)), 0.01)
+
+    def test_polygon_is_closed_and_preserves_all_corners(self):
+        body = source_pad() + '''(fp_poly (pts (xy 0 0) (xy 2 0) (xy 1 2) (xy 0 0))
+            (stroke (width 0.1)) (fill no) (layer "F.SilkS"))'''
+        poly = decode_fpl(convert_body(body)[0])[2][0]
+        self.assertEqual(poly['points'], [(0, 0), (2000000, 0), (1000000, -2000000)])
+        self.assertTrue(poly['closed'])
+
+    def test_invalid_curves_fail_instead_of_producing_empty_geometry(self):
+        graphics = [
+            '(fp_arc (start 0 0) (mid 1 0) (end 2 0) (layer "F.SilkS"))',
+            '(fp_arc (start 0 0) (end 1 0) (angle 90) (layer "F.SilkS"))',
+            '(fp_circle (center 1 1) (end 1 1) (layer "F.SilkS"))',
+            '(fp_poly (pts (xy 0 0) (xy 1 1)) (layer "F.SilkS"))',
+            '(fp_circle (center 0 0) (end 1 0) (fill yes) (layer "F.SilkS"))',
+        ]
+        for graphic in graphics:
+            with self.subTest(graphic=graphic), self.assertRaises(converter.ConversionError):
+                convert_body(source_pad() + graphic)
+        with self.assertRaises(converter.ConversionError):
+            convert_body(source_pad(), curve_tolerance=0)
+        with self.assertRaisesRegex(converter.ConversionError, '4096 segments'):
+            converter.sample_arc((0, 0), 2000, 0, math.tau, 0.00002)
+
+    def test_text_variables_require_explicit_binding_and_are_not_dynamic(self):
+        body = source_pad() + '''(fp_text user "Part ${REFERENCE} = ${VALUE}" (at 0 1)
+            (layer "F.SilkS") (effects (font (size 1 1) (thickness 0.1))))'''
+        result, warnings = convert_body(body)
+        self.assertNotIn('text', decode_fpl(result)[0])
+        self.assertTrue(any(w.startswith('TEXT_VARIABLE_UNRESOLVED:') for w in warnings))
+        result, warnings = convert_body(body, text_variables={'REFERENCE': 'R1', 'VALUE': '10k'})
+        self.assertEqual(decode_fpl(result)[0]['text'][0][0], 'Part R1 = 10k')
+        self.assertTrue(any(w.startswith('TEXT_VARIABLE_BOUND:') for w in warnings))
+        self.assertFalse(any(w.startswith('TEXT_VARIABLE_UNRESOLVED:') for w in warnings))
+
+    def test_report_retains_source_text_and_separates_losses_from_assumptions(self):
+        result = converter.convert_detailed(converter.parse_sexpr(FIXTURE.read_text()), stl_root=TEST_STL_ROOT)
+        report = result.report
+        self.assertEqual(report['status'], 'generated_with_loss')
+        self.assertFalse(report['target']['gui_validated'])
+        self.assertEqual(report['counts']['written_pins'], 2)
+        self.assertEqual(report['counts']['matched_models'], 1)
+        self.assertEqual(report['source_texts'][1]['content'], 'R_0805_2012Metric')
+        self.assertEqual(report['source_texts'][1]['layer'], 'F.Fab')
+        self.assertEqual(report['models'][0]['relative_stl'], 'Resistor_SMD.3dshapes/R_0805_2012Metric.stl')
+        self.assertFalse(report['models'][0]['frame_validated'])
+        severity = {d['code']: d['severity'] for d in report['diagnostics']}
+        self.assertEqual(severity['TEXT_VARIABLE_UNRESOLVED'], 'loss')
+        self.assertEqual(severity['MODEL_FRAME_UNVERIFIED'], 'assumption')
+        self.assertEqual(json.loads(json.dumps(report))['footprint'], report['footprint'])
+
+    def test_strict_rejects_known_loss_but_accepts_bounded_curve_approximation(self):
+        with self.assertRaises(converter.LossyConversionError) as caught:
+            converter.convert_detailed(converter.parse_sexpr(FIXTURE.read_text()), strict=True, stl_root=TEST_STL_ROOT)
+        self.assertEqual(caught.exception.report['status'], 'rejected_loss')
+        body = source_pad() + '''(fp_circle (center 0 0) (end 1 0)
+            (layer "F.SilkS") (stroke (width 0.1)))
+            (model "Resistor_SMD.3dshapes/R_0805_2012Metric.step")'''
+        result, warnings = convert_body(body, strict=True)
+        self.assertTrue(decode_fpl(result)[2][0]['closed'])
+        self.assertTrue(any(w.startswith('CURVE_APPROXIMATED:') for w in warnings))
+
+    def test_cli_strict_writes_rejection_report_without_overwriting_fpl(self):
+        with tempfile.TemporaryDirectory() as temp:
+            output, report = Path(temp) / 'out.fpl', Path(temp) / 'report.json'
+            output.write_bytes(b'previous library')
+            result = subprocess.run([sys.executable, '-B', str(MODULE), str(FIXTURE), str(output),
+                                     '--strict', '--report', str(report)], capture_output=True, text=True)
+            self.assertEqual(result.returncode, 2, result.stderr)
+            self.assertEqual(output.read_bytes(), b'previous library')
+            data = json.loads(report.read_text())
+            self.assertEqual(data['status'], 'rejected_loss')
+            self.assertTrue(data['errors'])
+
+    def test_cli_report_cannot_overwrite_source_model_or_fpl(self):
+        with tempfile.TemporaryDirectory() as temp:
+            output = Path(temp) / 'out.fpl'
+            for report in [FIXTURE, REAL_STL, output]:
+                with self.subTest(report=report):
+                    result = subprocess.run([sys.executable, '-B', str(MODULE), str(FIXTURE), str(output),
+                                             '--report', str(report)], capture_output=True, text=True)
+                    self.assertEqual(result.returncode, 1)
+                    self.assertFalse(output.exists())
+
+    def test_malformed_input_cli_reports_failure_without_traceback(self):
+        with tempfile.TemporaryDirectory() as temp:
+            source, output, report = (Path(temp) / name for name in ('bad.kicad_mod', 'out.fpl', 'report.json'))
+            for contents in ['(footprint () (pad))', '(footprint Demo (property))',
+                             '(footprint Demo (pad "1"))', '(footprint Demo (fp_text user))']:
+                with self.subTest(contents=contents):
+                    source.write_text(contents)
+                    result = subprocess.run([sys.executable, '-B', str(MODULE), str(source), str(output),
+                                             '--report', str(report)], capture_output=True, text=True)
+                    self.assertEqual(result.returncode, 1)
+                    self.assertNotIn('Traceback', result.stderr)
+                    self.assertFalse(output.exists())
+                    self.assertEqual(json.loads(report.read_text())['status'], 'failed')
+
+    def test_atomic_write_failure_preserves_old_file_and_cleans_temporary_file(self):
+        with tempfile.TemporaryDirectory() as temp:
+            destination = Path(temp) / 'out.fpl'
+            destination.write_bytes(b'previous library')
+            with patch.object(converter.os, 'replace', side_effect=OSError('replacement failed')):
+                with self.assertRaises(OSError):
+                    converter.atomic_write(destination, b'new library')
+            self.assertEqual(destination.read_bytes(), b'previous library')
+            self.assertEqual(list(Path(temp).glob('.freepcb-*')), [])
+
+    def test_quantized_radius_never_exceeds_target_half_dimensions(self):
+        result, _ = convert_body(source_pad(shape='roundrect', size='2 1.00001',
+                                           extra='(roundrect_rratio 0.5)'))
+        self.assertEqual(decode_fpl(result)[1][0]['top_pad'], (4, 1000010, 1000000, 1000000, 500000))
+
+    def test_explicit_rect_mask_expansion_adds_rounded_corners(self):
+        result, _ = convert_body(source_pad(size='2 4', at='0 0', extra='(solder_mask_margin 0.1)'))
+        fields, pads, _ = decode_fpl(result)
+        self.assertEqual(pads[0]['top_pad'], (3, 4000000, 1000000, 1000000, 0))
+        self.assertEqual(pads[0]['top_mask'], (4, 4200000, 1100000, 1100000, 100000))
+        self.assertEqual(pads[0]['bottom_mask'], (0, 0, 0, 0, 0))
+        self.assertEqual(fields['sel_rect'][0], ['-1100000', '-2100000', '1100000', '2100000'])
+
+    def test_paste_margin_and_ratio_are_per_side_and_per_axis(self):
+        result, warnings = convert_body(source_pad(size='2 4', extra='''
+            (solder_paste_margin -0.1) (solder_paste_margin_ratio -0.05)'''))
+        self.assertEqual(decode_fpl(result)[1][0]['top_paste'], (3, 3400000, 800000, 800000, 0))
+        self.assertFalse(any(w.startswith('APERTURE_ASSUMED_ZERO:') for w in warnings))
+
+    def test_pad_footprint_default_precedence_keeps_explicit_zero(self):
+        defaults = converter.ApertureSettings(0.3, -0.2, -0.1)
+        body = '(solder_mask_margin 0.1) (solder_paste_margin -0.05) (solder_paste_ratio 0)'
+        body += source_pad(size='2 4', extra='(solder_mask_margin 0)')
+        result, _ = convert_body(body, aperture_defaults=defaults)
+        pad = decode_fpl(result)[1][0]
+        self.assertEqual(pad['top_mask'], pad['top_pad'])
+        self.assertEqual(pad['top_paste'], (3, 3900000, 950000, 950000, 0))
+
+    def test_bottom_apertures_follow_bottom_layers(self):
+        result, _ = convert_body(source_pad(size='2 4', layers='"B.Cu" "B.Mask" "B.Paste"'),
+                                 aperture_defaults=converter.ApertureSettings(0.1, 0, 0))
+        pad = decode_fpl(result)[1][0]
+        self.assertEqual(pad['bottom_mask'], (4, 4200000, 1100000, 1100000, 100000))
+        self.assertEqual(pad['bottom_paste'], pad['bottom_pad'])
+        self.assertEqual(pad['top_mask'], (0, 0, 0, 0, 0))
+
+    def test_roundrect_uniform_margin_changes_radius(self):
+        result, _ = convert_body(source_pad(shape='roundrect', size='2 4', extra='''
+            (roundrect_rratio 0.2) (solder_mask_margin 0.1)
+            (solder_paste_margin -0.1) (solder_paste_margin_ratio 0)'''))
+        pad = decode_fpl(result)[1][0]
+        self.assertEqual(pad['top_mask'], (4, 4200000, 1100000, 1100000, 500000))
+        self.assertEqual(pad['top_paste'], (4, 3800000, 900000, 900000, 300000))
+
+    def test_roundrect_asymmetric_paste_is_explicitly_rejected(self):
+        with self.assertRaisesRegex(converter.ConversionError, 'asymmetric roundrect'):
+            convert_body(source_pad(shape='roundrect', size='2 4', extra='''
+                (roundrect_rratio 0.2) (solder_paste_margin 0) (solder_paste_margin_ratio -0.05)'''))
+
+    def test_circle_and_oval_apertures_preserve_supported_shapes(self):
+        for shape, size, expected in [('circle', '2 2', (1, 2200000, 1100000, 1100000, 0)),
+                                      ('oval', '2 4', (5, 4200000, 1100000, 1100000, 0))]:
+            with self.subTest(shape=shape):
+                result, _ = convert_body(source_pad(shape=shape, size=size, extra='(solder_mask_margin 0.1)'))
+                self.assertEqual(decode_fpl(result)[1][0]['top_mask'], expected)
+
+    def test_closed_aperture_is_none_and_unknown_paste_term_is_reported(self):
+        result, warnings = convert_body(source_pad(size='2 4', extra='(solder_mask_margin -1) (solder_paste_margin -0.1)'))
+        self.assertEqual(decode_fpl(result)[1][0]['top_mask'], (0, 0, 0, 0, 0))
+        self.assertTrue(any(w.startswith('APERTURE_CLOSED:') for w in warnings))
+        self.assertTrue(any(w.startswith('APERTURE_ASSUMED_ZERO:') for w in warnings))
+        with self.assertRaises(converter.LossyConversionError) as caught:
+            convert_body(source_pad(extra='(solder_paste_margin -0.1)'), strict=True)
+        self.assertIn('APERTURE_ASSUMED_ZERO', str(caught.exception))
+
+    def test_aperture_report_and_invalid_margins(self):
+        root = converter.parse_sexpr('(footprint Demo ' + source_pad(extra='(solder_mask_margin 0.1)') + ')')
+        report = converter.convert_detailed(root, aperture_defaults=converter.ApertureSettings(None, 0, 0)).report
+        self.assertEqual(report['apertures']['pads'][0]['resolved'],
+                         {'mask_margin': 0.1, 'paste_margin': 0, 'paste_ratio': 0})
+        for settings in ['(solder_mask_margin nan)', '(solder_paste_margin inf)', '(solder_paste_margin_ratio ())']:
+            with self.subTest(settings=settings), self.assertRaises(converter.ConversionError):
+                convert_body(source_pad(extra=settings))
+
+    def test_npth_technical_only_mask_ignores_margin_and_selection_covers_drill(self):
+        result, _ = convert_body(source_pad(kind='np_thru_hole', shape='circle', size='0.4 0.4',
+                                           at='0 0', layers='"F.Mask"', name='',
+                                           extra='(drill 1) (solder_mask_margin 0.2)'))
+        fields, pads, _ = decode_fpl(result)
+        self.assertEqual(pads[0]['top_mask'], (1, 400000, 200000, 200000, 0))
+        self.assertEqual(fields['sel_rect'][0], ['-500000', '-500000', '500000', '500000'])
 
 
 if __name__ == '__main__':

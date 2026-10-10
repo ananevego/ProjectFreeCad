@@ -1,18 +1,40 @@
-[footprints]
-
 name: "R_0805_2012Metric"
 author: "KiCad to FreePCB converter"
+package: "R_0805_2012Metric"
   units: NM
-  sel_rect: -1012500 -1235000 2837500 1235000
-  ref_text: 1270000 0 -1500000 0 177800
-  value_text: 1270000 0 1500000 0 177800
-  centroid: 0 0 0 0
-  outline_polyline: 120000 685436 -735000 1 0 4
-    next_corner: 1139564 -735000 0
-  outline_polyline: 120000 685436 735000 1 0 4
-    next_corner: 1139564 735000 0
+description: "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)"
+  sel_rect: -1425000 -795000 1425000 795000
+  ref_text: 1000000 0 1650000 0 150000
+  value_text: 1000000 0 -1650000 0 150000
+  outline_polyline: 120000 -227060 735000 1 0 4
+    next_corner: 227060 735000 0
+  outline_polyline: 120000 -227060 -735000 1 0 4
+    next_corner: 227060 -735000 0
+  outline_polyline: 100000 -1000000 625000 1 0 7
+    next_corner: 1000000 625000 0
+    next_corner: 1000000 -625000 0
+    next_corner: -1000000 -625000 0
+    close_polyline: 0
   n_pins: 2
-    pin: "1" 0 0 0 0 ""
-      top_pad: 3 1025000 700000 700000 0
-    pin: "2" 0 1825000 0 0 ""
-      top_pad: 3 1025000 700000 700000 0
+    pin: "1" 0 -912500 0 0 ""
+      top_pad: 4 1400000 512500 512500 250000
+      bottom_pad: 0 0 0 0 0
+      top_mask: 99 0 0 0 0
+      top_paste: 99 0 0 0 0
+      bottom_mask: 0 0 0 0 0
+      bottom_paste: 0 0 0 0 0
+    pin: "2" 0 912500 0 0 ""
+      top_pad: 4 1400000 512500 512500 250000
+      bottom_pad: 0 0 0 0 0
+      top_mask: 99 0 0 0 0
+      top_paste: 99 0 0 0 0
+      bottom_mask: 0 0 0 0 0
+      bottom_paste: 0 0 0 0 0
+  openscad_code: "translate([0,0,0]) // (automatic adjustment when moving the footprint origin)"
+  openscad_code: "scale([1,1,1]) // (automatic adjustment when changing the project units)"
+  openscad_code: "{"
+  openscad_code: "  translate([0,0,0])"
+  openscad_code: "  rotate([0,0,0])"
+  openscad_code: "  scale([1,1,1])"
+  openscad_code: "  import(`R_0805_2012Metric.stl`);"
+  openscad_code: "}"

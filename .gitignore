@@ -14,3 +14,10 @@ desktop.ini
 ~$*.pptx
 ~$*.docx
 ~$*.xlsx
+
+# Existing model stores are distributed separately; never recommit them.
+/stl_files/
+/step_files/
+
+# Runtime reports contain machine-local paths.
+/output/*.report.json
