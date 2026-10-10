@@ -90,6 +90,38 @@ def convert_body(body, **kwargs):
     return converter.convert(converter.parse_sexpr(f'(footprint "Demo" {body})'), **kwargs)
 
 
+def polygon_body(points, width=0, layer='F.SilkS', fill='solid'):
+    vertices = ' '.join(f'(xy {x} {y})' for x, y in points)
+    return f'(fp_poly (pts {vertices}) (stroke (width {width})) (fill {fill}) (layer "{layer}"))'
+
+
+def segment_distance(point, a, b):
+    # Independent distance oracle for ideal round-ended output strokes.
+    dx, dy = b[0] - a[0], b[1] - a[1]
+    t = max(0, min(1, ((point[0]-a[0])*dx + (point[1]-a[1])*dy) / (dx*dx+dy*dy))) if dx or dy else 0
+    return math.dist(point, (a[0]+t*dx, a[1]+t*dy))
+
+
+def inside_polygon(point, points):
+    inside = False
+    for a, b in zip(points, points[1:] + points[:1]):
+        if (a[1] > point[1]) != (b[1] > point[1]):
+            x = a[0] + (point[1]-a[1])*(b[0]-a[0])/(b[1]-a[1])
+            if point[0] < x:
+                inside = not inside
+    return inside
+
+
+def stroke_contains(point, polys):
+    for poly in polys:
+        points = [(x / 1e6, y / 1e6) for x, y in poly['points']]
+        end = points[1:] + points[:1] if poly['closed'] else points[1:]
+        if any(segment_distance(point, a, b) <= poly['width'] / 2e6 + 1e-10
+               for a, b in zip(points, end)):
+            return True
+    return False
+
+
 class FootprintConverterTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -105,6 +137,9 @@ class FootprintConverterTests(unittest.TestCase):
         header = TEST_STL_ROOT / 'Connector_PinHeader_2.54mm.3dshapes' / 'PinHeader_1x03_P2.54mm_Vertical.stl'
         header.parent.mkdir()
         header.write_bytes(b'metadata-only test fixture, not STL geometry')
+        sot = TEST_STL_ROOT / 'Package_TO_SOT_SMD.3dshapes' / 'SOT-23.stl'
+        sot.parent.mkdir()
+        sot.write_bytes(b'metadata-only test fixture, not STL geometry')
 
     def test_r0805_complete_structure_and_values(self):
         root = converter.parse_sexpr(FIXTURE.read_text())
@@ -245,12 +280,39 @@ class FootprintConverterTests(unittest.TestCase):
                 self.assertEqual({p['layer'] for p in silk}, {4 if side == 'top' else 5})
                 self.assertEqual(result.report['counts']['source_pads'], 2)
 
-    def test_real_sot23_filled_silk_fails_without_silently_dropping_marker(self):
+    def test_real_sot23_filled_marker_and_pad_geometry_on_both_sides(self):
         source = (FIXTURES / 'SOT-23.kicad_mod').read_text()
         for side, text in [('F', source), ('B', source.replace('"F.', '"B.'))]:
-            with self.subTest(side=side), self.assertRaisesRegex(converter.ConversionError,
-                    f'Filled fp_poly on {side}.SilkS is unsupported'):
-                converter.convert_detailed(converter.parse_sexpr(text), stl_root=TEST_STL_ROOT)
+            with self.subTest(side=side):
+                result = converter.convert_detailed(converter.parse_sexpr(text), stl_root=TEST_STL_ROOT,
+                               aperture_defaults=converter.ApertureSettings(0.05, -0.025, 0))
+                fields, pads, polys = decode_fpl(result.fpl)
+                copper, opposite, layer = ('top', 'bottom', 4) if side == 'F' else ('bottom', 'top', 5)
+                self.assertEqual([(p['name'], p['x'], p['y'], p['hole']) for p in pads],
+                                 [('1', -937500, 950000, 0), ('2', -937500, -950000, 0),
+                                  ('3', 937500, 0, 0)])
+                for pad in pads:
+                    self.assertEqual(pad[copper + '_pad'], (4, 600000, 737500, 737500, 150000))
+                    self.assertEqual(pad[copper + '_mask'], (4, 700000, 787500, 787500, 200000))
+                    self.assertEqual(pad[copper + '_paste'], (4, 550000, 712500, 712500, 125000))
+                    for suffix in ('pad', 'mask', 'paste'):
+                        self.assertEqual(pad[opposite + '_' + suffix], (0, 0, 0, 0, 0))
+                boundary = [p for p in polys if p['layer'] == layer and p['closed']]
+                self.assertEqual(len(boundary), 1)
+                self.assertEqual(boundary[0]['points'], [(-1300000, 380000), (-1060000, 50000), (-1540000, 50000)])
+                self.assertEqual((boundary[0]['width'], boundary[0]['hatch']), (120000, 0))
+                scanlines = [p for p in polys if p['layer'] == layer and not p['closed'] and
+                             p['points'][0][1] == p['points'][1][1] and 50000 < p['points'][0][1] < 380000]
+                self.assertEqual(len(scanlines), 6)
+                self.assertEqual(scanlines[0]['points'], [(-1320000, 352500), (-1280000, 352500)])
+                self.assertEqual(scanlines[-1]['points'], [(-1520000, 77500), (-1080000, 77500)])
+                self.assertTrue(all(p['width'] == 120000 and p['hatch'] == 0 for p in scanlines))
+                self.assertEqual(result.report['fills']['written_scanline_polylines'], 6)
+                self.assertEqual(result.report['counts']['source_filled_polygons'], 1)
+                self.assertEqual(result.report['fills']['source_polygons'][0]['layer'], side + '.SilkS')
+                self.assertFalse(result.report['fills']['manufacturing_validated'])
+                self.assertEqual(fields['openscad_code'][-2], ['  import(`SOT-23.stl`);'])
+                self.assertNotIn('centroid', fields)
 
     def test_disabled_padstack_flags_do_not_reject_and_enabled_flags_fail(self):
         for key in ('remove_unused_layers', 'keep_end_layers'):
@@ -298,26 +360,29 @@ class FootprintConverterTests(unittest.TestCase):
         self.assertEqual(code[-2], ['  import(`PinHeader_1x03_P2.54mm_Vertical.stl`);'])
         self.assertFalse(result.report['models'][0]['frame_validated'])
 
-    def test_real_unsupported_sot23_cli_keeps_previous_library_and_reports_error(self):
+    def test_invalid_filled_polygon_cli_keeps_previous_library_and_reports_error(self):
         with tempfile.TemporaryDirectory() as temp:
             destination, report = Path(temp) / 'previous.fpl', Path(temp) / 'failure.json'
+            source = Path(temp) / 'invalid.kicad_mod'
+            source.write_text('(footprint Invalid ' + source_pad() +
+                              polygon_body([(0, 0), (1, 1), (0, 1), (1, 0)]) + ')')
             destination.write_bytes(b'previous library')
             result = subprocess.run([sys.executable, '-B', str(MODULE),
-                         str(FIXTURES / 'SOT-23.kicad_mod'), str(destination), '--report', str(report)],
+                         str(source), str(destination), '--report', str(report)],
                          capture_output=True, text=True)
             self.assertEqual(result.returncode, 1)
             self.assertNotIn('Traceback', result.stderr)
             self.assertEqual(destination.read_bytes(), b'previous library')
             data = json.loads(report.read_text())
             self.assertEqual(data['status'], 'failed')
-            self.assertIn('Filled fp_poly on F.SilkS is unsupported', str(data['errors']))
+            self.assertIn('self-intersecting', str(data['errors']))
 
     def test_saved_small_sample_outputs_are_reproducible(self):
-        for name in ('PinHeader_1x03_P2.54mm_Vertical', 'MountingHole_3.2mm_M3'):
+        for name in ('PinHeader_1x03_P2.54mm_Vertical', 'MountingHole_3.2mm_M3', 'SOT-23'):
             with self.subTest(name=name):
                 root = converter.parse_sexpr((FIXTURES / (name + '.kicad_mod')).read_text())
                 result = converter.convert_detailed(root, stl_root=TEST_STL_ROOT,
-                              aperture_defaults=converter.ApertureSettings(0.05, 0, 0))
+                              aperture_defaults=converter.ApertureSettings(0.05, -0.025 if name == 'SOT-23' else 0, 0))
                 saved = (PROJECT / 'output' / (name + '.fpl')).read_text(encoding='cp1251')
                 self.assertEqual(saved, result.fpl)
                 decode_fpl(saved)
@@ -501,6 +566,166 @@ class FootprintConverterTests(unittest.TestCase):
         poly = decode_fpl(convert_body(body)[0])[2][0]
         self.assertEqual(poly['points'], [(0, 0), (2000000, 0), (1000000, -2000000)])
         self.assertTrue(poly['closed'])
+
+    def test_filled_graphics_preserve_internal_geometry_before_tessellation(self):
+        body = source_pad() + polygon_body([(0, 0), (1, 0), (0, 1)], width=0)
+        fp = converter.parse_footprint(converter.parse_sexpr('(footprint Demo ' + body + ')'))
+        self.assertEqual(fp.polylines, [])
+        self.assertEqual(fp.filled_polygons[0].points, ((0, 0), (1, 0), (0, 1)))
+        self.assertEqual(fp.filled_polygons[0].width, 0)
+        rendered = converter.tessellate_fills(fp, 0.01, [])
+        self.assertEqual(rendered.filled_polygons, [])
+        self.assertTrue(rendered.polylines)
+        self.assertEqual(len(fp.filled_polygons), 1)  # Input model was not mutated.
+
+    def test_filled_polygon_coverage_and_expansion_bound(self):
+        # Dense interior/exterior probes use point-in-polygon and distance-to-
+        # segment oracles, not the converter's row intersection implementation.
+        shapes = [[(0, 0), (1, 0), (0.2, 0.8)],
+                  [(0, 0), (0.8, 0), (0.8, 0.8), (0, 0.8)],
+                  [(0, 0), (0.8, 0), (0.8, 0.8), (0.6, 0.8),
+                   (0.6, 0.2), (0.2, 0.2), (0.2, 0.8), (0, 0.8)]]
+        for points in shapes:
+            for width in (0, 0.004, 0.12):
+                with self.subTest(points=points, width=width):
+                    result, _ = convert_body(source_pad() + polygon_body(points, width), fill_tolerance=0.01)
+                    polys = decode_fpl(result)[2]
+                    target = [(x, -y) for x, y in points]
+                    edges = list(zip(target, target[1:] + target[:1]))
+                    for xi in range(-8, 109, 2):
+                        for yi in range(-88, 9, 2):
+                            point = (xi/100, yi/100)
+                            inside = inside_polygon(point, target)
+                            distance = min(segment_distance(point, a, b) for a, b in edges)
+                            covered = stroke_contains(point, polys)
+                            if inside or distance <= width / 2 - 0.00002:
+                                self.assertTrue(covered, (point, points, width))
+                            if not inside and distance > width / 2 + 0.01:
+                                self.assertFalse(covered, (point, points, width))
+
+    def test_concave_fill_splits_rows_without_bridging_notch(self):
+        points = [(0, 0), (1, 0), (1, 1), (0.7, 1), (0.7, 0.2), (0.3, 0.2), (0.3, 1), (0, 1)]
+        polys = decode_fpl(convert_body(source_pad() + polygon_body(points, 0.02))[0])[2]
+        rows = [p for p in polys if not p['closed'] and p['points'][0][1] < -300000]
+        self.assertTrue(rows)
+        self.assertTrue(all(p['points'][1][0] <= 300000 or p['points'][0][0] >= 700000 for p in rows))
+        self.assertFalse(stroke_contains((0.5, -0.7), polys))
+        self.assertTrue(stroke_contains((0.15, -0.7), polys))
+        self.assertTrue(stroke_contains((0.85, -0.7), polys))
+
+    def test_fill_winding_and_duplicate_closing_corner_do_not_change_spans(self):
+        points = [(0, 0), (1, 0), (0, 1)]
+        rows = []
+        for corners in (points, points[::-1], points + points[:1]):
+            polys = decode_fpl(convert_body(source_pad() + polygon_body(corners, 0.05))[0])[2]
+            rows.append([p for p in polys if not p['closed']])
+        self.assertEqual(rows[0], rows[1])
+        self.assertEqual(rows[0], rows[2])
+
+    def test_filled_rectangle_zero_stroke_and_yes_alias(self):
+        rect = '(fp_rect (start 0 0) (end 1 0.5) (stroke (width 0)) (fill solid) (layer "B.SilkS"))'
+        result, _ = convert_body(source_pad() + rect, fill_tolerance=0.005)
+        polys = decode_fpl(result)[2]
+        self.assertTrue(all(p['layer'] == 5 and p['hatch'] == 0 for p in polys))
+        self.assertEqual(polys[0]['points'], [(0, 0), (1000000, 0), (1000000, -500000), (0, -500000)])
+        self.assertLessEqual(polys[0]['width'] / 2e6 + 0.00002, 0.005)
+        self.assertGreater(polys[0]['width'], 0)
+        self.assertEqual(decode_fpl(result), decode_fpl(convert_body(source_pad() + rect.replace('fill solid', 'fill yes'),
+                                                                  fill_tolerance=0.005)[0]))
+
+    def test_fill_report_records_assumptions_and_source_zero_width(self):
+        body = source_pad() + polygon_body([(0, 0), (1, 0), (0, 1)])
+        result = converter.convert_detailed(converter.parse_sexpr('(footprint Demo ' + body + ')'),
+                                             stl_root=TEST_STL_ROOT, fill_tolerance=0.005)
+        report = result.report
+        self.assertEqual(report['fills']['policy'], 'overlapping_strokes')
+        self.assertEqual(report['fills']['tolerance_mm'], 0.005)
+        self.assertEqual(report['fills']['source_polygons'][0]['width'], 0)
+        self.assertEqual(report['fills']['written_boundary_polylines'], 1)
+        self.assertGreater(report['fills']['written_scanline_polylines'], 0)
+        self.assertFalse(report['fills']['gui_validated'])
+        severity = {d['code']: d['severity'] for d in report['diagnostics']}
+        self.assertEqual(severity['FILL_APPROXIMATED'], 'approximation')
+        self.assertEqual(severity['FILL_STROKE_MODEL'], 'assumption')
+        self.assertEqual(severity['FILL_EXPORT_UNVERIFIED'], 'assumption')
+
+    def test_strict_accepts_bounded_fill_with_explicit_assumptions(self):
+        body = source_pad() + polygon_body([(0, 0), (1, 0), (0, 1)])
+        body += '(model "Resistor_SMD.3dshapes/R_0805_2012Metric.step")'
+        result, warnings = convert_body(body, strict=True)
+        self.assertTrue(decode_fpl(result)[2])
+        self.assertTrue(any(w.startswith('FILL_STROKE_MODEL:') for w in warnings))
+
+    def test_invalid_filled_polygons_fail_before_writing(self):
+        shapes = [[(0, 0), (1, 1), (0, 1), (1, 0)],  # Crossing edges.
+                  [(0, 0), (1, 0), (2, 0)],  # Zero area.
+                  [(0, 0), (2, 0), (1, 0), (1, 1), (0, 1)],  # Backtracking edge.
+                  [(0, 0), (1, 0), (1, 1), (0.5, 0), (0, 1)],  # Touching edge.
+                  [(0, 0), (0.000001, 0), (1, 1)],  # Collapses on target grid.
+                  [(0, 0), (math.nan, 0), (1, 1)]]
+        for points in shapes:
+            with self.subTest(points=points), self.assertRaises(converter.ConversionError):
+                convert_body(source_pad() + polygon_body(points))
+        with self.assertRaises(converter.ConversionError):
+            convert_body(source_pad() + polygon_body([(0, 0), (1, 0), (0, 1)], width=-0.1))
+
+    def test_fill_limits_and_invalid_tolerances_fail_explicitly(self):
+        for tolerance in (0, 0.00002, 0.000020001, math.nan, math.inf, 1e308):
+            with self.subTest(tolerance=tolerance), self.assertRaises(converter.ConversionError):
+                convert_body(source_pad(), fill_tolerance=tolerance)
+        with self.assertRaisesRegex(converter.ConversionError, '4096 strokes'):
+            convert_body(source_pad() + polygon_body([(0, 0), (100, 0), (0, 100)]))
+        many = [(math.cos(i * math.tau / 513), math.sin(i * math.tau / 513)) for i in range(513)]
+        with self.assertRaisesRegex(converter.ConversionError, '512 vertices'):
+            convert_body(source_pad() + polygon_body(many))
+
+    def test_malformed_fill_flags_and_unsupported_filled_curves_fail(self):
+        graphics = ['(fp_poly (pts (xy 0 0) (xy 1 0) (xy 0 1)) (fill) (layer "F.SilkS"))',
+                    '(fp_poly (pts (xy 0 0) (xy 1 0) (xy 0 1)) (fill (solid)) (layer "F.SilkS"))',
+                    '(fp_poly (pts (xy 0 0) (xy 1 0) (xy 0 1)) (fill no) (fill yes) (layer "F.SilkS"))',
+                    '(fp_circle (center 0 0) (end 1 0) (fill solid) (layer "F.SilkS"))']
+        for graphic in graphics:
+            with self.subTest(graphic=graphic), self.assertRaises(converter.ConversionError):
+                convert_body(source_pad() + graphic)
+
+    def test_writer_rejects_unexpanded_filled_model(self):
+        body = source_pad() + polygon_body([(0, 0), (1, 0), (0, 1)])
+        fp = converter.parse_footprint(converter.parse_sexpr('(footprint Demo ' + body + ')'))
+        with self.assertRaisesRegex(converter.ConversionError, 'tessellated before'):
+            converter.write_fpl(fp, [], [])
+
+    @unittest.skipUnless((PROJECT / 'stl_files' / 'Package_TO_SOT_SMD.3dshapes' / 'SOT-23.stl').is_file(),
+                        'Optional integration: existing SOT-23 STL unavailable')
+    def test_real_sot23_model_is_bound_without_opening_or_modifying_stl(self):
+        root = converter.parse_sexpr((FIXTURES / 'SOT-23.kicad_mod').read_text())
+        path = PROJECT / 'stl_files' / 'Package_TO_SOT_SMD.3dshapes' / 'SOT-23.stl'
+        before = path.stat()
+        with patch.object(Path, 'open', side_effect=AssertionError('Do not read STL geometry')):
+            result = converter.convert_detailed(root)
+        after = path.stat()
+        self.assertEqual((before.st_size, before.st_mtime_ns, before.st_ctime_ns, before.st_ino),
+                         (after.st_size, after.st_mtime_ns, after.st_ctime_ns, after.st_ino))
+        self.assertEqual(result.report['models'][0]['relative_stl'], 'Package_TO_SOT_SMD.3dshapes/SOT-23.stl')
+        self.assertEqual(result.report['counts']['matched_models'], 1)
+        self.assertFalse(result.report['models'][0]['frame_validated'])
+
+    def test_sot23_cli_report_and_fill_tolerance(self):
+        with tempfile.TemporaryDirectory() as temp:
+            destination, report = Path(temp) / 'SOT-23.fpl', Path(temp) / 'SOT-23.json'
+            command = [sys.executable, '-B', str(MODULE), str(FIXTURES / 'SOT-23.kicad_mod'),
+                       str(destination), '--stl-root', str(TEST_STL_ROOT), '--report', str(report)]
+            result = subprocess.run(command + ['--fill-tolerance', '0.005'], capture_output=True, text=True)
+            self.assertEqual(result.returncode, 0, result.stderr)
+            decode_fpl(destination.read_text(encoding='cp1251'))
+            data = json.loads(report.read_text())
+            self.assertEqual(data['fills']['tolerance_mm'], 0.005)
+            self.assertEqual(data['counts']['source_filled_polygons'], 1)
+            previous = destination.read_bytes()
+            result = subprocess.run(command + ['--fill-tolerance', 'nan'], capture_output=True, text=True)
+            self.assertEqual(result.returncode, 1, result.stderr)
+            self.assertNotIn('Traceback', result.stderr)
+            self.assertEqual(destination.read_bytes(), previous)
+            self.assertEqual(json.loads(report.read_text())['status'], 'failed')
 
     def test_invalid_curves_fail_instead_of_producing_empty_geometry(self):
         graphics = [

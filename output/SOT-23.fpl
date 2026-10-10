@@ -1,0 +1,74 @@
+name: "SOT-23"
+author: "KiCad to FreePCB converter"
+package: "SOT-23"
+  units: NM
+description: "SOT, 3 Pin (JEDEC TO-236 Var AB https://www.jedec.org/document_search?search_api_views_fulltext=TO-236)"
+  sel_rect: -1725000 -1620000 1725000 1620000
+  ref_text: 1000000 0 2400000 0 150000
+  value_text: 1000000 0 -2400000 0 150000
+  outline_polyline: 120000 -760000 1560000 1 0 4
+    next_corner: 760000 1560000 0
+  outline_polyline: 120000 -760000 1510000 1 0 4
+    next_corner: -760000 1560000 0
+  outline_polyline: 120000 -760000 -390000 1 0 4
+    next_corner: -760000 390000 0
+  outline_polyline: 120000 -760000 -1560000 1 0 4
+    next_corner: -760000 -1510000 0
+  outline_polyline: 120000 760000 1560000 1 0 4
+    next_corner: 760000 560000 0
+  outline_polyline: 120000 760000 -560000 1 0 4
+    next_corner: 760000 -1560000 0
+  outline_polyline: 120000 760000 -1560000 1 0 4
+    next_corner: -760000 -1560000 0
+  outline_polyline: 100000 -325000 1450000 1 0 7
+    next_corner: 650000 1450000 0
+    next_corner: 650000 -1450000 0
+    next_corner: -650000 -1450000 0
+    next_corner: -650000 1125000 0
+    close_polyline: 0
+  outline_polyline: 120000 -1300000 380000 1 0 4
+    next_corner: -1060000 50000 0
+    next_corner: -1540000 50000 0
+    close_polyline: 0
+  outline_polyline: 120000 -1320000 352500 1 0 4
+    next_corner: -1280000 352500 0
+  outline_polyline: 120000 -1360000 297500 1 0 4
+    next_corner: -1240000 297500 0
+  outline_polyline: 120000 -1400000 242500 1 0 4
+    next_corner: -1200000 242500 0
+  outline_polyline: 120000 -1440000 187500 1 0 4
+    next_corner: -1160000 187500 0
+  outline_polyline: 120000 -1480000 132500 1 0 4
+    next_corner: -1120000 132500 0
+  outline_polyline: 120000 -1520000 77500 1 0 4
+    next_corner: -1080000 77500 0
+  n_pins: 3
+    pin: "1" 0 -937500 950000 0 ""
+      top_pad: 4 600000 737500 737500 150000
+      bottom_pad: 0 0 0 0 0
+      top_mask: 4 700000 787500 787500 200000
+      top_paste: 4 550000 712500 712500 125000
+      bottom_mask: 0 0 0 0 0
+      bottom_paste: 0 0 0 0 0
+    pin: "2" 0 -937500 -950000 0 ""
+      top_pad: 4 600000 737500 737500 150000
+      bottom_pad: 0 0 0 0 0
+      top_mask: 4 700000 787500 787500 200000
+      top_paste: 4 550000 712500 712500 125000
+      bottom_mask: 0 0 0 0 0
+      bottom_paste: 0 0 0 0 0
+    pin: "3" 0 937500 0 0 ""
+      top_pad: 4 600000 737500 737500 150000
+      bottom_pad: 0 0 0 0 0
+      top_mask: 4 700000 787500 787500 200000
+      top_paste: 4 550000 712500 712500 125000
+      bottom_mask: 0 0 0 0 0
+      bottom_paste: 0 0 0 0 0
+  openscad_code: "translate([0,0,0]) // (automatic adjustment when moving the footprint origin)"
+  openscad_code: "scale([1,1,1]) // (automatic adjustment when changing the project units)"
+  openscad_code: "{"
+  openscad_code: "  translate([0,0,0])"
+  openscad_code: "  rotate([0,0,0])"
+  openscad_code: "  scale([1,1,1])"
+  openscad_code: "  import(`SOT-23.stl`);"
+  openscad_code: "}"

@@ -1,17 +1,17 @@
 # KiCad → FreePCB2 2.428: текущая версия
 
-Статус: реализована и автоматически проверена конвертация одного контрольного
-footprint. Загрузка, сохранение и 3D в GUI FreePCB2 пока не проверены.
+Статус: автоматически проверяются R0805, PinHeader PTH, MountingHole NPTH и
+SOT-23. Загрузка, сохранение и 3D в GUI FreePCB2 пока не проверены.
 Конвертер не читает геометрию моделей, не конвертирует STEP/STL, не копирует модели
 и не изменяет каталоги их хранения. Массовая обработка не реализована.
 
 ## Запуск
 
 Требуется Python 3.10+; внешних Python-зависимостей нет.
-Для интеграционного теста 3D нужен существующий
-`stl_files/Resistor_SMD.3dshapes/R_0805_2012Metric.stl`.
-Остальные тесты работают без него на временном metadata-only fixture. Без
-реального STL интеграционный тест явно пропускается, модель не пересоздаётся.
+Optional integration tests проверяют существующие STL R0805, PinHeader и SOT-23
+по путям из fixtures. Unit tests работают без моделей на временных metadata-only
+файлах. При отсутствии соответствующего STL integration test явно пропускается,
+модель не пересоздаётся.
 
 ```sh
 python3 -B -m unittest discover -s tests -v
@@ -33,7 +33,7 @@ python3 -B src/kicad_to_freepcb_footprint.py \
 Все части пока находятся в существующем `src/kicad_to_freepcb_footprint.py`:
 
 - `parse_sexpr`, `parse_footprint`, `parse_pad`, `parse_text`: разбор KiCad.
-- `Footprint`, `Pad`, `FootprintText`, `Polyline`, `ModelReference`: внутренняя
+- `Footprint`, `Pad`, `FootprintText`, `Polyline`, `FilledPolygon`, `ModelReference`: внутренняя
   модель в миллиметрах и исходной системе KiCad.
 - `validate_footprint`, `ConversionError`, список диагностик: проверки и отчёт.
 - `match_models`: отдельное сопоставление путей существующим STL.
@@ -42,6 +42,8 @@ python3 -B src/kicad_to_freepcb_footprint.py \
 - `write_fpl`: запись FreePCB2; `main`: CLI и единственная запись на диск.
 - `arc_points`, `sample_arc`, `parse_graphic`: геометрия контуров и ограниченная
   по погрешности аппроксимация, отдельно от target writer.
+- `filled_polygon_points`, `tessellate_fills`: проверка простого контура на
+  целевой сетке и подготовка заполнения; writer получает только обычные линии.
 - `convert_detailed`, `ConversionResult`: структурированный отчёт; `convert`
   остаётся совместимой обёрткой. `atomic_write` заменяет выходные файлы.
 
@@ -73,6 +75,7 @@ python3 -B src/kicad_to_freepcb_footprint.py \
 | PTH | Круглое отверстие в `pin`, исходные размеры медных площадок сохраняются |
 | NPTH | Круглое отверстие, все copper shapes=0, paste=0; безымянному отверстию даётся служебное имя |
 | Silk | F.SilkS→4, B.SilkS→5; линии, незаполненные прямоугольники/полигоны, окружности и современные дуги start/mid/end |
+| Filled polygon/rectangle | Простой контур + перекрывающиеся линии, hatch=0; ограничение расширения `--fill-tolerance` и явная диагностика |
 | Fab | F.Fab→notes top=7, B.Fab→notes bottom=8; это явно выбранное приближение |
 | User drawing/comments | Dwgs.User и Cmts.User→notes=7; графика и user texts сохраняются, различие source layers теряется с `USER_LAYER_APPROXIMATED` |
 | Courtyard | Пропускается с диагностикой, отдельного соответствия пока нет |
@@ -86,7 +89,7 @@ python3 -B src/kicad_to_freepcb_footprint.py \
 `--curve-tolerance` (по умолчанию 0.01 мм, включая запас на округление координат).
 На одну кривую разрешено до 4096 сегментов. Концы дуги сохраняются точно до сетки
 10 нм, направление определяется по start/mid/end, включая дуги больше 180°.
-Legacy дуги centre/angle, вырожденные дуги, заполненные фигуры и Bezier пока
+Legacy дуги centre/angle, вырожденные дуги, заполненные окружности и Bezier пока
 не поддерживаются. Fab→notes помечается как изменение семантики слоя, а не
 как точное соответствие. Courtyard пропускается с явной потерей.
 
@@ -98,7 +101,7 @@ padstack. `yes` или отсутствие аргумента включают 
 и пока отвергаются. Неверные значения и повтор одного флага тоже вызывают ошибку.
 Правило проверено по [парсеру KiCad](https://github.com/KiCad/kicad-source-mirror/blob/82b216ea7debfff69519e317dacb1b042cbdee65/pcbnew/pcb_io/kicad_sexpr/pcb_io_kicad_sexpr_parser.cpp#L7663).
 
-Реальные PTH/NPTH примеры и отрицательный SOT-23 regression описаны в
+Реальные PTH/NPTH/SOT-23 примеры и проверки отказов описаны в
 [SMALL_SAMPLE_VALIDATION.md](SMALL_SAMPLE_VALIDATION.md). Вариант B.Cu является
 тестом слоёв, а не подтверждённым эталоном KiCad Flip или 3D.
 
@@ -222,6 +225,62 @@ model transform, а не добавляется к нему. Она не счи�
 Это зафиксированный профиль геометрии apertures по указанной ревизии KiCad;
 старые версии могут иначе скруглять углы. GUI/manufacturing validation в целевых
 программах всё ещё требуется.
+
+## Заполненные полигоны
+
+По ревизии FreePCB2 2.428:
+
+- [Shape.cpp:1362](https://github.com/niconson/FreePCB-2/blob/3af0f9b9a234c97f2d21455c936abeb8439d2d45/Shape.cpp#L1362)
+  читает `outline_polyline` и hatch; `outline_polygon` выбирает DIAGONAL_FULL.
+- [PolyLine.h:57](https://github.com/niconson/FreePCB-2/blob/3af0f9b9a234c97f2d21455c936abeb8439d2d45/PolyLine.h#L57)
+  задаёт NO_HATCH=0, DIAGONAL_FULL=1, DIAGONAL_EDGE=2.
+- [PolyLine.cpp:1687](https://github.com/niconson/FreePCB-2/blob/3af0f9b9a234c97f2d21455c936abeb8439d2d45/PolyLine.cpp#L1687)
+  рисует footprint hatch линиями с алгоритмом spacing/пропуска коротких spans.
+  Ветка DL_POLYGON относится к ID_BOARD; footprint имеет ID_OUTLINE.
+- [Shape.cpp:2102](https://github.com/niconson/FreePCB-2/blob/3af0f9b9a234c97f2d21455c936abeb8439d2d45/Shape.cpp#L2102)
+  сохраняет толщину, координаты, hatch, layer, corners и закрытие контура.
+- [Gerber.cpp:2846](https://github.com/niconson/FreePCB-2/blob/3af0f9b9a234c97f2d21455c936abeb8439d2d45/Gerber.cpp#L2846)
+  выводит part-outline strokes круглой aperture; minimum silk width может
+  увеличить толщину, а слишком тонкие линии могут быть пропущены.
+
+Поэтому hatch=1 не объявляется эквивалентом KiCad solid fill. Вместо этого
+`fp_poly`/`fp_rect` с `fill solid` или историческим `fill yes` сохраняются как
+`FilledPolygon`. Alias подтверждён [парсером KiCad](https://github.com/KiCad/kicad-source-mirror/blob/82b216ea7debfff69519e317dacb1b042cbdee65/pcbnew/pcb_io/kicad_sexpr/pcb_io_kicad_sexpr_parser.cpp#L4153).
+
+`tessellate_fills` отдельно создаёт замкнутую границу и горизонтальные spans:
+
+1. Координаты приводятся к сетке 10 нм. Integer predicates проверяют повторённые
+   вершины, нулевую площадь, пересечения/касания и обратный ход соседних рёбер.
+2. Толщина — максимум исходной обводки и `2*(fill_tolerance−0.00002 мм)`,
+   округлённого вниз до сетки. Это позволяет заполнение с source stroke=0.
+3. Шаг рядов ≤половины толщины; пересечения half-open, spans соединяются попарно
+   по even-odd. Вогнутый контур может дать несколько отдельных spans в ряду.
+4. Writer получает обычные `outline_polyline` с hatch=0, сохранённым слоем,
+   толщиной, corners и закрытием только для границы. Source geometry не мутируется.
+
+В идеальной модели круглых концов область polygon покрыта: точки рядом с
+границей покрывает её stroke, прочие проецируются на внутренний span ближайшего
+ряда. Центры всех линий находятся внутри/на polygon; увеличение source stroke
+и rounding могут расширить исходную область не более `fill_tolerance`.
+Зарезервировано 20 нм на rounding. Численные тесты используют независимые
+point-in-polygon/distance-to-segment oracles на interior/exterior probes.
+
+Допуск по умолчанию 0.01 мм, задаётся `--fill-tolerance`. Значения ≤0.00002 мм,
+непредставимые на сетке или превышающие целевой диапазон, отвергаются.
+Поддерживается один простой контур без отверстий, включая вогнутый, максимум
+512 вершин. Общий лимит — 4096 созданных stroke polylines на footprint.
+Source stroke=0 разрешён только для заполненных поддерживаемых фигур.
+Filled circle/arc, Bezier и сложные/вырожденные контуры пока отвергаются.
+
+Отчёт `fills` сохраняет source polygons, tolerance, количество созданных
+границ и spans, `stroke_model=ideal_round_ended`, GUI/manufacturing flags=false.
+`FILL_APPROXIMATED` имеет severity=approximation; `FILL_STROKE_MODEL` и
+`FILL_EXPORT_UNVERIFIED` — assumption. `--strict` их допускает и продолжает
+отвергать известные потери других элементов.
+
+Численный допуск относится к записанной геометрии в указанной stroke model,
+не к экранным пикселям или готовому Gerber. Minimum silk stroke/export settings,
+GUI rasterization и физическая 3D-привязка требуют отдельной валидации.
 
 `--default-mask-margin`, `--default-paste-margin`, `--default-paste-ratio` позволяют
 явно задать недостающие параметры исходного проекта. Если для paste указан только

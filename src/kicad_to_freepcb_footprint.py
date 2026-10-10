@@ -23,6 +23,8 @@ GRAPHIC_LAYERS = {'F.SilkS': 4, 'B.SilkS': 5, 'F.Fab': 7, 'B.Fab': 8,
 ZERO = (0.0, 0.0, 0.0)
 ONE = (1.0, 1.0, 1.0)
 TARGET_REVISION = '3af0f9b9a234c97f2d21455c936abeb8439d2d45'
+MAX_FILL_STROKES = 4096
+MAX_FILL_VERTICES = 512
 TEXT_VARIABLE_RE = re.compile(r'\$\{([^{}]+)\}')
 LOSS_CODES = {
     'GRAPHIC_LAYER_SKIPPED', 'GRAPHIC_SKIPPED', 'FEATURE_SKIPPED',
@@ -31,7 +33,8 @@ LOSS_CODES = {
     'APERTURE_ASSUMED_ZERO', 'NPTH_PASTE_SKIPPED', 'USER_LAYER_APPROXIMATED',
 }
 ASSUMPTION_CODES = {'TEXT_ANCHOR', 'MODEL_FRAME_UNVERIFIED', 'MODEL_TRANSFORM_OVERRIDE',
-                    'NPTH_LIMIT', 'APERTURE_PROJECT_DEFAULT', 'NPTH_MASK_DEFAULT'}
+                    'NPTH_LIMIT', 'APERTURE_PROJECT_DEFAULT', 'NPTH_MASK_DEFAULT',
+                    'FILL_STROKE_MODEL', 'FILL_EXPORT_UNVERIFIED'}
 
 
 class ConversionError(ValueError):
@@ -98,6 +101,14 @@ class Polyline:
     width: float
     layer: str
     closed: bool = False
+    role: str = 'outline'
+
+
+@dataclass(frozen=True)
+class FilledPolygon:
+    points: tuple[tuple[float, float], ...]
+    width: float
+    layer: str
 
 
 @dataclass(frozen=True)
@@ -118,6 +129,7 @@ class Footprint:
     description: str = ''
     warnings: list[str] = field(default_factory=list)
     apertures: ApertureSettings = field(default_factory=ApertureSettings)
+    filled_polygons: list[FilledPolygon] = field(default_factory=list)
 
 
 @dataclass(frozen=True)
@@ -336,9 +348,18 @@ def arc_points(start: tuple, mid: tuple, end: tuple, tolerance: float) -> tuple:
     return tuple(points)
 
 
-def parse_graphic(item: list, tolerance: float, warnings: list[str]) -> Polyline:
+def parse_graphic(item: list, tolerance: float, warnings: list[str]) -> Polyline | FilledPolygon:
     kind, layer = item[0], scalar(item, 'layer', '')
-    if scalar(item, 'fill', 'no') != 'no':
+    fill_nodes = children(item, 'fill')
+    if len(fill_nodes) > 1 or fill_nodes and (len(fill_nodes[0]) != 2 or not isinstance(fill_nodes[0][1], str)):
+        raise ConversionError('Malformed graphic fill')
+    fill = fill_nodes[0][1] if fill_nodes else 'no'
+    # KiCad's native parser treats the historic yes as a solid fill.
+    if fill == 'yes':
+        fill = 'solid'
+    if fill not in {'no', 'solid'}:
+        raise ConversionError(f'Unsupported graphic fill mode: {fill}')
+    if fill == 'solid' and kind not in {'fp_poly', 'fp_rect'}:
         raise ConversionError(f'Filled {kind} on {layer} is unsupported')
     closed = kind != 'fp_line' and kind != 'fp_arc'
     if kind == 'fp_line':
@@ -371,6 +392,8 @@ def parse_graphic(item: list, tolerance: float, warnings: list[str]) -> Polyline
         warnings.append(f'FAB_LAYER_APPROXIMATED: {layer} exported to FreePCB notes layer')
     if layer in {'Dwgs.User', 'Cmts.User'}:
         warnings.append(f'USER_LAYER_APPROXIMATED: {layer} exported to FreePCB top notes; source layer distinction lost')
+    if fill == 'solid':
+        return FilledPolygon(points, stroke_width(item), layer)
     return Polyline(points, stroke_width(item), layer, closed)
 
 
@@ -410,7 +433,11 @@ def parse_footprint(root: list, footprint_name: str | None = None, *,
             if layer not in GRAPHIC_LAYERS:
                 fp.warnings.append(f'GRAPHIC_LAYER_SKIPPED: {kind} on {layer}')
                 continue
-            fp.polylines.append(parse_graphic(item, curve_tolerance, fp.warnings))
+            graphic = parse_graphic(item, curve_tolerance, fp.warnings)
+            if isinstance(graphic, FilledPolygon):
+                fp.filled_polygons.append(graphic)
+            else:
+                fp.polylines.append(graphic)
         elif kind.startswith('fp_'):
             fp.warnings.append(f'GRAPHIC_SKIPPED: unsupported {kind} on {scalar(item, "layer", "unknown")}')
         elif kind in {'zone', 'rule_area'}:
@@ -505,6 +532,8 @@ def validate_footprint(fp: Footprint) -> list[str]:
         if not math.isfinite(poly.width) or poly.width <= 0 or not all(
                 math.isfinite(v) for point in poly.points for v in point):
             raise ConversionError('Invalid graphic dimensions/coordinates')
+    for polygon in fp.filled_polygons:
+        filled_polygon_points(polygon)
     return warnings
 
 
@@ -583,6 +612,112 @@ def number(value: float) -> str:
 def target_point(x: float, y: float) -> tuple[str, str]:
     # KiCad Y down -> FreePCB2 Y up. No translation of the footprint origin.
     return number(x), number(-y)
+
+
+# Filled graphics use ordinary target strokes, not the native hatch algorithm.
+# Validation operates on exact integers on the target grid. A simple polygon
+# has one contour, no holes; self-touching and collapsed target geometry fail.
+def filled_polygon_points(polygon: FilledPolygon) -> tuple[tuple[int, int], ...]:
+    if not math.isfinite(polygon.width) or polygon.width < 0:
+        raise ConversionError('Invalid filled polygon stroke width')
+    number(polygon.width)
+    if not 3 <= len(polygon.points) <= MAX_FILL_VERTICES:
+        raise ConversionError(f'Filled polygon requires 3..{MAX_FILL_VERTICES} vertices')
+    points = tuple((int(number(x)), int(number(y))) for x, y in polygon.points)
+    if len(set(points)) != len(points):
+        raise ConversionError('Filled polygon has repeated/collapsed vertices on target grid')
+
+    def cross(a, b, c):
+        return (b[0]-a[0]) * (c[1]-a[1]) - (b[1]-a[1]) * (c[0]-a[0])
+
+    def on_segment(a, b, p):
+        return (cross(a, b, p) == 0 and min(a[0], b[0]) <= p[0] <= max(a[0], b[0])
+                and min(a[1], b[1]) <= p[1] <= max(a[1], b[1]))
+
+    edges = list(zip(points, points[1:] + points[:1]))
+    for index, (a, b) in enumerate(edges):
+        c = points[(index + 2) % len(points)]
+        if cross(a, b, c) == 0 and (b[0]-a[0])*(c[0]-b[0]) + (b[1]-a[1])*(c[1]-b[1]) < 0:
+            raise ConversionError('Filled polygon has overlapping adjacent edges')
+        for other in range(index + 2, len(edges)):
+            if index == 0 and other == len(edges) - 1:
+                continue
+            c, d = edges[other]
+            ab_c, ab_d, cd_a, cd_b = cross(a, b, c), cross(a, b, d), cross(c, d, a), cross(c, d, b)
+            if ((ab_c * ab_d < 0 and cd_a * cd_b < 0) or on_segment(a, b, c)
+                    or on_segment(a, b, d) or on_segment(c, d, a) or on_segment(c, d, b)):
+                raise ConversionError('Filled polygon has self-intersecting/touching edges')
+    # Translate before the shoelace calculation (also exact for integer NM).
+    ox, oy = points[0]
+    area = sum((a[0]-ox)*(b[1]-oy) - (b[0]-ox)*(a[1]-oy) for a, b in edges)
+    if area == 0:
+        raise ConversionError('Filled polygon has zero area on target grid')
+    return points
+
+
+def tessellate_fills(fp: Footprint, tolerance: float, warnings: list[str]) -> Footprint:
+    """Cover simple filled polygons by boundary + overlapping horizontal strokes.
+
+    In the ideal round-ended stroke model, every source interior point is
+    covered: a point close to the boundary belongs to its thick stroke; any
+    other point projects to an interior scanline within half the row pitch.
+    All centre-lines lie inside/on the polygon. Increasing zero/thin source
+    width introduces at most tolerance expansion (including grid rounding).
+    This bounds the encoded geometry, not GUI rasterization or Gerber settings.
+    """
+    if not math.isfinite(tolerance) or tolerance <= 0.00002:
+        raise ConversionError('Fill tolerance must be greater than 0.00002 mm')
+    if tolerance > 1073:
+        raise ConversionError('Fill tolerance exceeds the target dimension range')
+    polylines = list(fp.polylines)
+    written = 0
+    # Reserve 20 nm for target coordinate/width quantization. Use integer grid
+    # units to keep stroke width and pitch stable even for very thin polygons.
+    minimum_width_nm = math.floor(2 * (tolerance - 0.00002) * 100_000) * 10
+    if minimum_width_nm < 20:
+        raise ConversionError('Fill tolerance is below the supported target resolution')
+    for index, polygon in enumerate(fp.filled_polygons, 1):
+        vertices_nm = filled_polygon_points(polygon)
+        points = tuple((x / 1e6, y / 1e6) for x, y in vertices_nm)
+        width_nm = max(int(number(polygon.width)), minimum_width_nm)
+        number(width_nm / 1e6)  # Expanded dimensions must fit the target range.
+        width = width_nm / 1e6
+        low, high = min(y for _, y in vertices_nm), max(y for _, y in vertices_nm)
+        rows = math.ceil(2 * (high - low) / width_nm)
+        if written + rows + 1 > MAX_FILL_STROKES:
+            raise ConversionError(f'Filled polygons require more than {MAX_FILL_STROKES} strokes; increase fill tolerance')
+        polylines.append(Polyline(points, width, polygon.layer, True, 'fill_boundary'))
+        written += 1
+        step = (high - low) / rows
+        # Centre rows, half-open intersections: a vertex is counted only once.
+        # All interpolation is local to the polygon, in target-grid units.
+        edges = list(zip(vertices_nm, vertices_nm[1:] + vertices_nm[:1]))
+        spans = 0
+        for row in range(rows):
+            y = low + (row + 0.5) * step
+            xs = []
+            for (ax, ay), (bx, by) in edges:
+                if min(ay, by) <= y < max(ay, by):
+                    xs.append(ax + (y - ay) * (bx - ax) / (by - ay))
+            xs.sort()
+            if len(xs) % 2:
+                raise ConversionError('Filled polygon has odd scanline intersections')
+            for left, right in zip(xs[::2], xs[1::2]):
+                if left == right:
+                    continue
+                if written >= MAX_FILL_STROKES:
+                    raise ConversionError(f'Filled polygons require more than {MAX_FILL_STROKES} strokes; increase fill tolerance')
+                # Even a collapsed span is retained as a zero-length stroke;
+                # the boundary stroke covers such narrow/tip regions as well.
+                polylines.append(Polyline(((left / 1e6, y / 1e6), (right / 1e6, y / 1e6)),
+                                          width, polygon.layer, False, 'fill_scanline'))
+                spans += 1
+                written += 1
+        warnings.append(f'FILL_APPROXIMATED: polygon {index} on {polygon.layer}; boundary + {spans} overlapping strokes, encoded expansion <= {tolerance:g} mm')
+    if fp.filled_polygons:
+        warnings.append('FILL_STROKE_MODEL: fill bound assumes ideal round-ended target strokes; GUI rasterization not validated')
+        warnings.append('FILL_EXPORT_UNVERIFIED: FreePCB Gerber minimum stroke settings can widen lines or suppress very thin lines; manufacturing validation pending')
+    return replace(fp, polylines=polylines, filled_polygons=[])
 
 
 def pad_record(pad: Pad, present: bool) -> str:
@@ -689,6 +824,8 @@ def write_fpl(fp: Footprint, matches: list[ModelMatch], warnings: list[str],
               model_transform: ModelTransform | None = None,
               text_variables: dict[str, str] | None = None,
               aperture_defaults: ApertureSettings | None = None) -> str:
+    if fp.filled_polygons:
+        raise ConversionError('Filled polygons must be tessellated before calling the writer')
     apertures = [pad_apertures(pad, fp.apertures, aperture_defaults or ApertureSettings(), warnings)
                  for pad in fp.pads]
     lines = [f'name: {quote(fp.name)}', 'author: "KiCad to FreePCB converter"',
@@ -774,7 +911,7 @@ def resolve_text_variables(content: str, variables: dict[str, str],
 def diagnostic(warning: str) -> dict:
     code, _, message = warning.partition(':')
     severity = ('loss' if code in LOSS_CODES else 'assumption' if code in ASSUMPTION_CODES
-                else 'approximation' if code == 'CURVE_APPROXIMATED' else 'info')
+                else 'approximation' if code in {'CURVE_APPROXIMATED', 'FILL_APPROXIMATED'} else 'info')
     return {'code': code, 'severity': severity, 'message': message.strip()}
 
 
@@ -783,12 +920,14 @@ def convert_detailed(root: list, footprint_name: str | None = None, *,
                      model_transform: ModelTransform | None = None,
                      text_variables: dict[str, str] | None = None,
                      curve_tolerance: float = 0.01, strict: bool = False,
-                     aperture_defaults: ApertureSettings | None = None) -> ConversionResult:
+                     aperture_defaults: ApertureSettings | None = None,
+                     fill_tolerance: float = 0.01) -> ConversionResult:
     """In-memory conversion and structured report; does not write any file."""
     fp = parse_footprint(root, footprint_name, curve_tolerance=curve_tolerance)
     warnings = validate_footprint(fp)
+    render_fp = tessellate_fills(fp, fill_tolerance, warnings)
     matches = match_models(fp.models, Path(stl_root), warnings)
-    fpl = write_fpl(fp, matches, warnings, model_transform, text_variables, aperture_defaults)
+    fpl = write_fpl(render_fp, matches, warnings, model_transform, text_variables, aperture_defaults)
     warnings = list(dict.fromkeys(warnings))
     diagnostics = [diagnostic(w) for w in warnings]
     counts = {}
@@ -805,10 +944,17 @@ def convert_detailed(root: list, footprint_name: str | None = None, *,
                         'centroid': 'computed_by_target_reader'},
         'curve_tolerance_mm': curve_tolerance,
         'counts': {'source_pads': len(fp.pads), 'source_texts': len(fp.texts),
+                   'source_filled_polygons': len(fp.filled_polygons),
                    'written_pins': counts.get('pin', 0), 'written_user_texts': counts.get('text', 0),
                    'written_polylines': counts.get('outline_polyline', 0), 'matched_models': len(matches)},
         # Retain metadata that cannot live in .fpl (dynamic content/layer/hide).
         'source_texts': [asdict(t) for t in fp.texts],
+        'fills': {'policy': 'overlapping_strokes', 'tolerance_mm': fill_tolerance,
+                  'source_polygons': [asdict(p) for p in fp.filled_polygons],
+                  'written_boundary_polylines': sum(p.role == 'fill_boundary' for p in render_fp.polylines),
+                  'written_scanline_polylines': sum(p.role == 'fill_scanline' for p in render_fp.polylines),
+                  'stroke_model': 'ideal_round_ended', 'gui_validated': False,
+                  'manufacturing_validated': False},
         'apertures': {'footprint_settings': asdict(fp.apertures),
                       'defaults': asdict(aperture_defaults or ApertureSettings()),
                       'pads': [{'name': p.name, 'source': asdict(p.apertures),
@@ -869,6 +1015,8 @@ def main() -> int:
     parser.add_argument('--model-rotation', type=float, nargs=3)
     parser.add_argument('--model-scale', type=float, nargs=3)
     parser.add_argument('--curve-tolerance', type=float, default=0.01, metavar='MM')
+    parser.add_argument('--fill-tolerance', type=float, default=0.01, metavar='MM',
+                        help='Maximum encoded expansion for filled polygons (default: 0.01 mm)')
     parser.add_argument('--text-variable', action='append', default=[], metavar='NAME=VALUE',
                         help='Explicitly freeze a KiCad text variable to a literal value')
     parser.add_argument('--report', type=Path, help='Optional JSON conversion report (UTF-8)')
@@ -900,6 +1048,7 @@ def main() -> int:
         result = convert_detailed(parse_sexpr(args.input.read_text(encoding='utf-8')), args.name,
                                   stl_root=args.stl_root, model_transform=transform,
                                   text_variables=variables, curve_tolerance=args.curve_tolerance,
+                                  fill_tolerance=args.fill_tolerance,
                                   strict=args.strict, aperture_defaults=ApertureSettings(
                                       args.default_mask_margin, args.default_paste_margin, args.default_paste_ratio))
         data = result.fpl.encode(args.encoding)
