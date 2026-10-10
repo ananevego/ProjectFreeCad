@@ -126,8 +126,8 @@ def write_fpl(fp: Footprint, matches: list[ModelMatch], warnings: list[str],
               model_transform: ModelTransform | None = None,
               text_variables: dict[str, str] | None = None,
               aperture_defaults: ApertureSettings | None = None) -> str:
-    if fp.filled_polygons:
-        raise ConversionError('Filled polygons must be tessellated before calling the writer')
+    if fp.filled_polygons or fp.filled_circles:
+        raise ConversionError('Filled graphics must be tessellated before calling the writer')
     apertures = [pad_apertures(pad, fp.apertures, aperture_defaults or ApertureSettings(), warnings)
                  for pad in fp.pads]
     lines = [f'name: {quote(fp.name)}', 'author: "KiCad to FreePCB converter"',

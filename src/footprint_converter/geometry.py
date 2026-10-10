@@ -3,9 +3,10 @@ from __future__ import annotations
 
 import math
 from dataclasses import replace
+from itertools import chain
 
 from .errors import ConversionError
-from .model import FilledPolygon, Footprint, Polyline
+from .model import FilledCircle, FilledPolygon, Footprint, Polyline
 from .format_rules import number
 
 
@@ -93,7 +94,46 @@ def filled_polygon_points(polygon: FilledPolygon) -> tuple[tuple[int, int], ...]
     return points
 
 
-def tessellate_fills(fp: Footprint, tolerance: float, warnings: list[str]) -> Footprint:
+def validate_filled_circle(circle: FilledCircle) -> float:
+    """Validate source geometry and return its radius, without sampling."""
+    if len(circle.center) != 2 or len(circle.end) != 2:
+        raise ConversionError('Filled circle requires 2D center/end coordinates')
+    if not all(math.isfinite(v) for v in (*circle.center, *circle.end, circle.width)) or circle.width < 0:
+        raise ConversionError('Invalid filled circle geometry/stroke width')
+    radius = math.dist(circle.center, circle.end)
+    if not math.isfinite(radius) or radius <= 0:
+        raise ConversionError('Filled circle requires a positive finite radius')
+    number(circle.width)
+    if int(number(radius)) <= 0:
+        raise ConversionError('Filled circle radius below target resolution')
+    for value in (*circle.end, *(v + sign * (radius + circle.width / 2)
+                                 for v in circle.center for sign in (-1, 1))):
+        number(value)
+    return radius
+
+
+def _circle_polygon(circle: FilledCircle, minimum_width_nm: int,
+                    curve_tolerance: float, warnings: list[str]) -> FilledPolygon:
+    radius = validate_filled_circle(circle)
+    width = max(int(number(circle.width)), minimum_width_nm) / 1e6
+    # The inscribed polygon alone misses the circular caps. Bound its sagitta
+    # by one quarter of the emitted stroke width, reserving quantization in
+    # sample_arc. Half-width boundary strokes then cover the whole nominal disk,
+    # not just the polygon. Original nonzero stroke can recede by at most the
+    # chord tolerance; outward expansion remains bounded by fill tolerance.
+    chord_tolerance = min(curve_tolerance, width / 4)
+    if chord_tolerance <= 0.00001:
+        raise ConversionError('Filled circle tolerance below supported resolution; increase fill tolerance')
+    angle = math.atan2(circle.end[1] - circle.center[1], circle.end[0] - circle.center[0])
+    points = sample_arc(circle.center, radius, angle, math.tau, chord_tolerance)[:-1]
+    if len(points) > MAX_FILL_VERTICES:
+        raise ConversionError(f'Filled circle requires more than {MAX_FILL_VERTICES} vertices; increase curve/fill tolerance')
+    warnings.append(f'CURVE_APPROXIMATED: filled fp_circle on {circle.layer}, chord error <= {chord_tolerance:g} mm; nominal disk covered by boundary strokes')
+    return FilledPolygon(points, circle.width, circle.layer)
+
+
+def tessellate_fills(fp: Footprint, tolerance: float, warnings: list[str], *,
+                     curve_tolerance: float = 0.01) -> Footprint:
     """Cover simple filled polygons by boundary + overlapping horizontal strokes.
 
     In the ideal round-ended stroke model, every source interior point is
@@ -101,12 +141,16 @@ def tessellate_fills(fp: Footprint, tolerance: float, warnings: list[str]) -> Fo
     other point projects to an interior scanline within half the row pitch.
     All centre-lines lie inside/on the polygon. Increasing zero/thin source
     width introduces at most tolerance expansion (including grid rounding).
+    Circles keep their source geometry until the stroke width is known; an
+    adaptive boundary also covers the caps outside the inscribed polygon.
     This bounds the encoded geometry, not GUI rasterization or Gerber settings.
     """
     if not math.isfinite(tolerance) or tolerance <= 0.00002:
         raise ConversionError('Fill tolerance must be greater than 0.00002 mm')
     if tolerance > 1073:
         raise ConversionError('Fill tolerance exceeds the target dimension range')
+    if not math.isfinite(curve_tolerance) or curve_tolerance <= 0.00001:
+        raise ConversionError('Curve tolerance must be greater than 0.00001 mm')
     polylines = list(fp.polylines)
     written = 0
     # Reserve 20 nm for target coordinate/width quantization. Use integer grid
@@ -114,7 +158,14 @@ def tessellate_fills(fp: Footprint, tolerance: float, warnings: list[str]) -> Fo
     minimum_width_nm = math.floor(2 * (tolerance - 0.00002) * 100_000) * 10
     if minimum_width_nm < 20:
         raise ConversionError('Fill tolerance is below the supported target resolution')
-    for index, polygon in enumerate(fp.filled_polygons, 1):
+    # Sample circles lazily so the common stroke budget stops work before
+    # tessellating the rest of a footprint with excessive filled graphics.
+    figures = chain(
+        ((f'polygon {index}', polygon) for index, polygon in enumerate(fp.filled_polygons, 1)),
+        ((f'circle {index}', _circle_polygon(circle, minimum_width_nm, curve_tolerance, warnings))
+         for index, circle in enumerate(fp.filled_circles, 1)),
+    )
+    for label, polygon in figures:
         vertices_nm = filled_polygon_points(polygon)
         points = tuple((x / 1e6, y / 1e6) for x, y in vertices_nm)
         width_nm = max(int(number(polygon.width)), minimum_width_nm)
@@ -123,7 +174,7 @@ def tessellate_fills(fp: Footprint, tolerance: float, warnings: list[str]) -> Fo
         low, high = min(y for _, y in vertices_nm), max(y for _, y in vertices_nm)
         rows = math.ceil(2 * (high - low) / width_nm)
         if written + rows + 1 > MAX_FILL_STROKES:
-            raise ConversionError(f'Filled polygons require more than {MAX_FILL_STROKES} strokes; increase fill tolerance')
+            raise ConversionError(f'Filled graphics require more than {MAX_FILL_STROKES} strokes; increase fill tolerance')
         polylines.append(Polyline(points, width, polygon.layer, True, 'fill_boundary'))
         written += 1
         step = (high - low) / rows
@@ -144,15 +195,15 @@ def tessellate_fills(fp: Footprint, tolerance: float, warnings: list[str]) -> Fo
                 if left == right:
                     continue
                 if written >= MAX_FILL_STROKES:
-                    raise ConversionError(f'Filled polygons require more than {MAX_FILL_STROKES} strokes; increase fill tolerance')
+                    raise ConversionError(f'Filled graphics require more than {MAX_FILL_STROKES} strokes; increase fill tolerance')
                 # Even a collapsed span is retained as a zero-length stroke;
                 # the boundary stroke covers such narrow/tip regions as well.
                 polylines.append(Polyline(((left / 1e6, y / 1e6), (right / 1e6, y / 1e6)),
                                           width, polygon.layer, False, 'fill_scanline'))
                 spans += 1
                 written += 1
-        warnings.append(f'FILL_APPROXIMATED: polygon {index} on {polygon.layer}; boundary + {spans} overlapping strokes, encoded expansion <= {tolerance:g} mm')
-    if fp.filled_polygons:
+        warnings.append(f'FILL_APPROXIMATED: {label} on {polygon.layer}; boundary + {spans} overlapping strokes, encoded expansion <= {tolerance:g} mm')
+    if fp.filled_polygons or fp.filled_circles:
         warnings.append('FILL_STROKE_MODEL: fill bound assumes ideal round-ended target strokes; GUI rasterization not validated')
         warnings.append('FILL_EXPORT_UNVERIFIED: FreePCB Gerber minimum stroke settings can widen lines or suppress very thin lines; manufacturing validation pending')
-    return replace(fp, polylines=polylines, filled_polygons=[])
+    return replace(fp, polylines=polylines, filled_polygons=[], filled_circles=[])

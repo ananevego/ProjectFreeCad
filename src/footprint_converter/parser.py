@@ -7,6 +7,7 @@ import re
 from .errors import ConversionError
 from .model import (
     ApertureSettings,
+    FilledCircle,
     FilledPolygon,
     Footprint,
     FootprintText,
@@ -176,7 +177,7 @@ def stroke_width(node: list) -> float:
     return float(scalar(stroke or node, 'width', 0.15))
 
 
-def parse_graphic(item: list, tolerance: float, warnings: list[str]) -> Polyline | FilledPolygon:
+def parse_graphic(item: list, tolerance: float, warnings: list[str]) -> Polyline | FilledPolygon | FilledCircle:
     kind, layer = item[0], scalar(item, 'layer', '')
     fill_nodes = children(item, 'fill')
     if len(fill_nodes) > 1 or fill_nodes and (len(fill_nodes[0]) != 2 or not isinstance(fill_nodes[0][1], str)):
@@ -187,8 +188,18 @@ def parse_graphic(item: list, tolerance: float, warnings: list[str]) -> Polyline
         fill = 'solid'
     if fill not in {'no', 'solid'}:
         raise ConversionError(f'Unsupported graphic fill mode: {fill}')
-    if fill == 'solid' and kind not in {'fp_poly', 'fp_rect'}:
+    if fill == 'solid' and kind not in {'fp_poly', 'fp_rect', 'fp_circle'}:
         raise ConversionError(f'Filled {kind} on {layer} is unsupported')
+    if fill == 'solid' and kind == 'fp_circle':
+        # Do not sample here: fill width constrains the chord tolerance needed
+        # to cover the disk, and is only known in the geometry stage.
+        circle = FilledCircle(pair(child(item, 'center')), pair(child(item, 'end')),
+                              stroke_width(item), layer)
+        if layer in {'F.Fab', 'B.Fab'}:
+            warnings.append(f'FAB_LAYER_APPROXIMATED: {layer} exported to FreePCB notes layer')
+        if layer in {'Dwgs.User', 'Cmts.User'}:
+            warnings.append(f'USER_LAYER_APPROXIMATED: {layer} exported to FreePCB top notes; source layer distinction lost')
+        return circle
     closed = kind != 'fp_line' and kind != 'fp_arc'
     if kind == 'fp_line':
         points = (pair(child(item, 'start')), pair(child(item, 'end')))
@@ -264,6 +275,8 @@ def parse_footprint(root: list, footprint_name: str | None = None, *,
             graphic = parse_graphic(item, curve_tolerance, fp.warnings)
             if isinstance(graphic, FilledPolygon):
                 fp.filled_polygons.append(graphic)
+            elif isinstance(graphic, FilledCircle):
+                fp.filled_circles.append(graphic)
             else:
                 fp.polylines.append(graphic)
         elif kind.startswith('fp_'):

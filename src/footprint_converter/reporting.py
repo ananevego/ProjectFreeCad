@@ -74,4 +74,18 @@ def build_report(fp: Footprint, render_fp: Footprint, matches: list[ModelMatch],
                     'frame_validated': False} for m in matches],
         'diagnostics': diagnostics,
     }
+    if fp.filled_circles:
+        # Add circle metadata only when present, preserving the existing report
+        # contract byte-for-byte for the four previous control samples.
+        report['counts']['source_filled_circles'] = len(fp.filled_circles)
+        report['fills'].update({
+            'source_circles': [asdict(c) for c in fp.filled_circles],
+            'circle_bounds': {
+                'nominal_disks_covered': True,
+                'max_inward_boundary_error_mm': curve_tolerance,
+                'max_outward_boundary_error_mm': fill_tolerance,
+                'max_boundary_error_mm': max(curve_tolerance, fill_tolerance),
+                'model': 'ideal_round_ended',
+            },
+        })
     return report

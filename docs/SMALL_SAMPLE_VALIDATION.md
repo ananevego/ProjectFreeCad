@@ -14,6 +14,7 @@
 | PinHeader_1x03_P2.54mm_Vertical | 3 PTH; X=0, target Y=0/−2.54/−5.08 мм; drill=1 мм; copper=1.7×1.7 мм; pin 1 rect, остальные circle | `.fpl`, top/bottom/общий inner_pad; существующий STL найден по точной ссылке |
 | MountingHole_3.2mm_M3 | NPTH в (0,0); drill=3.2 мм; copper/paste=NONE; окружность радиуса 3.2 мм в notes=7 | `.fpl`; окружность разбита на отрезки с chord error ≤0.01 мм; plating flag в `.fpl` отсутствует |
 | SOT-23 | 3 roundrect pads; target координаты (−0.9375,±0.95), (0.9375,0) мм; copper=1.475×0.6 мм; filled silk marker pin 1 | `.fpl`; маркер — замкнутая граница и 6 перекрывающихся линий, hatch=0; найден существующий STL |
+| FilledCircle_Control (синтетический) | 1 rect pad в (0,0), 1.025×1.4 мм; filled circles r=0.3 мм: F.SilkS center=(1.8,−0.8), width=0; B.SilkS center=(−1.8,0.8), width=0.04 мм | `.fpl`; две границы и 60+30 scanlines, hatch=0; исходные circles в отчёте; без 3D-ссылки |
 
 Ось Y инвертируется, `centroid` не записывается: его вычисляет target reader.
 Поведение reader ещё требует ручного roundtrip. Dwgs.User и Cmts.User
@@ -39,6 +40,14 @@ STL проверяется по пути и метаданным; геометр
 GUI rasterization и Gerber stroke settings пока не подтверждены;
 допуск конвертера не гарантирует такой же допуск на готовом Gerber.
 
+FilledCircle_Control создан в проекте для regression tests, а не взят из
+библиотеки реальных компонентов KiCad. Допуск хорды адаптируется к ширине stroke:
+0.00499 мм для верхней фигуры, 0.01 мм для нижней при стандартных настройках.
+Толщины target strokes — 0.01996 и 0.04 мм. Проверяются покрытие номинального
+диска и погрешность границы исходной фигуры: внутрь ≤curve tolerance, наружу
+≤fill tolerance в идеальной stroke model. Для контрольных defaults обе
+границы — 0.01 мм. `MODEL_MISSING` ожидаем; 3D-модель не угадывается по имени.
+
 ## Воспроизведение
 
 Из корня репозитория:
@@ -62,6 +71,11 @@ python3 -B src/kicad_to_freepcb_footprint.py \
   tests/fixtures/SOT-23.kicad_mod output/SOT-23.fpl \
   --default-mask-margin 0.05 --default-paste-margin -0.025 --default-paste-ratio 0 \
   --fill-tolerance 0.01 --report output/SOT-23.report.json
+
+python3 -B -m src.footprint_converter \
+  tests/fixtures/FilledCircle_Control.kicad_mod output/FilledCircle_Control.fpl \
+  --curve-tolerance 0.01 --fill-tolerance 0.01 \
+  --report output/FilledCircle_Control.report.json
 ```
 
 Эти defaults — **выбранные параметры теста**, а не восстановленные параметры
@@ -83,7 +97,8 @@ JSON-отчёты содержат пути компьютера и не ком�
 
 Parser, внутренняя модель, writer, геометрия, matcher и отчёты разделены
 на модули. CLI/API, байты всех четырёх `.fpl`, предупреждения и отчёты сохранены.
-Далее добавить filled circle на маленьком примере с проверкой общей погрешности.
+Filled circle добавлен и проверяется на отдельном синтетическом примере.
+Далее подтвердить и реализовать legacy arcs на небольшом исходном образце KiCad.
 Native hatch не используется для подмены заливки; дальнейшие geometry primitives
 добавлять после численных проверок, без пересоздания существующих STL.
 Windows roundtrip всех успешных примеров и проверка 3D остаются отдельным этапом.

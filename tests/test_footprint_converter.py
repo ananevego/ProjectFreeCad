@@ -95,6 +95,11 @@ def polygon_body(points, width=0, layer='F.SilkS', fill='solid'):
     return f'(fp_poly (pts {vertices}) (stroke (width {width})) (fill {fill}) (layer "{layer}"))'
 
 
+def circle_body(center=(0, 0), end=(1, 0), width=0, layer='F.SilkS', fill='solid'):
+    return (f'(fp_circle (center {center[0]} {center[1]}) (end {end[0]} {end[1]}) '
+            f'(stroke (width {width}) (type solid)) (fill {fill}) (layer "{layer}"))')
+
+
 def segment_distance(point, a, b):
     # Independent distance oracle for ideal round-ended output strokes.
     dx, dy = b[0] - a[0], b[1] - a[1]
@@ -779,16 +784,181 @@ print(json.dumps({'fpl': result.fpl, 'warnings': result.warnings, 'report': resu
         graphics = ['(fp_poly (pts (xy 0 0) (xy 1 0) (xy 0 1)) (fill) (layer "F.SilkS"))',
                     '(fp_poly (pts (xy 0 0) (xy 1 0) (xy 0 1)) (fill (solid)) (layer "F.SilkS"))',
                     '(fp_poly (pts (xy 0 0) (xy 1 0) (xy 0 1)) (fill no) (fill yes) (layer "F.SilkS"))',
-                    '(fp_circle (center 0 0) (end 1 0) (fill solid) (layer "F.SilkS"))']
+                    '(fp_arc (start 0 0) (mid 0.5 0.5) (end 1 0) (fill solid) (layer "F.SilkS"))']
         for graphic in graphics:
             with self.subTest(graphic=graphic), self.assertRaises(converter.ConversionError):
                 convert_body(source_pad() + graphic)
 
     def test_writer_rejects_unexpanded_filled_model(self):
-        body = source_pad() + polygon_body([(0, 0), (1, 0), (0, 1)])
-        fp = converter.parse_footprint(converter.parse_sexpr('(footprint Demo ' + body + ')'))
-        with self.assertRaisesRegex(converter.ConversionError, 'tessellated before'):
-            converter.write_fpl(fp, [], [])
+        for graphic in (polygon_body([(0, 0), (1, 0), (0, 1)]), circle_body()):
+            body = source_pad() + graphic
+            fp = converter.parse_footprint(converter.parse_sexpr('(footprint Demo ' + body + ')'))
+            with self.subTest(graphic=graphic), self.assertRaisesRegex(converter.ConversionError, 'tessellated before'):
+                converter.write_fpl(fp, [], [])
+
+    def test_filled_circle_keeps_source_geometry_and_historic_yes_alias(self):
+        body = source_pad() + circle_body(center=(2, -3), end=(2.3, -2.6), width=0.02, layer='B.SilkS')
+        root = converter.parse_sexpr('(footprint Circle ' + body + ')')
+        fp = converter.parse_footprint(root)
+        self.assertEqual(fp.filled_polygons, [])
+        self.assertEqual(fp.polylines, [])
+        self.assertEqual(fp.filled_circles, [converter.FilledCircle((2, -3), (2.3, -2.6), 0.02, 'B.SilkS')])
+        rendered = converter.tessellate_fills(fp, 0.01, [])
+        self.assertEqual(rendered.filled_circles, [])
+        self.assertEqual(len(fp.filled_circles), 1)  # Source is not mutated.
+        generated, _ = convert_body(body)
+        historic, _ = convert_body(body.replace('fill solid', 'fill yes'))
+        self.assertEqual(generated, historic)
+
+    def test_filled_circle_zero_stroke_covers_disk_on_both_silk_layers(self):
+        # A loose curve tolerance must not leave circular caps unfilled when
+        # fill tolerance (and hence stroke width) is much smaller.
+        center, end = (0.731234, -0.456789), (1.031234, -0.056789)
+        target_center = (center[0], -center[1])
+        for layer, target_layer in (('F.SilkS', 4), ('B.SilkS', 5)):
+            with self.subTest(layer=layer):
+                result, _ = convert_body(source_pad() + circle_body(center, end, layer=layer),
+                                         curve_tolerance=0.2, fill_tolerance=0.005)
+                polys = decode_fpl(result)[2]
+                self.assertTrue(all(p['layer'] == target_layer and p['hatch'] == 0 for p in polys))
+                self.assertEqual(sum(p['closed'] for p in polys), 1)
+                self.assertGreater(len(polys[0]['points']), 8)
+                # Independent radial/interior probes include the true circle,
+                # not just points inside the tessellated polygon.
+                for index in range(144):
+                    angle = math.tau * index / 144
+                    for fraction in (0, 0.1, 0.3, 0.6, 0.9, 0.99, 1):
+                        point = (target_center[0] + 0.5 * fraction * math.cos(angle),
+                                 target_center[1] + 0.5 * fraction * math.sin(angle))
+                        self.assertTrue(stroke_contains(point, polys), point)
+                # The largest radial extent of a round-ended straight stroke
+                # is bounded by its furthest endpoint plus half its width.
+                outer = max(math.dist(target_center, (x / 1e6, y / 1e6)) + p['width'] / 2e6
+                            for p in polys for x, y in p['points'])
+                self.assertLessEqual(outer - 0.5, 0.005)
+
+    def test_filled_circle_source_stroke_boundary_error_is_bounded(self):
+        center, end = (0.1234567, 0.3456789), (0.4234567, 0.7456789)
+        target_center = (center[0], -center[1])
+        for width, curve_tolerance, fill_tolerance in ((0.08, 0.002, 0.005),
+                                                       (0.003, 0.02, 0.004)):
+            result, _ = convert_body(source_pad() + circle_body(center, end, width),
+                                     curve_tolerance=curve_tolerance, fill_tolerance=fill_tolerance)
+            polys = decode_fpl(result)[2]
+            edges = []
+            for poly in polys:
+                points = [(x / 1e6, y / 1e6) for x, y in poly['points']]
+                ends = points[1:] + points[:1] if poly['closed'] else points[1:]
+                edges.extend((a, b, poly['width'] / 2e6) for a, b in zip(points, ends))
+            source_radius = 0.5 + width / 2
+            outer = max(math.dist(target_center, point) + half for a, b, half in edges for point in (a, b))
+            self.assertLessEqual(outer - source_radius, fill_tolerance)
+            for index in range(720):
+                angle = index * math.tau / 720
+                point = (target_center[0] + source_radius * math.cos(angle),
+                         target_center[1] + source_radius * math.sin(angle))
+                distance = min(max(0, segment_distance(point, a, b) - half) for a, b, half in edges)
+                self.assertLessEqual(distance, curve_tolerance)
+
+    def test_filled_circle_near_grid_resolution_preserves_disk(self):
+        center = (0.000003, -0.000007)
+        radius = 0.00012
+        result, _ = convert_body(source_pad() + circle_body(center, (center[0] + radius, center[1])),
+                                 fill_tolerance=0.0001, curve_tolerance=0.00005)
+        polys = decode_fpl(result)[2]
+        target_center = (center[0], -center[1])
+        for index in range(144):
+            angle = math.tau * index / 144
+            self.assertTrue(stroke_contains((target_center[0] + radius * math.cos(angle),
+                                            target_center[1] + radius * math.sin(angle)), polys))
+        outer = max(math.dist(target_center, (x / 1e6, y / 1e6)) + p['width'] / 2e6
+                    for p in polys for x, y in p['points'])
+        self.assertLessEqual(outer - radius, 0.0001)
+
+    def test_filled_circle_report_and_strict_policy_preserve_assumptions(self):
+        body = source_pad() + circle_body(width=0.03)
+        body += '(model "Resistor_SMD.3dshapes/R_0805_2012Metric.step")'
+        result = converter.convert_detailed(converter.parse_sexpr('(footprint Circle ' + body + ')'),
+                                             stl_root=TEST_STL_ROOT, strict=True,
+                                             curve_tolerance=0.003, fill_tolerance=0.007)
+        report = result.report
+        self.assertEqual(report['status'], 'generated')
+        self.assertEqual(report['counts']['source_filled_circles'], 1)
+        self.assertEqual(report['counts']['source_filled_polygons'], 0)
+        self.assertEqual(report['fills']['source_circles'], [
+            {'center': (0, 0), 'end': (1, 0), 'width': 0.03, 'layer': 'F.SilkS'}])
+        self.assertEqual(report['fills']['circle_bounds']['max_boundary_error_mm'], 0.007)
+        self.assertEqual(report['fills']['circle_bounds']['max_inward_boundary_error_mm'], 0.003)
+        self.assertEqual(report['fills']['written_boundary_polylines'], 1)
+        self.assertFalse(report['fills']['manufacturing_validated'])
+        codes = {d['code']: d['severity'] for d in report['diagnostics']}
+        self.assertEqual(codes['CURVE_APPROXIMATED'], 'approximation')
+        self.assertEqual(codes['FILL_EXPORT_UNVERIFIED'], 'assumption')
+
+    def test_filled_circle_invalid_geometry_and_resolution_fail_explicitly(self):
+        cases = [circle_body(end=(0, 0)), circle_body(end=(math.nan, 0)),
+                 circle_body(center=(math.inf, 0)), circle_body(width=-0.1),
+                 circle_body(end=(0.000001, 0)), circle_body(center=(2147, 0), end=(2148, 0))]
+        for graphic in cases:
+            with self.subTest(graphic=graphic), self.assertRaises(converter.ConversionError):
+                convert_body(source_pad() + graphic)
+        with self.assertRaisesRegex(converter.ConversionError, 'resolution'):
+            convert_body(source_pad() + circle_body(), fill_tolerance=0.00003)
+
+    def test_filled_circle_limits_apply_to_mixed_fills(self):
+        with self.assertRaisesRegex(converter.ConversionError, '512 vertices'):
+            convert_body(source_pad() + circle_body(end=(300, 0)))
+        with self.assertRaisesRegex(converter.ConversionError, '4096 strokes'):
+            convert_body(source_pad() + circle_body(end=(25, 0)))
+        mixed = polygon_body([(0, 0), (1, 0), (0, 1)])
+        mixed += ''.join(circle_body(center=(20 * i, 0), end=(20 * i + 8, 0)) for i in range(3))
+        with self.assertRaisesRegex(converter.ConversionError, '4096 strokes'):
+            convert_body(source_pad() + mixed)
+
+    def test_saved_filled_circle_control_is_reproducible_and_structurally_correct(self):
+        source = (FIXTURES / 'FilledCircle_Control.kicad_mod').read_text(encoding='utf-8')
+        result = converter.convert_detailed(converter.parse_sexpr(source), stl_root=TEST_STL_ROOT)
+        self.assertEqual(result.fpl.encode('cp1251'), (PROJECT / 'output' / 'FilledCircle_Control.fpl').read_bytes())
+        fields, pads, polys = decode_fpl(result.fpl)
+        self.assertEqual(fields['name'], [['FilledCircle_Control']])
+        self.assertEqual(fields['ref_text'], [['1000000', '0', '2000000', '0', '150000']])
+        self.assertEqual(len(pads), 1)
+        self.assertEqual(pads[0]['top_pad'], (3, 1400000, 512500, 512500, 0))
+        self.assertEqual((pads[0]['x'], pads[0]['y'], pads[0]['hole']), (0, 0, 0))
+        self.assertEqual({p['layer'] for p in polys}, {4, 5})
+        self.assertEqual(sum(p['closed'] for p in polys), 2)
+        for layer, center, width in ((4, (1.8, 0.8), 19960), (5, (-1.8, -0.8), 40000)):
+            drawing = [p for p in polys if p['layer'] == layer]
+            self.assertTrue(all(p['width'] == width and p['hatch'] == 0 for p in drawing))
+            self.assertTrue(stroke_contains(center, drawing))
+        self.assertEqual(result.report['counts']['source_filled_circles'], 2)
+        self.assertEqual(result.report['fills']['written_scanline_polylines'], 90)
+        self.assertNotIn('openscad_code', fields)
+        self.assertTrue(any(w.startswith('MODEL_MISSING:') for w in result.warnings))
+
+    def test_filled_circle_cli_reports_source_and_keeps_output_on_invalid_geometry(self):
+        with tempfile.TemporaryDirectory() as directory:
+            base = Path(directory)
+            source, output, report = base / 'circle.kicad_mod', base / 'circle.fpl', base / 'circle.json'
+            text = (FIXTURES / 'FilledCircle_Control.kicad_mod').read_text(encoding='utf-8')
+            source.write_text(text, encoding='utf-8')
+            command = [sys.executable, '-B', '-m', 'src.footprint_converter', str(source), str(output),
+                       '--report', str(report), '--stl-root', str(TEST_STL_ROOT),
+                       '--curve-tolerance', '0.002', '--fill-tolerance', '0.004']
+            result = subprocess.run(command, cwd=PROJECT, capture_output=True, text=True)
+            self.assertEqual(result.returncode, 0, result.stderr)
+            data = json.loads(report.read_text(encoding='utf-8'))
+            self.assertEqual(data['fills']['source_circles'][0]['center'], [1.8, -0.8])
+            self.assertEqual(data['fills']['circle_bounds']['max_boundary_error_mm'], 0.004)
+            self.assertFalse(data['target']['gui_validated'])
+            previous = output.read_bytes()
+            source.write_text(text.replace('(end 2.1 -0.8)', '(end 1.8 -0.8)'), encoding='utf-8')
+            result = subprocess.run(command, cwd=PROJECT, capture_output=True, text=True)
+            self.assertEqual(result.returncode, 1, result.stderr)
+            self.assertNotIn('Traceback', result.stderr)
+            self.assertEqual(output.read_bytes(), previous)
+            self.assertEqual(json.loads(report.read_text(encoding='utf-8'))['status'], 'failed')
+
 
     @unittest.skipUnless((PROJECT / 'stl_files' / 'Package_TO_SOT_SMD.3dshapes' / 'SOT-23.stl').is_file(),
                         'Optional integration: existing SOT-23 STL unavailable')
@@ -829,7 +999,7 @@ print(json.dumps({'fpl': result.fpl, 'warnings': result.warnings, 'report': resu
             '(fp_arc (start 0 0) (end 1 0) (angle 90) (layer "F.SilkS"))',
             '(fp_circle (center 1 1) (end 1 1) (layer "F.SilkS"))',
             '(fp_poly (pts (xy 0 0) (xy 1 1)) (layer "F.SilkS"))',
-            '(fp_circle (center 0 0) (end 1 0) (fill yes) (layer "F.SilkS"))',
+            '(fp_circle (center 0 0) (end 0 0) (fill yes) (layer "F.SilkS"))',
         ]
         for graphic in graphics:
             with self.subTest(graphic=graphic), self.assertRaises(converter.ConversionError):

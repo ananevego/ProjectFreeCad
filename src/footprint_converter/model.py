@@ -76,6 +76,15 @@ class FilledPolygon:
 
 
 @dataclass(frozen=True)
+class FilledCircle:
+    """Keep the source circle intact until fill/curve tolerances are known."""
+    center: tuple[float, float]
+    end: tuple[float, float]
+    width: float
+    layer: str
+
+
+@dataclass(frozen=True)
 class ModelReference:
     path: str
     offset: tuple[float, float, float] = ZERO
@@ -94,6 +103,7 @@ class Footprint:
     warnings: list[str] = field(default_factory=list)
     apertures: ApertureSettings = field(default_factory=ApertureSettings)
     filled_polygons: list[FilledPolygon] = field(default_factory=list)
+    filled_circles: list[FilledCircle] = field(default_factory=list)
 
 
 @dataclass(frozen=True)

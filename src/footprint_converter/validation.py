@@ -6,7 +6,7 @@ import math
 from .errors import ConversionError
 from .model import Footprint
 from .format_rules import copper_sides, integer_angle, number, pad_shape, quote
-from .geometry import filled_polygon_points
+from .geometry import filled_polygon_points, validate_filled_circle
 
 
 def validate_footprint(fp: Footprint) -> list[str]:
@@ -61,4 +61,6 @@ def validate_footprint(fp: Footprint) -> list[str]:
             raise ConversionError('Invalid graphic dimensions/coordinates')
     for polygon in fp.filled_polygons:
         filled_polygon_points(polygon)
+    for circle in fp.filled_circles:
+        validate_filled_circle(circle)
     return warnings

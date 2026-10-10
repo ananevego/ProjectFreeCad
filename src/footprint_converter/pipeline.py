@@ -23,7 +23,7 @@ def convert_detailed(root: list, footprint_name: str | None = None, *,
     """In-memory conversion and structured report; does not write any file."""
     fp = parse_footprint(root, footprint_name, curve_tolerance=curve_tolerance)
     warnings = validate_footprint(fp)
-    render_fp = tessellate_fills(fp, fill_tolerance, warnings)
+    render_fp = tessellate_fills(fp, fill_tolerance, warnings, curve_tolerance=curve_tolerance)
     matches = match_models(fp.models, Path(stl_root), warnings)
     fpl = write_fpl(render_fp, matches, warnings, model_transform, text_variables, aperture_defaults)
     warnings = list(dict.fromkeys(warnings))

@@ -27,7 +27,7 @@ def main() -> int:
     parser.add_argument('--model-scale', type=float, nargs=3)
     parser.add_argument('--curve-tolerance', type=float, default=0.01, metavar='MM')
     parser.add_argument('--fill-tolerance', type=float, default=0.01, metavar='MM',
-                        help='Maximum encoded expansion for filled polygons (default: 0.01 mm)')
+                        help='Maximum encoded expansion for filled graphics (default: 0.01 mm)')
     parser.add_argument('--text-variable', action='append', default=[], metavar='NAME=VALUE',
                         help='Explicitly freeze a KiCad text variable to a literal value')
     parser.add_argument('--report', type=Path, help='Optional JSON conversion report (UTF-8)')

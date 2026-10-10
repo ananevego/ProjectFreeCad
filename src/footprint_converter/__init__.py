@@ -14,6 +14,7 @@ from .model import (
     FootprintText,
     Polyline,
     FilledPolygon,
+    FilledCircle,
     ModelReference,
     Footprint,
     ModelMatch,
@@ -36,6 +37,7 @@ from .geometry import (
     sample_arc,
     arc_points,
     filled_polygon_points,
+    validate_filled_circle,
     tessellate_fills,
 )
 from .parser import (
@@ -103,6 +105,7 @@ __all__ = [
     'FootprintText',
     'Polyline',
     'FilledPolygon',
+    'FilledCircle',
     'ModelReference',
     'Footprint',
     'ModelMatch',
@@ -121,6 +124,7 @@ __all__ = [
     'sample_arc',
     'arc_points',
     'filled_polygon_points',
+    'validate_filled_circle',
     'tessellate_fills',
     'TOKEN_RE',
     'atom',
