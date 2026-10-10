@@ -141,6 +141,102 @@ class FootprintConverterTests(unittest.TestCase):
         sot.parent.mkdir()
         sot.write_bytes(b'metadata-only test fixture, not STL geometry')
 
+    def test_modular_api_accepts_shared_records_and_matches_legacy_conversion(self):
+        from src import footprint_converter as api
+        from src.footprint_converter.model import ApertureSettings, Footprint
+        from src.footprint_converter.parser import parse_footprint, parse_sexpr
+        from src.footprint_converter.validation import validate_footprint
+        from src.footprint_converter.model_matching import match_models
+        from src.footprint_converter.writer import write_fpl
+
+        root = parse_sexpr(FIXTURE.read_text(encoding='utf-8'))
+        defaults = ApertureSettings(0.05, 0, 0)
+        fp = parse_footprint(root)
+        self.assertIsInstance(fp, Footprint)
+        self.assertIsInstance(fp, converter.Footprint)
+        warnings = validate_footprint(fp)
+        matches = match_models(fp.models, TEST_STL_ROOT, warnings)
+        written = write_fpl(fp, matches, warnings, aperture_defaults=defaults)
+        legacy = converter.convert_detailed(root, stl_root=TEST_STL_ROOT,
+                                             aperture_defaults=defaults)
+        modular = api.convert_detailed(root, stl_root=TEST_STL_ROOT,
+                                       aperture_defaults=defaults)
+        self.assertEqual(written, legacy.fpl)
+        self.assertEqual(modular, legacy)
+        self.assertEqual(api.convert(root, stl_root=TEST_STL_ROOT),
+                         converter.convert(root, stl_root=TEST_STL_ROOT))
+
+    def test_cli_entrypoints_preserve_outputs_reports_and_exit_codes(self):
+        entries = [[str(MODULE)], ['-m', 'src.kicad_to_freepcb_footprint'],
+                   ['-m', 'src.footprint_converter']]
+        with tempfile.TemporaryDirectory() as directory:
+            base = Path(directory)
+            invalid = base / 'invalid.kicad_mod'
+            invalid.write_text('(footprint "Broken"', encoding='utf-8')
+            output, report = base / 'result.fpl', base / 'report.json'
+            for source, flags, exit_code, status in (
+                    (FIXTURE, [], 0, 'generated_with_loss'),
+                    (invalid, [], 1, 'failed'),
+                    (FIXTURE, ['--strict'], 2, 'rejected_loss')):
+                outcomes = []
+                for entry in entries:
+                    with self.subTest(entry=entry, exit_code=exit_code):
+                        output.write_bytes(b'previous library')
+                        report.unlink(missing_ok=True)
+                        result = subprocess.run(
+                            [sys.executable, '-B', *entry, str(source), str(output),
+                             '--stl-root', str(TEST_STL_ROOT), '--report', str(report), *flags],
+                            cwd=PROJECT, capture_output=True, text=True)
+                        self.assertEqual(result.returncode, exit_code, result.stderr)
+                        metadata = json.loads(report.read_text(encoding='utf-8'))
+                        self.assertEqual(metadata['status'], status)
+                        if exit_code == 0:
+                            self.assertEqual(len(decode_fpl(output.read_text(encoding='cp1251'))[1]), 2)
+                            self.assertFalse(metadata['target']['gui_validated'])
+                        else:
+                            self.assertEqual(output.read_bytes(), b'previous library')
+                        outcomes.append((output.read_bytes(), metadata, result.stdout, result.stderr))
+                self.assertEqual(outcomes[0], outcomes[1])
+                self.assertEqual(outcomes[0], outcomes[2])
+
+    def test_absolute_legacy_cli_works_outside_repository(self):
+        expected, _ = converter.convert(converter.parse_sexpr(FIXTURE.read_text(encoding='utf-8')),
+                                        stl_root=TEST_STL_ROOT)
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory) / 'result.fpl'
+            result = subprocess.run(
+                [sys.executable, '-B', str(MODULE), str(FIXTURE), str(output),
+                 '--stl-root', str(TEST_STL_ROOT)], cwd=directory, capture_output=True, text=True)
+            self.assertEqual(result.returncode, 0, result.stderr)
+            self.assertEqual(output.read_bytes(), expected.encode('cp1251'))
+
+    def test_importlib_legacy_api_works_outside_repository(self):
+        script = '''
+import importlib.util, json, sys
+from pathlib import Path
+spec = importlib.util.spec_from_file_location('external_converter', sys.argv[1])
+module = importlib.util.module_from_spec(spec)
+sys.modules[spec.name] = module
+spec.loader.exec_module(module)
+result = module.convert_detailed(module.parse_sexpr(Path(sys.argv[2]).read_text(encoding='utf-8')),
+                                 stl_root=Path(sys.argv[3]))
+print(json.dumps({'fpl': result.fpl, 'warnings': result.warnings, 'report': result.report,
+                  'default_root': str(module.DEFAULT_STL_ROOT)}))
+'''
+        with tempfile.TemporaryDirectory() as directory:
+            result = subprocess.run(
+                [sys.executable, '-B', '-c', script, str(MODULE), str(FIXTURE), str(TEST_STL_ROOT)],
+                cwd=directory, capture_output=True, text=True)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        actual = json.loads(result.stdout)
+        expected = converter.convert_detailed(converter.parse_sexpr(FIXTURE.read_text(encoding='utf-8')),
+                                              stl_root=TEST_STL_ROOT)
+        self.assertEqual(actual['fpl'], expected.fpl)
+        self.assertEqual(actual['warnings'], expected.warnings)
+        # JSON serialization turns tuple coordinates into arrays.
+        self.assertEqual(actual['report'], json.loads(json.dumps(expected.report)))
+        self.assertEqual(Path(actual['default_root']), PROJECT / 'stl_files')
+
     def test_r0805_complete_structure_and_values(self):
         root = converter.parse_sexpr(FIXTURE.read_text())
         result, warnings = converter.convert(root, stl_root=TEST_STL_ROOT)

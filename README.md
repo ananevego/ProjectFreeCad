@@ -50,6 +50,10 @@ python3 -B src/kicad_to_freepcb_footprint.py \
 На Windows используйте `py -3` вместо `python3`; команду можно записать в одну
 строку. Вход — UTF-8; `.fpl` по умолчанию — CP1251, отчёт — UTF-8 JSON.
 
+Из корня репозитория также доступен `python3 -B -m src.footprint_converter`
+с теми же аргументами. Старый скрипт можно запускать по абсолютному пути из
+другого каталога; прежний Python API `convert` сохранён.
+
 Основные тесты запускаются и в новом клоне без 3D-каталогов: они используют
 временный файл только для проверки метаданных matcher, а не геометрию STL.
 Отдельный интеграционный тест использует реальный R0805 STL, когда он доступен;
@@ -163,8 +167,12 @@ STL frame по умолчанию identity с `MODEL_FRAME_UNVERIFIED`. Его �
 
 ## Структура
 
-- `src/kicad_to_freepcb_footprint.py` — parser, внутренняя модель, writer,
-  matcher, validation/reporting и CLI.
+- `src/kicad_to_freepcb_footprint.py` — совместимый Python/CLI entry point.
+- `src/footprint_converter/` — реализация: `parser.py`, `model.py`,
+  `geometry.py`, `format_rules.py`, `validation.py`, `model_matching.py`,
+  `writer.py`, `reporting.py`, `pipeline.py`, `io.py`, `cli.py` и `errors.py`.
+  Parser разбирает источник, matcher проверяет только пути и метаданные моделей,
+  writer формирует строку `.fpl`; запись на диск выполняется отдельно.
 - `tests/` — численные и структурные регрессии; `tests/fixtures/` — контрольный
   KiCad footprint с происхождением и лицензией KiCad Libraries.
 - `output/` — контрольный `.fpl`; JSON-отчёты генерируются локально и не коммитятся,
