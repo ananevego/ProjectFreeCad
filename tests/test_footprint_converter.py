@@ -16,6 +16,7 @@ converter = importlib.util.module_from_spec(SPEC)
 sys.modules[SPEC.name] = converter
 SPEC.loader.exec_module(converter)
 FIXTURE = Path(__file__).parent / 'fixtures' / 'R_0805_2012Metric.kicad_mod'
+FIXTURES = FIXTURE.parent
 REAL_STL = PROJECT / 'stl_files' / 'Resistor_SMD.3dshapes' / 'R_0805_2012Metric.stl'
 TEST_STL_ROOT = None
 
@@ -101,6 +102,9 @@ class FootprintConverterTests(unittest.TestCase):
         model = TEST_STL_ROOT / 'Resistor_SMD.3dshapes' / 'R_0805_2012Metric.stl'
         model.parent.mkdir()
         model.write_bytes(b'metadata-only test fixture, not STL geometry')
+        header = TEST_STL_ROOT / 'Connector_PinHeader_2.54mm.3dshapes' / 'PinHeader_1x03_P2.54mm_Vertical.stl'
+        header.parent.mkdir()
+        header.write_bytes(b'metadata-only test fixture, not STL geometry')
 
     def test_r0805_complete_structure_and_values(self):
         root = converter.parse_sexpr(FIXTURE.read_text())
@@ -169,6 +173,154 @@ class FootprintConverterTests(unittest.TestCase):
     def test_pth_outer_only_does_not_invent_inner_copper(self):
         result, _ = convert_body(source_pad(kind='thru_hole', layers='"F.Cu" "B.Cu"', extra='(drill 0.5)'))
         self.assertEqual(decode_fpl(result)[1][0]['inner_pad'], (0, 0, 0, 0, 0, 0))
+
+    def test_real_pinheader_pth_geometry_apertures_and_disabled_layer_removal(self):
+        root = converter.parse_sexpr((FIXTURES / 'PinHeader_1x03_P2.54mm_Vertical.kicad_mod').read_text())
+        result = converter.convert_detailed(root, stl_root=TEST_STL_ROOT,
+                    aperture_defaults=converter.ApertureSettings(0.05, 0, 0))
+        fields, pads, polys = decode_fpl(result.fpl)
+        self.assertEqual(fields['name'], [['PinHeader_1x03_P2.54mm_Vertical']])
+        self.assertEqual([(p['name'], p['x'], p['y'], p['hole']) for p in pads],
+                         [('1', 0, 0, 1000000), ('2', 0, -2540000, 1000000),
+                          ('3', 0, -5080000, 1000000)])
+        for pad, shape in zip(pads, [3, 1, 1]):
+            expected = (shape, 1700000, 850000, 850000, 0)
+            self.assertEqual(pad['top_pad'], expected)
+            self.assertEqual(pad['bottom_pad'], expected)
+            self.assertEqual(pad['inner_pad'], (*expected, 0))
+            mask = (4 if shape == 3 else 1, 1800000, 900000, 900000,
+                    50000 if shape == 3 else 0)
+            self.assertEqual(pad['top_mask'], mask)
+            self.assertEqual(pad['bottom_mask'], mask)
+            self.assertEqual(pad['top_paste'], (0, 0, 0, 0, 0))
+            self.assertEqual(pad['bottom_paste'], (0, 0, 0, 0, 0))
+        self.assertNotIn('centroid', fields)
+        self.assertTrue(any(p['layer'] == 4 for p in polys))
+        self.assertFalse(result.report['target']['gui_validated'])
+
+    def test_real_mounting_hole_npth_and_mechanical_outline(self):
+        root = converter.parse_sexpr((FIXTURES / 'MountingHole_3.2mm_M3.kicad_mod').read_text())
+        result = converter.convert_detailed(root, stl_root=TEST_STL_ROOT)
+        fields, pads, polys = decode_fpl(result.fpl)
+        self.assertEqual(len(pads), 1)
+        self.assertEqual((pads[0]['name'], pads[0]['x'], pads[0]['y'], pads[0]['hole']),
+                         ('__NPTH_1', 0, 0, 3200000))
+        for key in ('top_pad', 'bottom_pad', 'top_paste', 'bottom_paste'):
+            self.assertEqual(pads[0][key], (0, 0, 0, 0, 0))
+        self.assertEqual(pads[0]['inner_pad'], (0, 0, 0, 0, 0, 0))
+        self.assertEqual(pads[0]['top_mask'], (1, 3200000, 1600000, 1600000, 0))
+        self.assertEqual(pads[0]['bottom_mask'], pads[0]['top_mask'])
+        self.assertNotIn('centroid', fields)
+        self.assertEqual(len(polys), 1)
+        self.assertEqual((polys[0]['layer'], polys[0]['width'], polys[0]['closed']), (7, 150000, True))
+        points = [(x / 1e6, y / 1e6) for x, y in polys[0]['points']]
+        for a, b in zip(points, points[1:] + points[:1]):
+            midpoint = ((a[0] + b[0]) / 2, (a[1] + b[1]) / 2)
+            self.assertLessEqual(abs(3.2 - math.hypot(*midpoint)), 0.01)
+        severity = {d['code']: d['severity'] for d in result.report['diagnostics']}
+        self.assertEqual(severity['USER_LAYER_APPROXIMATED'], 'loss')
+        self.assertEqual(severity['CURVE_APPROXIMATED'], 'approximation')
+        self.assertIn('MODEL_MISSING', severity)  # Official hole has no 3D reference.
+
+    def test_real_r0805_front_and_explicit_bottom_layer_variant(self):
+        source = FIXTURE.read_text()
+        # This is a layer-routing variant, not a KiCad GUI flip or a 3D oracle.
+        for side, text in [('top', source), ('bottom', source.replace('"F.', '"B.'))]:
+            with self.subTest(side=side):
+                result = converter.convert_detailed(converter.parse_sexpr(text), stl_root=TEST_STL_ROOT,
+                              aperture_defaults=converter.ApertureSettings(0.05, -0.025, 0))
+                fields, pads, polys = decode_fpl(result.fpl)
+                self.assertEqual([(p['name'], p['x'], p['y']) for p in pads],
+                                 [('1', -912500, 0), ('2', 912500, 0)])
+                opposite = 'bottom' if side == 'top' else 'top'
+                for pad in pads:
+                    self.assertEqual(pad['hole'], 0)
+                    self.assertEqual(pad[side + '_pad'], (4, 1400000, 512500, 512500, 250000))
+                    self.assertEqual(pad[side + '_mask'], (4, 1500000, 562500, 562500, 300000))
+                    self.assertEqual(pad[side + '_paste'], (4, 1350000, 487500, 487500, 225000))
+                    for suffix in ('pad', 'mask', 'paste'):
+                        self.assertEqual(pad[opposite + '_' + suffix], (0, 0, 0, 0, 0))
+                silk = [p for p in polys if p['layer'] in {4, 5}]
+                self.assertTrue(silk)
+                self.assertEqual({p['layer'] for p in silk}, {4 if side == 'top' else 5})
+                self.assertEqual(result.report['counts']['source_pads'], 2)
+
+    def test_real_sot23_filled_silk_fails_without_silently_dropping_marker(self):
+        source = (FIXTURES / 'SOT-23.kicad_mod').read_text()
+        for side, text in [('F', source), ('B', source.replace('"F.', '"B.'))]:
+            with self.subTest(side=side), self.assertRaisesRegex(converter.ConversionError,
+                    f'Filled fp_poly on {side}.SilkS is unsupported'):
+                converter.convert_detailed(converter.parse_sexpr(text), stl_root=TEST_STL_ROOT)
+
+    def test_disabled_padstack_flags_do_not_reject_and_enabled_flags_fail(self):
+        for key in ('remove_unused_layers', 'keep_end_layers'):
+            with self.subTest(key=key):
+                normal, _ = convert_body(source_pad(kind='thru_hole', extra='(drill 0.5)'))
+                disabled, _ = convert_body(source_pad(kind='thru_hole', extra=f'(drill 0.5) ({key} no)'))
+                self.assertEqual(decode_fpl(disabled)[1], decode_fpl(normal)[1])
+                for value in ('', ' yes', ' maybe', ' no extra', ' (no)'):
+                    with self.subTest(value=value), self.assertRaises(converter.ConversionError):
+                        convert_body(source_pad(kind='thru_hole', extra=f'(drill 0.5) ({key}{value})'))
+                with self.assertRaisesRegex(converter.ConversionError, 'duplicate'):
+                    convert_body(source_pad(kind='thru_hole', extra=f'(drill 0.5) ({key} no) ({key} yes)'))
+
+    def test_user_graphics_and_texts_keep_notes_and_report_layer_loss(self):
+        result, warnings = convert_body(source_pad() + '''
+            (fp_line (start 1 2) (end 3 4) (width 0.1) (layer "Dwgs.User"))
+            (fp_text user "mechanical" (at 1 2) (layer "Cmts.User")
+              (effects (font (size 1 1) (thickness 0.1))))''')
+        fields, _, polys = decode_fpl(result)
+        self.assertEqual(polys[0]['layer'], 7)
+        self.assertEqual(polys[0]['points'], [(1000000, -2000000), (3000000, -4000000)])
+        self.assertEqual(fields['text'][0], ['mechanical', '1000000', '1000000', '-2000000', '0', '100000', '0', '7'])
+        self.assertTrue(any(w.startswith('USER_LAYER_APPROXIMATED:') for w in warnings))
+        with self.assertRaises(converter.LossyConversionError) as caught:
+            convert_body(source_pad() + '''
+                (fp_line (start 1 2) (end 3 4) (width 0.1) (layer "Dwgs.User"))''', strict=True)
+        self.assertIn('USER_LAYER_APPROXIMATED', str(caught.exception))
+
+    @unittest.skipUnless((PROJECT / 'stl_files' / 'Connector_PinHeader_2.54mm.3dshapes' /
+                         'PinHeader_1x03_P2.54mm_Vertical.stl').is_file(),
+                        'Optional integration: existing PinHeader STL unavailable')
+    def test_real_pinheader_model_metadata_binding_without_geometry(self):
+        root = converter.parse_sexpr((FIXTURES / 'PinHeader_1x03_P2.54mm_Vertical.kicad_mod').read_text())
+        path = PROJECT / 'stl_files' / 'Connector_PinHeader_2.54mm.3dshapes' / 'PinHeader_1x03_P2.54mm_Vertical.stl'
+        before = path.stat()
+        with patch.object(Path, 'open', side_effect=AssertionError('Do not read STL geometry')):
+            result = converter.convert_detailed(root)
+        after = path.stat()
+        self.assertEqual((before.st_size, before.st_mtime_ns, before.st_ctime_ns, before.st_ino),
+                         (after.st_size, after.st_mtime_ns, after.st_ctime_ns, after.st_ino))
+        self.assertEqual(result.report['models'][0]['relative_stl'],
+                         'Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x03_P2.54mm_Vertical.stl')
+        self.assertEqual(result.report['models'][0]['existing_stl'], str(path.resolve()))
+        code = decode_fpl(result.fpl)[0]['openscad_code']
+        self.assertEqual(code[-2], ['  import(`PinHeader_1x03_P2.54mm_Vertical.stl`);'])
+        self.assertFalse(result.report['models'][0]['frame_validated'])
+
+    def test_real_unsupported_sot23_cli_keeps_previous_library_and_reports_error(self):
+        with tempfile.TemporaryDirectory() as temp:
+            destination, report = Path(temp) / 'previous.fpl', Path(temp) / 'failure.json'
+            destination.write_bytes(b'previous library')
+            result = subprocess.run([sys.executable, '-B', str(MODULE),
+                         str(FIXTURES / 'SOT-23.kicad_mod'), str(destination), '--report', str(report)],
+                         capture_output=True, text=True)
+            self.assertEqual(result.returncode, 1)
+            self.assertNotIn('Traceback', result.stderr)
+            self.assertEqual(destination.read_bytes(), b'previous library')
+            data = json.loads(report.read_text())
+            self.assertEqual(data['status'], 'failed')
+            self.assertIn('Filled fp_poly on F.SilkS is unsupported', str(data['errors']))
+
+    def test_saved_small_sample_outputs_are_reproducible(self):
+        for name in ('PinHeader_1x03_P2.54mm_Vertical', 'MountingHole_3.2mm_M3'):
+            with self.subTest(name=name):
+                root = converter.parse_sexpr((FIXTURES / (name + '.kicad_mod')).read_text())
+                result = converter.convert_detailed(root, stl_root=TEST_STL_ROOT,
+                              aperture_defaults=converter.ApertureSettings(0.05, 0, 0))
+                saved = (PROJECT / 'output' / (name + '.fpl')).read_text(encoding='cp1251')
+                self.assertEqual(saved, result.fpl)
+                decode_fpl(saved)
 
     def test_npth_is_hole_without_copper_or_paste(self):
         result, warnings = convert_body(source_pad(kind='np_thru_hole', shape='circle',

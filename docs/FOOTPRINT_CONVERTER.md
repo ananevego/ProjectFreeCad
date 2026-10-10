@@ -74,6 +74,7 @@ python3 -B src/kicad_to_freepcb_footprint.py \
 | NPTH | Круглое отверстие, все copper shapes=0, paste=0; безымянному отверстию даётся служебное имя |
 | Silk | F.SilkS→4, B.SilkS→5; линии, незаполненные прямоугольники/полигоны, окружности и современные дуги start/mid/end |
 | Fab | F.Fab→notes top=7, B.Fab→notes bottom=8; это явно выбранное приближение |
+| User drawing/comments | Dwgs.User и Cmts.User→notes=7; графика и user texts сохраняются, различие source layers теряется с `USER_LAYER_APPROXIMATED` |
 | Courtyard | Пропускается с диагностикой, отдельного соответствия пока нет |
 | Reference/value | Позиция, угол, размер, толщина и скрытие из источника; строки являются свойствами компонента, `.fpl` хранит только параметры динамических полей |
 | User text | Текст, позиция, угол, размер, толщина, зеркало, слой; скрытые тексты не выводятся |
@@ -91,6 +92,15 @@ Legacy дуги centre/angle, вырожденные дуги, заполнен�
 
 Численные проверки в тестах выполняются независимым разбором выходных записей,
 включая количество параметров и pin count. Это не запуск native reader/GUI.
+
+`remove_unused_layers` и `keep_end_layers` с явным `no` разрешены: они не меняют
+padstack. `yes` или отсутствие аргумента включают режим, зависимый от платы,
+и пока отвергаются. Неверные значения и повтор одного флага тоже вызывают ошибку.
+Правило проверено по [парсеру KiCad](https://github.com/KiCad/kicad-source-mirror/blob/82b216ea7debfff69519e317dacb1b042cbdee65/pcbnew/pcb_io/kicad_sexpr/pcb_io_kicad_sexpr_parser.cpp#L7663).
+
+Реальные PTH/NPTH примеры и отрицательный SOT-23 regression описаны в
+[SMALL_SAMPLE_VALIDATION.md](SMALL_SAMPLE_VALIDATION.md). Вариант B.Cu является
+тестом слоёв, а не подтверждённым эталоном KiCad Flip или 3D.
 
 ## Существующий R0805 STL
 

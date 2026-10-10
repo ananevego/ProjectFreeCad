@@ -18,7 +18,8 @@ from pathlib import Path, PurePosixPath
 TOKEN_RE = re.compile(r'"(?:\\.|[^"\\])*"|[()]|[^\s()"]+')
 DEFAULT_STL_ROOT = Path(__file__).resolve().parents[1] / 'stl_files'
 PAD_SHAPES = {'circle': 1, 'rect': 3, 'roundrect': 4, 'oval': 5}
-GRAPHIC_LAYERS = {'F.SilkS': 4, 'B.SilkS': 5, 'F.Fab': 7, 'B.Fab': 8}
+GRAPHIC_LAYERS = {'F.SilkS': 4, 'B.SilkS': 5, 'F.Fab': 7, 'B.Fab': 8,
+                  'Dwgs.User': 7, 'Cmts.User': 7}
 ZERO = (0.0, 0.0, 0.0)
 ONE = (1.0, 1.0, 1.0)
 TARGET_REVISION = '3af0f9b9a234c97f2d21455c936abeb8439d2d45'
@@ -27,7 +28,7 @@ LOSS_CODES = {
     'GRAPHIC_LAYER_SKIPPED', 'GRAPHIC_SKIPPED', 'FEATURE_SKIPPED',
     'TEXT_FIELD_LAYER', 'TEXT_VARIABLE_UNRESOLVED', 'TEXT_LAYER_SKIPPED',
     'MODEL_MISSING', 'MODEL_UNRESOLVED', 'FAB_LAYER_APPROXIMATED',
-    'APERTURE_ASSUMED_ZERO', 'NPTH_PASTE_SKIPPED',
+    'APERTURE_ASSUMED_ZERO', 'NPTH_PASTE_SKIPPED', 'USER_LAYER_APPROXIMATED',
 }
 ASSUMPTION_CODES = {'TEXT_ANCHOR', 'MODEL_FRAME_UNVERIFIED', 'MODEL_TRANSFORM_OVERRIDE',
                     'NPTH_LIMIT', 'APERTURE_PROJECT_DEFAULT', 'NPTH_MASK_DEFAULT'}
@@ -242,10 +243,22 @@ def parse_pad(node: list) -> Pad:
         if ratio is None or not 0 <= float(ratio) <= 0.5:
             raise ConversionError(f'Pad {node[1]}: missing/invalid roundrect_rratio')
         radius = min(width, height) * float(ratio)
-    for key in ('chamfer', 'chamfer_ratio', 'rect_delta', 'padstack', 'remove_unused_layers',
-                'remove_unused_layer', 'keep_end_layers'):
+    for key in ('chamfer', 'chamfer_ratio', 'rect_delta', 'padstack', 'remove_unused_layer'):
         if child(node, key):
             raise ConversionError(f'Pad {node[1]}: unsupported {key}')
+    for key in ('remove_unused_layers', 'keep_end_layers'):
+        items = children(node, key)
+        if len(items) > 1:
+            raise ConversionError(f'Pad {node[1]}: duplicate {key}')
+        item = items[0] if items else None
+        if item is not None:
+            # KiCad parseMaybeAbsentBool(true): absent argument enables the flag.
+            # Explicit no is inert; enabled board-dependent padstacks need more
+            # than the target's single shared inner_pad and are not approximated.
+            if len(item) > 2 or len(item) == 2 and (not isinstance(item[1], str) or item[1] not in {'yes', 'no'}):
+                raise ConversionError(f'Pad {node[1]}: malformed {key}')
+            if len(item) == 1 or item[1] == 'yes':
+                raise ConversionError(f'Pad {node[1]}: unsupported enabled {key}')
     layers = child(node, 'layers')
     return Pad(node[1], node[2], node[3], x, y, float(at[3]) if len(at) > 3 else 0,
                width, height, float(drill[1]) if drill else 0,
@@ -356,6 +369,8 @@ def parse_graphic(item: list, tolerance: float, warnings: list[str]) -> Polyline
         warnings.append(f'CURVE_APPROXIMATED: {kind} on {layer}, chord error <= {tolerance:g} mm')
     if layer in {'F.Fab', 'B.Fab'}:
         warnings.append(f'FAB_LAYER_APPROXIMATED: {layer} exported to FreePCB notes layer')
+    if layer in {'Dwgs.User', 'Cmts.User'}:
+        warnings.append(f'USER_LAYER_APPROXIMATED: {layer} exported to FreePCB top notes; source layer distinction lost')
     return Polyline(points, stroke_width(item), layer, closed)
 
 
@@ -701,6 +716,8 @@ def write_fpl(fp: Footprint, matches: list[ModelMatch], warnings: list[str],
             continue
         if text.layer in {'F.Fab', 'B.Fab'}:
             warnings.append(f'FAB_LAYER_APPROXIMATED: {text.layer} exported to FreePCB notes layer')
+        if text.layer in {'Dwgs.User', 'Cmts.User'}:
+            warnings.append(f'USER_LAYER_APPROXIMATED: {text.layer} exported to FreePCB top notes; source layer distinction lost')
         x, y = target_point(text.x, text.y)
         lines.append(f'  text: {quote(content)} {number(text.size_y)} {x} {y} {integer_angle(text.rotation)} {number(text.thickness)} {int(text.mirror)} {GRAPHIC_LAYERS[text.layer]}')
     for poly in fp.polylines:

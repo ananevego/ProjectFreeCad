@@ -1,0 +1,63 @@
+name: "PinHeader_1x03_P2.54mm_Vertical"
+author: "KiCad to FreePCB converter"
+package: "PinHeader_1x03_P2.54mm_Vertical"
+  units: NM
+description: "Through hole straight pin header, 1x03, 2.54mm pitch, single row"
+  sel_rect: -1440000 -6520000 1440000 1440000
+  ref_text: 1000000 0 2380000 0 150000
+  value_text: 1000000 0 -7460000 0 150000
+  outline_polyline: 120000 -1380000 1380000 1 0 4
+    next_corner: 0 1380000 0
+  outline_polyline: 120000 -1380000 0 1 0 4
+    next_corner: -1380000 1380000 0
+  outline_polyline: 120000 -1380000 -1270000 1 0 4
+    next_corner: -1380000 -6460000 0
+  outline_polyline: 120000 -1380000 -1270000 1 0 4
+    next_corner: 1380000 -1270000 0
+  outline_polyline: 120000 -1380000 -6460000 1 0 4
+    next_corner: 1380000 -6460000 0
+  outline_polyline: 120000 1380000 -1270000 1 0 4
+    next_corner: 1380000 -6460000 0
+  outline_polyline: 100000 -1270000 635000 1 0 7
+    next_corner: -635000 1270000 0
+  outline_polyline: 100000 -1270000 -6350000 1 0 7
+    next_corner: -1270000 635000 0
+  outline_polyline: 100000 -635000 1270000 1 0 7
+    next_corner: 1270000 1270000 0
+  outline_polyline: 100000 1270000 1270000 1 0 7
+    next_corner: 1270000 -6350000 0
+  outline_polyline: 100000 1270000 -6350000 1 0 7
+    next_corner: -1270000 -6350000 0
+  n_pins: 3
+    pin: "1" 1000000 0 0 0 ""
+      top_pad: 3 1700000 850000 850000 0
+      bottom_pad: 3 1700000 850000 850000 0
+      inner_pad: 3 1700000 850000 850000 0 0
+      top_mask: 4 1800000 900000 900000 50000
+      top_paste: 0 0 0 0 0
+      bottom_mask: 4 1800000 900000 900000 50000
+      bottom_paste: 0 0 0 0 0
+    pin: "2" 1000000 0 -2540000 0 ""
+      top_pad: 1 1700000 850000 850000 0
+      bottom_pad: 1 1700000 850000 850000 0
+      inner_pad: 1 1700000 850000 850000 0 0
+      top_mask: 1 1800000 900000 900000 0
+      top_paste: 0 0 0 0 0
+      bottom_mask: 1 1800000 900000 900000 0
+      bottom_paste: 0 0 0 0 0
+    pin: "3" 1000000 0 -5080000 0 ""
+      top_pad: 1 1700000 850000 850000 0
+      bottom_pad: 1 1700000 850000 850000 0
+      inner_pad: 1 1700000 850000 850000 0 0
+      top_mask: 1 1800000 900000 900000 0
+      top_paste: 0 0 0 0 0
+      bottom_mask: 1 1800000 900000 900000 0
+      bottom_paste: 0 0 0 0 0
+  openscad_code: "translate([0,0,0]) // (automatic adjustment when moving the footprint origin)"
+  openscad_code: "scale([1,1,1]) // (automatic adjustment when changing the project units)"
+  openscad_code: "{"
+  openscad_code: "  translate([0,0,0])"
+  openscad_code: "  rotate([0,0,0])"
+  openscad_code: "  scale([1,1,1])"
+  openscad_code: "  import(`PinHeader_1x03_P2.54mm_Vertical.stl`);"
+  openscad_code: "}"
