@@ -18,7 +18,7 @@ from .model import (
     ZERO,
 )
 from .format_rules import GRAPHIC_LAYERS
-from .geometry import arc_points, sample_arc
+from .geometry import arc_points, legacy_arc_points, sample_arc
 
 
 TOKEN_RE = re.compile(r'"(?:\\.|[^"\\])*"|[()]|[^\s()"]+')
@@ -148,26 +148,90 @@ def parse_pad(node: list) -> Pad:
                tuple(layers[1:]) if layers else (), radius, parse_apertures(node))
 
 
+def text_flag(node: list, key: str, *, default: bool = False) -> bool:
+    """KiCad parseMaybeAbsentBool: bare/key-only enables, explicit no disables."""
+    nodes = children(node, key)
+    bare = sum(item == key for item in node if isinstance(item, str))
+    if len(nodes) + bare > 1:
+        raise ConversionError(f'Duplicate text {key}')
+    if bare:
+        return True
+    if not nodes:
+        return default
+    item = nodes[0]
+    if len(item) == 1:
+        return True
+    if len(item) != 2 or not isinstance(item[1], str) or item[1] not in {'yes', 'no'}:
+        raise ConversionError(f'Malformed text {key}')
+    return item[1] == 'yes'
+
+
 def parse_text(node: list) -> FootprintText:
     require_atoms(node, 3, 'text')
+    content_index = 2
+    if node[0] == 'fp_text' and node[2] == 'locked' and len(node) > 3 and isinstance(node[3], str):
+        content_index = 3  # Legacy bare locked before the text string.
+    content = node[content_index]
+    attributes = node[content_index + 1:]
     kind = node[1].lower() if node[0] == 'property' else node[1]
+    if node[0] == 'fp_text' and kind not in {'reference', 'value', 'user'}:
+        raise ConversionError(f'Unsupported footprint text type: {kind}')
+    for container, keys in ((node, ('at', 'layer', 'effects')),
+                            (child(node, 'effects') or [], ('font', 'justify'))):
+        for key in keys:
+            if len(children(container, key)) > 1:
+                raise ConversionError(f'Duplicate text {key}')
     effects = child(node, 'effects')
     font = child(effects, 'font') if effects else None
     if not font:
-        raise ConversionError(f'Text {node[2]!r}: missing font')
-    if child(font, 'face') or 'bold' in font or 'italic' in font:
-        raise ConversionError(f'Text {node[2]!r}: custom/bold/italic font is unsupported')
+        raise ConversionError(f'Text {content!r}: missing font')
+    if child(font, 'face') or text_flag(font, 'bold') or text_flag(font, 'italic'):
+        raise ConversionError(f'Text {content!r}: custom/bold/italic font is unsupported')
+    for key in ('size', 'thickness'):
+        if len(children(font, key)) > 1:
+            raise ConversionError(f'Duplicate text font {key}')
+        item = child(font, key)
+        if item is not None:
+            count = 3 if key == 'size' else 2
+            require_atoms(item, count, f'text font {key}')
+            if len(item) != count:
+                raise ConversionError(f'Malformed text font {key}')
+    if child(font, 'line_spacing') is not None:
+        raise ConversionError('Custom text line spacing is unsupported')
     justify = child(effects, 'justify')
     if justify and any(item != 'mirror' for item in justify[1:]):
-        raise ConversionError(f'Text {node[2]!r}: non-centred justification is unsupported')
+        raise ConversionError(f'Text {content!r}: non-centred justification is unsupported')
     at = child(node, 'at')
+    if at is None:
+        raise ConversionError('Missing text at')
+    require_atoms(at, 3, 'text at')
+    tail = at[3:]
+    unlocked_at = bool(tail and tail[-1] == 'unlocked')
+    if unlocked_at:
+        tail = tail[:-1]
+    if len(tail) > 1 or any(not isinstance(v, str) for v in tail):
+        raise ConversionError('Malformed text at')
+    if unlocked_at and (child(attributes, 'unlocked') is not None or 'unlocked' in attributes):
+        raise ConversionError('Duplicate text unlocked')
+    layer = child(node, 'layer')
+    if layer is None or len(layer) < 2:
+        raise ConversionError('Missing text layer')
+    require_atoms(layer, len(layer), 'text layer')
+    if 'knockout' in layer[2:]:
+        raise ConversionError('Knockout footprint text is unsupported')
+    if len(layer) != 2:
+        raise ConversionError('Malformed text layer')
     x, y = pair(at)
     sx, sy = pair(child(font, 'size'))
-    hidden = 'hide' in node or scalar(node, 'hide', 'no') == 'yes' or 'hide' in effects
-    return FootprintText(kind, node[2], x, y, float(at[3]) if len(at) > 3 else 0,
+    if (child(attributes, 'hide') is not None or 'hide' in attributes) and (child(effects, 'hide') is not None or 'hide' in effects):
+        raise ConversionError('Duplicate text hide across node/effects')
+    hidden = text_flag(attributes, 'hide') or text_flag(effects, 'hide')
+    return FootprintText(kind, content, x, y, float(tail[0]) if tail else 0,
                          sx, sy, float(scalar(font, 'thickness', 0.15)),
                          scalar(node, 'layer', ''), hidden,
-                         bool(justify and 'mirror' in justify))
+                         bool(justify and 'mirror' in justify),
+                         not (unlocked_at or text_flag(attributes, 'unlocked')),
+                         node[1] if node[0] == 'property' else None)
 
 
 def stroke_width(node: list) -> float:
@@ -221,10 +285,26 @@ def parse_graphic(item: list, tolerance: float, warnings: list[str]) -> Polyline
         points = sample_arc(center, radius, math.atan2(end[1]-center[1], end[0]-center[0]),
                             math.tau, tolerance)[:-1]
     else:
-        if child(item, 'mid') is None:
-            raise ConversionError('Legacy centre/angle fp_arc is unsupported; start/mid/end required')
-        points = arc_points(pair(child(item, 'start')), pair(child(item, 'mid')),
-                            pair(child(item, 'end')), tolerance)
+        # Mixed/duplicate arc definitions must never silently select a format.
+        for key in ('start', 'mid', 'end', 'angle'):
+            nodes = children(item, key)
+            if len(nodes) > 1:
+                raise ConversionError(f'Duplicate fp_arc {key}')
+            if nodes:
+                require_atoms(nodes[0], 2 if key == 'angle' else 3, f'fp_arc {key}')
+                if len(nodes[0]) != (2 if key == 'angle' else 3):
+                    raise ConversionError(f'Malformed fp_arc {key}')
+        mid, angle = child(item, 'mid'), child(item, 'angle')
+        if mid is not None and angle is not None:
+            raise ConversionError('Mixed modern/legacy fp_arc geometry')
+        if mid is not None:
+            points = arc_points(pair(child(item, 'start')), pair(mid),
+                                pair(child(item, 'end')), tolerance)
+        elif angle is not None:
+            points = legacy_arc_points(pair(child(item, 'start')), pair(child(item, 'end')),
+                                       float(angle[1]), tolerance)
+        else:
+            raise ConversionError('fp_arc requires either mid or legacy angle')
     if kind in {'fp_circle', 'fp_arc'}:
         warnings.append(f'CURVE_APPROXIMATED: {kind} on {layer}, chord error <= {tolerance:g} mm')
     if layer in {'F.Fab', 'B.Fab'}:
@@ -265,7 +345,8 @@ def parse_footprint(root: list, footprint_name: str | None = None, *,
                 raise ConversionError('Legacy model (at ...) units unsupported; use (offset ...)')
             fp.models.append(ModelReference(item[1], xyz(item, 'offset', ZERO),
                                             xyz(item, 'rotate', ZERO), xyz(item, 'scale', ONE)))
-        elif kind == 'fp_text' or kind == 'property' and item[1].lower() in {'reference', 'value'}:
+        elif kind == 'fp_text' or kind == 'property' and (
+                item[1].lower() in {'reference', 'value'} or child(item, 'at') or child(item, 'effects')):
             fp.texts.append(parse_text(item))
         elif kind in {'fp_line', 'fp_rect', 'fp_circle', 'fp_arc', 'fp_poly'}:
             layer = scalar(item, 'layer', '')

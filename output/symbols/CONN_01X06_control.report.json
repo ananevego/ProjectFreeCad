@@ -1,0 +1,1264 @@
+{
+  "schema_version": 1,
+  "kind": "schemator_symbol_conversion",
+  "status": "generated_with_loss",
+  "target": {
+    "repository": "niconson/Schematic-Constructor",
+    "revision": "e7443c374f5c8644fb3483f794a50161de60dd01",
+    "version": "1.429",
+    "profile": "schemator-cds-straight-v1",
+    "encoding": "cp1251",
+    "coordinates": "nanometres, Y up; source library coordinates preserved",
+    "text_angle_rule": "negative source angle modulo 360"
+  },
+  "contract_verified_against_source": true,
+  "target_records_validated": true,
+  "target_output_generated": true,
+  "target_import_verified": false,
+  "gui_validated": false,
+  "source_format": "legacy_lib",
+  "source_version": "2.3",
+  "source_symbol": {
+    "name": "CONN_01X06",
+    "properties": {
+      "Reference": {
+        "name": "Reference",
+        "value": "P",
+        "at": [
+          0.0,
+          8.889999999999999,
+          0
+        ],
+        "hidden": false,
+        "raw": [
+          "F0",
+          "P",
+          "0",
+          "350",
+          "50",
+          "H",
+          "V",
+          "C",
+          "CNN"
+        ]
+      },
+      "Value": {
+        "name": "Value",
+        "value": "CONN_01X06",
+        "at": [
+          2.54,
+          0.0,
+          90
+        ],
+        "hidden": false,
+        "raw": [
+          "F1",
+          "CONN_01X06",
+          "100",
+          "0",
+          "50",
+          "V",
+          "V",
+          "C",
+          "CNN"
+        ]
+      },
+      "Footprint": {
+        "name": "Footprint",
+        "value": "",
+        "at": [
+          0.0,
+          0.0,
+          0
+        ],
+        "hidden": false,
+        "raw": [
+          "F2",
+          "",
+          "0",
+          "0",
+          "60",
+          "H",
+          "V",
+          "C",
+          "CNN"
+        ]
+      },
+      "Datasheet": {
+        "name": "Datasheet",
+        "value": "",
+        "at": [
+          0.0,
+          0.0,
+          0
+        ],
+        "hidden": false,
+        "raw": [
+          "F3",
+          "",
+          "0",
+          "0",
+          "60",
+          "H",
+          "V",
+          "C",
+          "CNN"
+        ]
+      },
+      "ki_fp_filters": {
+        "name": "ki_fp_filters",
+        "value": "Pin_Header_Straight_1X06 Pin_Header_Angled_1X06 Socket_Strip_Straight_1X06 Socket_Strip_Angled_1X06",
+        "at": [
+          0,
+          0,
+          0
+        ],
+        "hidden": true,
+        "raw": [
+          "Pin_Header_Straight_1X06",
+          "Pin_Header_Angled_1X06",
+          "Socket_Strip_Straight_1X06",
+          "Socket_Strip_Angled_1X06"
+        ]
+      }
+    },
+    "units": [
+      {
+        "number": 0,
+        "style": 1,
+        "source_id": "CONN_01X06_0_1",
+        "display_name": null,
+        "pins": [],
+        "graphics": [
+          {
+            "kind": "rectangle",
+            "geometry": {
+              "start": [
+                -1.27,
+                -6.223
+              ],
+              "end": [
+                0.254,
+                -6.476999999999999
+              ]
+            },
+            "width": 0.0,
+            "fill": "none",
+            "raw": [
+              "S",
+              "-50",
+              "-245",
+              "10",
+              "-255",
+              "0",
+              "1",
+              "0",
+              "N"
+            ]
+          },
+          {
+            "kind": "rectangle",
+            "geometry": {
+              "start": [
+                -1.27,
+                -3.683
+              ],
+              "end": [
+                0.254,
+                -3.937
+              ]
+            },
+            "width": 0.0,
+            "fill": "none",
+            "raw": [
+              "S",
+              "-50",
+              "-145",
+              "10",
+              "-155",
+              "0",
+              "1",
+              "0",
+              "N"
+            ]
+          },
+          {
+            "kind": "rectangle",
+            "geometry": {
+              "start": [
+                -1.27,
+                -1.143
+              ],
+              "end": [
+                0.254,
+                -1.397
+              ]
+            },
+            "width": 0.0,
+            "fill": "none",
+            "raw": [
+              "S",
+              "-50",
+              "-45",
+              "10",
+              "-55",
+              "0",
+              "1",
+              "0",
+              "N"
+            ]
+          },
+          {
+            "kind": "rectangle",
+            "geometry": {
+              "start": [
+                -1.27,
+                1.397
+              ],
+              "end": [
+                0.254,
+                1.143
+              ]
+            },
+            "width": 0.0,
+            "fill": "none",
+            "raw": [
+              "S",
+              "-50",
+              "55",
+              "10",
+              "45",
+              "0",
+              "1",
+              "0",
+              "N"
+            ]
+          },
+          {
+            "kind": "rectangle",
+            "geometry": {
+              "start": [
+                -1.27,
+                3.937
+              ],
+              "end": [
+                0.254,
+                3.683
+              ]
+            },
+            "width": 0.0,
+            "fill": "none",
+            "raw": [
+              "S",
+              "-50",
+              "155",
+              "10",
+              "145",
+              "0",
+              "1",
+              "0",
+              "N"
+            ]
+          },
+          {
+            "kind": "rectangle",
+            "geometry": {
+              "start": [
+                -1.27,
+                6.476999999999999
+              ],
+              "end": [
+                0.254,
+                6.223
+              ]
+            },
+            "width": 0.0,
+            "fill": "none",
+            "raw": [
+              "S",
+              "-50",
+              "255",
+              "10",
+              "245",
+              "0",
+              "1",
+              "0",
+              "N"
+            ]
+          },
+          {
+            "kind": "rectangle",
+            "geometry": {
+              "start": [
+                -1.27,
+                7.62
+              ],
+              "end": [
+                1.27,
+                -7.62
+              ]
+            },
+            "width": 0.0,
+            "fill": "none",
+            "raw": [
+              "S",
+              "-50",
+              "300",
+              "50",
+              "-300",
+              "0",
+              "1",
+              "0",
+              "N"
+            ]
+          }
+        ]
+      },
+      {
+        "number": 1,
+        "style": 1,
+        "source_id": "CONN_01X06_1_1",
+        "display_name": null,
+        "pins": [
+          {
+            "number": "1",
+            "name": "P1",
+            "at": [
+              -5.08,
+              6.35,
+              0
+            ],
+            "length": 3.81,
+            "electrical_type": "passive",
+            "graphic_style": "line",
+            "hidden": false,
+            "name_size": [
+              1.27,
+              1.27
+            ],
+            "number_size": [
+              1.27,
+              1.27
+            ],
+            "alternates": [],
+            "raw": [
+              "X",
+              "P1",
+              "1",
+              "-200",
+              "250",
+              "150",
+              "R",
+              "50",
+              "50",
+              "1",
+              "1",
+              "P"
+            ]
+          },
+          {
+            "number": "2",
+            "name": "P2",
+            "at": [
+              -5.08,
+              3.81,
+              0
+            ],
+            "length": 3.81,
+            "electrical_type": "passive",
+            "graphic_style": "line",
+            "hidden": false,
+            "name_size": [
+              1.27,
+              1.27
+            ],
+            "number_size": [
+              1.27,
+              1.27
+            ],
+            "alternates": [],
+            "raw": [
+              "X",
+              "P2",
+              "2",
+              "-200",
+              "150",
+              "150",
+              "R",
+              "50",
+              "50",
+              "1",
+              "1",
+              "P"
+            ]
+          },
+          {
+            "number": "3",
+            "name": "P3",
+            "at": [
+              -5.08,
+              1.27,
+              0
+            ],
+            "length": 3.81,
+            "electrical_type": "passive",
+            "graphic_style": "line",
+            "hidden": false,
+            "name_size": [
+              1.27,
+              1.27
+            ],
+            "number_size": [
+              1.27,
+              1.27
+            ],
+            "alternates": [],
+            "raw": [
+              "X",
+              "P3",
+              "3",
+              "-200",
+              "50",
+              "150",
+              "R",
+              "50",
+              "50",
+              "1",
+              "1",
+              "P"
+            ]
+          },
+          {
+            "number": "4",
+            "name": "P4",
+            "at": [
+              -5.08,
+              -1.27,
+              0
+            ],
+            "length": 3.81,
+            "electrical_type": "passive",
+            "graphic_style": "line",
+            "hidden": false,
+            "name_size": [
+              1.27,
+              1.27
+            ],
+            "number_size": [
+              1.27,
+              1.27
+            ],
+            "alternates": [],
+            "raw": [
+              "X",
+              "P4",
+              "4",
+              "-200",
+              "-50",
+              "150",
+              "R",
+              "50",
+              "50",
+              "1",
+              "1",
+              "P"
+            ]
+          },
+          {
+            "number": "5",
+            "name": "P5",
+            "at": [
+              -5.08,
+              -3.81,
+              0
+            ],
+            "length": 3.81,
+            "electrical_type": "passive",
+            "graphic_style": "line",
+            "hidden": false,
+            "name_size": [
+              1.27,
+              1.27
+            ],
+            "number_size": [
+              1.27,
+              1.27
+            ],
+            "alternates": [],
+            "raw": [
+              "X",
+              "P5",
+              "5",
+              "-200",
+              "-150",
+              "150",
+              "R",
+              "50",
+              "50",
+              "1",
+              "1",
+              "P"
+            ]
+          },
+          {
+            "number": "6",
+            "name": "P6",
+            "at": [
+              -5.08,
+              -6.35,
+              0
+            ],
+            "length": 3.81,
+            "electrical_type": "passive",
+            "graphic_style": "line",
+            "hidden": false,
+            "name_size": [
+              1.27,
+              1.27
+            ],
+            "number_size": [
+              1.27,
+              1.27
+            ],
+            "alternates": [],
+            "raw": [
+              "X",
+              "P6",
+              "6",
+              "-200",
+              "-250",
+              "150",
+              "R",
+              "50",
+              "50",
+              "1",
+              "1",
+              "P"
+            ]
+          }
+        ],
+        "graphics": []
+      }
+    ],
+    "extends": null,
+    "inheritance_chain": [],
+    "aliases": [],
+    "alias_of": null,
+    "unit_count": 1,
+    "pin_names_hidden": true,
+    "pin_numbers_hidden": false,
+    "pin_name_offset": 1.016,
+    "in_bom": true,
+    "on_board": true,
+    "power": false,
+    "diagnostics": [],
+    "raw": [
+      "DEF CONN_01X06 P 0 40 Y N 1 F N",
+      "F0 \"P\" 0 350 50 H V C CNN",
+      "F1 \"CONN_01X06\" 100 0 50 V V C CNN",
+      "F2 \"\" 0 0 60 H V C CNN",
+      "F3 \"\" 0 0 60 H V C CNN",
+      "$FPLIST",
+      "Pin_Header_Straight_1X06",
+      "Pin_Header_Angled_1X06",
+      "Socket_Strip_Straight_1X06",
+      "Socket_Strip_Angled_1X06",
+      "$ENDFPLIST",
+      "DRAW",
+      "S -50 -245 10 -255 0 1 0 N",
+      "S -50 -145 10 -155 0 1 0 N",
+      "S -50 -45 10 -55 0 1 0 N",
+      "S -50 55 10 45 0 1 0 N",
+      "S -50 155 10 145 0 1 0 N",
+      "S -50 255 10 245 0 1 0 N",
+      "S -50 300 50 -300 0 1 0 N",
+      "X P1 1 -200 250 150 R 50 50 1 1 P",
+      "X P2 2 -200 150 150 R 50 50 1 1 P",
+      "X P3 3 -200 50 150 R 50 50 1 1 P",
+      "X P4 4 -200 -50 150 R 50 50 1 1 P",
+      "X P5 5 -200 -150 150 R 50 50 1 1 P",
+      "X P6 6 -200 -250 150 R 50 50 1 1 P",
+      "ENDDRAW",
+      "ENDDEF"
+    ]
+  },
+  "conversion_settings": {
+    "footprint_name": null,
+    "reference": "P1",
+    "project_name": "CONN_01X06_control.cds",
+    "default_line_width_mm": 0.254,
+    "pin_width_mm": 0.254
+  },
+  "target_component": {
+    "pin_count": 6,
+    "bounds": [
+      -5232400,
+      -7772400,
+      1422400,
+      7772400
+    ],
+    "reference": {
+      "value": "P1",
+      "x": 0,
+      "y": 8890000,
+      "layer": 7,
+      "angle": 0,
+      "size": 1270000,
+      "width": 127000,
+      "merge": -1,
+      "submerge": -1,
+      "font": 2,
+      "options": 1
+    },
+    "value": {
+      "value": "CONN_01X06",
+      "x": 2540000,
+      "y": 0,
+      "layer": 13,
+      "angle": 270,
+      "size": 1270000,
+      "width": 127000,
+      "merge": -1,
+      "submerge": -1,
+      "font": 2,
+      "options": 1
+    },
+    "footprint": {
+      "value": "PART",
+      "x": 0,
+      "y": 0,
+      "layer": 12,
+      "angle": 0,
+      "size": 0,
+      "width": 0,
+      "merge": -1,
+      "submerge": -1,
+      "font": 2,
+      "options": 1
+    },
+    "polylines": [
+      {
+        "closed": true,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": -1270000,
+            "y": -6223000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 254000,
+            "y": -6223000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 254000,
+            "y": -6477000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -1270000,
+            "y": -6477000,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": true,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": -1270000,
+            "y": -3683000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 254000,
+            "y": -3683000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 254000,
+            "y": -3937000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -1270000,
+            "y": -3937000,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": true,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": -1270000,
+            "y": -1143000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 254000,
+            "y": -1143000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 254000,
+            "y": -1397000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -1270000,
+            "y": -1397000,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": true,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": -1270000,
+            "y": 1397000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 254000,
+            "y": 1397000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 254000,
+            "y": 1143000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -1270000,
+            "y": 1143000,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": true,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": -1270000,
+            "y": 3937000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 254000,
+            "y": 3937000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 254000,
+            "y": 3683000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -1270000,
+            "y": 3683000,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": true,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": -1270000,
+            "y": 6477000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 254000,
+            "y": 6477000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 254000,
+            "y": 6223000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -1270000,
+            "y": 6223000,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": true,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": -1270000,
+            "y": 7620000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 1270000,
+            "y": 7620000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 1270000,
+            "y": -7620000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -1270000,
+            "y": -7620000,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 8,
+        "width": 254000,
+        "corners": [
+          {
+            "x": -1270000,
+            "y": 6350000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -5080000,
+            "y": 6350000,
+            "style": 0,
+            "node": 1
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": {
+          "value": "1",
+          "x": -3175000,
+          "y": 6985000,
+          "layer": 9,
+          "angle": 0,
+          "size": 1270000,
+          "width": 127000,
+          "merge": -1,
+          "submerge": -1,
+          "font": 2,
+          "options": 1
+        },
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 8,
+        "width": 254000,
+        "corners": [
+          {
+            "x": -1270000,
+            "y": 3810000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -5080000,
+            "y": 3810000,
+            "style": 0,
+            "node": 1
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": {
+          "value": "2",
+          "x": -3175000,
+          "y": 4445000,
+          "layer": 9,
+          "angle": 0,
+          "size": 1270000,
+          "width": 127000,
+          "merge": -1,
+          "submerge": -1,
+          "font": 2,
+          "options": 1
+        },
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 8,
+        "width": 254000,
+        "corners": [
+          {
+            "x": -1270000,
+            "y": 1270000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -5080000,
+            "y": 1270000,
+            "style": 0,
+            "node": 1
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": {
+          "value": "3",
+          "x": -3175000,
+          "y": 1905000,
+          "layer": 9,
+          "angle": 0,
+          "size": 1270000,
+          "width": 127000,
+          "merge": -1,
+          "submerge": -1,
+          "font": 2,
+          "options": 1
+        },
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 8,
+        "width": 254000,
+        "corners": [
+          {
+            "x": -1270000,
+            "y": -1270000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -5080000,
+            "y": -1270000,
+            "style": 0,
+            "node": 1
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": {
+          "value": "4",
+          "x": -3175000,
+          "y": -635000,
+          "layer": 9,
+          "angle": 0,
+          "size": 1270000,
+          "width": 127000,
+          "merge": -1,
+          "submerge": -1,
+          "font": 2,
+          "options": 1
+        },
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 8,
+        "width": 254000,
+        "corners": [
+          {
+            "x": -1270000,
+            "y": -3810000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -5080000,
+            "y": -3810000,
+            "style": 0,
+            "node": 1
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": {
+          "value": "5",
+          "x": -3175000,
+          "y": -3175000,
+          "layer": 9,
+          "angle": 0,
+          "size": 1270000,
+          "width": 127000,
+          "merge": -1,
+          "submerge": -1,
+          "font": 2,
+          "options": 1
+        },
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 8,
+        "width": 254000,
+        "corners": [
+          {
+            "x": -1270000,
+            "y": -6350000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -5080000,
+            "y": -6350000,
+            "style": 0,
+            "node": 1
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": {
+          "value": "6",
+          "x": -3175000,
+          "y": -5715000,
+          "layer": 9,
+          "angle": 0,
+          "size": 1270000,
+          "width": 127000,
+          "merge": -1,
+          "submerge": -1,
+          "font": 2,
+          "options": 1
+        },
+        "description": null
+      }
+    ]
+  },
+  "physical_pin_mapping_verified": false,
+  "diagnostics": [
+    {
+      "code": "SYMBOL_TEXT_RENDERING",
+      "severity": "loss",
+      "message": "SIMPLEX replaces source fonts; source property anchors are used as native baselines. Justification, text styling and exact glyph bounds are not reproduced.",
+      "context": {}
+    },
+    {
+      "code": "TARGET_PIN_STROKE",
+      "severity": "assumption",
+      "message": "Pin stroke width is a declared conversion setting; the library has no resolved project pin stroke.",
+      "context": {
+        "width_mm": 0.254
+      }
+    },
+    {
+      "code": "SYMBOL_FOOTPRINT_UNRESOLVED",
+      "severity": "loss",
+      "message": "Native PART placeholder used; source footprint identifier/filters are retained in JSON.",
+      "context": {}
+    },
+    {
+      "code": "SYMBOL_METADATA_NOT_TRANSFERRED",
+      "severity": "loss",
+      "message": "Source datasheet/custom properties/footprint filters retained only in JSON.",
+      "context": {
+        "properties": [
+          "ki_fp_filters"
+        ]
+      }
+    },
+    {
+      "code": "SOURCE_LINE_WIDTH_DEFAULT",
+      "severity": "assumption",
+      "message": "Zero source stroke resolves to declared default width.",
+      "context": {
+        "unit": 0,
+        "graphic": 0,
+        "width_mm": 0.254
+      }
+    },
+    {
+      "code": "SOURCE_LINE_WIDTH_DEFAULT",
+      "severity": "assumption",
+      "message": "Zero source stroke resolves to declared default width.",
+      "context": {
+        "unit": 0,
+        "graphic": 1,
+        "width_mm": 0.254
+      }
+    },
+    {
+      "code": "SOURCE_LINE_WIDTH_DEFAULT",
+      "severity": "assumption",
+      "message": "Zero source stroke resolves to declared default width.",
+      "context": {
+        "unit": 0,
+        "graphic": 2,
+        "width_mm": 0.254
+      }
+    },
+    {
+      "code": "SOURCE_LINE_WIDTH_DEFAULT",
+      "severity": "assumption",
+      "message": "Zero source stroke resolves to declared default width.",
+      "context": {
+        "unit": 0,
+        "graphic": 3,
+        "width_mm": 0.254
+      }
+    },
+    {
+      "code": "SOURCE_LINE_WIDTH_DEFAULT",
+      "severity": "assumption",
+      "message": "Zero source stroke resolves to declared default width.",
+      "context": {
+        "unit": 0,
+        "graphic": 4,
+        "width_mm": 0.254
+      }
+    },
+    {
+      "code": "SOURCE_LINE_WIDTH_DEFAULT",
+      "severity": "assumption",
+      "message": "Zero source stroke resolves to declared default width.",
+      "context": {
+        "unit": 0,
+        "graphic": 5,
+        "width_mm": 0.254
+      }
+    },
+    {
+      "code": "SOURCE_LINE_WIDTH_DEFAULT",
+      "severity": "assumption",
+      "message": "Zero source stroke resolves to declared default width.",
+      "context": {
+        "unit": 0,
+        "graphic": 6,
+        "width_mm": 0.254
+      }
+    },
+    {
+      "code": "SYMBOL_ELECTRICAL_TYPE_NOT_TRANSFERRED",
+      "severity": "loss",
+      "message": "Physical pin numbers/connectivity records are retained; KiCad passive electrical type is not a native ERC attribute.",
+      "context": {}
+    },
+    {
+      "code": "SYMBOL_PIN_LABEL_LAYOUT",
+      "severity": "loss",
+      "message": "Pin numbers/names use a declared horizontal placement policy; exact KiCad automatic label layout is not reproduced.",
+      "context": {}
+    }
+  ],
+  "artifact_sha256": "422622bd91d589518e578cc0428ce7a881e4223a2b09b59e46d1c0d5a3a42fe0",
+  "counts": {
+    "components": 1,
+    "pins": 6,
+    "polylines": 13,
+    "losses": 5,
+    "assumptions": 8
+  },
+  "source": {
+    "path": "/Users/egorananev/Desktop/hse/1-2 курс/ПРОЕКТ/KiCad/Pickit-cache.lib",
+    "sha256": "2392caa9775ccf212837314970deee07105228d5070917c31d757d39af459b3d"
+  },
+  "output": "/Users/egorananev/Desktop/hse/1-2 курс/ПРОЕКТ/output/symbols/CONN_01X06_control.cds"
+}

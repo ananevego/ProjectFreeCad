@@ -56,6 +56,29 @@ def arc_points(start: tuple, mid: tuple, end: tuple, tolerance: float) -> tuple:
     return tuple(points)
 
 
+def legacy_arc_points(center: tuple, start: tuple, angle: float, tolerance: float) -> tuple:
+    """Sample pre-KiCad-6 centre/start/signed-degree arcs in source coordinates.
+
+    The file's `start` is the centre and its `end` is the first curve point.
+    KiCad RotatePoint(-angle) increases atan2 in the Y-down source frame.
+    Keep the signed traversal; negative arcs cover the same locus as KiCad's
+    canonical positive arc after its endpoint swap.
+    """
+    if not all(math.isfinite(v) for v in (*center, *start, angle)):
+        raise ConversionError('Invalid legacy arc coordinates/angle')
+    if not 0 < abs(angle) <= 360:
+        raise ConversionError('Legacy arc angle must satisfy 0 < abs(angle) <= 360 degrees')
+    dx, dy = start[0] - center[0], start[1] - center[1]
+    points = list(sample_arc(center, math.hypot(dx, dy), math.atan2(dy, dx),
+                             math.radians(angle), tolerance))
+    points[0] = start
+    if abs(angle) == 360:
+        points[-1] = start
+    if len({(number(x), number(y)) for x, y in points}) < 2:
+        raise ConversionError('Legacy arc collapses on target coordinate grid')
+    return tuple(points)
+
+
 def filled_polygon_points(polygon: FilledPolygon) -> tuple[tuple[int, int], ...]:
     if not math.isfinite(polygon.width) or polygon.width < 0:
         raise ConversionError('Invalid filled polygon stroke width')

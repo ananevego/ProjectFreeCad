@@ -57,6 +57,8 @@ class FootprintText:
     layer: str
     hidden: bool = False
     mirror: bool = False
+    keep_upright: bool = True
+    property_name: str | None = None
 
 
 @dataclass(frozen=True)

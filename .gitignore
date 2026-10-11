@@ -21,3 +21,6 @@ desktop.ini
 
 # Runtime reports contain machine-local paths.
 /output/*.report.json
+
+# Batch manifests/reports/cache contain local paths and generated libraries.
+/output/batches/

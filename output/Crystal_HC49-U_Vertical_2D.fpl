@@ -1,0 +1,145 @@
+name: "Crystal_HC49-U_Vertical_2D"
+author: "KiCad to FreePCB converter"
+package: "Crystal_HC49-U_Vertical_2D"
+  units: NM
+description: "Crystal THT HC-49/U http://5hertz.com/pdfs/04404_D.pdf"
+  sel_rect: -3270000 -2585000 8150000 2585000
+  ref_text: 1000000 2440000 3525000 0 150000
+  value_text: 1000000 2440000 -3525000 0 150000
+  outline_polyline: 100000 -685000 2325000 1 0 7
+    next_corner: 5565000 2325000 0
+  outline_polyline: 100000 -685000 -2325000 1 0 7
+    next_corner: 5565000 -2325000 0
+  outline_polyline: 100000 -560000 2000000 1 0 7
+    next_corner: 5440000 2000000 0
+  outline_polyline: 100000 -560000 -2000000 1 0 7
+    next_corner: 5440000 -2000000 0
+  outline_polyline: 120000 -685000 2525000 1 0 4
+    next_corner: 5565000 2525000 0
+  outline_polyline: 120000 -685000 -2525000 1 0 4
+    next_corner: 5565000 -2525000 0
+  outline_polyline: 100000 -685000 2325000 1 0 7
+    next_corner: -1112220 2285410 0
+    next_corner: -1524890 2168000 0
+    next_corner: -1908950 1976750 0
+    next_corner: -2251340 1718200 0
+    next_corner: -2540390 1401130 0
+    next_corner: -2766250 1036340 0
+    next_corner: -2921240 636270 0
+    next_corner: -3000080 214520 0
+    next_corner: -3000080 -214520 0
+    next_corner: -2921240 -636270 0
+    next_corner: -2766250 -1036340 0
+    next_corner: -2540390 -1401130 0
+    next_corner: -2251340 -1718200 0
+    next_corner: -1908950 -1976750 0
+    next_corner: -1524890 -2168000 0
+    next_corner: -1112220 -2285410 0
+    next_corner: -685000 -2325000 0
+  outline_polyline: 100000 5565000 2325000 1 0 7
+    next_corner: 5992220 2285410 0
+    next_corner: 6404890 2168000 0
+    next_corner: 6788950 1976750 0
+    next_corner: 7131340 1718200 0
+    next_corner: 7420390 1401130 0
+    next_corner: 7646250 1036340 0
+    next_corner: 7801240 636270 0
+    next_corner: 7880080 214520 0
+    next_corner: 7880080 -214520 0
+    next_corner: 7801240 -636270 0
+    next_corner: 7646250 -1036340 0
+    next_corner: 7420390 -1401130 0
+    next_corner: 7131340 -1718200 0
+    next_corner: 6788950 -1976750 0
+    next_corner: 6404890 -2168000 0
+    next_corner: 5992220 -2285410 0
+    next_corner: 5565000 -2325000 0
+  outline_polyline: 100000 -560000 2000000 1 0 7
+    next_corner: -950180 1961570 0
+    next_corner: -1325370 1847760 0
+    next_corner: -1671140 1662940 0
+    next_corner: -1974210 1414210 0
+    next_corner: -2222940 1111140 0
+    next_corner: -2407760 765370 0
+    next_corner: -2521570 390180 0
+    next_corner: -2560000 0 0
+    next_corner: -2521570 -390180 0
+    next_corner: -2407760 -765370 0
+    next_corner: -2222940 -1111140 0
+    next_corner: -1974210 -1414210 0
+    next_corner: -1671140 -1662940 0
+    next_corner: -1325370 -1847760 0
+    next_corner: -950180 -1961570 0
+    next_corner: -560000 -2000000 0
+  outline_polyline: 100000 5440000 2000000 1 0 7
+    next_corner: 5830180 1961570 0
+    next_corner: 6205370 1847760 0
+    next_corner: 6551140 1662940 0
+    next_corner: 6854210 1414210 0
+    next_corner: 7102940 1111140 0
+    next_corner: 7287760 765370 0
+    next_corner: 7401570 390180 0
+    next_corner: 7440000 0 0
+    next_corner: 7401570 -390180 0
+    next_corner: 7287760 -765370 0
+    next_corner: 7102940 -1111140 0
+    next_corner: 6854210 -1414210 0
+    next_corner: 6551140 -1662940 0
+    next_corner: 6205370 -1847760 0
+    next_corner: 5830180 -1961570 0
+    next_corner: 5440000 -2000000 0
+  outline_polyline: 120000 -685000 2525000 1 0 4
+    next_corner: -1123460 2486640 0
+    next_corner: -1548600 2372720 0
+    next_corner: -1947500 2186710 0
+    next_corner: -2308040 1934260 0
+    next_corner: -2619260 1623040 0
+    next_corner: -2871710 1262500 0
+    next_corner: -3057720 863600 0
+    next_corner: -3171640 438460 0
+    next_corner: -3210000 0 0
+    next_corner: -3171640 -438460 0
+    next_corner: -3057720 -863600 0
+    next_corner: -2871710 -1262500 0
+    next_corner: -2619260 -1623040 0
+    next_corner: -2308040 -1934260 0
+    next_corner: -1947500 -2186710 0
+    next_corner: -1548600 -2372720 0
+    next_corner: -1123460 -2486640 0
+    next_corner: -685000 -2525000 0
+  outline_polyline: 120000 5565000 2525000 1 0 4
+    next_corner: 6003460 2486640 0
+    next_corner: 6428600 2372720 0
+    next_corner: 6827500 2186710 0
+    next_corner: 7188040 1934260 0
+    next_corner: 7499260 1623040 0
+    next_corner: 7751710 1262500 0
+    next_corner: 7937720 863600 0
+    next_corner: 8051640 438460 0
+    next_corner: 8090000 0 0
+    next_corner: 8051640 -438460 0
+    next_corner: 7937720 -863600 0
+    next_corner: 7751710 -1262500 0
+    next_corner: 7499260 -1623040 0
+    next_corner: 7188040 -1934260 0
+    next_corner: 6827500 -2186710 0
+    next_corner: 6428600 -2372720 0
+    next_corner: 6003460 -2486640 0
+    next_corner: 5565000 -2525000 0
+  n_pins: 2
+    pin: "1" 800000 0 0 0 ""
+      top_pad: 1 1500000 750000 750000 0
+      bottom_pad: 1 1500000 750000 750000 0
+      inner_pad: 1 1500000 750000 750000 0 0
+      top_mask: 99 0 0 0 0
+      top_paste: 0 0 0 0 0
+      bottom_mask: 99 0 0 0 0
+      bottom_paste: 0 0 0 0 0
+    pin: "2" 800000 4880000 0 0 ""
+      top_pad: 1 1500000 750000 750000 0
+      bottom_pad: 1 1500000 750000 750000 0
+      inner_pad: 1 1500000 750000 750000 0 0
+      top_mask: 99 0 0 0 0
+      top_paste: 0 0 0 0 0
+      bottom_mask: 99 0 0 0 0
+      bottom_paste: 0 0 0 0 0

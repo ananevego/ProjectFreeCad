@@ -147,6 +147,8 @@ def write_fpl(fp: Footprint, matches: list[ModelMatch], warnings: list[str],
     for text in fp.texts:
         if text.kind in {'reference', 'value'} or text.hidden:
             continue
+        if text.kind != 'user' or text.property_name is not None:
+            warnings.append(f'TEXT_PROPERTY_FLATTENED: property {(text.property_name or text.kind)!r} exported as static user text; editable field identity lost')
         if text.layer not in GRAPHIC_LAYERS:
             warnings.append(f'TEXT_LAYER_SKIPPED: {text.content!r} on {text.layer}')
             continue
@@ -197,14 +199,19 @@ def write_fpl(fp: Footprint, matches: list[ModelMatch], warnings: list[str],
 
 def resolve_text_variables(content: str, variables: dict[str, str],
                            warnings: list[str]) -> str | None:
-    keys = TEXT_VARIABLE_RE.findall(content)
+    normalized = content.replace('%R', '${REFERENCE}').replace('%V', '${VALUE}')
+    keys = TEXT_VARIABLE_RE.findall(normalized)
     unresolved = sorted(set(keys) - variables.keys())
-    if unresolved or '${' in TEXT_VARIABLE_RE.sub('', content):
+    if unresolved or '${' in TEXT_VARIABLE_RE.sub('', normalized):
         warnings.append(f'TEXT_VARIABLE_UNRESOLVED: skipped {content!r}; explicit binding required')
         return None
     if keys:
         warnings.append(f'TEXT_VARIABLE_BOUND: {content!r} frozen to supplied values (no runtime substitution)')
-    resolved = TEXT_VARIABLE_RE.sub(lambda m: variables[m[1]], content)
-    if '${' in resolved:
+    resolved = TEXT_VARIABLE_RE.sub(lambda m: variables[m[1]], normalized)
+    if '${' in resolved or '%R' in resolved or '%V' in resolved:
         raise ConversionError('Recursive text variable binding is unsupported')
+    quote(resolved)
+    if '~{' in resolved or re.search(r'~[^~]*~', resolved):
+        warnings.append(f'TEXT_MARKUP_UNSUPPORTED: skipped {content!r}; overbar formatting cannot be represented by this writer')
+        return None
     return resolved

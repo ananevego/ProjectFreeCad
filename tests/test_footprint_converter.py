@@ -996,7 +996,7 @@ print(json.dumps({'fpl': result.fpl, 'warnings': result.warnings, 'report': resu
     def test_invalid_curves_fail_instead_of_producing_empty_geometry(self):
         graphics = [
             '(fp_arc (start 0 0) (mid 1 0) (end 2 0) (layer "F.SilkS"))',
-            '(fp_arc (start 0 0) (end 1 0) (angle 90) (layer "F.SilkS"))',
+            '(fp_arc (start 0 0) (end 1 0) (angle 0) (layer "F.SilkS"))',
             '(fp_circle (center 1 1) (end 1 1) (layer "F.SilkS"))',
             '(fp_poly (pts (xy 0 0) (xy 1 1)) (layer "F.SilkS"))',
             '(fp_circle (center 0 0) (end 0 0) (fill yes) (layer "F.SilkS"))',

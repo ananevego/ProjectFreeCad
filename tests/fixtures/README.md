@@ -55,3 +55,52 @@ PinHeader и SOT-23. Отдельные optional integration tests провер�
 SHA-256: `277830ab89f19aef0bb1a9922bcd46a1ec8dd4385f2b8e31da4bd1b9501dd518`.
 Сохранён `output/FilledCircle_Control.fpl`; проверяются bytes, слои, pads,
 динамические text fields, покрытие диска и погрешность границы. Это не GUI-эталон.
+
+## Реальный контроль legacy-дуг
+
+`Crystal_HC49-U_Vertical.kicad_mod` получен 2026-10-12 без изменений из
+[официальной KiCad Libraries, tag 5.1.7](https://github.com/KiCad/kicad-footprints/blob/5.1.7/Crystal.pretty/Crystal_HC49-U_Vertical.kicad_mod).
+Лицензия KiCad Libraries сохранена в `LICENSE.md`.
+SHA-256: `e5d25be9e2933569e662963236dcef3fd606510d7ecc1b04dbef7fc3005e880c`.
+
+Он содержит шесть дуг center/start/angle на F.Fab/F.SilkS и два PTH.
+Сохранённый `output/Crystal_HC49-U_Vertical_2D.fpl` — явно 2D-контроль:
+только при построении копии parser tree исключается source model с legacy
+`at` units. Сам fixture не редактируется. Тест полного исходника проверяет
+сохранение явного отказа для неподдерживаемого model record.
+
+## Реальный контроль текстов D_SOD-123
+
+`D_SOD-123.kicad_mod` получен 2026-10-12 без изменений из
+[официальной библиотеки KiCad, ревизия 51f8a59](https://github.com/KiCad/kicad-footprints/blob/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Diode_SMD.pretty/D_SOD-123.kicad_mod).
+Лицензия — KiCad Libraries из `LICENSE.md`.
+SHA-256: `fd16785935b01254e1076f490e12f0f096da73cf087adefce51225585c62557a`.
+
+Проверяются два roundrect pad, mask/paste, native fields, скрытые дополнительные
+properties, unresolved/bound user reference и metadata существующей STL-ссылки.
+`output/D_SOD-123.fpl` воспроизводится с defaults mask=0.05, paste=0/0.
+B.*-вариант создаётся только в памяти; это проверка слоёв, не Flip или 3D.
+
+После аудита текстов HC49-U 2D больше не содержит буквального `%R`:
+исходная строка сохранена в fixture, user text пропущен с loss, как современная
+неразрешённая `${REFERENCE}`. Контрольный `.fpl` обновлён только в этом месте.
+
+## Контроль УГО
+
+Каталог `symbols/` содержит целые, неизменённые официальные Mechanical и
+Comparator из KiCad symbols 9.0.0 (commit a9012d8971ef2ea3243ffc9f19a5b4f153d8b334).
+Источники/SHA256/bytes — `symbols/provenance.json`, лицензия/attribution —
+`symbols/LICENSE.md`. Legacy контроль использует существующий
+`KiCad/Pickit-cache.lib`; дубликаты PIC24 не исправляются в source.
+См. [SYMBOL_CONVERTER.md](../../docs/SYMBOL_CONVERTER.md).
+
+## Реальная запись компонента Схематора
+
+`schemator/Detector_R3.component.txt` содержит точные bytes строк 507–528
+существующего `FreePCB/detector/detector.cds`: resistor R3, два pin segments,
+rectangle и attributes. Координаты, flags и CRLF не изменены. Whole-source
+и fragment SHA256 записаны в `schemator/provenance.json` и проверяются тестом.
+Это component fragment, не самостоятельный `.cds` для импорта. Отдельный
+reader проверяет physical numbers/free-end Nodes и semantic roundtrip.
+Новые R/C/CONN_01X06 controls в `output/symbols` генерируются из cache, а не
+из этого фрагмента. См. [SCHEMATOR_CONVERTER.md](../../docs/SCHEMATOR_CONVERTER.md).

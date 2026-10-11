@@ -1,0 +1,10 @@
+{
+  "source": "FreePCB/detector/detector.cds",
+  "source_sha256": "eecd1b10edac34fb06a84b92f1dc3c477a33c43ab27277b4c2bf74fca4401479",
+  "first_line": 507,
+  "last_line": 528,
+  "component": "R3",
+  "fixture": "Detector_R3.component.txt",
+  "fixture_sha256": "870b6acd68f0dd4b20b85c82cf1bf31c033dd3afea294bb8c2dfb6b154a15dad",
+  "extraction": "Exact contiguous bytes; no coordinates/attributes/line endings changed; component fragment, not a standalone importable file."
+}

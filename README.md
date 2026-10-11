@@ -8,7 +8,59 @@ MountingHole NPTH, SOT-23 и численные
 регрессии проверены автоматически. Загрузка/сохранение в FreePCB2 2.428 и
 физическое совмещение STL в OpenSCAD ещё требуют отдельной Windows-валидации.
 Есть также синтетический контроль заполненных окружностей на обоих silk-слоях.
-Конвертер УГО и полноценная цепочка symbol → footprint → 3D пока не реализованы.
+Добавлены legacy-дуги KiCad и контроль HC49-U (явно 2D), аудит текстов,
+D_SOD-123, пакетный CLI, исходный parser УГО и минимальный writer Схематора;
+проходят 193 теста.
+Source parser читает `.kicad_sym` и старые `.lib`, сохраняя pins/units/inheritance.
+Writer создаёт `.cds` для односекционных R/C/connector; полноценная цепочка
+symbol → footprint → 3D и GUI-валидация ещё впереди.
+
+## Исходные УГО KiCad
+
+```sh
+python3 -B -m src.symbol_converter KiCad/Pickit-cache.lib output/symbols/Pickit-cache.inspect.json
+python3 -B -m src.symbol_converter tests/fixtures/symbols/Comparator.kicad_sym \
+  output/symbols/Comparator.inspect.json --symbol LM393 --symbol LM339
+```
+
+Эти команды создают JSON исходных УГО.
+Поддержаны секции/общие body styles, наследование и aliases. Конфликты pins
+сохраняются с диагностикой: у PIC24 в локальном cache номера 1–16 повторены
+по восемь раз, поэтому первый запуск возвращает 2 и сохраняет отчёт.
+Официальные Mechanical/Comparator KiCad 9.0.0 и legacy cache проверены автоматически.
+Правила: [SYMBOL_CONVERTER.md](docs/SYMBOL_CONVERTER.md).
+Исследование target: [SCHEMATOR_FORMAT_RESEARCH.md](docs/SCHEMATOR_FORMAT_RESEARCH.md).
+
+## УГО Схематора
+
+```sh
+python3 -B -m src.symbol_converter.write KiCad/Pickit-cache.lib \
+  output/symbols/R_control.cds --symbol R
+```
+
+Отдельный CLI создаёт один компонент `.cds` 1.429 (CP1251) и JSON losses.
+Поддержаны прямые passive pins и незаполненные rectangles/polylines одного unit;
+multi-unit, power symbols и неподдерживаемая графика вызывают явный отказ.
+Сохранены R/C/CONN_01X06 controls. Контракт ограниченного профиля проверен по
+исходникам и реальной записи R3; отдельный reader проверяет emitted records.
+Загрузка и connectivity в Схематоре пока не подтверждены.
+Без `--footprint-name` используется placeholder `PART`; назначение имени
+не подтверждает соответствие pads. `--strict` отклоняет известные layout losses.
+Команды, ограничения и коды выхода: [SCHEMATOR_CONVERTER.md](docs/SCHEMATOR_CONVERTER.md).
+
+## Пакетная обработка
+
+```sh
+python3 -B -m src.footprint_converter.batch tests/fixtures output/batches/control --limit 7
+python3 -B -m src.footprint_converter.batch tests/fixtures output/batches/control --limit 7 --resume
+```
+
+Каждый footprint получает отдельный FPL/report, стабильное имя и запись в manifest.
+Ошибки изолированы; resume проверяет source/options/engine/models и хеши artifacts.
+В текущей партии 6 из 7 файлов генерируются с известными потерями; старый HC49-U
+получает ожидаемый отказ legacy model(at), поэтому CLI возвращает 2.
+GUI и полная библиотека этим прогоном не проверены.
+Подробные правила и параметры: [BATCH_CONVERTER.md](docs/BATCH_CONVERTER.md).
 
 ## Что поддерживается
 
@@ -25,7 +77,7 @@ MountingHole NPTH, SOT-23 и численные
 | Линии, незаполненные прямоугольники и полигоны | Контуры `.fpl` |
 | Заполненные простые полигоны и прямоугольники | Контур и перекрывающиеся линии с ограниченным расширением, явная аппроксимация |
 | Заполненные окружности | Адаптивная граница и перекрывающиеся линии; покрытие диска и ограниченная погрешность |
-| Окружности, дуги start/mid/end | Отрезки с задаваемой точностью, по умолчанию 0.01 мм |
+| Окружности, современные и legacy-дуги | Отрезки с задаваемой точностью, по умолчанию 0.01 мм; старые дуги center/start/signed angle |
 | Reference / value / user texts | Параметры и тексты с явной диагностикой ограничений |
 | Mask/paste margins | Pad → footprint → явные defaults; размер и скругление aperture |
 | Ссылка KiCad `.3dshapes` | Поиск уже существующего STL, код OpenSCAD; без конвертации моделей |
@@ -33,7 +85,7 @@ MountingHole NPTH, SOT-23 и численные
 Fab переносится в слой notes как приближение, courtyard пропускается.
 Custom/chamfer/trapezoid pads, oval/offset drills, отдельные InN.Cu,
 дробные углы, заполненные дуги, полигоны с отверстиями/самопересечениями,
-legacy centre/angle arcs и асимметричный
+legacy model `(at ...)` и асимметричный
 paste roundrect пока не поддерживаются. Непредставимая геометрия вызывает ошибку.
 Полный контракт: [docs/FOOTPRINT_CONVERTER.md](docs/FOOTPRINT_CONVERTER.md).
 
@@ -123,7 +175,7 @@ Pad overrides footprint; footprint overrides CLI defaults; явный ноль �
 
 Нативный `.fpl` хранит параметры reference/value, но не их actual content и
 независимый слой. Значение компонента необходимо задать при размещении.
-Неразрешённые `${REFERENCE}` и другие user text variables пропускаются с
+Неразрешённые `%R`/`%V`, `${REFERENCE}` и другие user text variables пропускаются с
 диагностикой; исходные строки сохраняются в JSON.
 
 ```sh
@@ -206,3 +258,5 @@ STL frame по умолчанию identity с `MODEL_FRAME_UNVERIFIED`. Его �
 [План дальнейшей работы](docs/PROJECT_PLAN.md): расширение небольшой реальной
 выборки, уточнение оставшихся правил, УГО по подтверждённому эталону, затем batch.
 Массовая конвертация 20 000 элементов на текущем этапе не выполняется.
+
+Правила hide/formatting/unlocked и проверки текстов: [аудит](docs/TEXT_FIELD_AUDIT.md).

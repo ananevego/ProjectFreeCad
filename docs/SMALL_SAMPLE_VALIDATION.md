@@ -98,7 +98,75 @@ JSON-отчёты содержат пути компьютера и не ком�
 Parser, внутренняя модель, writer, геометрия, matcher и отчёты разделены
 на модули. CLI/API, байты всех четырёх `.fpl`, предупреждения и отчёты сохранены.
 Filled circle добавлен и проверяется на отдельном синтетическом примере.
-Далее подтвердить и реализовать legacy arcs на небольшом исходном образце KiCad.
+Legacy arcs добавлены в текущем этапе; результаты описаны ниже.
 Native hatch не используется для подмены заливки; дальнейшие geometry primitives
 добавлять после численных проверок, без пересоздания существующих STL.
 Windows roundtrip всех успешных примеров и проверка 3D остаются отдельным этапом.
+
+## Legacy arcs: Crystal_HC49-U_Vertical (2D-контроль)
+
+Добавлен 2026-10-12 официальный исходник из KiCad Libraries 5.1.7.
+Шесть legacy arcs имеют ±180°: четыре Fab и два silk. Проверяются левая/правая
+полуокружности, два PTH в X=0/4.88 мм, Y=0, drill=0.8 мм и количество контуров.
+Synthetic tests дополнительно проверяют ±90°, ±270°, ±360°, дробные углы,
+B.SilkS, target-grid error, коллапс, дубли/смешанные definitions и безопасный отказ CLI.
+
+У исходника есть model `(at ...)` с историческими единицами. Полная конвертация
+его пока отвергает; 2D-контроль явно исключает этот record в отдельном дереве.
+3D-модель не подставляется автоматически. `MODEL_MISSING` и прежние потери
+Fab/courtyard/text остаются в diagnostics. Исходный файл сохранён без изменений.
+
+Воспроизведение из корня проекта:
+
+```sh
+python3 -B - <<'PY'
+from pathlib import Path
+from src.footprint_converter import parse_sexpr, convert_detailed, atomic_write
+source = parse_sexpr(Path('tests/fixtures/Crystal_HC49-U_Vertical.kicad_mod').read_text())
+source_2d = [item for item in source if not isinstance(item, list) or item[0] != 'model']
+result = convert_detailed(source_2d, 'Crystal_HC49-U_Vertical_2D')
+atomic_write(Path('output/Crystal_HC49-U_Vertical_2D.fpl'), result.fpl.encode('cp1251'))
+for warning in result.warnings:
+    print(warning)
+PY
+```
+
+### Актуальный следующий шаг
+
+Legacy arcs и аудит текстов реализованы; результаты актуального цикла описаны ниже.
+Следующий этап — batch CLI на малой выборке. Windows roundtrip/3D/Gerber остаются незавершёнными.
+
+## Аудит текстов и D_SOD-123
+
+Аудит выполнен 2026-10-12: [правила и результаты](TEXT_FIELD_AUDIT.md).
+Общий набор — 105 тестов. Пять прежних `.fpl` не изменены; в HC49-U 2D
+удалён только буквальный user text `%R`, теперь он явно unresolved.
+JSON дополнен source policy keep_upright, original property_name и hidden fields;
+для видимых source upright есть assumption о неподтверждённом target behavior.
+
+D_SOD-123: pads 1/2 в X=−1.65/+1.65 мм, Y=0, roundrect 0.9×1.2 мм,
+radius=0.225 мм. Reference в target (0,2) мм, value=(0,−2.1) мм.
+Hidden Datasheet/Description не рисуются. Три F.SilkS и одиннадцать F.Fab
+контуров записаны в silk=4/notes=7; courtyard пропущен с loss.
+Существующий Diode_SMD.3dshapes/D_SOD-123.stl найден; ориентация/высота не проверены.
+
+```sh
+python3 -B -m src.footprint_converter \
+  tests/fixtures/D_SOD-123.kicad_mod output/D_SOD-123.fpl \
+  --default-mask-margin 0.05 --default-paste-margin 0 --default-paste-ratio 0 \
+  --report output/D_SOD-123.report.json
+```
+
+Это выбранные defaults теста, не восстановленные manufacturing настройки.
+Без STL получится результат без OpenSCAD import с loss MODEL_MISSING;
+unit tests используют metadata-only файл, не mesh. С `--text-variable REFERENCE=D1`
+user text экспортируется как literal D1 в notes, не динамический reference.
+Следующий этап — batch CLI на малой партии; массовой конвертации пока нет.
+
+## Пакетная малая выборка
+
+2026-10-12: весь каталог fixtures (7 файлов) обработан batch CLI: 6 FPL
+сгенерированы с известными потерями, 1 HC49-U отказ model(at). Resume переиспользует
+6 результатов; failed повторяется. Общий набор — 131 тест. Это партия footprints,
+не полный перенос компонентов/УГО и не оценка полной библиотеки. Подробности и
+команды: [BATCH_CONVERTER.md](BATCH_CONVERTER.md).

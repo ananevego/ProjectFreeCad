@@ -1,0 +1,26 @@
+{
+  "project": "KiCad Libraries / KiCad Symbols",
+  "tag": "9.0.0",
+  "commit": "a9012d8971ef2ea3243ffc9f19a5b4f153d8b334",
+  "modified": false,
+  "files": [
+    {
+      "file": "Mechanical.kicad_sym",
+      "sha256": "ac5f6914254a6d35bf65f10dc9a1fe7dc731631758222cf9ddb9a8d3f1a004bc",
+      "bytes": 26662,
+      "url": "https://gitlab.com/kicad/libraries/kicad-symbols/-/raw/a9012d8971ef2ea3243ffc9f19a5b4f153d8b334/Mechanical.kicad_sym"
+    },
+    {
+      "file": "Comparator.kicad_sym",
+      "sha256": "7edcabe434cc8fe34d8c773483ab1ac5019829cf07836397c1689e7c3a3503bc",
+      "bytes": 183411,
+      "url": "https://gitlab.com/kicad/libraries/kicad-symbols/-/raw/a9012d8971ef2ea3243ffc9f19a5b4f153d8b334/Comparator.kicad_sym"
+    },
+    {
+      "file": "LICENSE.md",
+      "sha256": "45d2bce75e5a4208f5afb01b8fb2c406e700371c4fe2b5f5cd5c443d46db4d8f",
+      "bytes": 2101,
+      "url": "https://gitlab.com/kicad/libraries/kicad-symbols/-/raw/a9012d8971ef2ea3243ffc9f19a5b4f153d8b334/LICENSE.md"
+    }
+  ]
+}

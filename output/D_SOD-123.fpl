@@ -1,0 +1,59 @@
+name: "D_SOD-123"
+author: "KiCad to FreePCB converter"
+package: "D_SOD-123"
+  units: NM
+description: "SOD-123"
+  sel_rect: -2420000 -1060000 2150000 1060000
+  ref_text: 1000000 0 2000000 0 150000
+  value_text: 1000000 0 -2100000 0 150000
+  outline_polyline: 120000 -2360000 1000000 1 0 4
+    next_corner: -2360000 -1000000 0
+  outline_polyline: 120000 -2360000 1000000 1 0 4
+    next_corner: 1650000 1000000 0
+  outline_polyline: 120000 -2360000 -1000000 1 0 4
+    next_corner: 1650000 -1000000 0
+  outline_polyline: 100000 -1400000 900000 1 0 7
+    next_corner: 1400000 900000 0
+  outline_polyline: 100000 -1400000 -900000 1 0 7
+    next_corner: -1400000 900000 0
+  outline_polyline: 100000 -750000 0 1 0 7
+    next_corner: -350000 0 0
+  outline_polyline: 100000 -350000 0 1 0 7
+    next_corner: -350000 550000 0
+  outline_polyline: 100000 -350000 0 1 0 7
+    next_corner: -350000 -550000 0
+  outline_polyline: 100000 -350000 0 1 0 7
+    next_corner: 250000 400000 0
+  outline_polyline: 100000 250000 400000 1 0 7
+    next_corner: 250000 -400000 0
+  outline_polyline: 100000 250000 0 1 0 7
+    next_corner: 750000 0 0
+  outline_polyline: 100000 250000 -400000 1 0 7
+    next_corner: -350000 0 0
+  outline_polyline: 100000 1400000 900000 1 0 7
+    next_corner: 1400000 -900000 0
+  outline_polyline: 100000 1400000 -900000 1 0 7
+    next_corner: -1400000 -900000 0
+  n_pins: 2
+    pin: "1" 0 -1650000 0 0 ""
+      top_pad: 4 1200000 450000 450000 225000
+      bottom_pad: 0 0 0 0 0
+      top_mask: 4 1300000 500000 500000 275000
+      top_paste: 4 1200000 450000 450000 225000
+      bottom_mask: 0 0 0 0 0
+      bottom_paste: 0 0 0 0 0
+    pin: "2" 0 1650000 0 0 ""
+      top_pad: 4 1200000 450000 450000 225000
+      bottom_pad: 0 0 0 0 0
+      top_mask: 4 1300000 500000 500000 275000
+      top_paste: 4 1200000 450000 450000 225000
+      bottom_mask: 0 0 0 0 0
+      bottom_paste: 0 0 0 0 0
+  openscad_code: "translate([0,0,0]) // (automatic adjustment when moving the footprint origin)"
+  openscad_code: "scale([1,1,1]) // (automatic adjustment when changing the project units)"
+  openscad_code: "{"
+  openscad_code: "  translate([0,0,0])"
+  openscad_code: "  rotate([0,0,0])"
+  openscad_code: "  scale([1,1,1])"
+  openscad_code: "  import(`D_SOD-123.stl`);"
+  openscad_code: "}"

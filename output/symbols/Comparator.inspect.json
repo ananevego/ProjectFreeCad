@@ -1,0 +1,6693 @@
+{
+  "schema_version": 1,
+  "kind": "kicad_symbol_inspection",
+  "source_format": "kicad_sym",
+  "source_version": "20241209",
+  "units": "mm",
+  "coordinates": "KiCad symbol library, Y up; no target transform",
+  "target_format_verified": false,
+  "target_output_generated": false,
+  "gui_validated": false,
+  "symbols": {
+    "LM2903": {
+      "name": "LM2903",
+      "properties": {
+        "Reference": {
+          "name": "Reference",
+          "value": "U",
+          "at": [
+            3.81,
+            3.81,
+            0.0
+          ],
+          "hidden": false,
+          "raw": [
+            "property",
+            "Reference",
+            "U",
+            [
+              "at",
+              "3.81",
+              "3.81",
+              "0"
+            ],
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ]
+            ]
+          ]
+        },
+        "Value": {
+          "name": "Value",
+          "value": "LM2903",
+          "at": [
+            6.35,
+            -3.81,
+            0.0
+          ],
+          "hidden": false,
+          "raw": [
+            "property",
+            "Value",
+            "LM2903",
+            [
+              "at",
+              "6.35",
+              "-3.81",
+              "0"
+            ],
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ]
+            ]
+          ]
+        },
+        "Footprint": {
+          "name": "Footprint",
+          "value": "",
+          "at": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "hidden": true,
+          "raw": [
+            "property",
+            "Footprint",
+            "",
+            [
+              "at",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ],
+              [
+                "hide",
+                "yes"
+              ]
+            ]
+          ]
+        },
+        "Datasheet": {
+          "name": "Datasheet",
+          "value": "http://www.ti.com/lit/ds/symlink/lm393.pdf",
+          "at": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "hidden": true,
+          "raw": [
+            "property",
+            "Datasheet",
+            "http://www.ti.com/lit/ds/symlink/lm393.pdf",
+            [
+              "at",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ],
+              [
+                "hide",
+                "yes"
+              ]
+            ]
+          ]
+        },
+        "Description": {
+          "name": "Description",
+          "value": "Low-Power, Low-Offset Voltage, Dual Comparators, DIP-8/SOIC-8/SOP-8/TSSOP-8/VSSOP-8",
+          "at": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "hidden": true,
+          "raw": [
+            "property",
+            "Description",
+            "Low-Power, Low-Offset Voltage, Dual Comparators, DIP-8/SOIC-8/SOP-8/TSSOP-8/VSSOP-8",
+            [
+              "at",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ],
+              [
+                "hide",
+                "yes"
+              ]
+            ]
+          ]
+        },
+        "ki_locked": {
+          "name": "ki_locked",
+          "value": "",
+          "at": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "hidden": false,
+          "raw": [
+            "property",
+            "ki_locked",
+            "",
+            [
+              "at",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ]
+            ]
+          ]
+        },
+        "ki_keywords": {
+          "name": "ki_keywords",
+          "value": "cmp open collector",
+          "at": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "hidden": true,
+          "raw": [
+            "property",
+            "ki_keywords",
+            "cmp open collector",
+            [
+              "at",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ],
+              [
+                "hide",
+                "yes"
+              ]
+            ]
+          ]
+        },
+        "ki_fp_filters": {
+          "name": "ki_fp_filters",
+          "value": "SOIC*3.9x4.9mm*P1.27mm* DIP*W7.62mm* SOP*5.28x5.23mm*P1.27mm* VSSOP*3x3mm*P0.65mm* TSSOP*4.4x3mm*P0.65mm*",
+          "at": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "hidden": true,
+          "raw": [
+            "property",
+            "ki_fp_filters",
+            "SOIC*3.9x4.9mm*P1.27mm* DIP*W7.62mm* SOP*5.28x5.23mm*P1.27mm* VSSOP*3x3mm*P0.65mm* TSSOP*4.4x3mm*P0.65mm*",
+            [
+              "at",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ],
+              [
+                "hide",
+                "yes"
+              ]
+            ]
+          ]
+        }
+      },
+      "units": [
+        {
+          "number": 1,
+          "style": 1,
+          "source_id": "LM2903_1_1",
+          "display_name": null,
+          "pins": [
+            {
+              "number": "3",
+              "name": "+",
+              "at": [
+                -7.62,
+                2.54,
+                0.0
+              ],
+              "length": 2.54,
+              "electrical_type": "input",
+              "graphic_style": "line",
+              "hidden": false,
+              "name_size": [
+                1.27,
+                1.27
+              ],
+              "number_size": [
+                1.27,
+                1.27
+              ],
+              "alternates": [],
+              "raw": [
+                "pin",
+                "input",
+                "line",
+                [
+                  "at",
+                  "-7.62",
+                  "2.54",
+                  "0"
+                ],
+                [
+                  "length",
+                  "2.54"
+                ],
+                [
+                  "name",
+                  "+",
+                  [
+                    "effects",
+                    [
+                      "font",
+                      [
+                        "size",
+                        "1.27",
+                        "1.27"
+                      ]
+                    ]
+                  ]
+                ],
+                [
+                  "number",
+                  "3",
+                  [
+                    "effects",
+                    [
+                      "font",
+                      [
+                        "size",
+                        "1.27",
+                        "1.27"
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            },
+            {
+              "number": "2",
+              "name": "-",
+              "at": [
+                -7.62,
+                -2.54,
+                0.0
+              ],
+              "length": 2.54,
+              "electrical_type": "input",
+              "graphic_style": "line",
+              "hidden": false,
+              "name_size": [
+                1.27,
+                1.27
+              ],
+              "number_size": [
+                1.27,
+                1.27
+              ],
+              "alternates": [],
+              "raw": [
+                "pin",
+                "input",
+                "line",
+                [
+                  "at",
+                  "-7.62",
+                  "-2.54",
+                  "0"
+                ],
+                [
+                  "length",
+                  "2.54"
+                ],
+                [
+                  "name",
+                  "-",
+                  [
+                    "effects",
+                    [
+                      "font",
+                      [
+                        "size",
+                        "1.27",
+                        "1.27"
+                      ]
+                    ]
+                  ]
+                ],
+                [
+                  "number",
+                  "2",
+                  [
+                    "effects",
+                    [
+                      "font",
+                      [
+                        "size",
+                        "1.27",
+                        "1.27"
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            },
+            {
+              "number": "1",
+              "name": "~",
+              "at": [
+                7.62,
+                0.0,
+                180.0
+              ],
+              "length": 2.54,
+              "electrical_type": "open_collector",
+              "graphic_style": "line",
+              "hidden": false,
+              "name_size": [
+                1.27,
+                1.27
+              ],
+              "number_size": [
+                1.27,
+                1.27
+              ],
+              "alternates": [],
+              "raw": [
+                "pin",
+                "open_collector",
+                "line",
+                [
+                  "at",
+                  "7.62",
+                  "0",
+                  "180"
+                ],
+                [
+                  "length",
+                  "2.54"
+                ],
+                [
+                  "name",
+                  "~",
+                  [
+                    "effects",
+                    [
+                      "font",
+                      [
+                        "size",
+                        "1.27",
+                        "1.27"
+                      ]
+                    ]
+                  ]
+                ],
+                [
+                  "number",
+                  "1",
+                  [
+                    "effects",
+                    [
+                      "font",
+                      [
+                        "size",
+                        "1.27",
+                        "1.27"
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            }
+          ],
+          "graphics": [
+            {
+              "kind": "polyline",
+              "geometry": {
+                "points": [
+                  [
+                    -5.08,
+                    5.08
+                  ],
+                  [
+                    5.08,
+                    0.0
+                  ],
+                  [
+                    -5.08,
+                    -5.08
+                  ],
+                  [
+                    -5.08,
+                    5.08
+                  ]
+                ]
+              },
+              "width": 0.254,
+              "fill": "background",
+              "raw": [
+                "polyline",
+                [
+                  "pts",
+                  [
+                    "xy",
+                    "-5.08",
+                    "5.08"
+                  ],
+                  [
+                    "xy",
+                    "5.08",
+                    "0"
+                  ],
+                  [
+                    "xy",
+                    "-5.08",
+                    "-5.08"
+                  ],
+                  [
+                    "xy",
+                    "-5.08",
+                    "5.08"
+                  ]
+                ],
+                [
+                  "stroke",
+                  [
+                    "width",
+                    "0.254"
+                  ],
+                  [
+                    "type",
+                    "default"
+                  ]
+                ],
+                [
+                  "fill",
+                  [
+                    "type",
+                    "background"
+                  ]
+                ]
+              ]
+            },
+            {
+              "kind": "polyline",
+              "geometry": {
+                "points": [
+                  [
+                    3.302,
+                    -0.508
+                  ],
+                  [
+                    2.794,
+                    -0.508
+                  ],
+                  [
+                    3.302,
+                    0.0
+                  ],
+                  [
+                    2.794,
+                    0.508
+                  ],
+                  [
+                    2.286,
+                    0.0
+                  ],
+                  [
+                    2.794,
+                    -0.508
+                  ],
+                  [
+                    2.286,
+                    -0.508
+                  ]
+                ]
+              },
+              "width": 0.127,
+              "fill": "none",
+              "raw": [
+                "polyline",
+                [
+                  "pts",
+                  [
+                    "xy",
+                    "3.302",
+                    "-0.508"
+                  ],
+                  [
+                    "xy",
+                    "2.794",
+                    "-0.508"
+                  ],
+                  [
+                    "xy",
+                    "3.302",
+                    "0"
+                  ],
+                  [
+                    "xy",
+                    "2.794",
+                    "0.508"
+                  ],
+                  [
+                    "xy",
+                    "2.286",
+                    "0"
+                  ],
+                  [
+                    "xy",
+                    "2.794",
+                    "-0.508"
+                  ],
+                  [
+                    "xy",
+                    "2.286",
+                    "-0.508"
+                  ]
+                ],
+                [
+                  "stroke",
+                  [
+                    "width",
+                    "0.127"
+                  ],
+                  [
+                    "type",
+                    "default"
+                  ]
+                ],
+                [
+                  "fill",
+                  [
+                    "type",
+                    "none"
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "style": 1,
+          "source_id": "LM2903_2_1",
+          "display_name": null,
+          "pins": [
+            {
+              "number": "5",
+              "name": "+",
+              "at": [
+                -7.62,
+                2.54,
+                0.0
+              ],
+              "length": 2.54,
+              "electrical_type": "input",
+              "graphic_style": "line",
+              "hidden": false,
+              "name_size": [
+                1.27,
+                1.27
+              ],
+              "number_size": [
+                1.27,
+                1.27
+              ],
+              "alternates": [],
+              "raw": [
+                "pin",
+                "input",
+                "line",
+                [
+                  "at",
+                  "-7.62",
+                  "2.54",
+                  "0"
+                ],
+                [
+                  "length",
+                  "2.54"
+                ],
+                [
+                  "name",
+                  "+",
+                  [
+                    "effects",
+                    [
+                      "font",
+                      [
+                        "size",
+                        "1.27",
+                        "1.27"
+                      ]
+                    ]
+                  ]
+                ],
+                [
+                  "number",
+                  "5",
+                  [
+                    "effects",
+                    [
+                      "font",
+                      [
+                        "size",
+                        "1.27",
+                        "1.27"
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            },
+            {
+              "number": "6",
+              "name": "-",
+              "at": [
+                -7.62,
+                -2.54,
+                0.0
+              ],
+              "length": 2.54,
+              "electrical_type": "input",
+              "graphic_style": "line",
+              "hidden": false,
+              "name_size": [
+                1.27,
+                1.27
+              ],
+              "number_size": [
+                1.27,
+                1.27
+              ],
+              "alternates": [],
+              "raw": [
+                "pin",
+                "input",
+                "line",
+                [
+                  "at",
+                  "-7.62",
+                  "-2.54",
+                  "0"
+                ],
+                [
+                  "length",
+                  "2.54"
+                ],
+                [
+                  "name",
+                  "-",
+                  [
+                    "effects",
+                    [
+                      "font",
+                      [
+                        "size",
+                        "1.27",
+                        "1.27"
+                      ]
+                    ]
+                  ]
+                ],
+                [
+                  "number",
+                  "6",
+                  [
+                    "effects",
+                    [
+                      "font",
+                      [
+                        "size",
+                        "1.27",
+                        "1.27"
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            },
+            {
+              "number": "7",
+              "name": "~",
+              "at": [
+                7.62,
+                0.0,
+                180.0
+              ],
+              "length": 2.54,
+              "electrical_type": "open_collector",
+              "graphic_style": "line",
+              "hidden": false,
+              "name_size": [
+                1.27,
+                1.27
+              ],
+              "number_size": [
+                1.27,
+                1.27
+              ],
+              "alternates": [],
+              "raw": [
+                "pin",
+                "open_collector",
+                "line",
+                [
+                  "at",
+                  "7.62",
+                  "0",
+                  "180"
+                ],
+                [
+                  "length",
+                  "2.54"
+                ],
+                [
+                  "name",
+                  "~",
+                  [
+                    "effects",
+                    [
+                      "font",
+                      [
+                        "size",
+                        "1.27",
+                        "1.27"
+                      ]
+                    ]
+                  ]
+                ],
+                [
+                  "number",
+                  "7",
+                  [
+                    "effects",
+                    [
+                      "font",
+                      [
+                        "size",
+                        "1.27",
+                        "1.27"
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            }
+          ],
+          "graphics": [
+            {
+              "kind": "polyline",
+              "geometry": {
+                "points": [
+                  [
+                    -5.08,
+                    5.08
+                  ],
+                  [
+                    5.08,
+                    0.0
+                  ],
+                  [
+                    -5.08,
+                    -5.08
+                  ],
+                  [
+                    -5.08,
+                    5.08
+                  ]
+                ]
+              },
+              "width": 0.254,
+              "fill": "background",
+              "raw": [
+                "polyline",
+                [
+                  "pts",
+                  [
+                    "xy",
+                    "-5.08",
+                    "5.08"
+                  ],
+                  [
+                    "xy",
+                    "5.08",
+                    "0"
+                  ],
+                  [
+                    "xy",
+                    "-5.08",
+                    "-5.08"
+                  ],
+                  [
+                    "xy",
+                    "-5.08",
+                    "5.08"
+                  ]
+                ],
+                [
+                  "stroke",
+                  [
+                    "width",
+                    "0.254"
+                  ],
+                  [
+                    "type",
+                    "default"
+                  ]
+                ],
+                [
+                  "fill",
+                  [
+                    "type",
+                    "background"
+                  ]
+                ]
+              ]
+            },
+            {
+              "kind": "polyline",
+              "geometry": {
+                "points": [
+                  [
+                    3.302,
+                    -0.508
+                  ],
+                  [
+                    2.794,
+                    -0.508
+                  ],
+                  [
+                    3.302,
+                    0.0
+                  ],
+                  [
+                    2.794,
+                    0.508
+                  ],
+                  [
+                    2.286,
+                    0.0
+                  ],
+                  [
+                    2.794,
+                    -0.508
+                  ],
+                  [
+                    2.286,
+                    -0.508
+                  ]
+                ]
+              },
+              "width": 0.127,
+              "fill": "none",
+              "raw": [
+                "polyline",
+                [
+                  "pts",
+                  [
+                    "xy",
+                    "3.302",
+                    "-0.508"
+                  ],
+                  [
+                    "xy",
+                    "2.794",
+                    "-0.508"
+                  ],
+                  [
+                    "xy",
+                    "3.302",
+                    "0"
+                  ],
+                  [
+                    "xy",
+                    "2.794",
+                    "0.508"
+                  ],
+                  [
+                    "xy",
+                    "2.286",
+                    "0"
+                  ],
+                  [
+                    "xy",
+                    "2.794",
+                    "-0.508"
+                  ],
+                  [
+                    "xy",
+                    "2.286",
+                    "-0.508"
+                  ]
+                ],
+                [
+                  "stroke",
+                  [
+                    "width",
+                    "0.127"
+                  ],
+                  [
+                    "type",
+                    "default"
+                  ]
+                ],
+                [
+                  "fill",
+                  [
+                    "type",
+                    "none"
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "style": 1,
+          "source_id": "LM2903_3_1",
+          "display_name": null,
+          "pins": [
+            {
+              "number": "8",
+              "name": "V+",
+              "at": [
+                -2.54,
+                7.62,
+                270.0
+              ],
+              "length": 3.81,
+              "electrical_type": "power_in",
+              "graphic_style": "line",
+              "hidden": false,
+              "name_size": [
+                1.27,
+                1.27
+              ],
+              "number_size": [
+                1.27,
+                1.27
+              ],
+              "alternates": [],
+              "raw": [
+                "pin",
+                "power_in",
+                "line",
+                [
+                  "at",
+                  "-2.54",
+                  "7.62",
+                  "270"
+                ],
+                [
+                  "length",
+                  "3.81"
+                ],
+                [
+                  "name",
+                  "V+",
+                  [
+                    "effects",
+                    [
+                      "font",
+                      [
+                        "size",
+                        "1.27",
+                        "1.27"
+                      ]
+                    ]
+                  ]
+                ],
+                [
+                  "number",
+                  "8",
+                  [
+                    "effects",
+                    [
+                      "font",
+                      [
+                        "size",
+                        "1.27",
+                        "1.27"
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            },
+            {
+              "number": "4",
+              "name": "V-",
+              "at": [
+                -2.54,
+                -7.62,
+                90.0
+              ],
+              "length": 3.81,
+              "electrical_type": "power_in",
+              "graphic_style": "line",
+              "hidden": false,
+              "name_size": [
+                1.27,
+                1.27
+              ],
+              "number_size": [
+                1.27,
+                1.27
+              ],
+              "alternates": [],
+              "raw": [
+                "pin",
+                "power_in",
+                "line",
+                [
+                  "at",
+                  "-2.54",
+                  "-7.62",
+                  "90"
+                ],
+                [
+                  "length",
+                  "3.81"
+                ],
+                [
+                  "name",
+                  "V-",
+                  [
+                    "effects",
+                    [
+                      "font",
+                      [
+                        "size",
+                        "1.27",
+                        "1.27"
+                      ]
+                    ]
+                  ]
+                ],
+                [
+                  "number",
+                  "4",
+                  [
+                    "effects",
+                    [
+                      "font",
+                      [
+                        "size",
+                        "1.27",
+                        "1.27"
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            }
+          ],
+          "graphics": []
+        }
+      ],
+      "extends": null,
+      "inheritance_chain": [],
+      "aliases": [],
+      "alias_of": null,
+      "unit_count": 3,
+      "pin_names_hidden": false,
+      "pin_numbers_hidden": false,
+      "pin_name_offset": 0.127,
+      "in_bom": true,
+      "on_board": true,
+      "power": false,
+      "diagnostics": [],
+      "raw": [
+        "symbol",
+        "LM2903",
+        [
+          "pin_names",
+          [
+            "offset",
+            "0.127"
+          ]
+        ],
+        [
+          "exclude_from_sim",
+          "no"
+        ],
+        [
+          "in_bom",
+          "yes"
+        ],
+        [
+          "on_board",
+          "yes"
+        ],
+        [
+          "property",
+          "Reference",
+          "U",
+          [
+            "at",
+            "3.81",
+            "3.81",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ]
+          ]
+        ],
+        [
+          "property",
+          "Value",
+          "LM2903",
+          [
+            "at",
+            "6.35",
+            "-3.81",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ]
+          ]
+        ],
+        [
+          "property",
+          "Footprint",
+          "",
+          [
+            "at",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ],
+            [
+              "hide",
+              "yes"
+            ]
+          ]
+        ],
+        [
+          "property",
+          "Datasheet",
+          "http://www.ti.com/lit/ds/symlink/lm393.pdf",
+          [
+            "at",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ],
+            [
+              "hide",
+              "yes"
+            ]
+          ]
+        ],
+        [
+          "property",
+          "Description",
+          "Low-Power, Low-Offset Voltage, Dual Comparators, DIP-8/SOIC-8/SOP-8/TSSOP-8/VSSOP-8",
+          [
+            "at",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ],
+            [
+              "hide",
+              "yes"
+            ]
+          ]
+        ],
+        [
+          "property",
+          "ki_locked",
+          "",
+          [
+            "at",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ]
+          ]
+        ],
+        [
+          "property",
+          "ki_keywords",
+          "cmp open collector",
+          [
+            "at",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ],
+            [
+              "hide",
+              "yes"
+            ]
+          ]
+        ],
+        [
+          "property",
+          "ki_fp_filters",
+          "SOIC*3.9x4.9mm*P1.27mm* DIP*W7.62mm* SOP*5.28x5.23mm*P1.27mm* VSSOP*3x3mm*P0.65mm* TSSOP*4.4x3mm*P0.65mm*",
+          [
+            "at",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ],
+            [
+              "hide",
+              "yes"
+            ]
+          ]
+        ],
+        [
+          "symbol",
+          "LM2903_1_1",
+          [
+            "polyline",
+            [
+              "pts",
+              [
+                "xy",
+                "-5.08",
+                "5.08"
+              ],
+              [
+                "xy",
+                "5.08",
+                "0"
+              ],
+              [
+                "xy",
+                "-5.08",
+                "-5.08"
+              ],
+              [
+                "xy",
+                "-5.08",
+                "5.08"
+              ]
+            ],
+            [
+              "stroke",
+              [
+                "width",
+                "0.254"
+              ],
+              [
+                "type",
+                "default"
+              ]
+            ],
+            [
+              "fill",
+              [
+                "type",
+                "background"
+              ]
+            ]
+          ],
+          [
+            "polyline",
+            [
+              "pts",
+              [
+                "xy",
+                "3.302",
+                "-0.508"
+              ],
+              [
+                "xy",
+                "2.794",
+                "-0.508"
+              ],
+              [
+                "xy",
+                "3.302",
+                "0"
+              ],
+              [
+                "xy",
+                "2.794",
+                "0.508"
+              ],
+              [
+                "xy",
+                "2.286",
+                "0"
+              ],
+              [
+                "xy",
+                "2.794",
+                "-0.508"
+              ],
+              [
+                "xy",
+                "2.286",
+                "-0.508"
+              ]
+            ],
+            [
+              "stroke",
+              [
+                "width",
+                "0.127"
+              ],
+              [
+                "type",
+                "default"
+              ]
+            ],
+            [
+              "fill",
+              [
+                "type",
+                "none"
+              ]
+            ]
+          ],
+          [
+            "pin",
+            "input",
+            "line",
+            [
+              "at",
+              "-7.62",
+              "2.54",
+              "0"
+            ],
+            [
+              "length",
+              "2.54"
+            ],
+            [
+              "name",
+              "+",
+              [
+                "effects",
+                [
+                  "font",
+                  [
+                    "size",
+                    "1.27",
+                    "1.27"
+                  ]
+                ]
+              ]
+            ],
+            [
+              "number",
+              "3",
+              [
+                "effects",
+                [
+                  "font",
+                  [
+                    "size",
+                    "1.27",
+                    "1.27"
+                  ]
+                ]
+              ]
+            ]
+          ],
+          [
+            "pin",
+            "input",
+            "line",
+            [
+              "at",
+              "-7.62",
+              "-2.54",
+              "0"
+            ],
+            [
+              "length",
+              "2.54"
+            ],
+            [
+              "name",
+              "-",
+              [
+                "effects",
+                [
+                  "font",
+                  [
+                    "size",
+                    "1.27",
+                    "1.27"
+                  ]
+                ]
+              ]
+            ],
+            [
+              "number",
+              "2",
+              [
+                "effects",
+                [
+                  "font",
+                  [
+                    "size",
+                    "1.27",
+                    "1.27"
+                  ]
+                ]
+              ]
+            ]
+          ],
+          [
+            "pin",
+            "open_collector",
+            "line",
+            [
+              "at",
+              "7.62",
+              "0",
+              "180"
+            ],
+            [
+              "length",
+              "2.54"
+            ],
+            [
+              "name",
+              "~",
+              [
+                "effects",
+                [
+                  "font",
+                  [
+                    "size",
+                    "1.27",
+                    "1.27"
+                  ]
+                ]
+              ]
+            ],
+            [
+              "number",
+              "1",
+              [
+                "effects",
+                [
+                  "font",
+                  [
+                    "size",
+                    "1.27",
+                    "1.27"
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ],
+        [
+          "symbol",
+          "LM2903_2_1",
+          [
+            "polyline",
+            [
+              "pts",
+              [
+                "xy",
+                "-5.08",
+                "5.08"
+              ],
+              [
+                "xy",
+                "5.08",
+                "0"
+              ],
+              [
+                "xy",
+                "-5.08",
+                "-5.08"
+              ],
+              [
+                "xy",
+                "-5.08",
+                "5.08"
+              ]
+            ],
+            [
+              "stroke",
+              [
+                "width",
+                "0.254"
+              ],
+              [
+                "type",
+                "default"
+              ]
+            ],
+            [
+              "fill",
+              [
+                "type",
+                "background"
+              ]
+            ]
+          ],
+          [
+            "polyline",
+            [
+              "pts",
+              [
+                "xy",
+                "3.302",
+                "-0.508"
+              ],
+              [
+                "xy",
+                "2.794",
+                "-0.508"
+              ],
+              [
+                "xy",
+                "3.302",
+                "0"
+              ],
+              [
+                "xy",
+                "2.794",
+                "0.508"
+              ],
+              [
+                "xy",
+                "2.286",
+                "0"
+              ],
+              [
+                "xy",
+                "2.794",
+                "-0.508"
+              ],
+              [
+                "xy",
+                "2.286",
+                "-0.508"
+              ]
+            ],
+            [
+              "stroke",
+              [
+                "width",
+                "0.127"
+              ],
+              [
+                "type",
+                "default"
+              ]
+            ],
+            [
+              "fill",
+              [
+                "type",
+                "none"
+              ]
+            ]
+          ],
+          [
+            "pin",
+            "input",
+            "line",
+            [
+              "at",
+              "-7.62",
+              "2.54",
+              "0"
+            ],
+            [
+              "length",
+              "2.54"
+            ],
+            [
+              "name",
+              "+",
+              [
+                "effects",
+                [
+                  "font",
+                  [
+                    "size",
+                    "1.27",
+                    "1.27"
+                  ]
+                ]
+              ]
+            ],
+            [
+              "number",
+              "5",
+              [
+                "effects",
+                [
+                  "font",
+                  [
+                    "size",
+                    "1.27",
+                    "1.27"
+                  ]
+                ]
+              ]
+            ]
+          ],
+          [
+            "pin",
+            "input",
+            "line",
+            [
+              "at",
+              "-7.62",
+              "-2.54",
+              "0"
+            ],
+            [
+              "length",
+              "2.54"
+            ],
+            [
+              "name",
+              "-",
+              [
+                "effects",
+                [
+                  "font",
+                  [
+                    "size",
+                    "1.27",
+                    "1.27"
+                  ]
+                ]
+              ]
+            ],
+            [
+              "number",
+              "6",
+              [
+                "effects",
+                [
+                  "font",
+                  [
+                    "size",
+                    "1.27",
+                    "1.27"
+                  ]
+                ]
+              ]
+            ]
+          ],
+          [
+            "pin",
+            "open_collector",
+            "line",
+            [
+              "at",
+              "7.62",
+              "0",
+              "180"
+            ],
+            [
+              "length",
+              "2.54"
+            ],
+            [
+              "name",
+              "~",
+              [
+                "effects",
+                [
+                  "font",
+                  [
+                    "size",
+                    "1.27",
+                    "1.27"
+                  ]
+                ]
+              ]
+            ],
+            [
+              "number",
+              "7",
+              [
+                "effects",
+                [
+                  "font",
+                  [
+                    "size",
+                    "1.27",
+                    "1.27"
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ],
+        [
+          "symbol",
+          "LM2903_3_1",
+          [
+            "pin",
+            "power_in",
+            "line",
+            [
+              "at",
+              "-2.54",
+              "7.62",
+              "270"
+            ],
+            [
+              "length",
+              "3.81"
+            ],
+            [
+              "name",
+              "V+",
+              [
+                "effects",
+                [
+                  "font",
+                  [
+                    "size",
+                    "1.27",
+                    "1.27"
+                  ]
+                ]
+              ]
+            ],
+            [
+              "number",
+              "8",
+              [
+                "effects",
+                [
+                  "font",
+                  [
+                    "size",
+                    "1.27",
+                    "1.27"
+                  ]
+                ]
+              ]
+            ]
+          ],
+          [
+            "pin",
+            "power_in",
+            "line",
+            [
+              "at",
+              "-2.54",
+              "-7.62",
+              "90"
+            ],
+            [
+              "length",
+              "3.81"
+            ],
+            [
+              "name",
+              "V-",
+              [
+                "effects",
+                [
+                  "font",
+                  [
+                    "size",
+                    "1.27",
+                    "1.27"
+                  ]
+                ]
+              ]
+            ],
+            [
+              "number",
+              "4",
+              [
+                "effects",
+                [
+                  "font",
+                  [
+                    "size",
+                    "1.27",
+                    "1.27"
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ],
+        [
+          "embedded_fonts",
+          "no"
+        ]
+      ],
+      "source_ready": true,
+      "pin_record_count": 8,
+      "physical_pin_numbers": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      "physical_pin_mapping_verified": false
+    },
+    "LM393": {
+      "name": "LM393",
+      "properties": {
+        "Reference": {
+          "name": "Reference",
+          "value": "U",
+          "at": [
+            3.81,
+            3.81,
+            0.0
+          ],
+          "hidden": false,
+          "raw": [
+            "property",
+            "Reference",
+            "U",
+            [
+              "at",
+              "3.81",
+              "3.81",
+              "0"
+            ],
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ]
+            ]
+          ]
+        },
+        "Value": {
+          "name": "Value",
+          "value": "LM393",
+          "at": [
+            6.35,
+            -3.81,
+            0.0
+          ],
+          "hidden": false,
+          "raw": [
+            "property",
+            "Value",
+            "LM393",
+            [
+              "at",
+              "6.35",
+              "-3.81",
+              "0"
+            ],
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ]
+            ]
+          ]
+        },
+        "Footprint": {
+          "name": "Footprint",
+          "value": "",
+          "at": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "hidden": true,
+          "raw": [
+            "property",
+            "Footprint",
+            "",
+            [
+              "at",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ],
+              [
+                "hide",
+                "yes"
+              ]
+            ]
+          ]
+        },
+        "Datasheet": {
+          "name": "Datasheet",
+          "value": "http://www.ti.com/lit/ds/symlink/lm393.pdf",
+          "at": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "hidden": true,
+          "raw": [
+            "property",
+            "Datasheet",
+            "http://www.ti.com/lit/ds/symlink/lm393.pdf",
+            [
+              "at",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ],
+              [
+                "hide",
+                "yes"
+              ]
+            ]
+          ]
+        },
+        "Description": {
+          "name": "Description",
+          "value": "Low-Power, Low-Offset Voltage, Dual Comparators, DIP-8/SOIC-8/TO-99-8",
+          "at": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "hidden": true,
+          "raw": [
+            "property",
+            "Description",
+            "Low-Power, Low-Offset Voltage, Dual Comparators, DIP-8/SOIC-8/TO-99-8",
+            [
+              "at",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ],
+              [
+                "hide",
+                "yes"
+              ]
+            ]
+          ]
+        },
+        "ki_locked": {
+          "name": "ki_locked",
+          "value": "",
+          "at": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "hidden": false,
+          "raw": [
+            "property",
+            "ki_locked",
+            "",
+            [
+              "at",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ]
+            ]
+          ]
+        },
+        "ki_keywords": {
+          "name": "ki_keywords",
+          "value": "cmp open collector",
+          "at": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "hidden": true,
+          "raw": [
+            "property",
+            "ki_keywords",
+            "cmp open collector",
+            [
+              "at",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ],
+              [
+                "hide",
+                "yes"
+              ]
+            ]
+          ]
+        },
+        "ki_fp_filters": {
+          "name": "ki_fp_filters",
+          "value": "SOIC*3.9x4.9mm*P1.27mm* DIP*W7.62mm* SOP*5.28x5.23mm*P1.27mm* VSSOP*3x3mm*P0.65mm* TSSOP*4.4x3mm*P0.65mm*",
+          "at": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "hidden": true,
+          "raw": [
+            "property",
+            "ki_fp_filters",
+            "SOIC*3.9x4.9mm*P1.27mm* DIP*W7.62mm* SOP*5.28x5.23mm*P1.27mm* VSSOP*3x3mm*P0.65mm* TSSOP*4.4x3mm*P0.65mm*",
+            [
+              "at",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ],
+              [
+                "hide",
+                "yes"
+              ]
+            ]
+          ]
+        }
+      },
+      "units": [
+        {
+          "number": 1,
+          "style": 1,
+          "source_id": "LM2903_1_1",
+          "display_name": null,
+          "pins": [
+            {
+              "number": "3",
+              "name": "+",
+              "at": [
+                -7.62,
+                2.54,
+                0.0
+              ],
+              "length": 2.54,
+              "electrical_type": "input",
+              "graphic_style": "line",
+              "hidden": false,
+              "name_size": [
+                1.27,
+                1.27
+              ],
+              "number_size": [
+                1.27,
+                1.27
+              ],
+              "alternates": [],
+              "raw": [
+                "pin",
+                "input",
+                "line",
+                [
+                  "at",
+                  "-7.62",
+                  "2.54",
+                  "0"
+                ],
+                [
+                  "length",
+                  "2.54"
+                ],
+                [
+                  "name",
+                  "+",
+                  [
+                    "effects",
+                    [
+                      "font",
+                      [
+                        "size",
+                        "1.27",
+                        "1.27"
+                      ]
+                    ]
+                  ]
+                ],
+                [
+                  "number",
+                  "3",
+                  [
+                    "effects",
+                    [
+                      "font",
+                      [
+                        "size",
+                        "1.27",
+                        "1.27"
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            },
+            {
+              "number": "2",
+              "name": "-",
+              "at": [
+                -7.62,
+                -2.54,
+                0.0
+              ],
+              "length": 2.54,
+              "electrical_type": "input",
+              "graphic_style": "line",
+              "hidden": false,
+              "name_size": [
+                1.27,
+                1.27
+              ],
+              "number_size": [
+                1.27,
+                1.27
+              ],
+              "alternates": [],
+              "raw": [
+                "pin",
+                "input",
+                "line",
+                [
+                  "at",
+                  "-7.62",
+                  "-2.54",
+                  "0"
+                ],
+                [
+                  "length",
+                  "2.54"
+                ],
+                [
+                  "name",
+                  "-",
+                  [
+                    "effects",
+                    [
+                      "font",
+                      [
+                        "size",
+                        "1.27",
+                        "1.27"
+                      ]
+                    ]
+                  ]
+                ],
+                [
+                  "number",
+                  "2",
+                  [
+                    "effects",
+                    [
+                      "font",
+                      [
+                        "size",
+                        "1.27",
+                        "1.27"
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            },
+            {
+              "number": "1",
+              "name": "~",
+              "at": [
+                7.62,
+                0.0,
+                180.0
+              ],
+              "length": 2.54,
+              "electrical_type": "open_collector",
+              "graphic_style": "line",
+              "hidden": false,
+              "name_size": [
+                1.27,
+                1.27
+              ],
+              "number_size": [
+                1.27,
+                1.27
+              ],
+              "alternates": [],
+              "raw": [
+                "pin",
+                "open_collector",
+                "line",
+                [
+                  "at",
+                  "7.62",
+                  "0",
+                  "180"
+                ],
+                [
+                  "length",
+                  "2.54"
+                ],
+                [
+                  "name",
+                  "~",
+                  [
+                    "effects",
+                    [
+                      "font",
+                      [
+                        "size",
+                        "1.27",
+                        "1.27"
+                      ]
+                    ]
+                  ]
+                ],
+                [
+                  "number",
+                  "1",
+                  [
+                    "effects",
+                    [
+                      "font",
+                      [
+                        "size",
+                        "1.27",
+                        "1.27"
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            }
+          ],
+          "graphics": [
+            {
+              "kind": "polyline",
+              "geometry": {
+                "points": [
+                  [
+                    -5.08,
+                    5.08
+                  ],
+                  [
+                    5.08,
+                    0.0
+                  ],
+                  [
+                    -5.08,
+                    -5.08
+                  ],
+                  [
+                    -5.08,
+                    5.08
+                  ]
+                ]
+              },
+              "width": 0.254,
+              "fill": "background",
+              "raw": [
+                "polyline",
+                [
+                  "pts",
+                  [
+                    "xy",
+                    "-5.08",
+                    "5.08"
+                  ],
+                  [
+                    "xy",
+                    "5.08",
+                    "0"
+                  ],
+                  [
+                    "xy",
+                    "-5.08",
+                    "-5.08"
+                  ],
+                  [
+                    "xy",
+                    "-5.08",
+                    "5.08"
+                  ]
+                ],
+                [
+                  "stroke",
+                  [
+                    "width",
+                    "0.254"
+                  ],
+                  [
+                    "type",
+                    "default"
+                  ]
+                ],
+                [
+                  "fill",
+                  [
+                    "type",
+                    "background"
+                  ]
+                ]
+              ]
+            },
+            {
+              "kind": "polyline",
+              "geometry": {
+                "points": [
+                  [
+                    3.302,
+                    -0.508
+                  ],
+                  [
+                    2.794,
+                    -0.508
+                  ],
+                  [
+                    3.302,
+                    0.0
+                  ],
+                  [
+                    2.794,
+                    0.508
+                  ],
+                  [
+                    2.286,
+                    0.0
+                  ],
+                  [
+                    2.794,
+                    -0.508
+                  ],
+                  [
+                    2.286,
+                    -0.508
+                  ]
+                ]
+              },
+              "width": 0.127,
+              "fill": "none",
+              "raw": [
+                "polyline",
+                [
+                  "pts",
+                  [
+                    "xy",
+                    "3.302",
+                    "-0.508"
+                  ],
+                  [
+                    "xy",
+                    "2.794",
+                    "-0.508"
+                  ],
+                  [
+                    "xy",
+                    "3.302",
+                    "0"
+                  ],
+                  [
+                    "xy",
+                    "2.794",
+                    "0.508"
+                  ],
+                  [
+                    "xy",
+                    "2.286",
+                    "0"
+                  ],
+                  [
+                    "xy",
+                    "2.794",
+                    "-0.508"
+                  ],
+                  [
+                    "xy",
+                    "2.286",
+                    "-0.508"
+                  ]
+                ],
+                [
+                  "stroke",
+                  [
+                    "width",
+                    "0.127"
+                  ],
+                  [
+                    "type",
+                    "default"
+                  ]
+                ],
+                [
+                  "fill",
+                  [
+                    "type",
+                    "none"
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "style": 1,
+          "source_id": "LM2903_2_1",
+          "display_name": null,
+          "pins": [
+            {
+              "number": "5",
+              "name": "+",
+              "at": [
+                -7.62,
+                2.54,
+                0.0
+              ],
+              "length": 2.54,
+              "electrical_type": "input",
+              "graphic_style": "line",
+              "hidden": false,
+              "name_size": [
+                1.27,
+                1.27
+              ],
+              "number_size": [
+                1.27,
+                1.27
+              ],
+              "alternates": [],
+              "raw": [
+                "pin",
+                "input",
+                "line",
+                [
+                  "at",
+                  "-7.62",
+                  "2.54",
+                  "0"
+                ],
+                [
+                  "length",
+                  "2.54"
+                ],
+                [
+                  "name",
+                  "+",
+                  [
+                    "effects",
+                    [
+                      "font",
+                      [
+                        "size",
+                        "1.27",
+                        "1.27"
+                      ]
+                    ]
+                  ]
+                ],
+                [
+                  "number",
+                  "5",
+                  [
+                    "effects",
+                    [
+                      "font",
+                      [
+                        "size",
+                        "1.27",
+                        "1.27"
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            },
+            {
+              "number": "6",
+              "name": "-",
+              "at": [
+                -7.62,
+                -2.54,
+                0.0
+              ],
+              "length": 2.54,
+              "electrical_type": "input",
+              "graphic_style": "line",
+              "hidden": false,
+              "name_size": [
+                1.27,
+                1.27
+              ],
+              "number_size": [
+                1.27,
+                1.27
+              ],
+              "alternates": [],
+              "raw": [
+                "pin",
+                "input",
+                "line",
+                [
+                  "at",
+                  "-7.62",
+                  "-2.54",
+                  "0"
+                ],
+                [
+                  "length",
+                  "2.54"
+                ],
+                [
+                  "name",
+                  "-",
+                  [
+                    "effects",
+                    [
+                      "font",
+                      [
+                        "size",
+                        "1.27",
+                        "1.27"
+                      ]
+                    ]
+                  ]
+                ],
+                [
+                  "number",
+                  "6",
+                  [
+                    "effects",
+                    [
+                      "font",
+                      [
+                        "size",
+                        "1.27",
+                        "1.27"
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            },
+            {
+              "number": "7",
+              "name": "~",
+              "at": [
+                7.62,
+                0.0,
+                180.0
+              ],
+              "length": 2.54,
+              "electrical_type": "open_collector",
+              "graphic_style": "line",
+              "hidden": false,
+              "name_size": [
+                1.27,
+                1.27
+              ],
+              "number_size": [
+                1.27,
+                1.27
+              ],
+              "alternates": [],
+              "raw": [
+                "pin",
+                "open_collector",
+                "line",
+                [
+                  "at",
+                  "7.62",
+                  "0",
+                  "180"
+                ],
+                [
+                  "length",
+                  "2.54"
+                ],
+                [
+                  "name",
+                  "~",
+                  [
+                    "effects",
+                    [
+                      "font",
+                      [
+                        "size",
+                        "1.27",
+                        "1.27"
+                      ]
+                    ]
+                  ]
+                ],
+                [
+                  "number",
+                  "7",
+                  [
+                    "effects",
+                    [
+                      "font",
+                      [
+                        "size",
+                        "1.27",
+                        "1.27"
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            }
+          ],
+          "graphics": [
+            {
+              "kind": "polyline",
+              "geometry": {
+                "points": [
+                  [
+                    -5.08,
+                    5.08
+                  ],
+                  [
+                    5.08,
+                    0.0
+                  ],
+                  [
+                    -5.08,
+                    -5.08
+                  ],
+                  [
+                    -5.08,
+                    5.08
+                  ]
+                ]
+              },
+              "width": 0.254,
+              "fill": "background",
+              "raw": [
+                "polyline",
+                [
+                  "pts",
+                  [
+                    "xy",
+                    "-5.08",
+                    "5.08"
+                  ],
+                  [
+                    "xy",
+                    "5.08",
+                    "0"
+                  ],
+                  [
+                    "xy",
+                    "-5.08",
+                    "-5.08"
+                  ],
+                  [
+                    "xy",
+                    "-5.08",
+                    "5.08"
+                  ]
+                ],
+                [
+                  "stroke",
+                  [
+                    "width",
+                    "0.254"
+                  ],
+                  [
+                    "type",
+                    "default"
+                  ]
+                ],
+                [
+                  "fill",
+                  [
+                    "type",
+                    "background"
+                  ]
+                ]
+              ]
+            },
+            {
+              "kind": "polyline",
+              "geometry": {
+                "points": [
+                  [
+                    3.302,
+                    -0.508
+                  ],
+                  [
+                    2.794,
+                    -0.508
+                  ],
+                  [
+                    3.302,
+                    0.0
+                  ],
+                  [
+                    2.794,
+                    0.508
+                  ],
+                  [
+                    2.286,
+                    0.0
+                  ],
+                  [
+                    2.794,
+                    -0.508
+                  ],
+                  [
+                    2.286,
+                    -0.508
+                  ]
+                ]
+              },
+              "width": 0.127,
+              "fill": "none",
+              "raw": [
+                "polyline",
+                [
+                  "pts",
+                  [
+                    "xy",
+                    "3.302",
+                    "-0.508"
+                  ],
+                  [
+                    "xy",
+                    "2.794",
+                    "-0.508"
+                  ],
+                  [
+                    "xy",
+                    "3.302",
+                    "0"
+                  ],
+                  [
+                    "xy",
+                    "2.794",
+                    "0.508"
+                  ],
+                  [
+                    "xy",
+                    "2.286",
+                    "0"
+                  ],
+                  [
+                    "xy",
+                    "2.794",
+                    "-0.508"
+                  ],
+                  [
+                    "xy",
+                    "2.286",
+                    "-0.508"
+                  ]
+                ],
+                [
+                  "stroke",
+                  [
+                    "width",
+                    "0.127"
+                  ],
+                  [
+                    "type",
+                    "default"
+                  ]
+                ],
+                [
+                  "fill",
+                  [
+                    "type",
+                    "none"
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "style": 1,
+          "source_id": "LM2903_3_1",
+          "display_name": null,
+          "pins": [
+            {
+              "number": "8",
+              "name": "V+",
+              "at": [
+                -2.54,
+                7.62,
+                270.0
+              ],
+              "length": 3.81,
+              "electrical_type": "power_in",
+              "graphic_style": "line",
+              "hidden": false,
+              "name_size": [
+                1.27,
+                1.27
+              ],
+              "number_size": [
+                1.27,
+                1.27
+              ],
+              "alternates": [],
+              "raw": [
+                "pin",
+                "power_in",
+                "line",
+                [
+                  "at",
+                  "-2.54",
+                  "7.62",
+                  "270"
+                ],
+                [
+                  "length",
+                  "3.81"
+                ],
+                [
+                  "name",
+                  "V+",
+                  [
+                    "effects",
+                    [
+                      "font",
+                      [
+                        "size",
+                        "1.27",
+                        "1.27"
+                      ]
+                    ]
+                  ]
+                ],
+                [
+                  "number",
+                  "8",
+                  [
+                    "effects",
+                    [
+                      "font",
+                      [
+                        "size",
+                        "1.27",
+                        "1.27"
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            },
+            {
+              "number": "4",
+              "name": "V-",
+              "at": [
+                -2.54,
+                -7.62,
+                90.0
+              ],
+              "length": 3.81,
+              "electrical_type": "power_in",
+              "graphic_style": "line",
+              "hidden": false,
+              "name_size": [
+                1.27,
+                1.27
+              ],
+              "number_size": [
+                1.27,
+                1.27
+              ],
+              "alternates": [],
+              "raw": [
+                "pin",
+                "power_in",
+                "line",
+                [
+                  "at",
+                  "-2.54",
+                  "-7.62",
+                  "90"
+                ],
+                [
+                  "length",
+                  "3.81"
+                ],
+                [
+                  "name",
+                  "V-",
+                  [
+                    "effects",
+                    [
+                      "font",
+                      [
+                        "size",
+                        "1.27",
+                        "1.27"
+                      ]
+                    ]
+                  ]
+                ],
+                [
+                  "number",
+                  "4",
+                  [
+                    "effects",
+                    [
+                      "font",
+                      [
+                        "size",
+                        "1.27",
+                        "1.27"
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            }
+          ],
+          "graphics": []
+        }
+      ],
+      "extends": "LM2903",
+      "inheritance_chain": [
+        "LM2903"
+      ],
+      "aliases": [],
+      "alias_of": null,
+      "unit_count": 3,
+      "pin_names_hidden": false,
+      "pin_numbers_hidden": false,
+      "pin_name_offset": 0.127,
+      "in_bom": true,
+      "on_board": true,
+      "power": false,
+      "diagnostics": [],
+      "raw": [
+        "symbol",
+        "LM393",
+        [
+          "extends",
+          "LM2903"
+        ],
+        [
+          "property",
+          "Reference",
+          "U",
+          [
+            "at",
+            "3.81",
+            "3.81",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ]
+          ]
+        ],
+        [
+          "property",
+          "Value",
+          "LM393",
+          [
+            "at",
+            "6.35",
+            "-3.81",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ]
+          ]
+        ],
+        [
+          "property",
+          "Footprint",
+          "",
+          [
+            "at",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ],
+            [
+              "hide",
+              "yes"
+            ]
+          ]
+        ],
+        [
+          "property",
+          "Datasheet",
+          "http://www.ti.com/lit/ds/symlink/lm393.pdf",
+          [
+            "at",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ],
+            [
+              "hide",
+              "yes"
+            ]
+          ]
+        ],
+        [
+          "property",
+          "Description",
+          "Low-Power, Low-Offset Voltage, Dual Comparators, DIP-8/SOIC-8/TO-99-8",
+          [
+            "at",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ],
+            [
+              "hide",
+              "yes"
+            ]
+          ]
+        ],
+        [
+          "property",
+          "ki_keywords",
+          "cmp open collector",
+          [
+            "at",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ],
+            [
+              "hide",
+              "yes"
+            ]
+          ]
+        ],
+        [
+          "property",
+          "ki_fp_filters",
+          "SOIC*3.9x4.9mm*P1.27mm* DIP*W7.62mm* SOP*5.28x5.23mm*P1.27mm* VSSOP*3x3mm*P0.65mm* TSSOP*4.4x3mm*P0.65mm*",
+          [
+            "at",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ],
+            [
+              "hide",
+              "yes"
+            ]
+          ]
+        ]
+      ],
+      "source_ready": true,
+      "pin_record_count": 8,
+      "physical_pin_numbers": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      "physical_pin_mapping_verified": false
+    },
+    "LM339": {
+      "name": "LM339",
+      "properties": {
+        "Reference": {
+          "name": "Reference",
+          "value": "U",
+          "at": [
+            0.0,
+            5.08,
+            0.0
+          ],
+          "hidden": false,
+          "raw": [
+            "property",
+            "Reference",
+            "U",
+            [
+              "at",
+              "0",
+              "5.08",
+              "0"
+            ],
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ],
+              [
+                "justify",
+                "left"
+              ]
+            ]
+          ]
+        },
+        "Value": {
+          "name": "Value",
+          "value": "LM339",
+          "at": [
+            0.0,
+            -5.08,
+            0.0
+          ],
+          "hidden": false,
+          "raw": [
+            "property",
+            "Value",
+            "LM339",
+            [
+              "at",
+              "0",
+              "-5.08",
+              "0"
+            ],
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ],
+              [
+                "justify",
+                "left"
+              ]
+            ]
+          ]
+        },
+        "Footprint": {
+          "name": "Footprint",
+          "value": "",
+          "at": [
+            -1.27,
+            2.54,
+            0.0
+          ],
+          "hidden": true,
+          "raw": [
+            "property",
+            "Footprint",
+            "",
+            [
+              "at",
+              "-1.27",
+              "2.54",
+              "0"
+            ],
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ],
+              [
+                "hide",
+                "yes"
+              ]
+            ]
+          ]
+        },
+        "Datasheet": {
+          "name": "Datasheet",
+          "value": "https://www.st.com/resource/en/datasheet/lm139.pdf",
+          "at": [
+            1.27,
+            5.08,
+            0.0
+          ],
+          "hidden": true,
+          "raw": [
+            "property",
+            "Datasheet",
+            "https://www.st.com/resource/en/datasheet/lm139.pdf",
+            [
+              "at",
+              "1.27",
+              "5.08",
+              "0"
+            ],
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ],
+              [
+                "hide",
+                "yes"
+              ]
+            ]
+          ]
+        },
+        "Description": {
+          "name": "Description",
+          "value": "Quad Differential Comparators, SOIC-14/TSSOP-14",
+          "at": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "hidden": true,
+          "raw": [
+            "property",
+            "Description",
+            "Quad Differential Comparators, SOIC-14/TSSOP-14",
+            [
+              "at",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ],
+              [
+                "hide",
+                "yes"
+              ]
+            ]
+          ]
+        },
+        "ki_locked": {
+          "name": "ki_locked",
+          "value": "",
+          "at": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "hidden": false,
+          "raw": [
+            "property",
+            "ki_locked",
+            "",
+            [
+              "at",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ]
+            ]
+          ]
+        },
+        "ki_keywords": {
+          "name": "ki_keywords",
+          "value": "cmp open collector",
+          "at": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "hidden": true,
+          "raw": [
+            "property",
+            "ki_keywords",
+            "cmp open collector",
+            [
+              "at",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ],
+              [
+                "hide",
+                "yes"
+              ]
+            ]
+          ]
+        },
+        "ki_fp_filters": {
+          "name": "ki_fp_filters",
+          "value": "SOIC*3.9x8.7mm*P1.27mm* TSSOP*4.4x5mm*P0.65mm*",
+          "at": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "hidden": true,
+          "raw": [
+            "property",
+            "ki_fp_filters",
+            "SOIC*3.9x8.7mm*P1.27mm* TSSOP*4.4x5mm*P0.65mm*",
+            [
+              "at",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ],
+              [
+                "hide",
+                "yes"
+              ]
+            ]
+          ]
+        }
+      },
+      "units": [
+        {
+          "number": 1,
+          "style": 1,
+          "source_id": "LM339_1_1",
+          "display_name": null,
+          "pins": [
+            {
+              "number": "5",
+              "name": "+",
+              "at": [
+                -7.62,
+                2.54,
+                0.0
+              ],
+              "length": 2.54,
+              "electrical_type": "input",
+              "graphic_style": "line",
+              "hidden": false,
+              "name_size": [
+                1.27,
+                1.27
+              ],
+              "number_size": [
+                1.27,
+                1.27
+              ],
+              "alternates": [],
+              "raw": [
+                "pin",
+                "input",
+                "line",
+                [
+                  "at",
+                  "-7.62",
+                  "2.54",
+                  "0"
+                ],
+                [
+                  "length",
+                  "2.54"
+                ],
+                [
+                  "name",
+                  "+",
+                  [
+                    "effects",
+                    [
+                      "font",
+                      [
+                        "size",
+                        "1.27",
+                        "1.27"
+                      ]
+                    ]
+                  ]
+                ],
+                [
+                  "number",
+                  "5",
+                  [
+                    "effects",
+                    [
+                      "font",
+                      [
+                        "size",
+                        "1.27",
+                        "1.27"
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            },
+            {
+              "number": "4",
+              "name": "-",
+              "at": [
+                -7.62,
+                -2.54,
+                0.0
+              ],
+              "length": 2.54,
+              "electrical_type": "input",
+              "graphic_style": "line",
+              "hidden": false,
+              "name_size": [
+                1.27,
+                1.27
+              ],
+              "number_size": [
+                1.27,
+                1.27
+              ],
+              "alternates": [],
+              "raw": [
+                "pin",
+                "input",
+                "line",
+                [
+                  "at",
+                  "-7.62",
+                  "-2.54",
+                  "0"
+                ],
+                [
+                  "length",
+                  "2.54"
+                ],
+                [
+                  "name",
+                  "-",
+                  [
+                    "effects",
+                    [
+                      "font",
+                      [
+                        "size",
+                        "1.27",
+                        "1.27"
+                      ]
+                    ]
+                  ]
+                ],
+                [
+                  "number",
+                  "4",
+                  [
+                    "effects",
+                    [
+                      "font",
+                      [
+                        "size",
+                        "1.27",
+                        "1.27"
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            },
+            {
+              "number": "2",
+              "name": "~",
+              "at": [
+                7.62,
+                0.0,
+                180.0
+              ],
+              "length": 2.54,
+              "electrical_type": "open_collector",
+              "graphic_style": "line",
+              "hidden": false,
+              "name_size": [
+                1.27,
+                1.27
+              ],
+              "number_size": [
+                1.27,
+                1.27
+              ],
+              "alternates": [],
+              "raw": [
+                "pin",
+                "open_collector",
+                "line",
+                [
+                  "at",
+                  "7.62",
+                  "0",
+                  "180"
+                ],
+                [
+                  "length",
+                  "2.54"
+                ],
+                [
+                  "name",
+                  "~",
+                  [
+                    "effects",
+                    [
+                      "font",
+                      [
+                        "size",
+                        "1.27",
+                        "1.27"
+                      ]
+                    ]
+                  ]
+                ],
+                [
+                  "number",
+                  "2",
+                  [
+                    "effects",
+                    [
+                      "font",
+                      [
+                        "size",
+                        "1.27",
+                        "1.27"
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            }
+          ],
+          "graphics": [
+            {
+              "kind": "polyline",
+              "geometry": {
+                "points": [
+                  [
+                    -5.08,
+                    5.08
+                  ],
+                  [
+                    5.08,
+                    0.0
+                  ],
+                  [
+                    -5.08,
+                    -5.08
+                  ],
+                  [
+                    -5.08,
+                    5.08
+                  ]
+                ]
+              },
+              "width": 0.254,
+              "fill": "background",
+              "raw": [
+                "polyline",
+                [
+                  "pts",
+                  [
+                    "xy",
+                    "-5.08",
+                    "5.08"
+                  ],
+                  [
+                    "xy",
+                    "5.08",
+                    "0"
+                  ],
+                  [
+                    "xy",
+                    "-5.08",
+                    "-5.08"
+                  ],
+                  [
+                    "xy",
+                    "-5.08",
+                    "5.08"
+                  ]
+                ],
+                [
+                  "stroke",
+                  [
+                    "width",
+                    "0.254"
+                  ],
+                  [
+                    "type",
+                    "default"
+                  ]
+                ],
+                [
+                  "fill",
+                  [
+                    "type",
+                    "background"
+                  ]
+                ]
+              ]
+            },
+            {
+              "kind": "polyline",
+              "geometry": {
+                "points": [
+                  [
+                    3.302,
+                    -0.508
+                  ],
+                  [
+                    2.794,
+                    -0.508
+                  ],
+                  [
+                    3.302,
+                    0.0
+                  ],
+                  [
+                    2.794,
+                    0.508
+                  ],
+                  [
+                    2.286,
+                    0.0
+                  ],
+                  [
+                    2.794,
+                    -0.508
+                  ],
+                  [
+                    2.286,
+                    -0.508
+                  ]
+                ]
+              },
+              "width": 0.127,
+              "fill": "none",
+              "raw": [
+                "polyline",
+                [
+                  "pts",
+                  [
+                    "xy",
+                    "3.302",
+                    "-0.508"
+                  ],
+                  [
+                    "xy",
+                    "2.794",
+                    "-0.508"
+                  ],
+                  [
+                    "xy",
+                    "3.302",
+                    "0"
+                  ],
+                  [
+                    "xy",
+                    "2.794",
+                    "0.508"
+                  ],
+                  [
+                    "xy",
+                    "2.286",
+                    "0"
+                  ],
+                  [
+                    "xy",
+                    "2.794",
+                    "-0.508"
+                  ],
+                  [
+                    "xy",
+                    "2.286",
+                    "-0.508"
+                  ]
+                ],
+                [
+                  "stroke",
+                  [
+                    "width",
+                    "0.127"
+                  ],
+                  [
+                    "type",
+                    "default"
+                  ]
+                ],
+                [
+                  "fill",
+                  [
+                    "type",
+                    "none"
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "style": 1,
+          "source_id": "LM339_2_1",
+          "display_name": null,
+          "pins": [
+            {
+              "number": "7",
+              "name": "+",
+              "at": [
+                -7.62,
+                2.54,
+                0.0
+              ],
+              "length": 2.54,
+              "electrical_type": "input",
+              "graphic_style": "line",
+              "hidden": false,
+              "name_size": [
+                1.27,
+                1.27
+              ],
+              "number_size": [
+                1.27,
+                1.27
+              ],
+              "alternates": [],
+              "raw": [
+                "pin",
+                "input",
+                "line",
+                [
+                  "at",
+                  "-7.62",
+                  "2.54",
+                  "0"
+                ],
+                [
+                  "length",
+                  "2.54"
+                ],
+                [
+                  "name",
+                  "+",
+                  [
+                    "effects",
+                    [
+                      "font",
+                      [
+                        "size",
+                        "1.27",
+                        "1.27"
+                      ]
+                    ]
+                  ]
+                ],
+                [
+                  "number",
+                  "7",
+                  [
+                    "effects",
+                    [
+                      "font",
+                      [
+                        "size",
+                        "1.27",
+                        "1.27"
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            },
+            {
+              "number": "6",
+              "name": "-",
+              "at": [
+                -7.62,
+                -2.54,
+                0.0
+              ],
+              "length": 2.54,
+              "electrical_type": "input",
+              "graphic_style": "line",
+              "hidden": false,
+              "name_size": [
+                1.27,
+                1.27
+              ],
+              "number_size": [
+                1.27,
+                1.27
+              ],
+              "alternates": [],
+              "raw": [
+                "pin",
+                "input",
+                "line",
+                [
+                  "at",
+                  "-7.62",
+                  "-2.54",
+                  "0"
+                ],
+                [
+                  "length",
+                  "2.54"
+                ],
+                [
+                  "name",
+                  "-",
+                  [
+                    "effects",
+                    [
+                      "font",
+                      [
+                        "size",
+                        "1.27",
+                        "1.27"
+                      ]
+                    ]
+                  ]
+                ],
+                [
+                  "number",
+                  "6",
+                  [
+                    "effects",
+                    [
+                      "font",
+                      [
+                        "size",
+                        "1.27",
+                        "1.27"
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            },
+            {
+              "number": "1",
+              "name": "~",
+              "at": [
+                7.62,
+                0.0,
+                180.0
+              ],
+              "length": 2.54,
+              "electrical_type": "open_collector",
+              "graphic_style": "line",
+              "hidden": false,
+              "name_size": [
+                1.27,
+                1.27
+              ],
+              "number_size": [
+                1.27,
+                1.27
+              ],
+              "alternates": [],
+              "raw": [
+                "pin",
+                "open_collector",
+                "line",
+                [
+                  "at",
+                  "7.62",
+                  "0",
+                  "180"
+                ],
+                [
+                  "length",
+                  "2.54"
+                ],
+                [
+                  "name",
+                  "~",
+                  [
+                    "effects",
+                    [
+                      "font",
+                      [
+                        "size",
+                        "1.27",
+                        "1.27"
+                      ]
+                    ]
+                  ]
+                ],
+                [
+                  "number",
+                  "1",
+                  [
+                    "effects",
+                    [
+                      "font",
+                      [
+                        "size",
+                        "1.27",
+                        "1.27"
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            }
+          ],
+          "graphics": [
+            {
+              "kind": "polyline",
+              "geometry": {
+                "points": [
+                  [
+                    -5.08,
+                    5.08
+                  ],
+                  [
+                    5.08,
+                    0.0
+                  ],
+                  [
+                    -5.08,
+                    -5.08
+                  ],
+                  [
+                    -5.08,
+                    5.08
+                  ]
+                ]
+              },
+              "width": 0.254,
+              "fill": "background",
+              "raw": [
+                "polyline",
+                [
+                  "pts",
+                  [
+                    "xy",
+                    "-5.08",
+                    "5.08"
+                  ],
+                  [
+                    "xy",
+                    "5.08",
+                    "0"
+                  ],
+                  [
+                    "xy",
+                    "-5.08",
+                    "-5.08"
+                  ],
+                  [
+                    "xy",
+                    "-5.08",
+                    "5.08"
+                  ]
+                ],
+                [
+                  "stroke",
+                  [
+                    "width",
+                    "0.254"
+                  ],
+                  [
+                    "type",
+                    "default"
+                  ]
+                ],
+                [
+                  "fill",
+                  [
+                    "type",
+                    "background"
+                  ]
+                ]
+              ]
+            },
+            {
+              "kind": "polyline",
+              "geometry": {
+                "points": [
+                  [
+                    3.302,
+                    -0.508
+                  ],
+                  [
+                    2.794,
+                    -0.508
+                  ],
+                  [
+                    3.302,
+                    0.0
+                  ],
+                  [
+                    2.794,
+                    0.508
+                  ],
+                  [
+                    2.286,
+                    0.0
+                  ],
+                  [
+                    2.794,
+                    -0.508
+                  ],
+                  [
+                    2.286,
+                    -0.508
+                  ]
+                ]
+              },
+              "width": 0.127,
+              "fill": "none",
+              "raw": [
+                "polyline",
+                [
+                  "pts",
+                  [
+                    "xy",
+                    "3.302",
+                    "-0.508"
+                  ],
+                  [
+                    "xy",
+                    "2.794",
+                    "-0.508"
+                  ],
+                  [
+                    "xy",
+                    "3.302",
+                    "0"
+                  ],
+                  [
+                    "xy",
+                    "2.794",
+                    "0.508"
+                  ],
+                  [
+                    "xy",
+                    "2.286",
+                    "0"
+                  ],
+                  [
+                    "xy",
+                    "2.794",
+                    "-0.508"
+                  ],
+                  [
+                    "xy",
+                    "2.286",
+                    "-0.508"
+                  ]
+                ],
+                [
+                  "stroke",
+                  [
+                    "width",
+                    "0.127"
+                  ],
+                  [
+                    "type",
+                    "default"
+                  ]
+                ],
+                [
+                  "fill",
+                  [
+                    "type",
+                    "none"
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "style": 1,
+          "source_id": "LM339_3_1",
+          "display_name": null,
+          "pins": [
+            {
+              "number": "11",
+              "name": "+",
+              "at": [
+                -7.62,
+                2.54,
+                0.0
+              ],
+              "length": 2.54,
+              "electrical_type": "input",
+              "graphic_style": "line",
+              "hidden": false,
+              "name_size": [
+                1.27,
+                1.27
+              ],
+              "number_size": [
+                1.27,
+                1.27
+              ],
+              "alternates": [],
+              "raw": [
+                "pin",
+                "input",
+                "line",
+                [
+                  "at",
+                  "-7.62",
+                  "2.54",
+                  "0"
+                ],
+                [
+                  "length",
+                  "2.54"
+                ],
+                [
+                  "name",
+                  "+",
+                  [
+                    "effects",
+                    [
+                      "font",
+                      [
+                        "size",
+                        "1.27",
+                        "1.27"
+                      ]
+                    ]
+                  ]
+                ],
+                [
+                  "number",
+                  "11",
+                  [
+                    "effects",
+                    [
+                      "font",
+                      [
+                        "size",
+                        "1.27",
+                        "1.27"
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            },
+            {
+              "number": "10",
+              "name": "-",
+              "at": [
+                -7.62,
+                -2.54,
+                0.0
+              ],
+              "length": 2.54,
+              "electrical_type": "input",
+              "graphic_style": "line",
+              "hidden": false,
+              "name_size": [
+                1.27,
+                1.27
+              ],
+              "number_size": [
+                1.27,
+                1.27
+              ],
+              "alternates": [],
+              "raw": [
+                "pin",
+                "input",
+                "line",
+                [
+                  "at",
+                  "-7.62",
+                  "-2.54",
+                  "0"
+                ],
+                [
+                  "length",
+                  "2.54"
+                ],
+                [
+                  "name",
+                  "-",
+                  [
+                    "effects",
+                    [
+                      "font",
+                      [
+                        "size",
+                        "1.27",
+                        "1.27"
+                      ]
+                    ]
+                  ]
+                ],
+                [
+                  "number",
+                  "10",
+                  [
+                    "effects",
+                    [
+                      "font",
+                      [
+                        "size",
+                        "1.27",
+                        "1.27"
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            },
+            {
+              "number": "13",
+              "name": "~",
+              "at": [
+                7.62,
+                0.0,
+                180.0
+              ],
+              "length": 2.54,
+              "electrical_type": "open_collector",
+              "graphic_style": "line",
+              "hidden": false,
+              "name_size": [
+                1.27,
+                1.27
+              ],
+              "number_size": [
+                1.27,
+                1.27
+              ],
+              "alternates": [],
+              "raw": [
+                "pin",
+                "open_collector",
+                "line",
+                [
+                  "at",
+                  "7.62",
+                  "0",
+                  "180"
+                ],
+                [
+                  "length",
+                  "2.54"
+                ],
+                [
+                  "name",
+                  "~",
+                  [
+                    "effects",
+                    [
+                      "font",
+                      [
+                        "size",
+                        "1.27",
+                        "1.27"
+                      ]
+                    ]
+                  ]
+                ],
+                [
+                  "number",
+                  "13",
+                  [
+                    "effects",
+                    [
+                      "font",
+                      [
+                        "size",
+                        "1.27",
+                        "1.27"
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            }
+          ],
+          "graphics": [
+            {
+              "kind": "polyline",
+              "geometry": {
+                "points": [
+                  [
+                    -5.08,
+                    5.08
+                  ],
+                  [
+                    5.08,
+                    0.0
+                  ],
+                  [
+                    -5.08,
+                    -5.08
+                  ],
+                  [
+                    -5.08,
+                    5.08
+                  ]
+                ]
+              },
+              "width": 0.254,
+              "fill": "background",
+              "raw": [
+                "polyline",
+                [
+                  "pts",
+                  [
+                    "xy",
+                    "-5.08",
+                    "5.08"
+                  ],
+                  [
+                    "xy",
+                    "5.08",
+                    "0"
+                  ],
+                  [
+                    "xy",
+                    "-5.08",
+                    "-5.08"
+                  ],
+                  [
+                    "xy",
+                    "-5.08",
+                    "5.08"
+                  ]
+                ],
+                [
+                  "stroke",
+                  [
+                    "width",
+                    "0.254"
+                  ],
+                  [
+                    "type",
+                    "default"
+                  ]
+                ],
+                [
+                  "fill",
+                  [
+                    "type",
+                    "background"
+                  ]
+                ]
+              ]
+            },
+            {
+              "kind": "polyline",
+              "geometry": {
+                "points": [
+                  [
+                    3.302,
+                    -0.508
+                  ],
+                  [
+                    2.794,
+                    -0.508
+                  ],
+                  [
+                    3.302,
+                    0.0
+                  ],
+                  [
+                    2.794,
+                    0.508
+                  ],
+                  [
+                    2.286,
+                    0.0
+                  ],
+                  [
+                    2.794,
+                    -0.508
+                  ],
+                  [
+                    2.286,
+                    -0.508
+                  ]
+                ]
+              },
+              "width": 0.127,
+              "fill": "none",
+              "raw": [
+                "polyline",
+                [
+                  "pts",
+                  [
+                    "xy",
+                    "3.302",
+                    "-0.508"
+                  ],
+                  [
+                    "xy",
+                    "2.794",
+                    "-0.508"
+                  ],
+                  [
+                    "xy",
+                    "3.302",
+                    "0"
+                  ],
+                  [
+                    "xy",
+                    "2.794",
+                    "0.508"
+                  ],
+                  [
+                    "xy",
+                    "2.286",
+                    "0"
+                  ],
+                  [
+                    "xy",
+                    "2.794",
+                    "-0.508"
+                  ],
+                  [
+                    "xy",
+                    "2.286",
+                    "-0.508"
+                  ]
+                ],
+                [
+                  "stroke",
+                  [
+                    "width",
+                    "0.127"
+                  ],
+                  [
+                    "type",
+                    "default"
+                  ]
+                ],
+                [
+                  "fill",
+                  [
+                    "type",
+                    "none"
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "style": 1,
+          "source_id": "LM339_4_1",
+          "display_name": null,
+          "pins": [
+            {
+              "number": "9",
+              "name": "+",
+              "at": [
+                -7.62,
+                2.54,
+                0.0
+              ],
+              "length": 2.54,
+              "electrical_type": "input",
+              "graphic_style": "line",
+              "hidden": false,
+              "name_size": [
+                1.27,
+                1.27
+              ],
+              "number_size": [
+                1.27,
+                1.27
+              ],
+              "alternates": [],
+              "raw": [
+                "pin",
+                "input",
+                "line",
+                [
+                  "at",
+                  "-7.62",
+                  "2.54",
+                  "0"
+                ],
+                [
+                  "length",
+                  "2.54"
+                ],
+                [
+                  "name",
+                  "+",
+                  [
+                    "effects",
+                    [
+                      "font",
+                      [
+                        "size",
+                        "1.27",
+                        "1.27"
+                      ]
+                    ]
+                  ]
+                ],
+                [
+                  "number",
+                  "9",
+                  [
+                    "effects",
+                    [
+                      "font",
+                      [
+                        "size",
+                        "1.27",
+                        "1.27"
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            },
+            {
+              "number": "8",
+              "name": "-",
+              "at": [
+                -7.62,
+                -2.54,
+                0.0
+              ],
+              "length": 2.54,
+              "electrical_type": "input",
+              "graphic_style": "line",
+              "hidden": false,
+              "name_size": [
+                1.27,
+                1.27
+              ],
+              "number_size": [
+                1.27,
+                1.27
+              ],
+              "alternates": [],
+              "raw": [
+                "pin",
+                "input",
+                "line",
+                [
+                  "at",
+                  "-7.62",
+                  "-2.54",
+                  "0"
+                ],
+                [
+                  "length",
+                  "2.54"
+                ],
+                [
+                  "name",
+                  "-",
+                  [
+                    "effects",
+                    [
+                      "font",
+                      [
+                        "size",
+                        "1.27",
+                        "1.27"
+                      ]
+                    ]
+                  ]
+                ],
+                [
+                  "number",
+                  "8",
+                  [
+                    "effects",
+                    [
+                      "font",
+                      [
+                        "size",
+                        "1.27",
+                        "1.27"
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            },
+            {
+              "number": "14",
+              "name": "~",
+              "at": [
+                7.62,
+                0.0,
+                180.0
+              ],
+              "length": 2.54,
+              "electrical_type": "open_collector",
+              "graphic_style": "line",
+              "hidden": false,
+              "name_size": [
+                1.27,
+                1.27
+              ],
+              "number_size": [
+                1.27,
+                1.27
+              ],
+              "alternates": [],
+              "raw": [
+                "pin",
+                "open_collector",
+                "line",
+                [
+                  "at",
+                  "7.62",
+                  "0",
+                  "180"
+                ],
+                [
+                  "length",
+                  "2.54"
+                ],
+                [
+                  "name",
+                  "~",
+                  [
+                    "effects",
+                    [
+                      "font",
+                      [
+                        "size",
+                        "1.27",
+                        "1.27"
+                      ]
+                    ]
+                  ]
+                ],
+                [
+                  "number",
+                  "14",
+                  [
+                    "effects",
+                    [
+                      "font",
+                      [
+                        "size",
+                        "1.27",
+                        "1.27"
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            }
+          ],
+          "graphics": [
+            {
+              "kind": "polyline",
+              "geometry": {
+                "points": [
+                  [
+                    -5.08,
+                    5.08
+                  ],
+                  [
+                    5.08,
+                    0.0
+                  ],
+                  [
+                    -5.08,
+                    -5.08
+                  ],
+                  [
+                    -5.08,
+                    5.08
+                  ]
+                ]
+              },
+              "width": 0.254,
+              "fill": "background",
+              "raw": [
+                "polyline",
+                [
+                  "pts",
+                  [
+                    "xy",
+                    "-5.08",
+                    "5.08"
+                  ],
+                  [
+                    "xy",
+                    "5.08",
+                    "0"
+                  ],
+                  [
+                    "xy",
+                    "-5.08",
+                    "-5.08"
+                  ],
+                  [
+                    "xy",
+                    "-5.08",
+                    "5.08"
+                  ]
+                ],
+                [
+                  "stroke",
+                  [
+                    "width",
+                    "0.254"
+                  ],
+                  [
+                    "type",
+                    "default"
+                  ]
+                ],
+                [
+                  "fill",
+                  [
+                    "type",
+                    "background"
+                  ]
+                ]
+              ]
+            },
+            {
+              "kind": "polyline",
+              "geometry": {
+                "points": [
+                  [
+                    3.302,
+                    -0.508
+                  ],
+                  [
+                    2.794,
+                    -0.508
+                  ],
+                  [
+                    3.302,
+                    0.0
+                  ],
+                  [
+                    2.794,
+                    0.508
+                  ],
+                  [
+                    2.286,
+                    0.0
+                  ],
+                  [
+                    2.794,
+                    -0.508
+                  ],
+                  [
+                    2.286,
+                    -0.508
+                  ]
+                ]
+              },
+              "width": 0.127,
+              "fill": "none",
+              "raw": [
+                "polyline",
+                [
+                  "pts",
+                  [
+                    "xy",
+                    "3.302",
+                    "-0.508"
+                  ],
+                  [
+                    "xy",
+                    "2.794",
+                    "-0.508"
+                  ],
+                  [
+                    "xy",
+                    "3.302",
+                    "0"
+                  ],
+                  [
+                    "xy",
+                    "2.794",
+                    "0.508"
+                  ],
+                  [
+                    "xy",
+                    "2.286",
+                    "0"
+                  ],
+                  [
+                    "xy",
+                    "2.794",
+                    "-0.508"
+                  ],
+                  [
+                    "xy",
+                    "2.286",
+                    "-0.508"
+                  ]
+                ],
+                [
+                  "stroke",
+                  [
+                    "width",
+                    "0.127"
+                  ],
+                  [
+                    "type",
+                    "default"
+                  ]
+                ],
+                [
+                  "fill",
+                  [
+                    "type",
+                    "none"
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "style": 1,
+          "source_id": "LM339_5_1",
+          "display_name": null,
+          "pins": [
+            {
+              "number": "3",
+              "name": "V+",
+              "at": [
+                -2.54,
+                7.62,
+                270.0
+              ],
+              "length": 3.81,
+              "electrical_type": "power_in",
+              "graphic_style": "line",
+              "hidden": false,
+              "name_size": [
+                1.27,
+                1.27
+              ],
+              "number_size": [
+                1.27,
+                1.27
+              ],
+              "alternates": [],
+              "raw": [
+                "pin",
+                "power_in",
+                "line",
+                [
+                  "at",
+                  "-2.54",
+                  "7.62",
+                  "270"
+                ],
+                [
+                  "length",
+                  "3.81"
+                ],
+                [
+                  "name",
+                  "V+",
+                  [
+                    "effects",
+                    [
+                      "font",
+                      [
+                        "size",
+                        "1.27",
+                        "1.27"
+                      ]
+                    ]
+                  ]
+                ],
+                [
+                  "number",
+                  "3",
+                  [
+                    "effects",
+                    [
+                      "font",
+                      [
+                        "size",
+                        "1.27",
+                        "1.27"
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            },
+            {
+              "number": "12",
+              "name": "V-",
+              "at": [
+                -2.54,
+                -7.62,
+                90.0
+              ],
+              "length": 3.81,
+              "electrical_type": "power_in",
+              "graphic_style": "line",
+              "hidden": false,
+              "name_size": [
+                1.27,
+                1.27
+              ],
+              "number_size": [
+                1.27,
+                1.27
+              ],
+              "alternates": [],
+              "raw": [
+                "pin",
+                "power_in",
+                "line",
+                [
+                  "at",
+                  "-2.54",
+                  "-7.62",
+                  "90"
+                ],
+                [
+                  "length",
+                  "3.81"
+                ],
+                [
+                  "name",
+                  "V-",
+                  [
+                    "effects",
+                    [
+                      "font",
+                      [
+                        "size",
+                        "1.27",
+                        "1.27"
+                      ]
+                    ]
+                  ]
+                ],
+                [
+                  "number",
+                  "12",
+                  [
+                    "effects",
+                    [
+                      "font",
+                      [
+                        "size",
+                        "1.27",
+                        "1.27"
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            }
+          ],
+          "graphics": []
+        }
+      ],
+      "extends": null,
+      "inheritance_chain": [],
+      "aliases": [],
+      "alias_of": null,
+      "unit_count": 5,
+      "pin_names_hidden": false,
+      "pin_numbers_hidden": false,
+      "pin_name_offset": 0.127,
+      "in_bom": true,
+      "on_board": true,
+      "power": false,
+      "diagnostics": [],
+      "raw": [
+        "symbol",
+        "LM339",
+        [
+          "pin_names",
+          [
+            "offset",
+            "0.127"
+          ]
+        ],
+        [
+          "exclude_from_sim",
+          "no"
+        ],
+        [
+          "in_bom",
+          "yes"
+        ],
+        [
+          "on_board",
+          "yes"
+        ],
+        [
+          "property",
+          "Reference",
+          "U",
+          [
+            "at",
+            "0",
+            "5.08",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ],
+            [
+              "justify",
+              "left"
+            ]
+          ]
+        ],
+        [
+          "property",
+          "Value",
+          "LM339",
+          [
+            "at",
+            "0",
+            "-5.08",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ],
+            [
+              "justify",
+              "left"
+            ]
+          ]
+        ],
+        [
+          "property",
+          "Footprint",
+          "",
+          [
+            "at",
+            "-1.27",
+            "2.54",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ],
+            [
+              "hide",
+              "yes"
+            ]
+          ]
+        ],
+        [
+          "property",
+          "Datasheet",
+          "https://www.st.com/resource/en/datasheet/lm139.pdf",
+          [
+            "at",
+            "1.27",
+            "5.08",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ],
+            [
+              "hide",
+              "yes"
+            ]
+          ]
+        ],
+        [
+          "property",
+          "Description",
+          "Quad Differential Comparators, SOIC-14/TSSOP-14",
+          [
+            "at",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ],
+            [
+              "hide",
+              "yes"
+            ]
+          ]
+        ],
+        [
+          "property",
+          "ki_locked",
+          "",
+          [
+            "at",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ]
+          ]
+        ],
+        [
+          "property",
+          "ki_keywords",
+          "cmp open collector",
+          [
+            "at",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ],
+            [
+              "hide",
+              "yes"
+            ]
+          ]
+        ],
+        [
+          "property",
+          "ki_fp_filters",
+          "SOIC*3.9x8.7mm*P1.27mm* TSSOP*4.4x5mm*P0.65mm*",
+          [
+            "at",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ],
+            [
+              "hide",
+              "yes"
+            ]
+          ]
+        ],
+        [
+          "symbol",
+          "LM339_1_1",
+          [
+            "polyline",
+            [
+              "pts",
+              [
+                "xy",
+                "-5.08",
+                "5.08"
+              ],
+              [
+                "xy",
+                "5.08",
+                "0"
+              ],
+              [
+                "xy",
+                "-5.08",
+                "-5.08"
+              ],
+              [
+                "xy",
+                "-5.08",
+                "5.08"
+              ]
+            ],
+            [
+              "stroke",
+              [
+                "width",
+                "0.254"
+              ],
+              [
+                "type",
+                "default"
+              ]
+            ],
+            [
+              "fill",
+              [
+                "type",
+                "background"
+              ]
+            ]
+          ],
+          [
+            "polyline",
+            [
+              "pts",
+              [
+                "xy",
+                "3.302",
+                "-0.508"
+              ],
+              [
+                "xy",
+                "2.794",
+                "-0.508"
+              ],
+              [
+                "xy",
+                "3.302",
+                "0"
+              ],
+              [
+                "xy",
+                "2.794",
+                "0.508"
+              ],
+              [
+                "xy",
+                "2.286",
+                "0"
+              ],
+              [
+                "xy",
+                "2.794",
+                "-0.508"
+              ],
+              [
+                "xy",
+                "2.286",
+                "-0.508"
+              ]
+            ],
+            [
+              "stroke",
+              [
+                "width",
+                "0.127"
+              ],
+              [
+                "type",
+                "default"
+              ]
+            ],
+            [
+              "fill",
+              [
+                "type",
+                "none"
+              ]
+            ]
+          ],
+          [
+            "pin",
+            "input",
+            "line",
+            [
+              "at",
+              "-7.62",
+              "2.54",
+              "0"
+            ],
+            [
+              "length",
+              "2.54"
+            ],
+            [
+              "name",
+              "+",
+              [
+                "effects",
+                [
+                  "font",
+                  [
+                    "size",
+                    "1.27",
+                    "1.27"
+                  ]
+                ]
+              ]
+            ],
+            [
+              "number",
+              "5",
+              [
+                "effects",
+                [
+                  "font",
+                  [
+                    "size",
+                    "1.27",
+                    "1.27"
+                  ]
+                ]
+              ]
+            ]
+          ],
+          [
+            "pin",
+            "input",
+            "line",
+            [
+              "at",
+              "-7.62",
+              "-2.54",
+              "0"
+            ],
+            [
+              "length",
+              "2.54"
+            ],
+            [
+              "name",
+              "-",
+              [
+                "effects",
+                [
+                  "font",
+                  [
+                    "size",
+                    "1.27",
+                    "1.27"
+                  ]
+                ]
+              ]
+            ],
+            [
+              "number",
+              "4",
+              [
+                "effects",
+                [
+                  "font",
+                  [
+                    "size",
+                    "1.27",
+                    "1.27"
+                  ]
+                ]
+              ]
+            ]
+          ],
+          [
+            "pin",
+            "open_collector",
+            "line",
+            [
+              "at",
+              "7.62",
+              "0",
+              "180"
+            ],
+            [
+              "length",
+              "2.54"
+            ],
+            [
+              "name",
+              "~",
+              [
+                "effects",
+                [
+                  "font",
+                  [
+                    "size",
+                    "1.27",
+                    "1.27"
+                  ]
+                ]
+              ]
+            ],
+            [
+              "number",
+              "2",
+              [
+                "effects",
+                [
+                  "font",
+                  [
+                    "size",
+                    "1.27",
+                    "1.27"
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ],
+        [
+          "symbol",
+          "LM339_2_1",
+          [
+            "polyline",
+            [
+              "pts",
+              [
+                "xy",
+                "-5.08",
+                "5.08"
+              ],
+              [
+                "xy",
+                "5.08",
+                "0"
+              ],
+              [
+                "xy",
+                "-5.08",
+                "-5.08"
+              ],
+              [
+                "xy",
+                "-5.08",
+                "5.08"
+              ]
+            ],
+            [
+              "stroke",
+              [
+                "width",
+                "0.254"
+              ],
+              [
+                "type",
+                "default"
+              ]
+            ],
+            [
+              "fill",
+              [
+                "type",
+                "background"
+              ]
+            ]
+          ],
+          [
+            "polyline",
+            [
+              "pts",
+              [
+                "xy",
+                "3.302",
+                "-0.508"
+              ],
+              [
+                "xy",
+                "2.794",
+                "-0.508"
+              ],
+              [
+                "xy",
+                "3.302",
+                "0"
+              ],
+              [
+                "xy",
+                "2.794",
+                "0.508"
+              ],
+              [
+                "xy",
+                "2.286",
+                "0"
+              ],
+              [
+                "xy",
+                "2.794",
+                "-0.508"
+              ],
+              [
+                "xy",
+                "2.286",
+                "-0.508"
+              ]
+            ],
+            [
+              "stroke",
+              [
+                "width",
+                "0.127"
+              ],
+              [
+                "type",
+                "default"
+              ]
+            ],
+            [
+              "fill",
+              [
+                "type",
+                "none"
+              ]
+            ]
+          ],
+          [
+            "pin",
+            "input",
+            "line",
+            [
+              "at",
+              "-7.62",
+              "2.54",
+              "0"
+            ],
+            [
+              "length",
+              "2.54"
+            ],
+            [
+              "name",
+              "+",
+              [
+                "effects",
+                [
+                  "font",
+                  [
+                    "size",
+                    "1.27",
+                    "1.27"
+                  ]
+                ]
+              ]
+            ],
+            [
+              "number",
+              "7",
+              [
+                "effects",
+                [
+                  "font",
+                  [
+                    "size",
+                    "1.27",
+                    "1.27"
+                  ]
+                ]
+              ]
+            ]
+          ],
+          [
+            "pin",
+            "input",
+            "line",
+            [
+              "at",
+              "-7.62",
+              "-2.54",
+              "0"
+            ],
+            [
+              "length",
+              "2.54"
+            ],
+            [
+              "name",
+              "-",
+              [
+                "effects",
+                [
+                  "font",
+                  [
+                    "size",
+                    "1.27",
+                    "1.27"
+                  ]
+                ]
+              ]
+            ],
+            [
+              "number",
+              "6",
+              [
+                "effects",
+                [
+                  "font",
+                  [
+                    "size",
+                    "1.27",
+                    "1.27"
+                  ]
+                ]
+              ]
+            ]
+          ],
+          [
+            "pin",
+            "open_collector",
+            "line",
+            [
+              "at",
+              "7.62",
+              "0",
+              "180"
+            ],
+            [
+              "length",
+              "2.54"
+            ],
+            [
+              "name",
+              "~",
+              [
+                "effects",
+                [
+                  "font",
+                  [
+                    "size",
+                    "1.27",
+                    "1.27"
+                  ]
+                ]
+              ]
+            ],
+            [
+              "number",
+              "1",
+              [
+                "effects",
+                [
+                  "font",
+                  [
+                    "size",
+                    "1.27",
+                    "1.27"
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ],
+        [
+          "symbol",
+          "LM339_3_1",
+          [
+            "polyline",
+            [
+              "pts",
+              [
+                "xy",
+                "-5.08",
+                "5.08"
+              ],
+              [
+                "xy",
+                "5.08",
+                "0"
+              ],
+              [
+                "xy",
+                "-5.08",
+                "-5.08"
+              ],
+              [
+                "xy",
+                "-5.08",
+                "5.08"
+              ]
+            ],
+            [
+              "stroke",
+              [
+                "width",
+                "0.254"
+              ],
+              [
+                "type",
+                "default"
+              ]
+            ],
+            [
+              "fill",
+              [
+                "type",
+                "background"
+              ]
+            ]
+          ],
+          [
+            "polyline",
+            [
+              "pts",
+              [
+                "xy",
+                "3.302",
+                "-0.508"
+              ],
+              [
+                "xy",
+                "2.794",
+                "-0.508"
+              ],
+              [
+                "xy",
+                "3.302",
+                "0"
+              ],
+              [
+                "xy",
+                "2.794",
+                "0.508"
+              ],
+              [
+                "xy",
+                "2.286",
+                "0"
+              ],
+              [
+                "xy",
+                "2.794",
+                "-0.508"
+              ],
+              [
+                "xy",
+                "2.286",
+                "-0.508"
+              ]
+            ],
+            [
+              "stroke",
+              [
+                "width",
+                "0.127"
+              ],
+              [
+                "type",
+                "default"
+              ]
+            ],
+            [
+              "fill",
+              [
+                "type",
+                "none"
+              ]
+            ]
+          ],
+          [
+            "pin",
+            "input",
+            "line",
+            [
+              "at",
+              "-7.62",
+              "2.54",
+              "0"
+            ],
+            [
+              "length",
+              "2.54"
+            ],
+            [
+              "name",
+              "+",
+              [
+                "effects",
+                [
+                  "font",
+                  [
+                    "size",
+                    "1.27",
+                    "1.27"
+                  ]
+                ]
+              ]
+            ],
+            [
+              "number",
+              "11",
+              [
+                "effects",
+                [
+                  "font",
+                  [
+                    "size",
+                    "1.27",
+                    "1.27"
+                  ]
+                ]
+              ]
+            ]
+          ],
+          [
+            "pin",
+            "input",
+            "line",
+            [
+              "at",
+              "-7.62",
+              "-2.54",
+              "0"
+            ],
+            [
+              "length",
+              "2.54"
+            ],
+            [
+              "name",
+              "-",
+              [
+                "effects",
+                [
+                  "font",
+                  [
+                    "size",
+                    "1.27",
+                    "1.27"
+                  ]
+                ]
+              ]
+            ],
+            [
+              "number",
+              "10",
+              [
+                "effects",
+                [
+                  "font",
+                  [
+                    "size",
+                    "1.27",
+                    "1.27"
+                  ]
+                ]
+              ]
+            ]
+          ],
+          [
+            "pin",
+            "open_collector",
+            "line",
+            [
+              "at",
+              "7.62",
+              "0",
+              "180"
+            ],
+            [
+              "length",
+              "2.54"
+            ],
+            [
+              "name",
+              "~",
+              [
+                "effects",
+                [
+                  "font",
+                  [
+                    "size",
+                    "1.27",
+                    "1.27"
+                  ]
+                ]
+              ]
+            ],
+            [
+              "number",
+              "13",
+              [
+                "effects",
+                [
+                  "font",
+                  [
+                    "size",
+                    "1.27",
+                    "1.27"
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ],
+        [
+          "symbol",
+          "LM339_4_1",
+          [
+            "polyline",
+            [
+              "pts",
+              [
+                "xy",
+                "-5.08",
+                "5.08"
+              ],
+              [
+                "xy",
+                "5.08",
+                "0"
+              ],
+              [
+                "xy",
+                "-5.08",
+                "-5.08"
+              ],
+              [
+                "xy",
+                "-5.08",
+                "5.08"
+              ]
+            ],
+            [
+              "stroke",
+              [
+                "width",
+                "0.254"
+              ],
+              [
+                "type",
+                "default"
+              ]
+            ],
+            [
+              "fill",
+              [
+                "type",
+                "background"
+              ]
+            ]
+          ],
+          [
+            "polyline",
+            [
+              "pts",
+              [
+                "xy",
+                "3.302",
+                "-0.508"
+              ],
+              [
+                "xy",
+                "2.794",
+                "-0.508"
+              ],
+              [
+                "xy",
+                "3.302",
+                "0"
+              ],
+              [
+                "xy",
+                "2.794",
+                "0.508"
+              ],
+              [
+                "xy",
+                "2.286",
+                "0"
+              ],
+              [
+                "xy",
+                "2.794",
+                "-0.508"
+              ],
+              [
+                "xy",
+                "2.286",
+                "-0.508"
+              ]
+            ],
+            [
+              "stroke",
+              [
+                "width",
+                "0.127"
+              ],
+              [
+                "type",
+                "default"
+              ]
+            ],
+            [
+              "fill",
+              [
+                "type",
+                "none"
+              ]
+            ]
+          ],
+          [
+            "pin",
+            "input",
+            "line",
+            [
+              "at",
+              "-7.62",
+              "2.54",
+              "0"
+            ],
+            [
+              "length",
+              "2.54"
+            ],
+            [
+              "name",
+              "+",
+              [
+                "effects",
+                [
+                  "font",
+                  [
+                    "size",
+                    "1.27",
+                    "1.27"
+                  ]
+                ]
+              ]
+            ],
+            [
+              "number",
+              "9",
+              [
+                "effects",
+                [
+                  "font",
+                  [
+                    "size",
+                    "1.27",
+                    "1.27"
+                  ]
+                ]
+              ]
+            ]
+          ],
+          [
+            "pin",
+            "input",
+            "line",
+            [
+              "at",
+              "-7.62",
+              "-2.54",
+              "0"
+            ],
+            [
+              "length",
+              "2.54"
+            ],
+            [
+              "name",
+              "-",
+              [
+                "effects",
+                [
+                  "font",
+                  [
+                    "size",
+                    "1.27",
+                    "1.27"
+                  ]
+                ]
+              ]
+            ],
+            [
+              "number",
+              "8",
+              [
+                "effects",
+                [
+                  "font",
+                  [
+                    "size",
+                    "1.27",
+                    "1.27"
+                  ]
+                ]
+              ]
+            ]
+          ],
+          [
+            "pin",
+            "open_collector",
+            "line",
+            [
+              "at",
+              "7.62",
+              "0",
+              "180"
+            ],
+            [
+              "length",
+              "2.54"
+            ],
+            [
+              "name",
+              "~",
+              [
+                "effects",
+                [
+                  "font",
+                  [
+                    "size",
+                    "1.27",
+                    "1.27"
+                  ]
+                ]
+              ]
+            ],
+            [
+              "number",
+              "14",
+              [
+                "effects",
+                [
+                  "font",
+                  [
+                    "size",
+                    "1.27",
+                    "1.27"
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ],
+        [
+          "symbol",
+          "LM339_5_1",
+          [
+            "pin",
+            "power_in",
+            "line",
+            [
+              "at",
+              "-2.54",
+              "7.62",
+              "270"
+            ],
+            [
+              "length",
+              "3.81"
+            ],
+            [
+              "name",
+              "V+",
+              [
+                "effects",
+                [
+                  "font",
+                  [
+                    "size",
+                    "1.27",
+                    "1.27"
+                  ]
+                ]
+              ]
+            ],
+            [
+              "number",
+              "3",
+              [
+                "effects",
+                [
+                  "font",
+                  [
+                    "size",
+                    "1.27",
+                    "1.27"
+                  ]
+                ]
+              ]
+            ]
+          ],
+          [
+            "pin",
+            "power_in",
+            "line",
+            [
+              "at",
+              "-2.54",
+              "-7.62",
+              "90"
+            ],
+            [
+              "length",
+              "3.81"
+            ],
+            [
+              "name",
+              "V-",
+              [
+                "effects",
+                [
+                  "font",
+                  [
+                    "size",
+                    "1.27",
+                    "1.27"
+                  ]
+                ]
+              ]
+            ],
+            [
+              "number",
+              "12",
+              [
+                "effects",
+                [
+                  "font",
+                  [
+                    "size",
+                    "1.27",
+                    "1.27"
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ],
+        [
+          "embedded_fonts",
+          "no"
+        ]
+      ],
+      "source_ready": true,
+      "pin_record_count": 14,
+      "physical_pin_numbers": [
+        "1",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "physical_pin_mapping_verified": false
+    }
+  },
+  "aliases": {},
+  "diagnostics": [],
+  "raw_metadata": [
+    [
+      "version",
+      "20241209"
+    ],
+    [
+      "generator",
+      "kicad_symbol_editor"
+    ],
+    [
+      "generator_version",
+      "9.0"
+    ]
+  ],
+  "summary": {
+    "library_symbol_count": 61,
+    "selected_count": 3,
+    "pin_record_count": 30,
+    "source_ready_count": 3,
+    "diagnostic_occurrences": {}
+  },
+  "source": {
+    "path": "/Users/egorananev/Desktop/hse/1-2 курс/ПРОЕКТ/tests/fixtures/symbols/Comparator.kicad_sym",
+    "sha256": "7edcabe434cc8fe34d8c773483ab1ac5019829cf07836397c1689e7c3a3503bc"
+  }
+}

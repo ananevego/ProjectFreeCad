@@ -47,6 +47,10 @@ def validate_footprint(fp: Footprint) -> list[str]:
             raise ConversionError('Invalid text dimensions')
         if not math.isclose(text.size_x, text.size_y, abs_tol=1e-8):
             raise ConversionError('Anisotropic text size cannot be expressed by one font_size')
+        if not text.hidden and (int(number(text.size_y)) <= 0 or int(number(text.thickness)) <= 0):
+            raise ConversionError('Text dimensions below target resolution')
+        if not text.hidden and text.keep_upright:
+            warnings.append('TEXT_UPRIGHT_UNVERIFIED: KiCad keep-upright behavior on placed component rotation is not validated in FreePCB2')
         if text.kind in {'reference', 'value'}:
             if sum(t.kind == text.kind for t in fp.texts) != 1:
                 raise ConversionError(f'Duplicate {text.kind} text')

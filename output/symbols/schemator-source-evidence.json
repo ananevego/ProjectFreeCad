@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "kind": "schemator_source_research",
+  "repository": "niconson/Schematic-Constructor",
+  "commit": "e7443c374f5c8644fb3483f794a50161de60dd01",
+  "files": [
+    {
+      "path": "Shape.cpp",
+      "sha256": "a8d778b31e56569a176f674d23a56d5ff801c02d934701286ff6f1adda1de3e9",
+      "bytes": 87980,
+      "url": "https://github.com/niconson/Schematic-Constructor/blob/e7443c374f5c8644fb3483f794a50161de60dd01/Shape.cpp"
+    },
+    {
+      "path": "Documents.cpp",
+      "sha256": "7eebf1ce2c33e2b2869c5893a10d39e40cf9ec69cf8ea338e1b8d149de36b6b3",
+      "bytes": 424221,
+      "url": "https://github.com/niconson/Schematic-Constructor/blob/e7443c374f5c8644fb3483f794a50161de60dd01/Documents.cpp"
+    },
+    {
+      "path": "LibPointer.cpp",
+      "sha256": "4ffd60c25151d5a9fbde5f96f0632767e6775b629ef729bf2a8ed598f87fafe3",
+      "bytes": 6372,
+      "url": "https://github.com/niconson/Schematic-Constructor/blob/e7443c374f5c8644fb3483f794a50161de60dd01/LibPointer.cpp"
+    },
+    {
+      "path": "DlgImportMerge.cpp",
+      "sha256": "37d515ccfc6ff7301aed7b3a73e184ee056bf7397705469c231f86298b1756a7",
+      "bytes": 8515,
+      "url": "https://github.com/niconson/Schematic-Constructor/blob/e7443c374f5c8644fb3483f794a50161de60dd01/DlgImportMerge.cpp"
+    },
+    {
+      "path": "SpeedFiles.cpp",
+      "sha256": "097e7e05bd5108abe8ec542135e8c4e9df826ba306e540918d4b5415bb79dd07",
+      "bytes": 33410,
+      "url": "https://github.com/niconson/Schematic-Constructor/blob/e7443c374f5c8644fb3483f794a50161de60dd01/SpeedFiles.cpp"
+    },
+    {
+      "path": "Debug/components.txt",
+      "sha256": "2d8013247f21ccfb3dc0d4d2e57e52a41d6825e7175912f6db581d46d090bcdc",
+      "bytes": 4699,
+      "url": "https://github.com/niconson/Schematic-Constructor/blob/e7443c374f5c8644fb3483f794a50161de60dd01/Debug/components.txt"
+    },
+    {
+      "path": "Debug/buf.cds",
+      "sha256": "b9824c204b73c4cc6744a144a53539f15972febac7221b16ba4ebec82c36d771",
+      "bytes": 7307,
+      "url": "https://github.com/niconson/Schematic-Constructor/blob/e7443c374f5c8644fb3483f794a50161de60dd01/Debug/buf.cds"
+    },
+    {
+      "path": "FreePcbView.cpp",
+      "sha256": "10453fa78811c3f2bf13caa73e492af67ce4f8baf8e6c2e49d8acc52d9aac179",
+      "bytes": 505506,
+      "url": "https://github.com/niconson/Schematic-Constructor/blob/e7443c374f5c8644fb3483f794a50161de60dd01/FreePcbView.cpp"
+    },
+    {
+      "path": "file_io.cpp",
+      "sha256": "396105cd09b342c17dda63a1f311ef673cc9587ef5e1ccc213ce4dd77e3dcee1",
+      "bytes": 5499,
+      "url": "https://github.com/niconson/Schematic-Constructor/blob/e7443c374f5c8644fb3483f794a50161de60dd01/file_io.cpp"
+    },
+    {
+      "path": "FreeSch.h",
+      "sha256": "200a94cc31a35d1f01c404c88d97a49912279471494373da6bf341af38e4b044",
+      "bytes": 3484,
+      "url": "https://github.com/niconson/Schematic-Constructor/blob/e7443c374f5c8644fb3483f794a50161de60dd01/FreeSch.h"
+    },
+    {
+      "path": "layers.h",
+      "sha256": "48989a07fbcdd1edd7213cf299f57d99331a9a615be77aa9b81d3d1c9346640f",
+      "bytes": 2843,
+      "url": "https://github.com/niconson/Schematic-Constructor/blob/e7443c374f5c8644fb3483f794a50161de60dd01/layers.h"
+    },
+    {
+      "path": "TextList.cpp",
+      "sha256": "b7b0b386134d618e0148257538fa986e24bf7c983dd491af2145e198cea6d384",
+      "bytes": 23647,
+      "url": "https://github.com/niconson/Schematic-Constructor/blob/e7443c374f5c8644fb3483f794a50161de60dd01/TextList.cpp"
+    },
+    {
+      "path": "TextList.h",
+      "sha256": "cfccfc205a33476497f3e38edabfc9c5bcdb4de13f1b3010886d40d271f52531",
+      "bytes": 3546,
+      "url": "https://github.com/niconson/Schematic-Constructor/blob/e7443c374f5c8644fb3483f794a50161de60dd01/TextList.h"
+    },
+    {
+      "path": "utility.cpp",
+      "sha256": "c7aaec4dbd12a8ddfe561f3070c9b27f387072747e752445ae640415c9ffa2b7",
+      "bytes": 81300,
+      "url": "https://github.com/niconson/Schematic-Constructor/blob/e7443c374f5c8644fb3483f794a50161de60dd01/utility.cpp"
+    },
+    {
+      "path": "utility.h",
+      "sha256": "dfc43088dada9a492896f66431f1608395de970f8a80505f07869d381548b08d",
+      "bytes": 7335,
+      "url": "https://github.com/niconson/Schematic-Constructor/blob/e7443c374f5c8644fb3483f794a50161de60dd01/utility.h"
+    },
+    {
+      "path": "PolyLine.h",
+      "sha256": "bb2f2ce6257e9390e5bdf332fedfcb3b51722e8ef2250ccb16d144d86692066f",
+      "bytes": 7560,
+      "url": "https://github.com/niconson/Schematic-Constructor/blob/e7443c374f5c8644fb3483f794a50161de60dd01/PolyLine.h"
+    },
+    {
+      "path": "smfontutil.h",
+      "sha256": "4f11c310a89e3ab1c2c295d3a348ec888c16c4f086e9677d44ca3dae036703bf",
+      "bytes": 1746,
+      "url": "https://github.com/niconson/Schematic-Constructor/blob/e7443c374f5c8644fb3483f794a50161de60dd01/smfontutil.h"
+    }
+  ],
+  "target_contract_complete": false,
+  "target_writer_implemented": true,
+  "gui_validated": false,
+  "verified_profile": "schemator-cds-straight-v1",
+  "profile_contract_verified": true,
+  "target_import_verified": false,
+  "record_fixture": {
+    "path": "tests/fixtures/schemator/Detector_R3.component.txt",
+    "source": "FreePCB/detector/detector.cds",
+    "source_sha256": "eecd1b10edac34fb06a84b92f1dc3c477a33c43ab27277b4c2bf74fca4401479",
+    "first_line": 507,
+    "last_line": 528,
+    "component": "R3",
+    "fixture": "Detector_R3.component.txt",
+    "fixture_sha256": "870b6acd68f0dd4b20b85c82cf1bf31c033dd3afea294bb8c2dfb6b154a15dad",
+    "extraction": "Exact contiguous bytes; no coordinates/attributes/line endings changed; component fragment, not a standalone importable file."
+  }
+}
