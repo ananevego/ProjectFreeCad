@@ -1,0 +1,286 @@
+{
+  "bundle": "output/components/control",
+  "components": [
+    {
+      "chain_complete": true,
+      "footprint": "components/c_C0805_492de31517d31f79/footprint.fpl",
+      "id": "C0805",
+      "pin_mapping": {
+        "alternate_style_mismatch": false,
+        "duplicate_pad_numbers": [],
+        "duplicate_pin_numbers": [],
+        "extra_pads": [],
+        "mechanical_pads": 0,
+        "missing_pads": [],
+        "pad_numbers": [
+          "1",
+          "2"
+        ],
+        "pairs": [
+          {
+            "occurrences": [
+              {
+                "name": "~",
+                "style": 1,
+                "unit": 1
+              }
+            ],
+            "pad": "1",
+            "pin": "1"
+          },
+          {
+            "occurrences": [
+              {
+                "name": "~",
+                "style": 1,
+                "unit": 1
+              }
+            ],
+            "pad": "2",
+            "pin": "2"
+          }
+        ],
+        "scope": "Exact physical number identity; function, mechanical suitability and native netlist unverified",
+        "source_numbers": [
+          "1",
+          "2"
+        ],
+        "status": "verified",
+        "verified": true
+      },
+      "source": {
+        "footprint_identifier": "Capacitor_SMD:C_0805_2012Metric",
+        "footprint_sha256": "62775a51fe74ba7f1b572de327bdbd3fc92582721b2abcaa47787865590d89cb",
+        "selection": "explicit_config",
+        "source_footprint_property": "",
+        "symbol": "C",
+        "symbol_library": "../../../KiCad/Pickit-cache.lib",
+        "symbol_library_sha256": "2392caa9775ccf212837314970deee07105228d5070917c31d757d39af459b3d"
+      },
+      "source_target_mapping_verified": true,
+      "symbol": "components/c_C0805_492de31517d31f79/symbol.cds",
+      "target_footprint": "fp_Capacitor_SMD_C_0805_2012Metric_9a78116e32b1fd6a"
+    },
+    {
+      "chain_complete": true,
+      "footprint": "components/c_Header6_edd519247221ce9a/footprint.fpl",
+      "id": "Header6",
+      "pin_mapping": {
+        "alternate_style_mismatch": false,
+        "duplicate_pad_numbers": [],
+        "duplicate_pin_numbers": [],
+        "extra_pads": [],
+        "mechanical_pads": 0,
+        "missing_pads": [],
+        "pad_numbers": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6"
+        ],
+        "pairs": [
+          {
+            "occurrences": [
+              {
+                "name": "P1",
+                "style": 1,
+                "unit": 1
+              }
+            ],
+            "pad": "1",
+            "pin": "1"
+          },
+          {
+            "occurrences": [
+              {
+                "name": "P2",
+                "style": 1,
+                "unit": 1
+              }
+            ],
+            "pad": "2",
+            "pin": "2"
+          },
+          {
+            "occurrences": [
+              {
+                "name": "P3",
+                "style": 1,
+                "unit": 1
+              }
+            ],
+            "pad": "3",
+            "pin": "3"
+          },
+          {
+            "occurrences": [
+              {
+                "name": "P4",
+                "style": 1,
+                "unit": 1
+              }
+            ],
+            "pad": "4",
+            "pin": "4"
+          },
+          {
+            "occurrences": [
+              {
+                "name": "P5",
+                "style": 1,
+                "unit": 1
+              }
+            ],
+            "pad": "5",
+            "pin": "5"
+          },
+          {
+            "occurrences": [
+              {
+                "name": "P6",
+                "style": 1,
+                "unit": 1
+              }
+            ],
+            "pad": "6",
+            "pin": "6"
+          }
+        ],
+        "scope": "Exact physical number identity; function, mechanical suitability and native netlist unverified",
+        "source_numbers": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6"
+        ],
+        "status": "verified",
+        "verified": true
+      },
+      "source": {
+        "footprint_identifier": "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical",
+        "footprint_sha256": "5f2993c50dbd5024384bf6fa972fcd10d40d0837039e1e371b326a27d9f5b8b7",
+        "selection": "explicit_config",
+        "source_footprint_property": "",
+        "symbol": "CONN_01X06",
+        "symbol_library": "../../../KiCad/Pickit-cache.lib",
+        "symbol_library_sha256": "2392caa9775ccf212837314970deee07105228d5070917c31d757d39af459b3d"
+      },
+      "source_target_mapping_verified": true,
+      "symbol": "components/c_Header6_edd519247221ce9a/symbol.cds",
+      "target_footprint": "fp_Connector_PinHeader_2.54mm_PinHeader_1x06_P2.54mm_Vertical_102db76fad6e653e"
+    },
+    {
+      "chain_complete": true,
+      "footprint": "components/c_R0805_2315cd36b56d650b/footprint.fpl",
+      "id": "R0805",
+      "pin_mapping": {
+        "alternate_style_mismatch": false,
+        "duplicate_pad_numbers": [],
+        "duplicate_pin_numbers": [],
+        "extra_pads": [],
+        "mechanical_pads": 0,
+        "missing_pads": [],
+        "pad_numbers": [
+          "1",
+          "2"
+        ],
+        "pairs": [
+          {
+            "occurrences": [
+              {
+                "name": "~",
+                "style": 1,
+                "unit": 1
+              }
+            ],
+            "pad": "1",
+            "pin": "1"
+          },
+          {
+            "occurrences": [
+              {
+                "name": "~",
+                "style": 1,
+                "unit": 1
+              }
+            ],
+            "pad": "2",
+            "pin": "2"
+          }
+        ],
+        "scope": "Exact physical number identity; function, mechanical suitability and native netlist unverified",
+        "source_numbers": [
+          "1",
+          "2"
+        ],
+        "status": "verified",
+        "verified": true
+      },
+      "source": {
+        "footprint_identifier": "Resistor_SMD:R_0805_2012Metric",
+        "footprint_sha256": "f050b6a50cc7e6f86291fb7aa8f87b0d02255e21cfbddf291cdccc87e5889794",
+        "selection": "explicit_config",
+        "source_footprint_property": "",
+        "symbol": "R",
+        "symbol_library": "../../../KiCad/Pickit-cache.lib",
+        "symbol_library_sha256": "2392caa9775ccf212837314970deee07105228d5070917c31d757d39af459b3d"
+      },
+      "source_target_mapping_verified": true,
+      "symbol": "components/c_R0805_2315cd36b56d650b/symbol.cds",
+      "target_footprint": "fp_Resistor_SMD_R_0805_2012Metric_a4ccfd9b79f160fa"
+    }
+  ],
+  "copied_original_model_bytes": 294652,
+  "gui_validated": false,
+  "kind": "component_control_summary",
+  "manifest_sha256": "d095ac8fd19b8b22e71f5c81d320463012c9623aa3897457e29fd6b7e27f9adf",
+  "model_geometry_validated": false,
+  "models": [
+    {
+      "bytes": 21384,
+      "canonical_path": "models/Capacitor_SMD.3dshapes/C_0805_2012Metric.stl",
+      "frame_validated": false,
+      "import_basename": "mdl_Capacitor_SMD.3dshapes_C_0805_2012Metric_54dc537275d6d7ea.stl",
+      "runtime_path": "openscad_models/Bundle.3dshapes/mdl_Capacitor_SMD.3dshapes_C_0805_2012Metric_54dc537275d6d7ea.stl",
+      "sha256": "2d212d4bdd55a180a45bca750a3ea509b9bf6e2413bfbfb5ee15556567e64c94",
+      "source_relative": "Capacitor_SMD.3dshapes/C_0805_2012Metric.stl"
+    },
+    {
+      "bytes": 258184,
+      "canonical_path": "models/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x06_P2.54mm_Vertical.stl",
+      "frame_validated": false,
+      "import_basename": "mdl_Connector_PinHeader_2.54mm.3dshapes_PinHeader_1x06_P2.54mm_V_8bd87857e511204a.stl",
+      "runtime_path": "openscad_models/Bundle.3dshapes/mdl_Connector_PinHeader_2.54mm.3dshapes_PinHeader_1x06_P2.54mm_V_8bd87857e511204a.stl",
+      "sha256": "0ce7ac295621dba994dcdb549dd436c7ca28466aae7dad82ad1d45934f505dc1",
+      "source_relative": "Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x06_P2.54mm_Vertical.stl"
+    },
+    {
+      "bytes": 15084,
+      "canonical_path": "models/Resistor_SMD.3dshapes/R_0805_2012Metric.stl",
+      "frame_validated": false,
+      "import_basename": "mdl_Resistor_SMD.3dshapes_R_0805_2012Metric_32579fcf66304c54.stl",
+      "runtime_path": "openscad_models/Bundle.3dshapes/mdl_Resistor_SMD.3dshapes_R_0805_2012Metric_32579fcf66304c54.stl",
+      "sha256": "81dcf6f1fad25c50fe6cc6d68758b3dbd555a99b42373a00e767568dce1571fd",
+      "source_relative": "Resistor_SMD.3dshapes/R_0805_2012Metric.stl"
+    }
+  ],
+  "native_import_verified": false,
+  "native_setup": {
+    "3d_folder": "openscad_models/Bundle.3dshapes",
+    "freepcb_version": "2.428",
+    "project_units": "MM",
+    "schemator_version": "1.429"
+  },
+  "schema_version": 1,
+  "summary": {
+    "complete_chains": 3,
+    "generated_components": 3,
+    "generated_with_loss": 3,
+    "models": 3,
+    "total": 3
+  }
+}

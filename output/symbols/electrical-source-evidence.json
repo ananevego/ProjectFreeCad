@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "kind": "symbol_electrical_source_research",
+  "native_profile": "schemator-cds-straight-v1",
+  "source_pin_profile": "visible-line-electrical-v1",
+  "target_contract_complete": false,
+  "gui_validated": false,
+  "electrical_rules_transferred": false,
+  "conclusion_scope": "Confirmed CDS component records store geometry/Node, physical numbers and optional names. They do not encode KiCad electrical types; no claim about all circuit checks in the native application.",
+  "files": [
+    {
+      "path": "Documents.cpp",
+      "sha256": "7eebf1ce2c33e2b2869c5893a10d39e40cf9ec69cf8ea338e1b8d149de36b6b3",
+      "bytes": 424221,
+      "url": "https://github.com/niconson/Schematic-Constructor/blob/e7443c374f5c8644fb3483f794a50161de60dd01/Documents.cpp",
+      "line_anchors": [
+        1607,
+        1660,
+        1676,
+        2217,
+        2294,
+        2306,
+        6350,
+        6838,
+        7763
+      ]
+    },
+    {
+      "path": "PolyLine.h",
+      "sha256": "bb2f2ce6257e9390e5bdf332fedfcb3b51722e8ef2250ccb16d144d86692066f",
+      "bytes": 7560,
+      "url": "https://github.com/niconson/Schematic-Constructor/blob/e7443c374f5c8644fb3483f794a50161de60dd01/PolyLine.h",
+      "line_anchors": [
+        45,
+        104
+      ]
+    },
+    {
+      "path": "eeschema/sch_io/kicad_legacy/sch_io_kicad_legacy_lib_cache.cpp",
+      "sha256": "c14ab43b61089567008ec2452f62c7e7b0d3e1b1a5992730febdf9181b513e12",
+      "bytes": 66840,
+      "url": "https://github.com/KiCad/kicad-source-mirror/blob/9.0.0/eeschema/sch_io/kicad_legacy/sch_io_kicad_legacy_lib_cache.cpp",
+      "line_anchors": [
+        1236,
+        1246,
+        1755,
+        1765
+      ]
+    }
+  ]
+}

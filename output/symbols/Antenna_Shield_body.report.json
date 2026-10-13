@@ -1,0 +1,2278 @@
+{
+  "schema_version": 1,
+  "kind": "schemator_symbol_conversion",
+  "status": "generated_with_loss",
+  "target": {
+    "repository": "niconson/Schematic-Constructor",
+    "revision": "e7443c374f5c8644fb3483f794a50161de60dd01",
+    "version": "1.429",
+    "profile": "schemator-cds-straight-v1",
+    "encoding": "cp1251",
+    "coordinates": "nanometres, Y up; source library coordinates preserved",
+    "text_angle_rule": "negative source angle modulo 360",
+    "source_pin_profile": "visible-line-electrical-v1",
+    "source_graphics_profile": "unfilled-curves-v1",
+    "source_body_profile": "bounded-fills-body-text-v1"
+  },
+  "contract_verified_against_source": true,
+  "target_records_validated": true,
+  "target_output_generated": true,
+  "target_import_verified": false,
+  "gui_validated": false,
+  "source_format": "kicad_sym",
+  "source_version": "20241209",
+  "source_symbol": {
+    "name": "Antenna_Shield",
+    "properties": {
+      "Reference": {
+        "name": "Reference",
+        "value": "AE",
+        "at": [
+          -1.905,
+          4.445,
+          0.0
+        ],
+        "hidden": false,
+        "raw": [
+          "property",
+          "Reference",
+          "AE",
+          [
+            "at",
+            "-1.905",
+            "4.445",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ],
+            [
+              "justify",
+              "right"
+            ]
+          ]
+        ]
+      },
+      "Value": {
+        "name": "Value",
+        "value": "Antenna_Shield",
+        "at": [
+          -1.905,
+          2.54,
+          0.0
+        ],
+        "hidden": false,
+        "raw": [
+          "property",
+          "Value",
+          "Antenna_Shield",
+          [
+            "at",
+            "-1.905",
+            "2.54",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ],
+            [
+              "justify",
+              "right"
+            ]
+          ]
+        ]
+      },
+      "Footprint": {
+        "name": "Footprint",
+        "value": "",
+        "at": [
+          0.0,
+          2.54,
+          0.0
+        ],
+        "hidden": true,
+        "raw": [
+          "property",
+          "Footprint",
+          "",
+          [
+            "at",
+            "0",
+            "2.54",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ],
+            [
+              "hide",
+              "yes"
+            ]
+          ]
+        ]
+      },
+      "Datasheet": {
+        "name": "Datasheet",
+        "value": "~",
+        "at": [
+          0.0,
+          2.54,
+          0.0
+        ],
+        "hidden": true,
+        "raw": [
+          "property",
+          "Datasheet",
+          "~",
+          [
+            "at",
+            "0",
+            "2.54",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ],
+            [
+              "hide",
+              "yes"
+            ]
+          ]
+        ]
+      },
+      "Description": {
+        "name": "Description",
+        "value": "Antenna with extra pin for shielding",
+        "at": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "hidden": true,
+        "raw": [
+          "property",
+          "Description",
+          "Antenna with extra pin for shielding",
+          [
+            "at",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ],
+            [
+              "hide",
+              "yes"
+            ]
+          ]
+        ]
+      },
+      "ki_keywords": {
+        "name": "ki_keywords",
+        "value": "antenna",
+        "at": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "hidden": true,
+        "raw": [
+          "property",
+          "ki_keywords",
+          "antenna",
+          [
+            "at",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ],
+            [
+              "hide",
+              "yes"
+            ]
+          ]
+        ]
+      }
+    },
+    "units": [
+      {
+        "number": 0,
+        "style": 1,
+        "source_id": "Antenna_Shield_0_1",
+        "display_name": null,
+        "pins": [],
+        "graphics": [
+          {
+            "kind": "arc",
+            "geometry": {
+              "start": [
+                0.0,
+                -2.667
+              ],
+              "mid": [
+                -0.8485,
+                -2.1032
+              ],
+              "end": [
+                -0.508,
+                -1.143
+              ]
+            },
+            "width": 0.0,
+            "fill": "none",
+            "raw": [
+              "arc",
+              [
+                "start",
+                "0",
+                "-2.667"
+              ],
+              [
+                "mid",
+                "-0.8485",
+                "-2.1032"
+              ],
+              [
+                "end",
+                "-0.508",
+                "-1.143"
+              ],
+              [
+                "stroke",
+                [
+                  "width",
+                  "0"
+                ],
+                [
+                  "type",
+                  "default"
+                ]
+              ],
+              [
+                "fill",
+                [
+                  "type",
+                  "none"
+                ]
+              ]
+            ]
+          },
+          {
+            "kind": "polyline",
+            "geometry": {
+              "points": [
+                [
+                  0.0,
+                  5.08
+                ],
+                [
+                  0.0,
+                  -3.81
+                ]
+              ]
+            },
+            "width": 0.254,
+            "fill": "none",
+            "raw": [
+              "polyline",
+              [
+                "pts",
+                [
+                  "xy",
+                  "0",
+                  "5.08"
+                ],
+                [
+                  "xy",
+                  "0",
+                  "-3.81"
+                ]
+              ],
+              [
+                "stroke",
+                [
+                  "width",
+                  "0.254"
+                ],
+                [
+                  "type",
+                  "default"
+                ]
+              ],
+              [
+                "fill",
+                [
+                  "type",
+                  "none"
+                ]
+              ]
+            ]
+          },
+          {
+            "kind": "polyline",
+            "geometry": {
+              "points": [
+                [
+                  0.0,
+                  -2.54
+                ],
+                [
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            "width": 0.0,
+            "fill": "none",
+            "raw": [
+              "polyline",
+              [
+                "pts",
+                [
+                  "xy",
+                  "0",
+                  "-2.54"
+                ],
+                [
+                  "xy",
+                  "0",
+                  "0"
+                ]
+              ],
+              [
+                "stroke",
+                [
+                  "width",
+                  "0"
+                ],
+                [
+                  "type",
+                  "default"
+                ]
+              ],
+              [
+                "fill",
+                [
+                  "type",
+                  "none"
+                ]
+              ]
+            ]
+          },
+          {
+            "kind": "arc",
+            "geometry": {
+              "start": [
+                0.508,
+                -1.143
+              ],
+              "mid": [
+                0.8046,
+                -2.0885
+              ],
+              "end": [
+                0.0,
+                -2.667
+              ]
+            },
+            "width": 0.0,
+            "fill": "none",
+            "raw": [
+              "arc",
+              [
+                "start",
+                "0.508",
+                "-1.143"
+              ],
+              [
+                "mid",
+                "0.8046",
+                "-2.0885"
+              ],
+              [
+                "end",
+                "0",
+                "-2.667"
+              ],
+              [
+                "stroke",
+                [
+                  "width",
+                  "0"
+                ],
+                [
+                  "type",
+                  "default"
+                ]
+              ],
+              [
+                "fill",
+                [
+                  "type",
+                  "none"
+                ]
+              ]
+            ]
+          },
+          {
+            "kind": "polyline",
+            "geometry": {
+              "points": [
+                [
+                  0.762,
+                  -1.905
+                ],
+                [
+                  2.54,
+                  -1.905
+                ]
+              ]
+            },
+            "width": 0.0,
+            "fill": "none",
+            "raw": [
+              "polyline",
+              [
+                "pts",
+                [
+                  "xy",
+                  "0.762",
+                  "-1.905"
+                ],
+                [
+                  "xy",
+                  "2.54",
+                  "-1.905"
+                ]
+              ],
+              [
+                "stroke",
+                [
+                  "width",
+                  "0"
+                ],
+                [
+                  "type",
+                  "default"
+                ]
+              ],
+              [
+                "fill",
+                [
+                  "type",
+                  "none"
+                ]
+              ]
+            ]
+          },
+          {
+            "kind": "circle",
+            "geometry": {
+              "center": [
+                0.762,
+                -1.905
+              ],
+              "radius": 0.1778
+            },
+            "width": 0.0,
+            "fill": "outline",
+            "raw": [
+              "circle",
+              [
+                "center",
+                "0.762",
+                "-1.905"
+              ],
+              [
+                "radius",
+                "0.1778"
+              ],
+              [
+                "stroke",
+                [
+                  "width",
+                  "0"
+                ],
+                [
+                  "type",
+                  "default"
+                ]
+              ],
+              [
+                "fill",
+                [
+                  "type",
+                  "outline"
+                ]
+              ]
+            ]
+          },
+          {
+            "kind": "polyline",
+            "geometry": {
+              "points": [
+                [
+                  1.27,
+                  5.08
+                ],
+                [
+                  0.0,
+                  0.0
+                ],
+                [
+                  -1.27,
+                  5.08
+                ]
+              ]
+            },
+            "width": 0.254,
+            "fill": "none",
+            "raw": [
+              "polyline",
+              [
+                "pts",
+                [
+                  "xy",
+                  "1.27",
+                  "5.08"
+                ],
+                [
+                  "xy",
+                  "0",
+                  "0"
+                ],
+                [
+                  "xy",
+                  "-1.27",
+                  "5.08"
+                ]
+              ],
+              [
+                "stroke",
+                [
+                  "width",
+                  "0.254"
+                ],
+                [
+                  "type",
+                  "default"
+                ]
+              ],
+              [
+                "fill",
+                [
+                  "type",
+                  "none"
+                ]
+              ]
+            ]
+          },
+          {
+            "kind": "polyline",
+            "geometry": {
+              "points": [
+                [
+                  2.54,
+                  -2.54
+                ],
+                [
+                  2.54,
+                  -1.905
+                ]
+              ]
+            },
+            "width": 0.0,
+            "fill": "none",
+            "raw": [
+              "polyline",
+              [
+                "pts",
+                [
+                  "xy",
+                  "2.54",
+                  "-2.54"
+                ],
+                [
+                  "xy",
+                  "2.54",
+                  "-1.905"
+                ]
+              ],
+              [
+                "stroke",
+                [
+                  "width",
+                  "0"
+                ],
+                [
+                  "type",
+                  "default"
+                ]
+              ],
+              [
+                "fill",
+                [
+                  "type",
+                  "none"
+                ]
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "number": 1,
+        "style": 1,
+        "source_id": "Antenna_Shield_1_1",
+        "display_name": null,
+        "pins": [
+          {
+            "number": "1",
+            "name": "A",
+            "at": [
+              0.0,
+              -5.08,
+              90.0
+            ],
+            "length": 2.54,
+            "electrical_type": "input",
+            "graphic_style": "line",
+            "hidden": false,
+            "name_size": [
+              1.27,
+              1.27
+            ],
+            "number_size": [
+              1.27,
+              1.27
+            ],
+            "alternates": [],
+            "raw": [
+              "pin",
+              "input",
+              "line",
+              [
+                "at",
+                "0",
+                "-5.08",
+                "90"
+              ],
+              [
+                "length",
+                "2.54"
+              ],
+              [
+                "name",
+                "A",
+                [
+                  "effects",
+                  [
+                    "font",
+                    [
+                      "size",
+                      "1.27",
+                      "1.27"
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "number",
+                "1",
+                [
+                  "effects",
+                  [
+                    "font",
+                    [
+                      "size",
+                      "1.27",
+                      "1.27"
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          },
+          {
+            "number": "2",
+            "name": "Shield",
+            "at": [
+              2.54,
+              -5.08,
+              90.0
+            ],
+            "length": 2.54,
+            "electrical_type": "input",
+            "graphic_style": "line",
+            "hidden": false,
+            "name_size": [
+              1.27,
+              1.27
+            ],
+            "number_size": [
+              1.27,
+              1.27
+            ],
+            "alternates": [],
+            "raw": [
+              "pin",
+              "input",
+              "line",
+              [
+                "at",
+                "2.54",
+                "-5.08",
+                "90"
+              ],
+              [
+                "length",
+                "2.54"
+              ],
+              [
+                "name",
+                "Shield",
+                [
+                  "effects",
+                  [
+                    "font",
+                    [
+                      "size",
+                      "1.27",
+                      "1.27"
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "number",
+                "2",
+                [
+                  "effects",
+                  [
+                    "font",
+                    [
+                      "size",
+                      "1.27",
+                      "1.27"
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          }
+        ],
+        "graphics": []
+      }
+    ],
+    "extends": null,
+    "inheritance_chain": [],
+    "aliases": [],
+    "alias_of": null,
+    "unit_count": 1,
+    "pin_names_hidden": true,
+    "pin_numbers_hidden": true,
+    "pin_name_offset": 1.016,
+    "in_bom": true,
+    "on_board": true,
+    "power": false,
+    "diagnostics": [],
+    "raw": [
+      "symbol",
+      "Antenna_Shield",
+      [
+        "pin_numbers",
+        [
+          "hide",
+          "yes"
+        ]
+      ],
+      [
+        "pin_names",
+        [
+          "offset",
+          "1.016"
+        ],
+        [
+          "hide",
+          "yes"
+        ]
+      ],
+      [
+        "exclude_from_sim",
+        "no"
+      ],
+      [
+        "in_bom",
+        "yes"
+      ],
+      [
+        "on_board",
+        "yes"
+      ],
+      [
+        "property",
+        "Reference",
+        "AE",
+        [
+          "at",
+          "-1.905",
+          "4.445",
+          "0"
+        ],
+        [
+          "effects",
+          [
+            "font",
+            [
+              "size",
+              "1.27",
+              "1.27"
+            ]
+          ],
+          [
+            "justify",
+            "right"
+          ]
+        ]
+      ],
+      [
+        "property",
+        "Value",
+        "Antenna_Shield",
+        [
+          "at",
+          "-1.905",
+          "2.54",
+          "0"
+        ],
+        [
+          "effects",
+          [
+            "font",
+            [
+              "size",
+              "1.27",
+              "1.27"
+            ]
+          ],
+          [
+            "justify",
+            "right"
+          ]
+        ]
+      ],
+      [
+        "property",
+        "Footprint",
+        "",
+        [
+          "at",
+          "0",
+          "2.54",
+          "0"
+        ],
+        [
+          "effects",
+          [
+            "font",
+            [
+              "size",
+              "1.27",
+              "1.27"
+            ]
+          ],
+          [
+            "hide",
+            "yes"
+          ]
+        ]
+      ],
+      [
+        "property",
+        "Datasheet",
+        "~",
+        [
+          "at",
+          "0",
+          "2.54",
+          "0"
+        ],
+        [
+          "effects",
+          [
+            "font",
+            [
+              "size",
+              "1.27",
+              "1.27"
+            ]
+          ],
+          [
+            "hide",
+            "yes"
+          ]
+        ]
+      ],
+      [
+        "property",
+        "Description",
+        "Antenna with extra pin for shielding",
+        [
+          "at",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "effects",
+          [
+            "font",
+            [
+              "size",
+              "1.27",
+              "1.27"
+            ]
+          ],
+          [
+            "hide",
+            "yes"
+          ]
+        ]
+      ],
+      [
+        "property",
+        "ki_keywords",
+        "antenna",
+        [
+          "at",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "effects",
+          [
+            "font",
+            [
+              "size",
+              "1.27",
+              "1.27"
+            ]
+          ],
+          [
+            "hide",
+            "yes"
+          ]
+        ]
+      ],
+      [
+        "symbol",
+        "Antenna_Shield_0_1",
+        [
+          "arc",
+          [
+            "start",
+            "0",
+            "-2.667"
+          ],
+          [
+            "mid",
+            "-0.8485",
+            "-2.1032"
+          ],
+          [
+            "end",
+            "-0.508",
+            "-1.143"
+          ],
+          [
+            "stroke",
+            [
+              "width",
+              "0"
+            ],
+            [
+              "type",
+              "default"
+            ]
+          ],
+          [
+            "fill",
+            [
+              "type",
+              "none"
+            ]
+          ]
+        ],
+        [
+          "polyline",
+          [
+            "pts",
+            [
+              "xy",
+              "0",
+              "5.08"
+            ],
+            [
+              "xy",
+              "0",
+              "-3.81"
+            ]
+          ],
+          [
+            "stroke",
+            [
+              "width",
+              "0.254"
+            ],
+            [
+              "type",
+              "default"
+            ]
+          ],
+          [
+            "fill",
+            [
+              "type",
+              "none"
+            ]
+          ]
+        ],
+        [
+          "polyline",
+          [
+            "pts",
+            [
+              "xy",
+              "0",
+              "-2.54"
+            ],
+            [
+              "xy",
+              "0",
+              "0"
+            ]
+          ],
+          [
+            "stroke",
+            [
+              "width",
+              "0"
+            ],
+            [
+              "type",
+              "default"
+            ]
+          ],
+          [
+            "fill",
+            [
+              "type",
+              "none"
+            ]
+          ]
+        ],
+        [
+          "arc",
+          [
+            "start",
+            "0.508",
+            "-1.143"
+          ],
+          [
+            "mid",
+            "0.8046",
+            "-2.0885"
+          ],
+          [
+            "end",
+            "0",
+            "-2.667"
+          ],
+          [
+            "stroke",
+            [
+              "width",
+              "0"
+            ],
+            [
+              "type",
+              "default"
+            ]
+          ],
+          [
+            "fill",
+            [
+              "type",
+              "none"
+            ]
+          ]
+        ],
+        [
+          "polyline",
+          [
+            "pts",
+            [
+              "xy",
+              "0.762",
+              "-1.905"
+            ],
+            [
+              "xy",
+              "2.54",
+              "-1.905"
+            ]
+          ],
+          [
+            "stroke",
+            [
+              "width",
+              "0"
+            ],
+            [
+              "type",
+              "default"
+            ]
+          ],
+          [
+            "fill",
+            [
+              "type",
+              "none"
+            ]
+          ]
+        ],
+        [
+          "circle",
+          [
+            "center",
+            "0.762",
+            "-1.905"
+          ],
+          [
+            "radius",
+            "0.1778"
+          ],
+          [
+            "stroke",
+            [
+              "width",
+              "0"
+            ],
+            [
+              "type",
+              "default"
+            ]
+          ],
+          [
+            "fill",
+            [
+              "type",
+              "outline"
+            ]
+          ]
+        ],
+        [
+          "polyline",
+          [
+            "pts",
+            [
+              "xy",
+              "1.27",
+              "5.08"
+            ],
+            [
+              "xy",
+              "0",
+              "0"
+            ],
+            [
+              "xy",
+              "-1.27",
+              "5.08"
+            ]
+          ],
+          [
+            "stroke",
+            [
+              "width",
+              "0.254"
+            ],
+            [
+              "type",
+              "default"
+            ]
+          ],
+          [
+            "fill",
+            [
+              "type",
+              "none"
+            ]
+          ]
+        ],
+        [
+          "polyline",
+          [
+            "pts",
+            [
+              "xy",
+              "2.54",
+              "-2.54"
+            ],
+            [
+              "xy",
+              "2.54",
+              "-1.905"
+            ]
+          ],
+          [
+            "stroke",
+            [
+              "width",
+              "0"
+            ],
+            [
+              "type",
+              "default"
+            ]
+          ],
+          [
+            "fill",
+            [
+              "type",
+              "none"
+            ]
+          ]
+        ]
+      ],
+      [
+        "symbol",
+        "Antenna_Shield_1_1",
+        [
+          "pin",
+          "input",
+          "line",
+          [
+            "at",
+            "0",
+            "-5.08",
+            "90"
+          ],
+          [
+            "length",
+            "2.54"
+          ],
+          [
+            "name",
+            "A",
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ]
+            ]
+          ],
+          [
+            "number",
+            "1",
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ]
+            ]
+          ]
+        ],
+        [
+          "pin",
+          "input",
+          "line",
+          [
+            "at",
+            "2.54",
+            "-5.08",
+            "90"
+          ],
+          [
+            "length",
+            "2.54"
+          ],
+          [
+            "name",
+            "Shield",
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ]
+            ]
+          ],
+          [
+            "number",
+            "2",
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ]
+            ]
+          ]
+        ]
+      ],
+      [
+        "embedded_fonts",
+        "no"
+      ]
+    ]
+  },
+  "conversion_settings": {
+    "footprint_name": null,
+    "reference": "AE1",
+    "project_name": "Antenna_Shield_body.cds",
+    "default_line_width_mm": 0.254,
+    "pin_width_mm": 0.254,
+    "curve_tolerance_mm": 0.01,
+    "fill_tolerance_mm": 0.01
+  },
+  "target_component": {
+    "pin_count": 2,
+    "bounds": [
+      -1422400,
+      -5232400,
+      2692400,
+      5232400
+    ],
+    "reference": {
+      "value": "AE1",
+      "x": -1905000,
+      "y": 4445000,
+      "layer": 7,
+      "angle": 0,
+      "size": 1270000,
+      "width": 127000,
+      "merge": -1,
+      "submerge": -1,
+      "font": 2,
+      "options": 1
+    },
+    "value": {
+      "value": "Antenna_Shield",
+      "x": -1905000,
+      "y": 2540000,
+      "layer": 13,
+      "angle": 0,
+      "size": 1270000,
+      "width": 127000,
+      "merge": -1,
+      "submerge": -1,
+      "font": 2,
+      "options": 1
+    },
+    "footprint": {
+      "value": "PART",
+      "x": 0,
+      "y": 0,
+      "layer": 12,
+      "angle": 0,
+      "size": 0,
+      "width": 0,
+      "merge": -1,
+      "submerge": -1,
+      "font": 2,
+      "options": 1
+    },
+    "polylines": [
+      {
+        "closed": false,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": 0,
+            "y": -2667000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -242349,
+            "y": -2649720,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -469251,
+            "y": -2562847,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -661173,
+            "y": -2413860,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -801595,
+            "y": -2215585,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -878426,
+            "y": -1985089,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -885055,
+            "y": -1742216,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -820909,
+            "y": -1507872,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -691511,
+            "y": -1302233,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -508000,
+            "y": -1143000,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": 0,
+            "y": 5080000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 0,
+            "y": -3810000,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": 0,
+            "y": -2540000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": 508000,
+            "y": -1143000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 674686,
+            "y": -1307955,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 789684,
+            "y": -1512332,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 844158,
+            "y": -1740426,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 833923,
+            "y": -1974711,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 759765,
+            "y": -2197185,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 627382,
+            "y": -2390754,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 446946,
+            "y": -2540545,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 232322,
+            "y": -2635047,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 0,
+            "y": -2667000,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": 762000,
+            "y": -1905000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 2540000,
+            "y": -1905000,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": true,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": 939800,
+            "y": -1905000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 905840,
+            "y": -1800490,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 816940,
+            "y": -1735900,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 707060,
+            "y": -1735900,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 618160,
+            "y": -1800490,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 584200,
+            "y": -1905000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 618160,
+            "y": -2009510,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 707060,
+            "y": -2074100,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 816940,
+            "y": -2074100,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 905840,
+            "y": -2009510,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": 629480,
+            "y": -2017730,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 894520,
+            "y": -2017730,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": 584200,
+            "y": -1905000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 939800,
+            "y": -1905000,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": 629480,
+            "y": -1792270,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 894520,
+            "y": -1792270,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": 1270000,
+            "y": 5080000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -1270000,
+            "y": 5080000,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": 2540000,
+            "y": -2540000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 2540000,
+            "y": -1905000,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 8,
+        "width": 254000,
+        "corners": [
+          {
+            "x": 0,
+            "y": -2540000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 0,
+            "y": -5080000,
+            "style": 0,
+            "node": 1
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": {
+          "value": "1",
+          "x": -635000,
+          "y": -3810000,
+          "layer": 9,
+          "angle": 0,
+          "size": 0,
+          "width": 0,
+          "merge": -1,
+          "submerge": -1,
+          "font": 2,
+          "options": 1
+        },
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 8,
+        "width": 254000,
+        "corners": [
+          {
+            "x": 2540000,
+            "y": -2540000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 2540000,
+            "y": -5080000,
+            "style": 0,
+            "node": 1
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": {
+          "value": "2",
+          "x": 1905000,
+          "y": -3810000,
+          "layer": 9,
+          "angle": 0,
+          "size": 0,
+          "width": 0,
+          "merge": -1,
+          "submerge": -1,
+          "font": 2,
+          "options": 1
+        },
+        "description": null
+      }
+    ]
+  },
+  "physical_pin_mapping_verified": false,
+  "diagnostics": [
+    {
+      "code": "SYMBOL_TEXT_RENDERING",
+      "severity": "loss",
+      "message": "SIMPLEX replaces source fonts; source property anchors are used as native baselines. Justification, text styling and exact glyph bounds are not reproduced.",
+      "context": {}
+    },
+    {
+      "code": "TARGET_PIN_STROKE",
+      "severity": "assumption",
+      "message": "Pin stroke width is a declared conversion setting; the library has no resolved project pin stroke.",
+      "context": {
+        "width_mm": 0.254
+      }
+    },
+    {
+      "code": "SYMBOL_FOOTPRINT_UNRESOLVED",
+      "severity": "loss",
+      "message": "Native PART placeholder used; source footprint identifier/filters are retained in JSON.",
+      "context": {}
+    },
+    {
+      "code": "SYMBOL_METADATA_NOT_TRANSFERRED",
+      "severity": "loss",
+      "message": "Source datasheet/custom properties/footprint filters retained only in JSON.",
+      "context": {
+        "properties": [
+          "Description",
+          "ki_keywords"
+        ]
+      }
+    },
+    {
+      "code": "SOURCE_LINE_WIDTH_DEFAULT",
+      "severity": "assumption",
+      "message": "Zero source stroke resolves to declared default width.",
+      "context": {
+        "unit": 0,
+        "graphic": 0,
+        "width_mm": 0.254
+      }
+    },
+    {
+      "code": "SYMBOL_CURVE_APPROXIMATED",
+      "severity": "approximation",
+      "message": "Unfilled curve converted to straight segments; tolerance includes NM quantization.",
+      "context": {
+        "source_kind": "arc",
+        "center_mm": [
+          -0.06291670535398934,
+          -1.8413055684513295
+        ],
+        "radius_mm": 0.8280880424828525,
+        "start_angle_radians": -1.4947447560504867,
+        "sweep_radians": -2.650194686285328,
+        "closed": false,
+        "corners": 10,
+        "segments": 9,
+        "tolerance_mm": 0.01,
+        "max_centerline_error_mm": 0.01,
+        "error_scope": "Resolved curve centerline -> straight native NM segments; source-resolution changes are separate",
+        "quantization_budget_mm": 1e-05,
+        "unit": 0,
+        "graphic": 0,
+        "target_polyline_index": 0
+      }
+    },
+    {
+      "code": "SOURCE_LINE_WIDTH_DEFAULT",
+      "severity": "assumption",
+      "message": "Zero source stroke resolves to declared default width.",
+      "context": {
+        "unit": 0,
+        "graphic": 2,
+        "width_mm": 0.254
+      }
+    },
+    {
+      "code": "SOURCE_LINE_WIDTH_DEFAULT",
+      "severity": "assumption",
+      "message": "Zero source stroke resolves to declared default width.",
+      "context": {
+        "unit": 0,
+        "graphic": 3,
+        "width_mm": 0.254
+      }
+    },
+    {
+      "code": "SYMBOL_CURVE_APPROXIMATED",
+      "severity": "approximation",
+      "message": "Unfilled curve converted to straight segments; tolerance includes NM quantization.",
+      "context": {
+        "source_kind": "arc",
+        "center_mm": [
+          0.002002460088268876,
+          -1.821000820029423
+        ],
+        "radius_mm": 0.8460015498551371,
+        "start_angle_radians": 0.929662189975161,
+        "sweep_radians": -2.5028254887436066,
+        "closed": false,
+        "corners": 10,
+        "segments": 9,
+        "tolerance_mm": 0.01,
+        "max_centerline_error_mm": 0.01,
+        "error_scope": "Resolved curve centerline -> straight native NM segments; source-resolution changes are separate",
+        "quantization_budget_mm": 1e-05,
+        "unit": 0,
+        "graphic": 3,
+        "target_polyline_index": 3
+      }
+    },
+    {
+      "code": "SOURCE_LINE_WIDTH_DEFAULT",
+      "severity": "assumption",
+      "message": "Zero source stroke resolves to declared default width.",
+      "context": {
+        "unit": 0,
+        "graphic": 4,
+        "width_mm": 0.254
+      }
+    },
+    {
+      "code": "SOURCE_LINE_WIDTH_DEFAULT",
+      "severity": "assumption",
+      "message": "Zero source stroke resolves to declared default width.",
+      "context": {
+        "unit": 0,
+        "graphic": 5,
+        "width_mm": 0.254
+      }
+    },
+    {
+      "code": "SYMBOL_FILL_APPROXIMATED",
+      "severity": "approximation",
+      "message": "Foreground fill covered by boundary and overlapping straight strokes; tolerance includes quantization.",
+      "context": {
+        "source_kind": "circle",
+        "source_fill": "outline",
+        "coordinates": "source Y up; foreground fills use 10nm grid; background curves use 1nm grid",
+        "center_mm": [
+          0.762,
+          -1.905
+        ],
+        "radius_mm": 0.1778,
+        "boundary_centerline_error_mm": 0.01,
+        "native_policy": "boundary_and_overlapping_strokes",
+        "nominal_interior_covered": true,
+        "encoded_expansion_bound_mm": 0.01,
+        "bound_scope": "ideal round-ended strokes relative to source fill plus resolved source stroke; native caps/rasterization unverified",
+        "emitted_polylines": 4,
+        "collapsed_spans_skipped": 0,
+        "stroke_width_nm": 254000,
+        "unit": 0,
+        "graphic": 5,
+        "target_polyline_indices": [
+          5,
+          6,
+          7,
+          8
+        ]
+      }
+    },
+    {
+      "code": "SOURCE_LINE_WIDTH_DEFAULT",
+      "severity": "assumption",
+      "message": "Zero source stroke resolves to declared default width.",
+      "context": {
+        "unit": 0,
+        "graphic": 7,
+        "width_mm": 0.254
+      }
+    },
+    {
+      "code": "SYMBOL_ELECTRICAL_TYPE_NOT_TRANSFERRED",
+      "severity": "loss",
+      "message": "Source electrical types are retained in JSON only. The confirmed CDS profile stores a numbered connection endpoint and optional name, without KiCad electrical rules; input/output direction, drive constraints and ERC semantics are not transferred.",
+      "context": {
+        "source_electrical_types": {
+          "input": 2
+        }
+      }
+    },
+    {
+      "code": "SYMBOL_CURVE_STROKE_UNVERIFIED",
+      "severity": "assumption",
+      "message": "Curve tolerance covers centerlines; native stroke caps/joins and rasterization are not GUI-verified.",
+      "context": {}
+    },
+    {
+      "code": "SYMBOL_FILL_STROKE_UNVERIFIED",
+      "severity": "assumption",
+      "message": "Fill coverage/expansion bounds assume ideal round-ended strokes; native caps/joins, draw order and rasterization are not GUI-verified.",
+      "context": {}
+    }
+  ],
+  "artifact_sha256": "90d77821b66e0678d288b7482c066de7bb38313a97cadaf577f3f018a6d1bcfe",
+  "counts": {
+    "components": 1,
+    "pins": 2,
+    "polylines": 13,
+    "losses": 4,
+    "assumptions": 9,
+    "approximations": 3,
+    "filled_graphics": 1,
+    "fill_polylines": 4
+  },
+  "pin_semantics": {
+    "electrical_rules_transferred": false,
+    "native_representation": "numbered layer-8 segment; body Node=0, external Node=1; optional layer-14 name",
+    "pins": [
+      {
+        "source_pin_number": "1",
+        "source_pin_name": "A",
+        "source_electrical_type": "input",
+        "target_pin_number": "1",
+        "target_polyline_index": 11,
+        "connection_point_nm": [
+          0,
+          -5080000
+        ]
+      },
+      {
+        "source_pin_number": "2",
+        "source_pin_name": "Shield",
+        "source_electrical_type": "input",
+        "target_pin_number": "2",
+        "target_polyline_index": 12,
+        "connection_point_nm": [
+          2540000,
+          -5080000
+        ]
+      }
+    ]
+  },
+  "curves": [
+    {
+      "source_kind": "arc",
+      "center_mm": [
+        -0.06291670535398934,
+        -1.8413055684513295
+      ],
+      "radius_mm": 0.8280880424828525,
+      "start_angle_radians": -1.4947447560504867,
+      "sweep_radians": -2.650194686285328,
+      "closed": false,
+      "corners": 10,
+      "segments": 9,
+      "tolerance_mm": 0.01,
+      "max_centerline_error_mm": 0.01,
+      "error_scope": "Resolved curve centerline -> straight native NM segments; source-resolution changes are separate",
+      "quantization_budget_mm": 1e-05,
+      "unit": 0,
+      "graphic": 0,
+      "target_polyline_index": 0
+    },
+    {
+      "source_kind": "arc",
+      "center_mm": [
+        0.002002460088268876,
+        -1.821000820029423
+      ],
+      "radius_mm": 0.8460015498551371,
+      "start_angle_radians": 0.929662189975161,
+      "sweep_radians": -2.5028254887436066,
+      "closed": false,
+      "corners": 10,
+      "segments": 9,
+      "tolerance_mm": 0.01,
+      "max_centerline_error_mm": 0.01,
+      "error_scope": "Resolved curve centerline -> straight native NM segments; source-resolution changes are separate",
+      "quantization_budget_mm": 1e-05,
+      "unit": 0,
+      "graphic": 3,
+      "target_polyline_index": 3
+    }
+  ],
+  "filled_graphics": [
+    {
+      "source_kind": "circle",
+      "source_fill": "outline",
+      "coordinates": "source Y up; foreground fills use 10nm grid; background curves use 1nm grid",
+      "center_mm": [
+        0.762,
+        -1.905
+      ],
+      "radius_mm": 0.1778,
+      "boundary_centerline_error_mm": 0.01,
+      "native_policy": "boundary_and_overlapping_strokes",
+      "nominal_interior_covered": true,
+      "encoded_expansion_bound_mm": 0.01,
+      "bound_scope": "ideal round-ended strokes relative to source fill plus resolved source stroke; native caps/rasterization unverified",
+      "emitted_polylines": 4,
+      "collapsed_spans_skipped": 0,
+      "stroke_width_nm": 254000,
+      "unit": 0,
+      "graphic": 5,
+      "target_polyline_indices": [
+        5,
+        6,
+        7,
+        8
+      ]
+    }
+  ],
+  "source": {
+    "path": "/Users/egorananev/Desktop/hse/1-2 курс/ПРОЕКТ/tests/fixtures/symbols/Device.kicad_sym",
+    "sha256": "972f851ebf7c10dfe97eefd5d847406154b18ee6158013bd19165477d6364abd"
+  },
+  "output": "/Users/egorananev/Desktop/hse/1-2 курс/ПРОЕКТ/output/symbols/Antenna_Shield_body.cds"
+}

@@ -1,0 +1,18 @@
+{
+  "commit": "51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c",
+  "modified": false,
+  "files": [
+    {
+      "file": "L_0805_2012Metric.kicad_mod",
+      "sha256": "22f5100d304229ddc07ba8218e3b631d6db4f8fe0b5c310b078c7e41ad56517d",
+      "bytes": 1931,
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Inductor_SMD.pretty/L_0805_2012Metric.kicad_mod"
+    },
+    {
+      "file": "TestPoint_Pad_D1.0mm.kicad_mod",
+      "sha256": "6d602c576b4ab0de29fa4cc096f419a62e828ba45ceee30c1263d86b420b2b12",
+      "bytes": 1748,
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/TestPoint.pretty/TestPoint_Pad_D1.0mm.kicad_mod"
+    }
+  ]
+}

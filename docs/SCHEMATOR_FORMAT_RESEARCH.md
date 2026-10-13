@@ -66,7 +66,7 @@
 - [Documents.cpp:12217](https://github.com/niconson/Schematic-Constructor/blob/e7443c374f5c8644fb3483f794a50161de60dd01/Documents.cpp#L12217)
   `GetNumAllPins` считает pin attributes, включая скрытые номера.
   `pin_name` — physical number, `description` — функция/имя. Connection code
-  [FreePcbView.cpp:7763](https://github.com/niconson/Schematic-Constructor/blob/e7443c374f5c8644fb3483f794a50161de60dd01/FreePcbView.cpp#L7763)
+  [Documents.cpp:7763](https://github.com/niconson/Schematic-Constructor/blob/e7443c374f5c8644fb3483f794a50161de60dd01/Documents.cpp#L7763)
   проверяет Node flag внешнего конца; writer использует body first/Node=0,
   external last/Node=1. Это source verification, не native connectivity test.
 - [FreeSch.h:33](https://github.com/niconson/Schematic-Constructor/blob/e7443c374f5c8644fb3483f794a50161de60dd01/FreeSch.h#L33)
@@ -87,11 +87,35 @@
   — PDF_DEF bit 0 (options=1). Exact baseline/font/justification остаются losses.
 
 Writer и отдельный reader реализованы для `schemator-cds-straight-v1`:
-single-unit, passive straight pins и unfilled rectangles/polylines.
-R/C/CONN_01X06 controls воспроизводимы, 31 target test; полный набор 193.
+single-unit, ordinary visible straight pins и unfilled rectangles/polylines;
+circles/arcs поддержаны через bounded straight approximation.
+R/C/CONN_01X06 controls воспроизводимы, 31 target test; после writer было 193
+теста, после component links — 235, после curves — 266, electrical — 285.
 Команды/ограничения/отчёты: [SCHEMATOR_CONVERTER.md](SCHEMATOR_CONVERTER.md).
 
-Следующие задачи: проверяемые component links и pin/pad mapping, расширение
+2026-10-13: component links и number identity mapping реализованы для малого
+MVP; [COMPONENT_BUNDLE.md](COMPONENT_BUNDLE.md). Далее — расширение
 units/merge/graphics. В Схематоре нужны import/load-save/font layout и
 подключение проводов/netlist; `gui_validated=false` сохраняется. Полный
 target contract не объявляется завершённым из-за реализации малого профиля.
+
+2026-10-13: unfilled circles/modern+legacy arcs создаются в прежних native
+records. Legacy geometry profile уточнён по KiCad9 endpoints/swap/GetRadius;
+source resolution losses отделены от tessellation bound. Sources/hashes и
+проверки: [SYMBOL_CURVES.md](SYMBOL_CURVES.md). Native arbitrary arc side styles,
+fills/units и actual GUI этим не подтверждаются.
+
+2026-10-13: `visible-line-electrical-v1` разрешает девять обычных electrical
+types через тот же numbered endpoint. Подтверждённые writer/reader attributes
+не содержат KiCad electrical-type field, поэтому ERC semantics сохраняются
+только в JSON с loss. Это вывод о поддержанном record profile, не об отсутствии
+любых circuit checks в программе. Primary source anchors/hashes, exact scope
+и ограничения: [SYMBOL_ELECTRICAL.md](SYMBOL_ELECTRICAL.md).
+
+2026-10-13: simple foreground fill представлен bounded straight strokes с
+прежним hatch=0; background остаётся boundary-only с occlusion loss.
+Modern text/legacy T представлен description на body polyline; writer/reader
+и paste attributes подтверждены по Documents/TextList/FreePcbView. Literal
+profile исключает native commands; fonts/layout/z-order остаются losses.
+Source anchors/hashes, limits и 27 новых проверок (всего 312):
+[SYMBOL_BODY.md](SYMBOL_BODY.md). Native GUI/font/fill rendering не подтверждены.

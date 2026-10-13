@@ -14,6 +14,18 @@ from .schemator_format import (
     TARGET_VERSION, native_integer, safe_string, parse_cds,
 )
 from .schemator_writer import write_cds
+from .curves import DEFAULT_CURVE_TOLERANCE, MAX_BODY_CORNERS, render_curve, validate_tolerance
+from .body_graphics import (
+    DEFAULT_FILL_TOLERANCE, MAX_SYMBOL_FILL_STROKES, validate_fill_tolerance,
+    render_fill, render_graphic_text,
+)
+
+# These types share the native numbered endpoint representation. Their KiCad
+# electrical rules survive in JSON only; power/no-connect need separate policy.
+VISIBLE_LINE_ELECTRICAL = frozenset({
+    'passive', 'input', 'output', 'bidirectional', 'tri_state', 'unspecified',
+    'free', 'open_collector', 'open_emitter',
+})
 
 
 @dataclass
@@ -74,12 +86,16 @@ def _property_text(prop: Property, value: str, layer: int) -> TextRecord:
 def convert_symbol(library: Library, name: str, *, footprint_name: str | None = None,
                    reference: str | None = None, project_name: str = 'KiCad_symbol.cds',
                    default_line_width: float = .254, pin_width: float = .254,
+                   curve_tolerance: float = DEFAULT_CURVE_TOLERANCE,
+                   fill_tolerance: float = DEFAULT_FILL_TOLERANCE,
                    strict: bool = False) -> SymbolConversionResult:
     """Generate one component; physical footprint/GUI verification stays separate.
 
-    Profile: one unit, one standard body style, visible positive-length passive
-    line pins, unfilled rectangles/polylines, quarter-turn property texts.
-    No arc/fill/Bezier approximations or pin deduplication are performed.
+    Profile: one unit, one standard body style, visible positive-length ordinary
+    line pins, simple body fills and quarter-turn property/body texts.
+    Unfilled curves are tessellated with an explicit NM-grid error budget.
+    Foreground fill is bounded; background occlusion is lost explicitly.
+    No Bezier approximations or pin deduplication are performed.
     """
     if library.diagnostics:
         raise SymbolParseError('Library source diagnostics must be resolved before target generation')
@@ -90,6 +106,8 @@ def convert_symbol(library: Library, name: str, *, footprint_name: str | None = 
         raise SymbolParseError('CDS profile supports one unit and standard body style only')
     if symbol.power or not symbol.in_bom or not symbol.on_board:
         raise SymbolParseError('Power/virtual/BOM-excluded symbols are outside the CDS profile')
+    validate_tolerance(curve_tolerance)
+    validate_fill_tolerance(fill_tolerance)
     line_width = _positive(default_line_width,'Default line width')
     pin_width_nm = _positive(pin_width,'Pin width')
     safe_string(project_name)
@@ -133,10 +151,20 @@ def convert_symbol(library: Library, name: str, *, footprint_name: str | None = 
         diagnostic('SYMBOL_FOOTPRINT_REPLACED','loss',
             'Source KiCad identifier replaced with the explicitly assigned native footprint name.',
             source=source_footprint.value,target=footprint_name)
-    polylines=[]
+    polylines,curves=[],[]
+    fills,texts,owners=[],[],[]
+    fill_strokes=0
+    body_corners=0
     for unit in symbol.units:
         for index,graphic in enumerate(unit.graphics):
-            if graphic.kind not in ('rectangle','polyline') or graphic.fill!='none':
+            if graphic.kind=='text':
+                if graphic.fill!='none':
+                    raise SymbolParseError('Filled graphic text is outside the body profile')
+                text,metadata=render_graphic_text(graphic,library.source_format)
+                metadata.update(unit=unit.number,graphic=index)
+                texts.append((text,metadata))
+                continue
+            if graphic.kind not in ('rectangle','polyline','circle','arc','legacy_arc') or graphic.fill not in ('none','outline','background'):
                 raise SymbolParseError(f'Unsupported CDS graphic: {graphic.kind}/{graphic.fill}')
             if library.source_format=='kicad_sym':
                 stroke = next((n for n in graphic.raw if isinstance(n,list) and n and n[0]=='stroke'),[])
@@ -149,27 +177,83 @@ def convert_symbol(library: Library, name: str, *, footprint_name: str | None = 
             if not graphic.width:
                 diagnostic('SOURCE_LINE_WIDTH_DEFAULT','assumption',
                     'Zero source stroke resolves to declared default width.',unit=unit.number,graphic=index,width_mm=default_line_width)
-            if graphic.kind=='rectangle':
+            owners.append(len(polylines))
+            if graphic.fill!='none':
+                expanded,metadata=render_fill(graphic,library.source_format,width,fill_tolerance,curve_tolerance)
+                fill_strokes+=len(expanded)
+                if fill_strokes>MAX_SYMBOL_FILL_STROKES:
+                    raise SymbolParseError('Symbol fills exceed 4096 emitted polylines')
+                body_corners+=sum(len(p.corners) for p in expanded)
+                if body_corners>MAX_BODY_CORNERS:
+                    raise SymbolParseError('Symbol body exceeds 32768 native corners')
+                metadata.update(unit=unit.number,graphic=index,
+                    target_polyline_indices=list(range(len(polylines),len(polylines)+len(expanded))))
+                fills.append(metadata)
+                if graphic.fill=='background':
+                    diagnostic('SYMBOL_BACKGROUND_FILL_NOT_TRANSFERRED','loss',
+                        'Only the body boundary is retained; source background color and occlusion are not transferred.',
+                        **metadata)
+                else:
+                    diagnostic('SYMBOL_FILL_APPROXIMATED','approximation',
+                        'Foreground fill covered by boundary and overlapping straight strokes; tolerance includes quantization.',
+                        **metadata)
+                polylines.extend(expanded)
+                continue
+            if graphic.kind in ('circle','arc','legacy_arc'):
+                points,closed,metadata = render_curve(graphic,library.source_format,curve_tolerance)
+                corners = [Corner(x,y) for x,y in points]
+                metadata.update(unit=unit.number,graphic=index,target_polyline_index=len(polylines))
+                curves.append(metadata)
+                diagnostic('SYMBOL_CURVE_APPROXIMATED','approximation',
+                    'Unfilled curve converted to straight segments; tolerance includes NM quantization.',
+                    **metadata)
+                if 'legacy_resolution' in metadata:
+                    resolution = metadata['legacy_resolution']
+                    changed = max([resolution['radius_difference_mm'],*resolution['endpoint_shifts_mm']])>1e-6
+                    diagnostic('SYMBOL_LEGACY_ARC_RESOLVED','loss' if changed else 'assumption',
+                        'Legacy overdefined arc resolved by the explicit KiCad9 geometry profile; raw definitions retained.',
+                        unit=unit.number,graphic=index,**resolution)
+            elif graphic.kind=='rectangle':
                 x1,y1=graphic.geometry['start']
                 x2,y2=graphic.geometry['end']
                 if x1==x2 or y1==y2:
                     raise SymbolParseError('Degenerate source rectangle')
                 points=[(x1,y1),(x2,y1),(x2,y2),(x1,y2)]
                 closed=True
+                corners=[Corner(_nm(x),_nm(y)) for x,y in points]
             else:
                 points=list(graphic.geometry['points'])
                 closed=len(points)>2 and points[0]==points[-1]
                 if closed:
                     points.pop()
-            corners=[Corner(_nm(x),_nm(y)) for x,y in points]
+                corners=[Corner(_nm(x),_nm(y)) for x,y in points]
+            body_corners += len(corners)
+            if body_corners > MAX_BODY_CORNERS:
+                raise SymbolParseError('Symbol body exceeds 32768 native corners')
             polylines.append(PolylineRecord(closed,PART_OUTLINE,width,corners))
+    available=set(owners)
+    for text,metadata in texts:
+        if not available:
+            raise SymbolParseError('Graphic text requires a distinct body contour carrier; no carrier available')
+        owner=min(available,key=lambda i:(min((c.x-text.x)**2+(c.y-text.y)**2 for c in polylines[i].corners),i))
+        available.remove(owner)
+        polylines[owner].description=text
+        metadata['target_polyline_index']=owner
+        diagnostic('SYMBOL_GRAPHIC_TEXT_LAYOUT','loss',
+            'Literal graphic text is a body description with SIMPLEX font; source anchor is used as baseline. '
+            'Justification, styling, exact glyph bounds and source z-order are not reproduced.',**metadata)
     pins=symbol.pins_for()
     if not pins:
         raise SymbolParseError('CDS profile requires at least one physical pin')
     seen=set()
+    pin_semantics=[]
+    electrical_counts={}
     for pin in pins:
-        if pin.hidden or pin.graphic_style!='line' or pin.electrical_type!='passive' or pin.alternates:
-            raise SymbolParseError(f'Pin {pin.number}: only visible passive line pins without alternates are supported')
+        if pin.hidden or pin.graphic_style!='line' or pin.alternates:
+            raise SymbolParseError(f'Pin {pin.number}: only visible line pins without alternates are supported')
+        if pin.electrical_type not in VISIBLE_LINE_ELECTRICAL:
+            raise SymbolParseError(f'Pin {pin.number}: unsupported electrical type {pin.electrical_type!r}; '
+                                   'power/no-connect types require a separate conversion policy')
         if not PIN_IDENTIFIER.fullmatch(pin.number) or pin.number in seen:
             raise SymbolParseError(f'Pin {pin.number!r}: ambiguous/unsupported native number')
         seen.add(pin.number)
@@ -191,13 +275,27 @@ def convert_symbol(library: Library, name: str, *, footprint_name: str | None = 
             distance=_nm(symbol.pin_name_offset)
             poly.description=TextRecord(_display(pin.name),body[0]+dx*distance,body[1]+dy*distance,
                                         PIN_DESCRIPTION,0,size,max(1,size//10))
+        pin_semantics.append(dict(source_pin_number=pin.number,source_pin_name=pin.name,
+            source_electrical_type=pin.electrical_type,target_pin_number=label.value,
+            target_polyline_index=len(polylines),connection_point_nm=external))
+        electrical_counts[pin.electrical_type]=electrical_counts.get(pin.electrical_type,0)+1
         polylines.append(poly)
-    diagnostic('SYMBOL_ELECTRICAL_TYPE_NOT_TRANSFERRED','loss',
-        'Physical pin numbers/connectivity records are retained; KiCad passive electrical type is not a native ERC attribute.')
-    if any(poly.pin and poly.pin.size or poly.description for poly in polylines):
+    extended_electrical = any(pin.electrical_type!='passive' for pin in pins)
+    if extended_electrical:
+        diagnostic('SYMBOL_ELECTRICAL_TYPE_NOT_TRANSFERRED','loss',
+            'Source electrical types are retained in JSON only. The confirmed CDS profile stores '
+            'a numbered connection endpoint and optional name, without KiCad electrical rules; '
+            'input/output direction, drive constraints and ERC semantics are not transferred.',
+            source_electrical_types=electrical_counts)
+    else:
+        # Preserve the original passive-only reports and artifacts exactly.
+        diagnostic('SYMBOL_ELECTRICAL_TYPE_NOT_TRANSFERRED','loss',
+            'Physical pin numbers/connectivity records are retained; KiCad passive electrical type is not a native ERC attribute.')
+    if any(poly.pin and (poly.pin.size or poly.description) for poly in polylines):
         diagnostic('SYMBOL_PIN_LABEL_LAYOUT','loss',
             'Pin numbers/names use a declared horizontal placement policy; exact KiCad automatic label layout is not reproduced.')
     coords=[c for p in polylines for c in p.corners]
+    coords.extend(Corner(text.x,text.y) for text,_ in texts)
     margin=max(p.width for p in polylines)//2+25400  # native selection width + 1 mil
     bounds=tuple(native_integer(v) for v in (
         min(c.x for c in coords)-margin,min(c.y for c in coords)-margin,
@@ -231,6 +329,36 @@ def convert_symbol(library: Library, name: str, *, footprint_name: str | None = 
         counts=dict(components=1,pins=len(pins),polylines=len(polylines),
             losses=sum(d['severity']=='loss' for d in diagnostics),
             assumptions=sum(d['severity']=='assumption' for d in diagnostics)))
+    if extended_electrical:
+        report['target']['source_pin_profile']='visible-line-electrical-v1'
+        report['pin_semantics']=dict(electrical_rules_transferred=False,
+            native_representation='numbered layer-8 segment; body Node=0, external Node=1; optional layer-14 name',
+            pins=pin_semantics)
+    if curves:
+        diagnostic('SYMBOL_CURVE_STROKE_UNVERIFIED','assumption',
+            'Curve tolerance covers centerlines; native stroke caps/joins and rasterization are not GUI-verified.')
+        report['curves'] = curves
+        report['conversion_settings']['curve_tolerance_mm'] = curve_tolerance
+        report['target']['source_graphics_profile'] = 'unfilled-curves-v1'
+        report['counts']['approximations'] = len(curves)
+        report['counts']['assumptions'] += 1
+    if fills or texts:
+        report['target']['source_body_profile']='bounded-fills-body-text-v1'
+        report['counts']['approximations']=len(curves)+sum(f['source_fill']=='outline' for f in fills)
+    if fills:
+        report['filled_graphics']=fills
+        report['conversion_settings']['fill_tolerance_mm']=fill_tolerance
+        if any(f['source_kind']=='circle' for f in fills):
+            report['conversion_settings']['curve_tolerance_mm']=curve_tolerance
+        report['counts']['filled_graphics']=len(fills)
+        report['counts']['fill_polylines']=fill_strokes
+        if any(f['source_fill']=='outline' for f in fills):
+            diagnostic('SYMBOL_FILL_STROKE_UNVERIFIED','assumption',
+                'Fill coverage/expansion bounds assume ideal round-ended strokes; native caps/joins, draw order and rasterization are not GUI-verified.')
+            report['counts']['assumptions']+=1
+    if texts:
+        report['graphic_texts']=[metadata for _,metadata in texts]
+        report['counts']['graphic_texts']=len(texts)
     if strict and report['counts']['losses']:
         report.update(status='rejected_loss',target_output_generated=False)
         report['proposed_artifact_sha256']=report.pop('artifact_sha256')

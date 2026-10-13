@@ -243,7 +243,7 @@ class SymbolSourceTests(unittest.TestCase):
                 parse_library(library(symbol(body='(symbol "Base_0_1" '+g+')')))
 
     def test_legacy_unknown_graphics_retained(self):
-        lib=parse_library(legacy('T 0 0 0 50 0 1 1 "label"'))
+        lib=parse_library(legacy('B 0 0 0 50 0 1 1 "label"'))
         self.assertFalse(lib.get_symbol('Test').source_ready)
         self.assertIn('label',repr(lib.get_symbol('Test').raw))
 

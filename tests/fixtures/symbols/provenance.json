@@ -21,6 +21,18 @@
       "sha256": "45d2bce75e5a4208f5afb01b8fb2c406e700371c4fe2b5f5cd5c443d46db4d8f",
       "bytes": 2101,
       "url": "https://gitlab.com/kicad/libraries/kicad-symbols/-/raw/a9012d8971ef2ea3243ffc9f19a5b4f153d8b334/LICENSE.md"
+    },
+    {
+      "file": "Device.kicad_sym",
+      "sha256": "972f851ebf7c10dfe97eefd5d847406154b18ee6158013bd19165477d6364abd",
+      "bytes": 2213878,
+      "url": "https://gitlab.com/kicad/libraries/kicad-symbols/-/raw/a9012d8971ef2ea3243ffc9f19a5b4f153d8b334/Device.kicad_sym"
+    },
+    {
+      "file": "Connector.kicad_sym",
+      "sha256": "f3820e341582909b9489769c3b32dcf613e205057a8b2b66f889cdb0b1b0473a",
+      "bytes": 4875263,
+      "url": "https://gitlab.com/kicad/libraries/kicad-symbols/-/raw/a9012d8971ef2ea3243ffc9f19a5b4f153d8b334/Connector.kicad_sym"
     }
   ]
 }

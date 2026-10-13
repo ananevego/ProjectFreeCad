@@ -133,8 +133,9 @@ PY
 
 ### Актуальный следующий шаг
 
-Legacy arcs и аудит текстов реализованы; результаты актуального цикла описаны ниже.
-Следующий этап — batch CLI на малой выборке. Windows roundtrip/3D/Gerber остаются незавершёнными.
+Legacy arcs, тексты, batch, source/native УГО, links, curves и ordinary
+electrical profile и simple fills/body text реализованы; актуальный следующий
+подпункт — multi-unit/merge УГО. Windows roundtrip/3D/Gerber остаются незавершёнными.
 
 ## Аудит текстов и D_SOD-123
 
@@ -170,3 +171,30 @@ user text экспортируется как literal D1 в notes, не дина
 6 результатов; failed повторяется. Общий набор — 131 тест. Это партия footprints,
 не полный перенос компонентов/УГО и не оценка полной библиотеки. Подробности и
 команды: [BATCH_CONVERTER.md](BATCH_CONVERTER.md).
+## Контроль component links — 2026-10-13
+
+Собран `output/components/control`: R0805/C0805/Header6, 2/2/6 pin numbers,
+три existing STL snapshots. Native footprint names совпадают в CDS и FPL,
+number identity проверена по source и по readback целевых записей. SHA256
+подтверждает обе model copies (category tree и flat runtime aliases).
+Новые C0805/PinHeader6 — unchanged official fixtures с pinned provenance.
+
+Полный комплект содержит 17 файлов; selected original model bytes — 294 652.
+Краткий результат сохранён в `output/component-control.summary.json`;
+runtime bundle/models исключены из Git. Commands/schema:
+[COMPONENT_BUNDLE.md](COMPONENT_BUNDLE.md). Этот контроль не подтверждает
+native GUI/netlist, функции pins, механическую пригодность или alignment STL.
+
+## Контроль curves УГО — 2026-10-13
+
+Сохранены 7 CDS/report controls для modern/legacy curves. Численные probes
+проверяют обе ориентации, >180° sweeps и centerline error после записи NM;
+native cap/join/font/rendering не подтверждены. Legacy INDUCTOR endpoint
+projection ~0.02544 mm сохранена как отдельный resolution loss, а не скрыта
+в default tessellation bound 0.01 mm.
+
+`output/components/curves` содержит modern L/legacy INDUCTOR/TestPoint: 3
+generated mappings, 2 complete chains, 1 existing L0805 STL и явно 2D TP.
+Selected model 21 384 bytes, всего 13 package files; summary —
+`output/symbol-curves.summary.json`. Relocation/repeated build и старый linear
+bundle byte identity проверены. [SYMBOL_CURVES.md](SYMBOL_CURVES.md).

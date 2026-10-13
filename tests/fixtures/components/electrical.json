@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "footprint_libraries": {
+    "Package_TO_SOT_SMD": "..",
+    "Buzzer_Beeper": ".."
+  },
+  "aperture_defaults": {
+    "mask_margin": 0.05,
+    "paste_margin": 0,
+    "paste_ratio": 0
+  },
+  "components": [
+    {
+      "id": "SCR_AGK",
+      "symbol_library": "../symbols/Device.kicad_sym",
+      "symbol": "Q_SCR_AGK",
+      "footprint": "Package_TO_SOT_SMD:SOT-23",
+      "reference": "D1"
+    },
+    {
+      "id": "Speaker",
+      "symbol_library": "../symbols/Device.kicad_sym",
+      "symbol": "Speaker",
+      "footprint": "Buzzer_Beeper:Speaker_CUI_CMR-1206S-67",
+      "reference": "LS1"
+    }
+  ]
+}

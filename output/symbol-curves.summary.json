@@ -1,0 +1,94 @@
+{
+  "bundle": "output/components/curves",
+  "components": [
+    {
+      "chain_complete": true,
+      "footprint": "components/c_LegacyL_99b8e2ff640b600b/footprint.fpl",
+      "id": "LegacyL",
+      "model_resolution_diagnostics": [],
+      "pin_numbers": [
+        "1",
+        "2"
+      ],
+      "source": {
+        "footprint_identifier": "Inductor_SMD:L_0805_2012Metric",
+        "footprint_sha256": "22f5100d304229ddc07ba8218e3b631d6db4f8fe0b5c310b078c7e41ad56517d",
+        "selection": "explicit_config",
+        "source_footprint_property": "",
+        "symbol": "INDUCTOR",
+        "symbol_library": "../../../KiCad/Pickit-cache.lib",
+        "symbol_library_sha256": "2392caa9775ccf212837314970deee07105228d5070917c31d757d39af459b3d"
+      },
+      "source_target_mapping_verified": true,
+      "symbol": "components/c_LegacyL_99b8e2ff640b600b/symbol.cds"
+    },
+    {
+      "chain_complete": true,
+      "footprint": "components/c_ModernL_9f217d6457c05cc0/footprint.fpl",
+      "id": "ModernL",
+      "model_resolution_diagnostics": [],
+      "pin_numbers": [
+        "1",
+        "2"
+      ],
+      "source": {
+        "footprint_identifier": "Inductor_SMD:L_0805_2012Metric",
+        "footprint_sha256": "22f5100d304229ddc07ba8218e3b631d6db4f8fe0b5c310b078c7e41ad56517d",
+        "selection": "explicit_config",
+        "source_footprint_property": "",
+        "symbol": "L",
+        "symbol_library": "../symbols/Device.kicad_sym",
+        "symbol_library_sha256": "972f851ebf7c10dfe97eefd5d847406154b18ee6158013bd19165477d6364abd"
+      },
+      "source_target_mapping_verified": true,
+      "symbol": "components/c_ModernL_9f217d6457c05cc0/symbol.cds"
+    },
+    {
+      "chain_complete": false,
+      "footprint": "components/c_TestPoint_e362e54e3d1fb065/footprint.fpl",
+      "id": "TestPoint",
+      "model_resolution_diagnostics": [
+        "MODEL_MISSING: no visible source model reference"
+      ],
+      "pin_numbers": [
+        "1"
+      ],
+      "source": {
+        "footprint_identifier": "TestPoint:TestPoint_Pad_D1.0mm",
+        "footprint_sha256": "6d602c576b4ab0de29fa4cc096f419a62e828ba45ceee30c1263d86b420b2b12",
+        "selection": "explicit_config",
+        "source_footprint_property": "",
+        "symbol": "TestPoint",
+        "symbol_library": "../symbols/Connector.kicad_sym",
+        "symbol_library_sha256": "f3820e341582909b9489769c3b32dcf613e205057a8b2b66f889cdb0b1b0473a"
+      },
+      "source_target_mapping_verified": true,
+      "symbol": "components/c_TestPoint_e362e54e3d1fb065/symbol.cds"
+    }
+  ],
+  "gui_validated": false,
+  "kind": "symbol_curve_control_summary",
+  "manifest_sha256": "1b3796132332af41e6a253a8d292126df172c088e5304339369afb335463898a",
+  "model_geometry_validated": false,
+  "models": [
+    {
+      "bytes": 21384,
+      "canonical_path": "models/Inductor_SMD.3dshapes/L_0805_2012Metric.stl",
+      "frame_validated": false,
+      "import_basename": "mdl_Inductor_SMD.3dshapes_L_0805_2012Metric_0365923e5f028bd6.stl",
+      "runtime_path": "openscad_models/Bundle.3dshapes/mdl_Inductor_SMD.3dshapes_L_0805_2012Metric_0365923e5f028bd6.stl",
+      "sha256": "2d212d4bdd55a180a45bca750a3ea509b9bf6e2413bfbfb5ee15556567e64c94",
+      "source_relative": "Inductor_SMD.3dshapes/L_0805_2012Metric.stl"
+    }
+  ],
+  "native_import_verified": false,
+  "schema_version": 1,
+  "summary": {
+    "complete_chains": 2,
+    "generated_components": 3,
+    "generated_with_loss": 3,
+    "models": 1,
+    "total": 3
+  },
+  "symbol_curve_tolerance_mm": 0.01
+}

@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "kind": "symbol_curve_source_research",
+  "native_profile": "schemator-cds-straight-v1",
+  "source_graphics_profile": "unfilled-curves-v1",
+  "legacy_resolution_profile": "kicad-9.0.0-legacy-arc",
+  "target_contract_complete": false,
+  "gui_validated": false,
+  "files": [
+    {
+      "path": "eeschema/sch_io/kicad_legacy/sch_io_kicad_legacy_lib_cache.cpp",
+      "sha256": "c14ab43b61089567008ec2452f62c7e7b0d3e1b1a5992730febdf9181b513e12",
+      "bytes": 66840,
+      "url": "https://github.com/KiCad/kicad-source-mirror/blob/9.0.0/eeschema/sch_io/kicad_legacy/sch_io_kicad_legacy_lib_cache.cpp",
+      "line_anchors": [
+        789,
+        846
+      ]
+    },
+    {
+      "path": "common/eda_shape.cpp",
+      "sha256": "fc09d06ec63a018148d630c23432f11ec35daa428b11866c1fc5270041bf31b1",
+      "bytes": 68289,
+      "url": "https://github.com/KiCad/kicad-source-mirror/blob/9.0.0/common/eda_shape.cpp",
+      "line_anchors": [
+        824,
+        840
+      ]
+    },
+    {
+      "path": "include/base_units.h",
+      "sha256": "a22be430d039093630e4d7b5e15a00011dcf86a42978570e92f71048b9d0a42b",
+      "bytes": 5045,
+      "url": "https://github.com/KiCad/kicad-source-mirror/blob/9.0.0/include/base_units.h",
+      "line_anchors": [
+        72
+      ]
+    },
+    {
+      "path": "PolyLine.h",
+      "sha256": "bb2f2ce6257e9390e5bdf332fedfcb3b51722e8ef2250ccb16d144d86692066f",
+      "bytes": 7560,
+      "url": "https://github.com/niconson/Schematic-Constructor/blob/e7443c374f5c8644fb3483f794a50161de60dd01/PolyLine.h",
+      "line_anchors": [
+        104
+      ]
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "bundle": "output/components/body",
+  "components": [
+    {
+      "chain_complete": true,
+      "filled_graphics": 1,
+      "footprint": "components/c_FilledDiode_734fee43cd3e1af8/footprint.fpl",
+      "graphic_texts": 0,
+      "id": "FilledDiode",
+      "pin_numbers": [
+        "1",
+        "2"
+      ],
+      "source": {
+        "footprint_identifier": "Diode_SMD:D_SOD-123",
+        "footprint_sha256": "fd16785935b01254e1076f490e12f0f096da73cf087adefce51225585c62557a",
+        "selection": "explicit_config",
+        "source_footprint_property": "",
+        "symbol": "D_Filled",
+        "symbol_library": "../symbols/Device.kicad_sym",
+        "symbol_library_sha256": "972f851ebf7c10dfe97eefd5d847406154b18ee6158013bd19165477d6364abd"
+      },
+      "source_target_mapping_verified": true,
+      "symbol": "components/c_FilledDiode_734fee43cd3e1af8/symbol.cds"
+    },
+    {
+      "chain_complete": true,
+      "filled_graphics": 0,
+      "footprint": "components/c_MeterText_ac5edd0f7d9662ab/footprint.fpl",
+      "graphic_texts": 1,
+      "id": "MeterText",
+      "pin_numbers": [
+        "2",
+        "1"
+      ],
+      "source": {
+        "footprint_identifier": "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical",
+        "footprint_sha256": "5301303268f72ba9cc94b7fdbac355951933e6854272ce8d300b679b86b5d45d",
+        "selection": "explicit_config",
+        "source_footprint_property": "",
+        "symbol": "Ammeter_DC",
+        "symbol_library": "../symbols/Device.kicad_sym",
+        "symbol_library_sha256": "972f851ebf7c10dfe97eefd5d847406154b18ee6158013bd19165477d6364abd"
+      },
+      "source_target_mapping_verified": true,
+      "symbol": "components/c_MeterText_ac5edd0f7d9662ab/symbol.cds"
+    }
+  ],
+  "gui_validated": false,
+  "kind": "symbol_body_control_summary",
+  "manifest_sha256": "e8700db7ae510ad0d9b5b6c20f7246c424677428ca98f5cfa542a4b35a88b5a8",
+  "model_geometry_validated": false,
+  "models": [
+    {
+      "bytes": 89984,
+      "canonical_path": "models/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x02_P2.54mm_Vertical.stl",
+      "frame_validated": false,
+      "import_basename": "mdl_Connector_PinHeader_2.54mm.3dshapes_PinHeader_1x02_P2.54mm_V_4a64ae3a15a847fe.stl",
+      "runtime_path": "openscad_models/Bundle.3dshapes/mdl_Connector_PinHeader_2.54mm.3dshapes_PinHeader_1x02_P2.54mm_V_4a64ae3a15a847fe.stl",
+      "sha256": "11abb7d6ee626300408e7402a5c64a388e7f0479f3465ddf5f806343ca5d89ac",
+      "source_relative": "Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x02_P2.54mm_Vertical.stl"
+    },
+    {
+      "bytes": 36384,
+      "canonical_path": "models/Diode_SMD.3dshapes/D_SOD-123.stl",
+      "frame_validated": false,
+      "import_basename": "mdl_Diode_SMD.3dshapes_D_SOD-123_ab0ed97943d7ea32.stl",
+      "runtime_path": "openscad_models/Bundle.3dshapes/mdl_Diode_SMD.3dshapes_D_SOD-123_ab0ed97943d7ea32.stl",
+      "sha256": "3b0901cdea96b85a54652ebad0bff02cc1a8d1983b49e31bc7dcdc24ed54e2f4",
+      "source_relative": "Diode_SMD.3dshapes/D_SOD-123.stl"
+    }
+  ],
+  "native_import_verified": false,
+  "schema_version": 1,
+  "summary": {
+    "complete_chains": 2,
+    "generated_components": 2,
+    "generated_with_loss": 2,
+    "models": 2,
+    "total": 2
+  },
+  "symbol_fill_tolerance_mm": 0.01
+}

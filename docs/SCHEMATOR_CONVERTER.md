@@ -1,7 +1,7 @@
 # Минимальный конвертер УГО KiCad → Схематор
 
-Состояние на 2026-10-12: отдельный writer создаёт один компонент в `.cds`
-1.429. Профиль `schemator-cds-straight-v1` проверен по исходникам Схематора,
+Состояние на 2026-10-13: отдельный writer создаёт один компонент в `.cds`
+1.429. Профиль native records `schemator-cds-straight-v1` проверен по исходникам Схематора,
 неизменённой записи R3 из существующей схемы и отдельному reader результата.
 Импорт, соединение проводов и load/save в Windows-программе ещё не проверены.
 Полный контракт `.cds` и блок УГО в плане остаются незавершёнными.
@@ -34,6 +34,11 @@ KiCad identifier/filters остаётся в JSON.
 толщины в mm, по умолчанию обе 0.254. Source pin stroke не разрешается через
 проект KiCad; выбор толщины отмечается assumption.
 
+`--curve-tolerance` задаёт mm-допуск centerline аппроксимации unfilled circles/
+arcs, default 0.01; `0.00001 < value <= 1`. Legacy arc resolution и изменения
+исходных radius/endpoints учитываются отдельно. Профиль и 7 новых controls:
+[SYMBOL_CURVES.md](SYMBOL_CURVES.md).
+
 | Код CLI | Значение |
 |---|---|
 | 0 | Созданы `.cds` и отчёт с перечисленными известными потерями |
@@ -54,7 +59,7 @@ Python API: `src.symbol_converter.target.convert_symbol(library, name, ...)`
 
 - Один unit, standard body style, common sections; разрешённое source
   inheritance/alias обрабатывает существующий parser.
-- Только видимые passive pins с прямым segment, положительной длиной,
+- Видимые pins девяти обычных electrical types с прямым segment, положительной длиной,
   cardinal angles 0/90/180/270 и без alternates. Hidden pin numbers разрешены:
   номер остаётся электрическим атрибутом с нулевым размером текста.
 - Уникальные номера вида `1`, `64`, `A1`: ASCII prefix и положительный suffix
@@ -63,14 +68,21 @@ Python API: `src.symbol_converter.target.convert_symbol(library, name, ...)`
   terminals и дубли внутри одного rendering отвергаются.
 - Незаполненные rectangles/polylines, solid/default stroke, native straight
   segments. Полилиния с повторённой последней точкой становится `outline`.
+- Незаполненные circles и modern/legacy arcs: straight approximation с явным
+  centerline bound после NM rounding, до 4096 corners/curve и 32768 body corners.
+- Filled rectangles/closed simple polygons/circles: boundary + overlapping
+  strokes с default fill tolerance 0.01 mm. Background — boundary only с loss.
+- Literal modern graphic text/legacy T: body description на существующем
+  contour, quarter-turn/hidden state, явные font/layout/z-order losses.
+  Команды, markup и нехватка carriers вызывают отказ.
 - Reference/value: source anchors, hidden state, quarter-turn angle и height.
   Exact font, justification, baseline и glyph bounds не воспроизводятся.
 - CP1251 text без quotes, control characters, крайних пробелов и markup `~`/`^`.
   `@` в value/package зарезервирован native component index. Поддержка encoding
   не доказывает наличие всех glyphs в выбранном native font.
 
-Multi-unit/power/virtual/BOM-excluded symbols, non-passive/hidden/styled pins,
-alternate body styles, arcs/circles/fill/Bezier/graphic text, цветные/dashed
+Multi-unit/power/virtual/BOM-excluded symbols, power_in/power_out/no_connect/hidden/styled pins,
+alternate body styles, filled arcs/Bezier/open filled polygons, цветные/dashed
 strokes, source diagnostics и будущие неизвестные records пока отклоняются.
 PIC24 из cache отклоняется из-за duplicates; LM393 — из-за нескольких units.
 Библиотека читается целиком, writer выбирает ровно один symbol; batch УГО пока нет.
@@ -104,7 +116,8 @@ Bounds включают geometry и margin `max_width/2 + 25400 NM`, как в �
 Merges/submerges/pictures отключены (`-1/-1/-1/0`), hatch=0, side style=0;
 native font SIMPLEX=2, text options PDF_DEF=1. Default/reference properties
 и pin labels имеют явные layout losses; metadata/electrical type сохраняются
-в JSON. Writer не обещает native ERC для KiCad passive type.
+в JSON. Writer не передаёт KiCad ERC rules. Профиль типов, per-pin semantic
+mapping и пять реальных controls: [SYMBOL_ELECTRICAL.md](SYMBOL_ELECTRICAL.md).
 
 ## Проверки и результаты
 
@@ -123,7 +136,9 @@ hidden pin labels, layers и semantic write/read roundtrip.
 31 новый тест: реальные records, literal coordinate probes, все cardinal
 направления, номера/имена/Nodes, settings, losses/strict, malformed native
 records, целевая сетка/overflow, защита файлов и воспроизводимость CLI.
-Общий набор — 193 теста; копия без STL/STEP проходит с 3 optional integration
+После writer было 193, component stage — 235, curves stage — 266;
+electrical stage добавил 19 (285); body stage — 27, всего 312 тестов.
+Копия без STL/STEP проходит с 3 optional integration
 skips моделей. Контрольные `.cds` воспроизводятся побайтно.
 
 Отчёт явно разделяет `contract_verified_against_source=true`,
@@ -133,6 +148,12 @@ skips моделей. Контрольные `.cds` воспроизводятс
 `target_output_generated=false`, hash предложения назван
 `proposed_artifact_sha256`. Результаты не являются проверкой installed binary.
 
-Следующий этап разработки — component manifest и проверяемая связь
-symbol → footprint → существующий STL. В Windows отдельно нужны import,
+2026-10-13: component manifest и проверка symbol → footprint → существующий
+STL реализованы для R/C/Header6; [COMPONENT_BUNDLE.md](COMPONENT_BUNDLE.md).
+Standalone writer по-прежнему не проверяет pads. Linked exporter отдельно
+подтверждает number identity по source/CDS/FPL и меняет scoped mapping flag
+в своих reports. 2026-10-13 добавлены unfilled curves и реальная выборка;
+обычные electrical types — с явной потерей ERC. Simple fills и body text
+реализованы: [SYMBOL_BODY.md](SYMBOL_BODY.md), `--fill-tolerance` default .01.
+Далее units/merge и отдельная power/no-connect политика. В Windows нужны import,
 визуальное сравнение, подключение проводов, netlist и load/save roundtrip.

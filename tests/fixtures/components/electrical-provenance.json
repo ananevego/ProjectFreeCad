@@ -1,0 +1,18 @@
+{
+  "commit": "51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c",
+  "modified": false,
+  "files": [
+    {
+      "file": "SOT-23.kicad_mod",
+      "sha256": "0d88c86c1b6d8c1aae4aa8c09386264c089d4451a128b6ccd63ed253f4300b15",
+      "bytes": 4485,
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Package_TO_SOT_SMD.pretty/SOT-23.kicad_mod"
+    },
+    {
+      "file": "Speaker_CUI_CMR-1206S-67.kicad_mod",
+      "sha256": "147b68c1962d67c3908892fb4611adfb272c48ffe6969c44b156eed6a6b487cd",
+      "bytes": 5634,
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Buzzer_Beeper.pretty/Speaker_CUI_CMR-1206S-67.kicad_mod"
+    }
+  ]
+}

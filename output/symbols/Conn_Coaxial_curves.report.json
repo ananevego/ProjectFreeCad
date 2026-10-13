@@ -1,0 +1,1892 @@
+{
+  "schema_version": 1,
+  "kind": "schemator_symbol_conversion",
+  "status": "generated_with_loss",
+  "target": {
+    "repository": "niconson/Schematic-Constructor",
+    "revision": "e7443c374f5c8644fb3483f794a50161de60dd01",
+    "version": "1.429",
+    "profile": "schemator-cds-straight-v1",
+    "encoding": "cp1251",
+    "coordinates": "nanometres, Y up; source library coordinates preserved",
+    "text_angle_rule": "negative source angle modulo 360",
+    "source_graphics_profile": "unfilled-curves-v1"
+  },
+  "contract_verified_against_source": true,
+  "target_records_validated": true,
+  "target_output_generated": true,
+  "target_import_verified": false,
+  "gui_validated": false,
+  "source_format": "kicad_sym",
+  "source_version": "20241209",
+  "source_symbol": {
+    "name": "Conn_Coaxial",
+    "properties": {
+      "Reference": {
+        "name": "Reference",
+        "value": "J",
+        "at": [
+          0.254,
+          3.048,
+          0.0
+        ],
+        "hidden": false,
+        "raw": [
+          "property",
+          "Reference",
+          "J",
+          [
+            "at",
+            "0.254",
+            "3.048",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ]
+          ]
+        ]
+      },
+      "Value": {
+        "name": "Value",
+        "value": "Conn_Coaxial",
+        "at": [
+          2.921,
+          0.0,
+          90.0
+        ],
+        "hidden": false,
+        "raw": [
+          "property",
+          "Value",
+          "Conn_Coaxial",
+          [
+            "at",
+            "2.921",
+            "0",
+            "90"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ]
+          ]
+        ]
+      },
+      "Footprint": {
+        "name": "Footprint",
+        "value": "",
+        "at": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "hidden": true,
+        "raw": [
+          "property",
+          "Footprint",
+          "",
+          [
+            "at",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ],
+            [
+              "hide",
+              "yes"
+            ]
+          ]
+        ]
+      },
+      "Datasheet": {
+        "name": "Datasheet",
+        "value": "~",
+        "at": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "hidden": true,
+        "raw": [
+          "property",
+          "Datasheet",
+          "~",
+          [
+            "at",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ],
+            [
+              "hide",
+              "yes"
+            ]
+          ]
+        ]
+      },
+      "Description": {
+        "name": "Description",
+        "value": "coaxial connector (BNC, SMA, SMB, SMC, Cinch/RCA, LEMO, ...)",
+        "at": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "hidden": true,
+        "raw": [
+          "property",
+          "Description",
+          "coaxial connector (BNC, SMA, SMB, SMC, Cinch/RCA, LEMO, ...)",
+          [
+            "at",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ],
+            [
+              "hide",
+              "yes"
+            ]
+          ]
+        ]
+      },
+      "ki_keywords": {
+        "name": "ki_keywords",
+        "value": "BNC SMA SMB SMC LEMO coaxial connector CINCH RCA MCX MMCX U.FL UMRF",
+        "at": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "hidden": true,
+        "raw": [
+          "property",
+          "ki_keywords",
+          "BNC SMA SMB SMC LEMO coaxial connector CINCH RCA MCX MMCX U.FL UMRF",
+          [
+            "at",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ],
+            [
+              "hide",
+              "yes"
+            ]
+          ]
+        ]
+      },
+      "ki_fp_filters": {
+        "name": "ki_fp_filters",
+        "value": "*BNC* *SMA* *SMB* *SMC* *Cinch* *LEMO* *UMRF* *MCX* *U.FL*",
+        "at": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "hidden": true,
+        "raw": [
+          "property",
+          "ki_fp_filters",
+          "*BNC* *SMA* *SMB* *SMC* *Cinch* *LEMO* *UMRF* *MCX* *U.FL*",
+          [
+            "at",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ],
+            [
+              "hide",
+              "yes"
+            ]
+          ]
+        ]
+      }
+    },
+    "units": [
+      {
+        "number": 0,
+        "style": 1,
+        "source_id": "Conn_Coaxial_0_1",
+        "display_name": null,
+        "pins": [],
+        "graphics": [
+          {
+            "kind": "polyline",
+            "geometry": {
+              "points": [
+                [
+                  -2.54,
+                  0.0
+                ],
+                [
+                  -0.508,
+                  0.0
+                ]
+              ]
+            },
+            "width": 0.0,
+            "fill": "none",
+            "raw": [
+              "polyline",
+              [
+                "pts",
+                [
+                  "xy",
+                  "-2.54",
+                  "0"
+                ],
+                [
+                  "xy",
+                  "-0.508",
+                  "0"
+                ]
+              ],
+              [
+                "stroke",
+                [
+                  "width",
+                  "0"
+                ],
+                [
+                  "type",
+                  "default"
+                ]
+              ],
+              [
+                "fill",
+                [
+                  "type",
+                  "none"
+                ]
+              ]
+            ]
+          },
+          {
+            "kind": "arc",
+            "geometry": {
+              "start": [
+                1.778,
+                0.0
+              ],
+              "mid": [
+                0.222,
+                -1.8079
+              ],
+              "end": [
+                -1.778,
+                -0.508
+              ]
+            },
+            "width": 0.254,
+            "fill": "none",
+            "raw": [
+              "arc",
+              [
+                "start",
+                "1.778",
+                "0"
+              ],
+              [
+                "mid",
+                "0.222",
+                "-1.8079"
+              ],
+              [
+                "end",
+                "-1.778",
+                "-0.508"
+              ],
+              [
+                "stroke",
+                [
+                  "width",
+                  "0.254"
+                ],
+                [
+                  "type",
+                  "default"
+                ]
+              ],
+              [
+                "fill",
+                [
+                  "type",
+                  "none"
+                ]
+              ]
+            ]
+          },
+          {
+            "kind": "arc",
+            "geometry": {
+              "start": [
+                -1.778,
+                0.508
+              ],
+              "mid": [
+                0.2221,
+                1.8084
+              ],
+              "end": [
+                1.778,
+                0.0
+              ]
+            },
+            "width": 0.254,
+            "fill": "none",
+            "raw": [
+              "arc",
+              [
+                "start",
+                "-1.778",
+                "0.508"
+              ],
+              [
+                "mid",
+                "0.2221",
+                "1.8084"
+              ],
+              [
+                "end",
+                "1.778",
+                "0"
+              ],
+              [
+                "stroke",
+                [
+                  "width",
+                  "0.254"
+                ],
+                [
+                  "type",
+                  "default"
+                ]
+              ],
+              [
+                "fill",
+                [
+                  "type",
+                  "none"
+                ]
+              ]
+            ]
+          },
+          {
+            "kind": "circle",
+            "geometry": {
+              "center": [
+                0.0,
+                0.0
+              ],
+              "radius": 0.508
+            },
+            "width": 0.2032,
+            "fill": "none",
+            "raw": [
+              "circle",
+              [
+                "center",
+                "0",
+                "0"
+              ],
+              [
+                "radius",
+                "0.508"
+              ],
+              [
+                "stroke",
+                [
+                  "width",
+                  "0.2032"
+                ],
+                [
+                  "type",
+                  "default"
+                ]
+              ],
+              [
+                "fill",
+                [
+                  "type",
+                  "none"
+                ]
+              ]
+            ]
+          },
+          {
+            "kind": "polyline",
+            "geometry": {
+              "points": [
+                [
+                  0.0,
+                  -2.54
+                ],
+                [
+                  0.0,
+                  -1.778
+                ]
+              ]
+            },
+            "width": 0.0,
+            "fill": "none",
+            "raw": [
+              "polyline",
+              [
+                "pts",
+                [
+                  "xy",
+                  "0",
+                  "-2.54"
+                ],
+                [
+                  "xy",
+                  "0",
+                  "-1.778"
+                ]
+              ],
+              [
+                "stroke",
+                [
+                  "width",
+                  "0"
+                ],
+                [
+                  "type",
+                  "default"
+                ]
+              ],
+              [
+                "fill",
+                [
+                  "type",
+                  "none"
+                ]
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "number": 1,
+        "style": 1,
+        "source_id": "Conn_Coaxial_1_1",
+        "display_name": null,
+        "pins": [
+          {
+            "number": "1",
+            "name": "In",
+            "at": [
+              -5.08,
+              0.0,
+              0.0
+            ],
+            "length": 2.54,
+            "electrical_type": "passive",
+            "graphic_style": "line",
+            "hidden": false,
+            "name_size": [
+              1.27,
+              1.27
+            ],
+            "number_size": [
+              1.27,
+              1.27
+            ],
+            "alternates": [],
+            "raw": [
+              "pin",
+              "passive",
+              "line",
+              [
+                "at",
+                "-5.08",
+                "0",
+                "0"
+              ],
+              [
+                "length",
+                "2.54"
+              ],
+              [
+                "name",
+                "In",
+                [
+                  "effects",
+                  [
+                    "font",
+                    [
+                      "size",
+                      "1.27",
+                      "1.27"
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "number",
+                "1",
+                [
+                  "effects",
+                  [
+                    "font",
+                    [
+                      "size",
+                      "1.27",
+                      "1.27"
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          },
+          {
+            "number": "2",
+            "name": "Ext",
+            "at": [
+              0.0,
+              -5.08,
+              90.0
+            ],
+            "length": 2.54,
+            "electrical_type": "passive",
+            "graphic_style": "line",
+            "hidden": false,
+            "name_size": [
+              1.27,
+              1.27
+            ],
+            "number_size": [
+              1.27,
+              1.27
+            ],
+            "alternates": [],
+            "raw": [
+              "pin",
+              "passive",
+              "line",
+              [
+                "at",
+                "0",
+                "-5.08",
+                "90"
+              ],
+              [
+                "length",
+                "2.54"
+              ],
+              [
+                "name",
+                "Ext",
+                [
+                  "effects",
+                  [
+                    "font",
+                    [
+                      "size",
+                      "1.27",
+                      "1.27"
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "number",
+                "2",
+                [
+                  "effects",
+                  [
+                    "font",
+                    [
+                      "size",
+                      "1.27",
+                      "1.27"
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          }
+        ],
+        "graphics": []
+      }
+    ],
+    "extends": null,
+    "inheritance_chain": [],
+    "aliases": [],
+    "alias_of": null,
+    "unit_count": 1,
+    "pin_names_hidden": true,
+    "pin_numbers_hidden": false,
+    "pin_name_offset": 1.016,
+    "in_bom": true,
+    "on_board": true,
+    "power": false,
+    "diagnostics": [],
+    "raw": [
+      "symbol",
+      "Conn_Coaxial",
+      [
+        "pin_names",
+        [
+          "offset",
+          "1.016"
+        ],
+        [
+          "hide",
+          "yes"
+        ]
+      ],
+      [
+        "exclude_from_sim",
+        "no"
+      ],
+      [
+        "in_bom",
+        "yes"
+      ],
+      [
+        "on_board",
+        "yes"
+      ],
+      [
+        "property",
+        "Reference",
+        "J",
+        [
+          "at",
+          "0.254",
+          "3.048",
+          "0"
+        ],
+        [
+          "effects",
+          [
+            "font",
+            [
+              "size",
+              "1.27",
+              "1.27"
+            ]
+          ]
+        ]
+      ],
+      [
+        "property",
+        "Value",
+        "Conn_Coaxial",
+        [
+          "at",
+          "2.921",
+          "0",
+          "90"
+        ],
+        [
+          "effects",
+          [
+            "font",
+            [
+              "size",
+              "1.27",
+              "1.27"
+            ]
+          ]
+        ]
+      ],
+      [
+        "property",
+        "Footprint",
+        "",
+        [
+          "at",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "effects",
+          [
+            "font",
+            [
+              "size",
+              "1.27",
+              "1.27"
+            ]
+          ],
+          [
+            "hide",
+            "yes"
+          ]
+        ]
+      ],
+      [
+        "property",
+        "Datasheet",
+        "~",
+        [
+          "at",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "effects",
+          [
+            "font",
+            [
+              "size",
+              "1.27",
+              "1.27"
+            ]
+          ],
+          [
+            "hide",
+            "yes"
+          ]
+        ]
+      ],
+      [
+        "property",
+        "Description",
+        "coaxial connector (BNC, SMA, SMB, SMC, Cinch/RCA, LEMO, ...)",
+        [
+          "at",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "effects",
+          [
+            "font",
+            [
+              "size",
+              "1.27",
+              "1.27"
+            ]
+          ],
+          [
+            "hide",
+            "yes"
+          ]
+        ]
+      ],
+      [
+        "property",
+        "ki_keywords",
+        "BNC SMA SMB SMC LEMO coaxial connector CINCH RCA MCX MMCX U.FL UMRF",
+        [
+          "at",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "effects",
+          [
+            "font",
+            [
+              "size",
+              "1.27",
+              "1.27"
+            ]
+          ],
+          [
+            "hide",
+            "yes"
+          ]
+        ]
+      ],
+      [
+        "property",
+        "ki_fp_filters",
+        "*BNC* *SMA* *SMB* *SMC* *Cinch* *LEMO* *UMRF* *MCX* *U.FL*",
+        [
+          "at",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "effects",
+          [
+            "font",
+            [
+              "size",
+              "1.27",
+              "1.27"
+            ]
+          ],
+          [
+            "hide",
+            "yes"
+          ]
+        ]
+      ],
+      [
+        "symbol",
+        "Conn_Coaxial_0_1",
+        [
+          "polyline",
+          [
+            "pts",
+            [
+              "xy",
+              "-2.54",
+              "0"
+            ],
+            [
+              "xy",
+              "-0.508",
+              "0"
+            ]
+          ],
+          [
+            "stroke",
+            [
+              "width",
+              "0"
+            ],
+            [
+              "type",
+              "default"
+            ]
+          ],
+          [
+            "fill",
+            [
+              "type",
+              "none"
+            ]
+          ]
+        ],
+        [
+          "arc",
+          [
+            "start",
+            "1.778",
+            "0"
+          ],
+          [
+            "mid",
+            "0.222",
+            "-1.8079"
+          ],
+          [
+            "end",
+            "-1.778",
+            "-0.508"
+          ],
+          [
+            "stroke",
+            [
+              "width",
+              "0.254"
+            ],
+            [
+              "type",
+              "default"
+            ]
+          ],
+          [
+            "fill",
+            [
+              "type",
+              "none"
+            ]
+          ]
+        ],
+        [
+          "arc",
+          [
+            "start",
+            "-1.778",
+            "0.508"
+          ],
+          [
+            "mid",
+            "0.2221",
+            "1.8084"
+          ],
+          [
+            "end",
+            "1.778",
+            "0"
+          ],
+          [
+            "stroke",
+            [
+              "width",
+              "0.254"
+            ],
+            [
+              "type",
+              "default"
+            ]
+          ],
+          [
+            "fill",
+            [
+              "type",
+              "none"
+            ]
+          ]
+        ],
+        [
+          "circle",
+          [
+            "center",
+            "0",
+            "0"
+          ],
+          [
+            "radius",
+            "0.508"
+          ],
+          [
+            "stroke",
+            [
+              "width",
+              "0.2032"
+            ],
+            [
+              "type",
+              "default"
+            ]
+          ],
+          [
+            "fill",
+            [
+              "type",
+              "none"
+            ]
+          ]
+        ],
+        [
+          "polyline",
+          [
+            "pts",
+            [
+              "xy",
+              "0",
+              "-2.54"
+            ],
+            [
+              "xy",
+              "0",
+              "-1.778"
+            ]
+          ],
+          [
+            "stroke",
+            [
+              "width",
+              "0"
+            ],
+            [
+              "type",
+              "default"
+            ]
+          ],
+          [
+            "fill",
+            [
+              "type",
+              "none"
+            ]
+          ]
+        ]
+      ],
+      [
+        "symbol",
+        "Conn_Coaxial_1_1",
+        [
+          "pin",
+          "passive",
+          "line",
+          [
+            "at",
+            "-5.08",
+            "0",
+            "0"
+          ],
+          [
+            "length",
+            "2.54"
+          ],
+          [
+            "name",
+            "In",
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ]
+            ]
+          ],
+          [
+            "number",
+            "1",
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ]
+            ]
+          ]
+        ],
+        [
+          "pin",
+          "passive",
+          "line",
+          [
+            "at",
+            "0",
+            "-5.08",
+            "90"
+          ],
+          [
+            "length",
+            "2.54"
+          ],
+          [
+            "name",
+            "Ext",
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ]
+            ]
+          ],
+          [
+            "number",
+            "2",
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ]
+            ]
+          ]
+        ]
+      ],
+      [
+        "embedded_fonts",
+        "no"
+      ]
+    ]
+  },
+  "conversion_settings": {
+    "footprint_name": null,
+    "reference": "J1",
+    "project_name": "Conn_Coaxial_curves.cds",
+    "default_line_width_mm": 0.254,
+    "pin_width_mm": 0.254,
+    "curve_tolerance_mm": 0.01
+  },
+  "target_component": {
+    "pin_count": 2,
+    "bounds": [
+      -5232400,
+      -5232400,
+      1930400,
+      1975384
+    ],
+    "reference": {
+      "value": "J1",
+      "x": 254000,
+      "y": 3048000,
+      "layer": 7,
+      "angle": 0,
+      "size": 1270000,
+      "width": 127000,
+      "merge": -1,
+      "submerge": -1,
+      "font": 2,
+      "options": 1
+    },
+    "value": {
+      "value": "Conn_Coaxial",
+      "x": 2921000,
+      "y": 0,
+      "layer": 13,
+      "angle": 270,
+      "size": 1270000,
+      "width": 127000,
+      "merge": -1,
+      "submerge": -1,
+      "font": 2,
+      "options": 1
+    },
+    "footprint": {
+      "value": "PART",
+      "x": 0,
+      "y": 0,
+      "layer": 12,
+      "angle": 0,
+      "size": 0,
+      "width": 0,
+      "merge": -1,
+      "submerge": -1,
+      "font": 2,
+      "options": 1
+    },
+    "polylines": [
+      {
+        "closed": false,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": -2540000,
+            "y": 0,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -508000,
+            "y": 0,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": 1778000,
+            "y": 0,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 1742774,
+            "y": -369593,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 1632973,
+            "y": -724254,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 1453206,
+            "y": -1049098,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 1211016,
+            "y": -1330494,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 916565,
+            "y": -1556634,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 582212,
+            "y": -1718028,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 221986,
+            "y": -1807902,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -148996,
+            "y": -1822486,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -515165,
+            "y": -1761167,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -861157,
+            "y": -1626519,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -1172450,
+            "y": -1424192,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -1435983,
+            "y": -1162676,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -1640697,
+            "y": -852946,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -1778000,
+            "y": -508000,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": -1778000,
+            "y": 508000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -1640775,
+            "y": 853049,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -1436103,
+            "y": 1162886,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -1172577,
+            "y": 1424503,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -861260,
+            "y": 1626917,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -515222,
+            "y": 1761629,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -148991,
+            "y": 1822984,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 222058,
+            "y": 1808406,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 582347,
+            "y": 1718507,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 916749,
+            "y": 1557062,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 1211226,
+            "y": 1330847,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 1453415,
+            "y": 1049362,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 1633147,
+            "y": 724422,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 1742878,
+            "y": 369670,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 1778000,
+            "y": 0,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": true,
+        "layer": 6,
+        "width": 203200,
+        "corners": [
+          {
+            "x": 508000,
+            "y": 0,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 469331,
+            "y": 194403,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 359210,
+            "y": 359210,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 194403,
+            "y": 469331,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 0,
+            "y": 508000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -194403,
+            "y": 469331,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -359210,
+            "y": 359210,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -469331,
+            "y": 194403,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -508000,
+            "y": 0,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -469331,
+            "y": -194403,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -359210,
+            "y": -359210,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -194403,
+            "y": -469331,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 0,
+            "y": -508000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 194403,
+            "y": -469331,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 359210,
+            "y": -359210,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 469331,
+            "y": -194403,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": 0,
+            "y": -2540000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 0,
+            "y": -1778000,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 8,
+        "width": 254000,
+        "corners": [
+          {
+            "x": -2540000,
+            "y": 0,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -5080000,
+            "y": 0,
+            "style": 0,
+            "node": 1
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": {
+          "value": "1",
+          "x": -3810000,
+          "y": 635000,
+          "layer": 9,
+          "angle": 0,
+          "size": 1270000,
+          "width": 127000,
+          "merge": -1,
+          "submerge": -1,
+          "font": 2,
+          "options": 1
+        },
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 8,
+        "width": 254000,
+        "corners": [
+          {
+            "x": 0,
+            "y": -2540000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 0,
+            "y": -5080000,
+            "style": 0,
+            "node": 1
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": {
+          "value": "2",
+          "x": -635000,
+          "y": -3810000,
+          "layer": 9,
+          "angle": 0,
+          "size": 1270000,
+          "width": 127000,
+          "merge": -1,
+          "submerge": -1,
+          "font": 2,
+          "options": 1
+        },
+        "description": null
+      }
+    ]
+  },
+  "physical_pin_mapping_verified": false,
+  "diagnostics": [
+    {
+      "code": "SYMBOL_TEXT_RENDERING",
+      "severity": "loss",
+      "message": "SIMPLEX replaces source fonts; source property anchors are used as native baselines. Justification, text styling and exact glyph bounds are not reproduced.",
+      "context": {}
+    },
+    {
+      "code": "TARGET_PIN_STROKE",
+      "severity": "assumption",
+      "message": "Pin stroke width is a declared conversion setting; the library has no resolved project pin stroke.",
+      "context": {
+        "width_mm": 0.254
+      }
+    },
+    {
+      "code": "SYMBOL_FOOTPRINT_UNRESOLVED",
+      "severity": "loss",
+      "message": "Native PART placeholder used; source footprint identifier/filters are retained in JSON.",
+      "context": {}
+    },
+    {
+      "code": "SYMBOL_METADATA_NOT_TRANSFERRED",
+      "severity": "loss",
+      "message": "Source datasheet/custom properties/footprint filters retained only in JSON.",
+      "context": {
+        "properties": [
+          "Description",
+          "ki_keywords",
+          "ki_fp_filters"
+        ]
+      }
+    },
+    {
+      "code": "SOURCE_LINE_WIDTH_DEFAULT",
+      "severity": "assumption",
+      "message": "Zero source stroke resolves to declared default width.",
+      "context": {
+        "unit": 0,
+        "graphic": 0,
+        "width_mm": 0.254
+      }
+    },
+    {
+      "code": "SYMBOL_CURVE_APPROXIMATED",
+      "severity": "approximation",
+      "message": "Unfilled curve converted to straight segments; tolerance includes NM quantization.",
+      "context": {
+        "source_kind": "arc",
+        "center_mm": [
+          -0.034322470335967026,
+          -0.013742707648230306
+        ],
+        "radius_mm": 1.8123745745563102,
+        "start_angle_radians": 0.007582780921622181,
+        "sweep_radians": -2.87296410622471,
+        "closed": false,
+        "corners": 15,
+        "segments": 14,
+        "tolerance_mm": 0.01,
+        "max_centerline_error_mm": 0.01,
+        "error_scope": "Resolved curve centerline -> straight native NM segments; source-resolution changes are separate",
+        "quantization_budget_mm": 1e-05,
+        "unit": 0,
+        "graphic": 1,
+        "target_polyline_index": 1
+      }
+    },
+    {
+      "code": "SYMBOL_CURVE_APPROXIMATED",
+      "severity": "approximation",
+      "message": "Unfilled curve converted to straight segments; tolerance includes NM quantization.",
+      "context": {
+        "source_kind": "arc",
+        "center_mm": [
+          -0.034239353232038416,
+          0.0143245273757307
+        ],
+        "radius_mm": 1.8122959652019908,
+        "start_angle_radians": 2.865702703971164,
+        "sweep_radians": -2.873606863560862,
+        "closed": false,
+        "corners": 15,
+        "segments": 14,
+        "tolerance_mm": 0.01,
+        "max_centerline_error_mm": 0.01,
+        "error_scope": "Resolved curve centerline -> straight native NM segments; source-resolution changes are separate",
+        "quantization_budget_mm": 1e-05,
+        "unit": 0,
+        "graphic": 2,
+        "target_polyline_index": 2
+      }
+    },
+    {
+      "code": "SYMBOL_CURVE_APPROXIMATED",
+      "severity": "approximation",
+      "message": "Unfilled curve converted to straight segments; tolerance includes NM quantization.",
+      "context": {
+        "source_kind": "circle",
+        "center_mm": [
+          0.0,
+          0.0
+        ],
+        "radius_mm": 0.508,
+        "start_angle_radians": 0,
+        "sweep_radians": 6.283185307179586,
+        "closed": true,
+        "corners": 16,
+        "segments": 16,
+        "tolerance_mm": 0.01,
+        "max_centerline_error_mm": 0.01,
+        "error_scope": "Resolved curve centerline -> straight native NM segments; source-resolution changes are separate",
+        "quantization_budget_mm": 1e-05,
+        "unit": 0,
+        "graphic": 3,
+        "target_polyline_index": 3
+      }
+    },
+    {
+      "code": "SOURCE_LINE_WIDTH_DEFAULT",
+      "severity": "assumption",
+      "message": "Zero source stroke resolves to declared default width.",
+      "context": {
+        "unit": 0,
+        "graphic": 4,
+        "width_mm": 0.254
+      }
+    },
+    {
+      "code": "SYMBOL_ELECTRICAL_TYPE_NOT_TRANSFERRED",
+      "severity": "loss",
+      "message": "Physical pin numbers/connectivity records are retained; KiCad passive electrical type is not a native ERC attribute.",
+      "context": {}
+    },
+    {
+      "code": "SYMBOL_PIN_LABEL_LAYOUT",
+      "severity": "loss",
+      "message": "Pin numbers/names use a declared horizontal placement policy; exact KiCad automatic label layout is not reproduced.",
+      "context": {}
+    },
+    {
+      "code": "SYMBOL_CURVE_STROKE_UNVERIFIED",
+      "severity": "assumption",
+      "message": "Curve tolerance covers centerlines; native stroke caps/joins and rasterization are not GUI-verified.",
+      "context": {}
+    }
+  ],
+  "artifact_sha256": "dfc50b3768c609393106918cf529902ec2473383c91832d67d21376be83d07d6",
+  "counts": {
+    "components": 1,
+    "pins": 2,
+    "polylines": 7,
+    "losses": 5,
+    "assumptions": 4,
+    "approximations": 3
+  },
+  "curves": [
+    {
+      "source_kind": "arc",
+      "center_mm": [
+        -0.034322470335967026,
+        -0.013742707648230306
+      ],
+      "radius_mm": 1.8123745745563102,
+      "start_angle_radians": 0.007582780921622181,
+      "sweep_radians": -2.87296410622471,
+      "closed": false,
+      "corners": 15,
+      "segments": 14,
+      "tolerance_mm": 0.01,
+      "max_centerline_error_mm": 0.01,
+      "error_scope": "Resolved curve centerline -> straight native NM segments; source-resolution changes are separate",
+      "quantization_budget_mm": 1e-05,
+      "unit": 0,
+      "graphic": 1,
+      "target_polyline_index": 1
+    },
+    {
+      "source_kind": "arc",
+      "center_mm": [
+        -0.034239353232038416,
+        0.0143245273757307
+      ],
+      "radius_mm": 1.8122959652019908,
+      "start_angle_radians": 2.865702703971164,
+      "sweep_radians": -2.873606863560862,
+      "closed": false,
+      "corners": 15,
+      "segments": 14,
+      "tolerance_mm": 0.01,
+      "max_centerline_error_mm": 0.01,
+      "error_scope": "Resolved curve centerline -> straight native NM segments; source-resolution changes are separate",
+      "quantization_budget_mm": 1e-05,
+      "unit": 0,
+      "graphic": 2,
+      "target_polyline_index": 2
+    },
+    {
+      "source_kind": "circle",
+      "center_mm": [
+        0.0,
+        0.0
+      ],
+      "radius_mm": 0.508,
+      "start_angle_radians": 0,
+      "sweep_radians": 6.283185307179586,
+      "closed": true,
+      "corners": 16,
+      "segments": 16,
+      "tolerance_mm": 0.01,
+      "max_centerline_error_mm": 0.01,
+      "error_scope": "Resolved curve centerline -> straight native NM segments; source-resolution changes are separate",
+      "quantization_budget_mm": 1e-05,
+      "unit": 0,
+      "graphic": 3,
+      "target_polyline_index": 3
+    }
+  ],
+  "source": {
+    "path": "/Users/egorananev/Desktop/hse/1-2 курс/ПРОЕКТ/tests/fixtures/symbols/Connector.kicad_sym",
+    "sha256": "f3820e341582909b9489769c3b32dcf613e205057a8b2b66f889cdb0b1b0473a"
+  },
+  "output": "/Users/egorananev/Desktop/hse/1-2 курс/ПРОЕКТ/output/symbols/Conn_Coaxial_curves.cds"
+}

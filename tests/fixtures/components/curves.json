@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "footprint_libraries": {
+    "Inductor_SMD": "..",
+    "TestPoint": ".."
+  },
+  "symbol_curve_tolerance": 0.01,
+  "aperture_defaults": {
+    "mask_margin": 0.05,
+    "paste_margin": 0,
+    "paste_ratio": 0
+  },
+  "components": [
+    {
+      "id": "ModernL",
+      "symbol_library": "../symbols/Device.kicad_sym",
+      "symbol": "L",
+      "footprint": "Inductor_SMD:L_0805_2012Metric",
+      "reference": "L1"
+    },
+    {
+      "id": "LegacyL",
+      "symbol_library": "../../../KiCad/Pickit-cache.lib",
+      "symbol": "INDUCTOR",
+      "footprint": "Inductor_SMD:L_0805_2012Metric",
+      "reference": "L2"
+    },
+    {
+      "id": "TestPoint",
+      "symbol_library": "../symbols/Connector.kicad_sym",
+      "symbol": "TestPoint",
+      "footprint": "TestPoint:TestPoint_Pad_D1.0mm",
+      "reference": "TP1"
+    }
+  ]
+}

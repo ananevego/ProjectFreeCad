@@ -12,6 +12,7 @@ import unittest
 
 from src.symbol_converter import SymbolParseError, parse_library
 from src.symbol_converter.target import convert_symbol, LossySymbolConversionError
+from src.symbol_converter.model import Graphic
 from src.symbol_converter.schemator_format import parse_cds, CdsDocument, validate_component
 from src.symbol_converter.schemator_writer import write_cds
 from test_symbol_converter import library, symbol, pin
@@ -167,16 +168,17 @@ class SchematorContractTests(unittest.TestCase):
         with self.assertRaisesRegex(SymbolParseError,'body style'):
             convert_symbol(bad,'Base')
 
-    def test_nonpassive_hidden_shaped_or_alternate_pins_rejected(self):
-        for change in [('electrical_type','input'),('hidden',True),('graphic_style','inverted'),
+    def test_hidden_shaped_or_alternate_pins_rejected(self):
+        for change in [('hidden',True),('graphic_style','inverted'),
                        ('alternates',[dict(name='ALT',electrical_type='output',graphic_style='line')])]:
             lib=modern();setattr(lib.symbols['Base'].pins_for()[0],*change)
-            with self.subTest(change=change),self.assertRaisesRegex(SymbolParseError,'only visible passive'):
+            with self.subTest(change=change),self.assertRaisesRegex(SymbolParseError,'only visible line'):
                 convert_symbol(lib,'Base')
 
-    def test_unsupported_graphics_and_fills_rejected(self):
-        for name in ['CP1','INDUCTOR','LED']:
-            with self.subTest(name=name),self.assertRaises(SymbolParseError): convert_symbol(self.legacy,name)
+    def test_unsupported_bezier_graphic_rejected(self):
+        lib=modern();lib.symbols['Base'].units[0].graphics.append(
+            Graphic('bezier',{},.254,'none',[]))
+        with self.assertRaises(SymbolParseError): convert_symbol(lib,'Base')
 
     def test_unsafe_index_strings_and_unencodable_text_rejected(self):
         for value in ['"quoted"','trailing ','with\nnewline','A@B','A~B','emoji😀']:

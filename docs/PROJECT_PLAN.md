@@ -1,6 +1,6 @@
 # План разработки конвертера KiCad → FreePCB2
 
-Обновлён 2026-10-12 по состоянию репозитория и предыдущего чата.
+Обновлён 2026-10-13 по состоянию репозитория и предыдущего чата.
 Цель: перенос библиотечных УГО, footprints и связей с готовыми 3D-моделями.
 Около 20 000 footprints — ориентир масштаба, а не подтверждённый размер
 доступных исходников. Повторно конвертировать ранее полученные 7 225 STL не нужно.
@@ -24,7 +24,7 @@
 
 Автоматические проверки геометрии ещё не подтверждают работу GUI, Gerber или
 физическое совмещение 3D. Минимальный writer УГО уже добавлен (результат ниже),
-полная связь компонентов пока отсутствует.
+связки R0805/C0805/Header6 и переносимый STL-комплект проверены для текущего MVP.
 
 ## Шесть крупных блоков до завершения
 
@@ -32,8 +32,8 @@
 |---|---|---|---|
 | 1 | Завершить единичные footprints — в работе | src/footprint_converter, tests/fixtures | Legacy arcs; аудит text fields; небольшая реальная выборка; все неподдерживаемые конструкции имеют явную диагностику, прежние результаты воспроизводимы |
 | 2 | Пакетный CLI и отчёт покрытия — выполнен для малых партий | Новый batch-модуль поверх convert_detailed и io, tests | Изолированные ошибки, стабильные имена, manifest, resume с проверкой исходника/настроек/выхода; тестовая партия воспроизводима; нет записи в STL/STEP |
-| 3 | УГО KiCad → Схематор — source parser и минимальный target writer готовы | src/symbol_converter, target fixtures | Parser KiCad symbols, pins/units/inheritance; writer по подтверждённому эталону; расширение профиля, импорт/connectivity и сравнение небольшой выборки |
-| 4 | Связи компонентов и переносимый 3D-комплект — частично | Manifest, model_matching, отдельный exporter | Symbol → footprint → готовый STL; pin mapping; явные unresolved/ambiguous; basename-коллизии разрешены; исходные модели сохранены |
+| 3 | УГО KiCad → Схематор — parser/writer, curves, ordinary pins, simple fills/body text готовы с losses | src/symbol_converter, target fixtures | Pins/units/inheritance, source/native profiles; расширение power/no-connect/units/geometry, import/connectivity и сравнение выборки |
+| 4 | Связи компонентов и переносимый 3D-комплект — выполнен для малого MVP | src/component_converter, config/manifest | Точные identifiers, pin/pad mapping по source/CDS/FPL; явные unresolved/ambiguous; category tree + уникальные flat STL aliases; hashes и перенос без исходников проверены |
 | 5 | Валидация в целевых программах — ожидает среды | FreePCB2 2.428/Схематор/OpenSCAD, docs | Load/save roundtrip, тексты и слои, NPTH/Gerber, масштабы/положение/ориентация STL; протокол и исправление найденных ошибок |
 | 6 | Масштабирование и итоговая поставка — не начат | Версионированные библиотеки, batch, docs/output | Малая → средняя → полная проверенная партия; измеренное покрытие, журнал исключений, лицензии и руководство; согласованные требования закрыты |
 
@@ -61,18 +61,38 @@
    групп `.cds`, выделить реальный component fixture, подтвердить pin attributes,
    затем написать минимальный writer. Не переносить footprint FPL records на УГО
    только из-за наличия Shape.cpp в schematic repo.
-6. **Связи компонентов (следующий шаг).** Создать отдельный manifest/exporter
+6. **Связи компонентов (выполнено 2026-10-13 для малого MVP).** Создать отдельный manifest/exporter
    symbol → footprint → готовый STL: точные source identifiers, сравнение
    physical pin/pad numbers, explicit unresolved/ambiguous, проверка ссылок и
    basename-коллизий. Начать с R/C/connector controls; PIC24 duplicates не
    исправлять автоматически. Переносить только связанные существующие модели,
    сохранять исходники; source/readback mapping не считать GUI/3D-совмещением.
+7. **Окружности/дуги УГО (выполнено 2026-10-13 для unfilled profile).** Расширить graphics profile по pinned
+   target contract: окружности/дуги и новая реальная выборка. Явно сохранять
+   electrical metadata/losses; multi-unit/merge разбирать отдельно. Проверять
+   новые outputs в component chain и не подменять GUI численной проверкой.
+8. **Electrical pin profile (выполнено 2026-10-13 для ordinary visible line pins).** Проверить native представимость
+   видимых line pins разных electrical types; сохранить source semantics и
+   explicit ERC losses. Не выдавать номер/Node за проверенную функцию pin;
+   no-connect/power/hidden/alternates разбирать отдельно. Добавить реальную
+   выборку и сквозные проверки; fills/text и multi-unit/merge остаются далее.
+9. **Filled geometry и graphic text (выполнено 2026-10-13 для ограниченного профиля).** Подтвердить native
+   представимость заливок и самостоятельного текста, включая body background.
+   Сначала ограниченный профиль с явными losses и реальными controls; проверить
+   старые bytes, curved outlines, pin visibility и linked chains. Power/hidden/
+   no-connect и multi-unit/merge этим подпунктом не закрываются.
+10. **Multi-unit/merge (следующий шаг).** Проследить native представление
+    нескольких логических секций одного physical component и привязку к pads.
+    Разделить common/source units, power units и alternate body styles;
+    не объединять дубли механически. Реализовать только подтверждённый профиль,
+    с явными ограничениями и real controls/number mapping.
 
 ## Зависимости и ограничения
 
 - Для блока 3 source Схематора и минимальный component profile подтверждены;
   нужны расширение units/graphics/electrical semantics и import/connectivity.
-  Для блока 4 ещё требуется проверяемая связь с footprint/pads.
+  Для блока 4 текущий MVP links/pads/STL готов; полное покрытие ограничено
+  существующим symbol/footprint profile и остаётся в блоках 1/3/6.
 - Для блока 5 нужна доступная целевая программа; macOS-разработка продолжается.
 - Для блока 6 нужны полные KiCad libraries с зафиксированными версиями/лицензиями.
 - STL/STEP используются как существующие артефакты; тысячи meshes не открываются.
@@ -175,3 +195,105 @@
   Это инженерная оценка объёма, не измеренное покрытие библиотеки.
 - Далее: component manifest и проверка symbol → footprint → существующий
   STL; расширение УГО по выявленным ограничениям, GUI и масштабирование.
+
+## Результат component links и переносимого комплекта — 2026-10-13
+
+- Добавлен `src/component_converter`: explicit JSON config, namespace lookup,
+  identity pin/pad mapping, independent CDS/FPL readback, manifest/reports,
+  per-item failures, staging/publication и read-only verify после переноса.
+- Existing STL snapshots сохраняют category tree и получают unique flat
+  aliases для общей OpenSCAD папки FreePCB2 2.428. Source bytes не меняются;
+  selected-model SHA256/size проверяются, meshes не интерпретируются.
+- Контроль R0805/C0805/Header6: 3 complete library chains, 2/2/6 pin numbers,
+  3 существующих STL (294 652 bytes), 17 package files. C0805/PinHeader6 — новые
+  неизменённые официальные KiCad fixtures с pinned provenance/license.
+- 42 новых теста, всего **235**. Полный набор проходит; копия без STL/STEP
+  проходит с 3 optional integration skips. Проверены relocation без source,
+  duplicates, NPTH, basename/case collisions, strict/missing policies,
+  transforms, checksum/record corruption, fault injection и rollback.
+- Блок 4 закрыт для MVP малой партии. Native import/netlist/GUI, физическая
+  пригодность корпуса и STL alignment не подтверждены; полнота библиотек
+  остаётся ограничена профилями блоков 1/3/6. Правила:
+  [COMPONENT_BUNDLE.md](COMPONENT_BUNDLE.md).
+- **Остаток: 4 незавершённых блока (1, 3, 5, 6), примерно 40–50% проекта**.
+  Это инженерная оценка работ, не доля покрытой библиотеки.
+- Далее: graphics profile и новая реальная выборка УГО; multi-unit/merge,
+  расширение footprints, затем native GUI и масштабирование.
+
+## Результат окружностей и дуг УГО — 2026-10-13
+
+- Добавлен source graphics profile `unfilled-curves-v1`: circles и modern/
+  legacy arcs превращаются в straight NM polylines; target record profile не
+  меняется. Default error bound 0.01 mm включает quantization, limits 4096
+  curve corners/32768 body corners. Pin endpoints/Nodes сохраняются.
+- Legacy разрешение зафиксировано по KiCad9 loadArc/MapAnglesV6/GetRadius и
+  100 nm schematic IU. Raw radius/endpoints остаются в JSON; projection/swap
+  учитываются отдельно от tessellation. У INDUCTOR есть ~0.02544 mm endpoint
+  shift: это явный loss, а не скрытое превышение 0.01 mm curve tolerance.
+- Device/Connector KiCad 9.0.0 сохранены целиком без изменений (531/397 source
+  definitions). Созданы 7 CDS/report controls; scope не выдаётся за поддержку
+  всей библиотеки. Добавлены official L0805/TestPoint pad fixtures.
+- Curve component party: 3 generated bindings, 2 complete chains с одним
+  existing L0805 STL (21 384 bytes), 1 явно 2D TestPoint; 13 package files.
+  Relocation/repeated build проверены; старые linear CDS/reports и bundle
+  остаются byte-identical. STL не конвертируются и не интерпретируются.
+- 31 новый тест; всего **266**, все проходят; copy без STL/STEP — с 3 optional
+  integration skips. Проверены NM centerline bounds, оба направления/>180°,
+  legacy ambiguity/rounding, grid/complexity/fill refusals, strict и links.
+  Правила/источники: [SYMBOL_CURVES.md](SYMBOL_CURVES.md).
+- Блок 3 остаётся открытым: electrical types, fills/text, multi-unit/merge и
+  native import/connectivity/font/caps/joins требуют дальнейшей работы.
+- **Остаток: 4 незавершённых блока (1, 3, 5, 6), примерно 35–45% проекта**.
+  Оценка объёма работ, не измеренное target coverage.
+- Далее: electrical pin profile и реальная выборка; затем fills/text,
+  multi-unit, расширение footprints, native GUI и масштабирование.
+
+## Результат ordinary electrical pin profile — 2026-10-13
+
+- Разрешены visible line pins: passive/input/output/bidirectional/tri_state/
+  unspecified/free/open_collector/open_emitter. Native records не изменены:
+  physical number и external Node=1, source electrical semantics остаются
+  в JSON с явным loss; ERC rules не передаются. Power/no-connect/hidden/
+  styled/alternate pins по-прежнему вызывают отказ.
+- Профиль `visible-line-electrical-v1`, per-pin source/target record mapping,
+  type counts и electrical_rules_transferred=false. Strict сохраняет отказ
+  и source semantics; linked number verification не повышает ERC/GUI flags.
+- Пять real Device controls: Antenna/Antenna_Chip/DelayLine/Q_SCR_AGK/Speaker.
+  Две library chains SCR→SOT-23/Speaker→CUI: 2 existing STL, 263 268 bytes,
+  12 package files. Generic SCR binding не доказывает пригодность корпуса.
+- 19 новых тестов; всего **285**, все проходят. Copy без STL/STEP — те же
+  проверки с 3 optional integration skips. Legacy codes/ordinary types,
+  strict/hidden labels/curve indices/relocation проверены. Старые passive
+  CDS/reports и control/curves bundles остаются byte-identical.
+- Правила и ограничения: [SYMBOL_ELECTRICAL.md](SYMBOL_ELECTRICAL.md).
+  Блок 3 остаётся открытым: fills/text, units/merge, power/no-connect/hidden/
+  alternates и native import/connectivity/ERC требуют дальнейшей работы.
+- **Остаток: 4 незавершённых блока (1, 3, 5, 6), примерно 30–40% проекта**.
+  Это инженерная оценка объёма; library coverage не измерено.
+- Далее: ограниченный filled geometry/graphic text profile и реальная
+  выборка, затем multi-unit/merge, footprints, native GUI и масштабирование.
+
+## Результат simple fills и body text — 2026-10-13
+
+- Профиль `bounded-fills-body-text-v1`: foreground rectangles/closed simple
+  polygons/circles → bounded straight strokes, default fill tolerance .01 mm.
+  Source Y up и 10NM fill grid, 4096 fill polylines/32768 body corners.
+  Bounds относятся к идеальным круглым strokes; native caps/joins не проверены.
+- Background сохраняет boundary с explicit occlusion loss. Native body
+  description attributes сохраняют literal modern text/legacy T, anchor,
+  quarter-turn и hidden state; source font/layout/z-order имеют loss.
+  Unsafe command text, filled arcs/Bezier/open filled contours отклоняются.
+- Шесть real Device controls; две chains D_Filled→SOD-123 и meter text→Header2,
+  два existing STL, 126368 source bytes, 12 package files. Generic meter
+  binding не доказывает physical suitability. Models не переконвертированы.
+- 27 новых проверок; всего **312**, все проходят. Copy без STL/STEP — с
+  3 optional integration skips. Coverage/caps/concavity проверены по NM output,
+  text ownership/legacy T/strict/protected outputs и relocation подтверждены.
+  Прежние passive/curve/electrical controls и три old bundles неизменны.
+- Правила: [SYMBOL_BODY.md](SYMBOL_BODY.md). Блок 3 остаётся открытым:
+  multi-unit/merge/power/no-connect/hidden/alternates, полное geometry coverage
+  и native import/connectivity/font/occlusion требуют дальнейшей работы.
+- **Остаток: 4 незавершённых блока (1, 3, 5, 6), примерно 25–35% проекта**.
+  Это инженерная оценка объёма, не измеренное покрытие библиотек.
+- Далее: multi-unit/merge contract и ограниченный profile, footprints,
+  native GUI/3D validation и масштабирование.

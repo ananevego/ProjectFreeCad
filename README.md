@@ -10,10 +10,13 @@ MountingHole NPTH, SOT-23 и численные
 Есть также синтетический контроль заполненных окружностей на обоих silk-слоях.
 Добавлены legacy-дуги KiCad и контроль HC49-U (явно 2D), аудит текстов,
 D_SOD-123, пакетный CLI, исходный parser УГО и минимальный writer Схематора;
-проходят 193 теста.
+добавлен сборщик связей и переносимого комплекта, окружности/дуги УГО
+и профиль обычных электрических типов выводов, простой заливки и текста;
+проходят 312 тестов.
 Source parser читает `.kicad_sym` и старые `.lib`, сохраняя pins/units/inheritance.
-Writer создаёт `.cds` для односекционных R/C/connector; полноценная цепочка
-symbol → footprint → 3D и GUI-валидация ещё впереди.
+Writer создаёт `.cds` для односекционных R/C/connector. Проверена цепочка
+symbol → footprint → существующий STL на трёх controls; GUI и физическое
+совмещение 3D ещё впереди.
 
 ## Исходные УГО KiCad
 
@@ -39,7 +42,9 @@ python3 -B -m src.symbol_converter.write KiCad/Pickit-cache.lib \
 ```
 
 Отдельный CLI создаёт один компонент `.cds` 1.429 (CP1251) и JSON losses.
-Поддержаны прямые passive pins и незаполненные rectangles/polylines одного unit;
+Поддержаны видимые прямые pins девяти обычных electrical types и
+rectangles/polylines/circles/arcs одного unit, ограниченная foreground
+заливка и literal body text;
 multi-unit, power symbols и неподдерживаемая графика вызывают явный отказ.
 Сохранены R/C/CONN_01X06 controls. Контракт ограниченного профиля проверен по
 исходникам и реальной записи R3; отдельный reader проверяет emitted records.
@@ -47,6 +52,39 @@ multi-unit, power symbols и неподдерживаемая графика в�
 Без `--footprint-name` используется placeholder `PART`; назначение имени
 не подтверждает соответствие pads. `--strict` отклоняет известные layout losses.
 Команды, ограничения и коды выхода: [SCHEMATOR_CONVERTER.md](docs/SCHEMATOR_CONVERTER.md).
+
+`--curve-tolerance 0.01` задаёт mm-допуск для centerline аппроксимации curves,
+включая NM rounding. Сохранены семь реальных curve controls; legacy arc
+resolution учитывает explicit endpoints/swap и отдельно показывает radius/
+endpoint changes. Правила: [SYMBOL_CURVES.md](docs/SYMBOL_CURVES.md).
+
+Input/output/bidirectional/tri_state и другие обычные типы передаются как
+нумерованные endpoints с явной потерей ERC; source types остаются в JSON.
+Power/no-connect/hidden/styled/alternate pins пока отклоняются. Добавлены
+пять реальных УГО и две linked chains SCR/Speaker с готовыми STL.
+Профиль, отчёты и команды: [SYMBOL_ELECTRICAL.md](docs/SYMBOL_ELECTRICAL.md).
+
+Foreground rectangles/closed simple polygons/circles покрываются straight
+strokes с fill bound, default `--fill-tolerance 0.01`. Background передаётся
+только как boundary с occlusion loss; modern graphic text/legacy T — как
+body description с font/layout losses. Добавлены шесть real controls и две
+linked chains diode/meter. [Правила и проверки](docs/SYMBOL_BODY.md).
+
+## Связи и переносимый комплект
+
+```sh
+python3 -B -m src.component_converter tests/fixtures/components/control.json \
+  output/components/control
+python3 -B -m src.component_converter --verify output/components/control
+```
+
+Точные identifiers и pin/pad numbers проверяются до генерации и по записанным
+CDS/FPL. Комплект содержит R0805/C0805/Header6 и только их существующие STL:
+исходное дерево категорий и уникальные flat aliases для одной OpenSCAD папки.
+SHA256 подтверждает неизменность копий; geometry/GUI/netlist не проверены.
+Выход должен быть новым каталогом. Missing/ambiguous bindings остаются в manifest;
+STL не конвертируются повторно. Скопированный комплект проверяется без исходников.
+Правила и настройка Windows-папки: [COMPONENT_BUNDLE.md](docs/COMPONENT_BUNDLE.md).
 
 ## Пакетная обработка
 

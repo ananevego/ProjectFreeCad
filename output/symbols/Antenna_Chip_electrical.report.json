@@ -1,0 +1,2023 @@
+{
+  "schema_version": 1,
+  "kind": "schemator_symbol_conversion",
+  "status": "generated_with_loss",
+  "target": {
+    "repository": "niconson/Schematic-Constructor",
+    "revision": "e7443c374f5c8644fb3483f794a50161de60dd01",
+    "version": "1.429",
+    "profile": "schemator-cds-straight-v1",
+    "encoding": "cp1251",
+    "coordinates": "nanometres, Y up; source library coordinates preserved",
+    "text_angle_rule": "negative source angle modulo 360",
+    "source_pin_profile": "visible-line-electrical-v1"
+  },
+  "contract_verified_against_source": true,
+  "target_records_validated": true,
+  "target_output_generated": true,
+  "target_import_verified": false,
+  "gui_validated": false,
+  "source_format": "kicad_sym",
+  "source_version": "20241209",
+  "source_symbol": {
+    "name": "Antenna_Chip",
+    "properties": {
+      "Reference": {
+        "name": "Reference",
+        "value": "AE",
+        "at": [
+          0.0,
+          5.08,
+          0.0
+        ],
+        "hidden": false,
+        "raw": [
+          "property",
+          "Reference",
+          "AE",
+          [
+            "at",
+            "0",
+            "5.08",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ],
+            [
+              "justify",
+              "right"
+            ]
+          ]
+        ]
+      },
+      "Value": {
+        "name": "Value",
+        "value": "Antenna_Chip",
+        "at": [
+          0.0,
+          3.175,
+          0.0
+        ],
+        "hidden": false,
+        "raw": [
+          "property",
+          "Value",
+          "Antenna_Chip",
+          [
+            "at",
+            "0",
+            "3.175",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ],
+            [
+              "justify",
+              "right"
+            ]
+          ]
+        ]
+      },
+      "Footprint": {
+        "name": "Footprint",
+        "value": "",
+        "at": [
+          -2.54,
+          4.445,
+          0.0
+        ],
+        "hidden": true,
+        "raw": [
+          "property",
+          "Footprint",
+          "",
+          [
+            "at",
+            "-2.54",
+            "4.445",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ],
+            [
+              "hide",
+              "yes"
+            ]
+          ]
+        ]
+      },
+      "Datasheet": {
+        "name": "Datasheet",
+        "value": "~",
+        "at": [
+          -2.54,
+          4.445,
+          0.0
+        ],
+        "hidden": true,
+        "raw": [
+          "property",
+          "Datasheet",
+          "~",
+          [
+            "at",
+            "-2.54",
+            "4.445",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ],
+            [
+              "hide",
+              "yes"
+            ]
+          ]
+        ]
+      },
+      "Description": {
+        "name": "Description",
+        "value": "Ceramic chip antenna with pin for PCB trace",
+        "at": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "hidden": true,
+        "raw": [
+          "property",
+          "Description",
+          "Ceramic chip antenna with pin for PCB trace",
+          [
+            "at",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ],
+            [
+              "hide",
+              "yes"
+            ]
+          ]
+        ]
+      },
+      "ki_keywords": {
+        "name": "ki_keywords",
+        "value": "antenna",
+        "at": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "hidden": true,
+        "raw": [
+          "property",
+          "ki_keywords",
+          "antenna",
+          [
+            "at",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ],
+            [
+              "hide",
+              "yes"
+            ]
+          ]
+        ]
+      }
+    },
+    "units": [
+      {
+        "number": 0,
+        "style": 1,
+        "source_id": "Antenna_Chip_0_1",
+        "display_name": null,
+        "pins": [],
+        "graphics": [
+          {
+            "kind": "polyline",
+            "geometry": {
+              "points": [
+                [
+                  -2.54,
+                  0.0
+                ],
+                [
+                  -2.54,
+                  -0.635
+                ]
+              ]
+            },
+            "width": 0.254,
+            "fill": "none",
+            "raw": [
+              "polyline",
+              [
+                "pts",
+                [
+                  "xy",
+                  "-2.54",
+                  "0"
+                ],
+                [
+                  "xy",
+                  "-2.54",
+                  "-0.635"
+                ]
+              ],
+              [
+                "stroke",
+                [
+                  "width",
+                  "0.254"
+                ],
+                [
+                  "type",
+                  "default"
+                ]
+              ],
+              [
+                "fill",
+                [
+                  "type",
+                  "none"
+                ]
+              ]
+            ]
+          },
+          {
+            "kind": "polyline",
+            "geometry": {
+              "points": [
+                [
+                  -2.54,
+                  0.0
+                ],
+                [
+                  -1.27,
+                  0.0
+                ]
+              ]
+            },
+            "width": 0.254,
+            "fill": "none",
+            "raw": [
+              "polyline",
+              [
+                "pts",
+                [
+                  "xy",
+                  "-2.54",
+                  "0"
+                ],
+                [
+                  "xy",
+                  "-1.27",
+                  "0"
+                ]
+              ],
+              [
+                "stroke",
+                [
+                  "width",
+                  "0.254"
+                ],
+                [
+                  "type",
+                  "default"
+                ]
+              ],
+              [
+                "fill",
+                [
+                  "type",
+                  "none"
+                ]
+              ]
+            ]
+          },
+          {
+            "kind": "polyline",
+            "geometry": {
+              "points": [
+                [
+                  -1.27,
+                  1.27
+                ],
+                [
+                  -1.27,
+                  -1.27
+                ],
+                [
+                  -1.27,
+                  0.0
+                ]
+              ]
+            },
+            "width": 0.254,
+            "fill": "none",
+            "raw": [
+              "polyline",
+              [
+                "pts",
+                [
+                  "xy",
+                  "-1.27",
+                  "1.27"
+                ],
+                [
+                  "xy",
+                  "-1.27",
+                  "-1.27"
+                ],
+                [
+                  "xy",
+                  "-1.27",
+                  "0"
+                ]
+              ],
+              [
+                "stroke",
+                [
+                  "width",
+                  "0.254"
+                ],
+                [
+                  "type",
+                  "default"
+                ]
+              ],
+              [
+                "fill",
+                [
+                  "type",
+                  "none"
+                ]
+              ]
+            ]
+          },
+          {
+            "kind": "polyline",
+            "geometry": {
+              "points": [
+                [
+                  -0.635,
+                  1.27
+                ],
+                [
+                  0.635,
+                  1.27
+                ],
+                [
+                  0.635,
+                  -1.27
+                ],
+                [
+                  -0.635,
+                  -1.27
+                ],
+                [
+                  -0.635,
+                  1.27
+                ]
+              ]
+            },
+            "width": 0.254,
+            "fill": "none",
+            "raw": [
+              "polyline",
+              [
+                "pts",
+                [
+                  "xy",
+                  "-0.635",
+                  "1.27"
+                ],
+                [
+                  "xy",
+                  "0.635",
+                  "1.27"
+                ],
+                [
+                  "xy",
+                  "0.635",
+                  "-1.27"
+                ],
+                [
+                  "xy",
+                  "-0.635",
+                  "-1.27"
+                ],
+                [
+                  "xy",
+                  "-0.635",
+                  "1.27"
+                ]
+              ],
+              [
+                "stroke",
+                [
+                  "width",
+                  "0.254"
+                ],
+                [
+                  "type",
+                  "default"
+                ]
+              ],
+              [
+                "fill",
+                [
+                  "type",
+                  "none"
+                ]
+              ]
+            ]
+          },
+          {
+            "kind": "polyline",
+            "geometry": {
+              "points": [
+                [
+                  1.27,
+                  1.27
+                ],
+                [
+                  1.27,
+                  -1.27
+                ]
+              ]
+            },
+            "width": 0.254,
+            "fill": "none",
+            "raw": [
+              "polyline",
+              [
+                "pts",
+                [
+                  "xy",
+                  "1.27",
+                  "1.27"
+                ],
+                [
+                  "xy",
+                  "1.27",
+                  "-1.27"
+                ]
+              ],
+              [
+                "stroke",
+                [
+                  "width",
+                  "0.254"
+                ],
+                [
+                  "type",
+                  "default"
+                ]
+              ],
+              [
+                "fill",
+                [
+                  "type",
+                  "none"
+                ]
+              ]
+            ]
+          },
+          {
+            "kind": "polyline",
+            "geometry": {
+              "points": [
+                [
+                  1.27,
+                  0.0
+                ],
+                [
+                  2.54,
+                  0.0
+                ]
+              ]
+            },
+            "width": 0.254,
+            "fill": "none",
+            "raw": [
+              "polyline",
+              [
+                "pts",
+                [
+                  "xy",
+                  "1.27",
+                  "0"
+                ],
+                [
+                  "xy",
+                  "2.54",
+                  "0"
+                ]
+              ],
+              [
+                "stroke",
+                [
+                  "width",
+                  "0.254"
+                ],
+                [
+                  "type",
+                  "default"
+                ]
+              ],
+              [
+                "fill",
+                [
+                  "type",
+                  "none"
+                ]
+              ]
+            ]
+          },
+          {
+            "kind": "polyline",
+            "geometry": {
+              "points": [
+                [
+                  2.54,
+                  6.985
+                ],
+                [
+                  2.54,
+                  -1.905
+                ]
+              ]
+            },
+            "width": 0.254,
+            "fill": "none",
+            "raw": [
+              "polyline",
+              [
+                "pts",
+                [
+                  "xy",
+                  "2.54",
+                  "6.985"
+                ],
+                [
+                  "xy",
+                  "2.54",
+                  "-1.905"
+                ]
+              ],
+              [
+                "stroke",
+                [
+                  "width",
+                  "0.254"
+                ],
+                [
+                  "type",
+                  "default"
+                ]
+              ],
+              [
+                "fill",
+                [
+                  "type",
+                  "none"
+                ]
+              ]
+            ]
+          },
+          {
+            "kind": "polyline",
+            "geometry": {
+              "points": [
+                [
+                  2.54,
+                  -0.635
+                ],
+                [
+                  2.54,
+                  0.0
+                ]
+              ]
+            },
+            "width": 0.0,
+            "fill": "none",
+            "raw": [
+              "polyline",
+              [
+                "pts",
+                [
+                  "xy",
+                  "2.54",
+                  "-0.635"
+                ],
+                [
+                  "xy",
+                  "2.54",
+                  "0"
+                ]
+              ],
+              [
+                "stroke",
+                [
+                  "width",
+                  "0"
+                ],
+                [
+                  "type",
+                  "default"
+                ]
+              ],
+              [
+                "fill",
+                [
+                  "type",
+                  "none"
+                ]
+              ]
+            ]
+          },
+          {
+            "kind": "polyline",
+            "geometry": {
+              "points": [
+                [
+                  3.81,
+                  6.985
+                ],
+                [
+                  2.54,
+                  1.905
+                ],
+                [
+                  1.27,
+                  6.985
+                ]
+              ]
+            },
+            "width": 0.254,
+            "fill": "none",
+            "raw": [
+              "polyline",
+              [
+                "pts",
+                [
+                  "xy",
+                  "3.81",
+                  "6.985"
+                ],
+                [
+                  "xy",
+                  "2.54",
+                  "1.905"
+                ],
+                [
+                  "xy",
+                  "1.27",
+                  "6.985"
+                ]
+              ],
+              [
+                "stroke",
+                [
+                  "width",
+                  "0.254"
+                ],
+                [
+                  "type",
+                  "default"
+                ]
+              ],
+              [
+                "fill",
+                [
+                  "type",
+                  "none"
+                ]
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "number": 1,
+        "style": 1,
+        "source_id": "Antenna_Chip_1_1",
+        "display_name": null,
+        "pins": [
+          {
+            "number": "1",
+            "name": "FEED",
+            "at": [
+              -2.54,
+              -2.54,
+              90.0
+            ],
+            "length": 2.54,
+            "electrical_type": "input",
+            "graphic_style": "line",
+            "hidden": false,
+            "name_size": [
+              1.27,
+              1.27
+            ],
+            "number_size": [
+              1.27,
+              1.27
+            ],
+            "alternates": [],
+            "raw": [
+              "pin",
+              "input",
+              "line",
+              [
+                "at",
+                "-2.54",
+                "-2.54",
+                "90"
+              ],
+              [
+                "length",
+                "2.54"
+              ],
+              [
+                "name",
+                "FEED",
+                [
+                  "effects",
+                  [
+                    "font",
+                    [
+                      "size",
+                      "1.27",
+                      "1.27"
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "number",
+                "1",
+                [
+                  "effects",
+                  [
+                    "font",
+                    [
+                      "size",
+                      "1.27",
+                      "1.27"
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          },
+          {
+            "number": "2",
+            "name": "PCB_Trace",
+            "at": [
+              2.54,
+              -2.54,
+              90.0
+            ],
+            "length": 2.54,
+            "electrical_type": "passive",
+            "graphic_style": "line",
+            "hidden": false,
+            "name_size": [
+              1.27,
+              1.27
+            ],
+            "number_size": [
+              1.27,
+              1.27
+            ],
+            "alternates": [],
+            "raw": [
+              "pin",
+              "passive",
+              "line",
+              [
+                "at",
+                "2.54",
+                "-2.54",
+                "90"
+              ],
+              [
+                "length",
+                "2.54"
+              ],
+              [
+                "name",
+                "PCB_Trace",
+                [
+                  "effects",
+                  [
+                    "font",
+                    [
+                      "size",
+                      "1.27",
+                      "1.27"
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "number",
+                "2",
+                [
+                  "effects",
+                  [
+                    "font",
+                    [
+                      "size",
+                      "1.27",
+                      "1.27"
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          }
+        ],
+        "graphics": []
+      }
+    ],
+    "extends": null,
+    "inheritance_chain": [],
+    "aliases": [],
+    "alias_of": null,
+    "unit_count": 1,
+    "pin_names_hidden": true,
+    "pin_numbers_hidden": true,
+    "pin_name_offset": 1.016,
+    "in_bom": true,
+    "on_board": true,
+    "power": false,
+    "diagnostics": [],
+    "raw": [
+      "symbol",
+      "Antenna_Chip",
+      [
+        "pin_numbers",
+        [
+          "hide",
+          "yes"
+        ]
+      ],
+      [
+        "pin_names",
+        [
+          "offset",
+          "1.016"
+        ],
+        [
+          "hide",
+          "yes"
+        ]
+      ],
+      [
+        "exclude_from_sim",
+        "no"
+      ],
+      [
+        "in_bom",
+        "yes"
+      ],
+      [
+        "on_board",
+        "yes"
+      ],
+      [
+        "property",
+        "Reference",
+        "AE",
+        [
+          "at",
+          "0",
+          "5.08",
+          "0"
+        ],
+        [
+          "effects",
+          [
+            "font",
+            [
+              "size",
+              "1.27",
+              "1.27"
+            ]
+          ],
+          [
+            "justify",
+            "right"
+          ]
+        ]
+      ],
+      [
+        "property",
+        "Value",
+        "Antenna_Chip",
+        [
+          "at",
+          "0",
+          "3.175",
+          "0"
+        ],
+        [
+          "effects",
+          [
+            "font",
+            [
+              "size",
+              "1.27",
+              "1.27"
+            ]
+          ],
+          [
+            "justify",
+            "right"
+          ]
+        ]
+      ],
+      [
+        "property",
+        "Footprint",
+        "",
+        [
+          "at",
+          "-2.54",
+          "4.445",
+          "0"
+        ],
+        [
+          "effects",
+          [
+            "font",
+            [
+              "size",
+              "1.27",
+              "1.27"
+            ]
+          ],
+          [
+            "hide",
+            "yes"
+          ]
+        ]
+      ],
+      [
+        "property",
+        "Datasheet",
+        "~",
+        [
+          "at",
+          "-2.54",
+          "4.445",
+          "0"
+        ],
+        [
+          "effects",
+          [
+            "font",
+            [
+              "size",
+              "1.27",
+              "1.27"
+            ]
+          ],
+          [
+            "hide",
+            "yes"
+          ]
+        ]
+      ],
+      [
+        "property",
+        "Description",
+        "Ceramic chip antenna with pin for PCB trace",
+        [
+          "at",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "effects",
+          [
+            "font",
+            [
+              "size",
+              "1.27",
+              "1.27"
+            ]
+          ],
+          [
+            "hide",
+            "yes"
+          ]
+        ]
+      ],
+      [
+        "property",
+        "ki_keywords",
+        "antenna",
+        [
+          "at",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "effects",
+          [
+            "font",
+            [
+              "size",
+              "1.27",
+              "1.27"
+            ]
+          ],
+          [
+            "hide",
+            "yes"
+          ]
+        ]
+      ],
+      [
+        "symbol",
+        "Antenna_Chip_0_1",
+        [
+          "polyline",
+          [
+            "pts",
+            [
+              "xy",
+              "-2.54",
+              "0"
+            ],
+            [
+              "xy",
+              "-2.54",
+              "-0.635"
+            ]
+          ],
+          [
+            "stroke",
+            [
+              "width",
+              "0.254"
+            ],
+            [
+              "type",
+              "default"
+            ]
+          ],
+          [
+            "fill",
+            [
+              "type",
+              "none"
+            ]
+          ]
+        ],
+        [
+          "polyline",
+          [
+            "pts",
+            [
+              "xy",
+              "-2.54",
+              "0"
+            ],
+            [
+              "xy",
+              "-1.27",
+              "0"
+            ]
+          ],
+          [
+            "stroke",
+            [
+              "width",
+              "0.254"
+            ],
+            [
+              "type",
+              "default"
+            ]
+          ],
+          [
+            "fill",
+            [
+              "type",
+              "none"
+            ]
+          ]
+        ],
+        [
+          "polyline",
+          [
+            "pts",
+            [
+              "xy",
+              "-1.27",
+              "1.27"
+            ],
+            [
+              "xy",
+              "-1.27",
+              "-1.27"
+            ],
+            [
+              "xy",
+              "-1.27",
+              "0"
+            ]
+          ],
+          [
+            "stroke",
+            [
+              "width",
+              "0.254"
+            ],
+            [
+              "type",
+              "default"
+            ]
+          ],
+          [
+            "fill",
+            [
+              "type",
+              "none"
+            ]
+          ]
+        ],
+        [
+          "polyline",
+          [
+            "pts",
+            [
+              "xy",
+              "-0.635",
+              "1.27"
+            ],
+            [
+              "xy",
+              "0.635",
+              "1.27"
+            ],
+            [
+              "xy",
+              "0.635",
+              "-1.27"
+            ],
+            [
+              "xy",
+              "-0.635",
+              "-1.27"
+            ],
+            [
+              "xy",
+              "-0.635",
+              "1.27"
+            ]
+          ],
+          [
+            "stroke",
+            [
+              "width",
+              "0.254"
+            ],
+            [
+              "type",
+              "default"
+            ]
+          ],
+          [
+            "fill",
+            [
+              "type",
+              "none"
+            ]
+          ]
+        ],
+        [
+          "polyline",
+          [
+            "pts",
+            [
+              "xy",
+              "1.27",
+              "1.27"
+            ],
+            [
+              "xy",
+              "1.27",
+              "-1.27"
+            ]
+          ],
+          [
+            "stroke",
+            [
+              "width",
+              "0.254"
+            ],
+            [
+              "type",
+              "default"
+            ]
+          ],
+          [
+            "fill",
+            [
+              "type",
+              "none"
+            ]
+          ]
+        ],
+        [
+          "polyline",
+          [
+            "pts",
+            [
+              "xy",
+              "1.27",
+              "0"
+            ],
+            [
+              "xy",
+              "2.54",
+              "0"
+            ]
+          ],
+          [
+            "stroke",
+            [
+              "width",
+              "0.254"
+            ],
+            [
+              "type",
+              "default"
+            ]
+          ],
+          [
+            "fill",
+            [
+              "type",
+              "none"
+            ]
+          ]
+        ],
+        [
+          "polyline",
+          [
+            "pts",
+            [
+              "xy",
+              "2.54",
+              "6.985"
+            ],
+            [
+              "xy",
+              "2.54",
+              "-1.905"
+            ]
+          ],
+          [
+            "stroke",
+            [
+              "width",
+              "0.254"
+            ],
+            [
+              "type",
+              "default"
+            ]
+          ],
+          [
+            "fill",
+            [
+              "type",
+              "none"
+            ]
+          ]
+        ],
+        [
+          "polyline",
+          [
+            "pts",
+            [
+              "xy",
+              "2.54",
+              "-0.635"
+            ],
+            [
+              "xy",
+              "2.54",
+              "0"
+            ]
+          ],
+          [
+            "stroke",
+            [
+              "width",
+              "0"
+            ],
+            [
+              "type",
+              "default"
+            ]
+          ],
+          [
+            "fill",
+            [
+              "type",
+              "none"
+            ]
+          ]
+        ],
+        [
+          "polyline",
+          [
+            "pts",
+            [
+              "xy",
+              "3.81",
+              "6.985"
+            ],
+            [
+              "xy",
+              "2.54",
+              "1.905"
+            ],
+            [
+              "xy",
+              "1.27",
+              "6.985"
+            ]
+          ],
+          [
+            "stroke",
+            [
+              "width",
+              "0.254"
+            ],
+            [
+              "type",
+              "default"
+            ]
+          ],
+          [
+            "fill",
+            [
+              "type",
+              "none"
+            ]
+          ]
+        ]
+      ],
+      [
+        "symbol",
+        "Antenna_Chip_1_1",
+        [
+          "pin",
+          "input",
+          "line",
+          [
+            "at",
+            "-2.54",
+            "-2.54",
+            "90"
+          ],
+          [
+            "length",
+            "2.54"
+          ],
+          [
+            "name",
+            "FEED",
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ]
+            ]
+          ],
+          [
+            "number",
+            "1",
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ]
+            ]
+          ]
+        ],
+        [
+          "pin",
+          "passive",
+          "line",
+          [
+            "at",
+            "2.54",
+            "-2.54",
+            "90"
+          ],
+          [
+            "length",
+            "2.54"
+          ],
+          [
+            "name",
+            "PCB_Trace",
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ]
+            ]
+          ],
+          [
+            "number",
+            "2",
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ]
+            ]
+          ]
+        ]
+      ],
+      [
+        "embedded_fonts",
+        "no"
+      ]
+    ]
+  },
+  "conversion_settings": {
+    "footprint_name": null,
+    "reference": "AE1",
+    "project_name": "Antenna_Chip_electrical.cds",
+    "default_line_width_mm": 0.254,
+    "pin_width_mm": 0.254
+  },
+  "target_component": {
+    "pin_count": 2,
+    "bounds": [
+      -2692400,
+      -2692400,
+      3962400,
+      7137400
+    ],
+    "reference": {
+      "value": "AE1",
+      "x": 0,
+      "y": 5080000,
+      "layer": 7,
+      "angle": 0,
+      "size": 1270000,
+      "width": 127000,
+      "merge": -1,
+      "submerge": -1,
+      "font": 2,
+      "options": 1
+    },
+    "value": {
+      "value": "Antenna_Chip",
+      "x": 0,
+      "y": 3175000,
+      "layer": 13,
+      "angle": 0,
+      "size": 1270000,
+      "width": 127000,
+      "merge": -1,
+      "submerge": -1,
+      "font": 2,
+      "options": 1
+    },
+    "footprint": {
+      "value": "PART",
+      "x": 0,
+      "y": 0,
+      "layer": 12,
+      "angle": 0,
+      "size": 0,
+      "width": 0,
+      "merge": -1,
+      "submerge": -1,
+      "font": 2,
+      "options": 1
+    },
+    "polylines": [
+      {
+        "closed": false,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": -2540000,
+            "y": 0,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -2540000,
+            "y": -635000,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": -2540000,
+            "y": 0,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -1270000,
+            "y": 0,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": -1270000,
+            "y": 1270000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -1270000,
+            "y": -1270000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -1270000,
+            "y": 0,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": true,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": -635000,
+            "y": 1270000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 635000,
+            "y": 1270000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 635000,
+            "y": -1270000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -635000,
+            "y": -1270000,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": 1270000,
+            "y": 1270000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 1270000,
+            "y": -1270000,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": 1270000,
+            "y": 0,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 2540000,
+            "y": 0,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": 2540000,
+            "y": 6985000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 2540000,
+            "y": -1905000,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": 2540000,
+            "y": -635000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 2540000,
+            "y": 0,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": 3810000,
+            "y": 6985000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 2540000,
+            "y": 1905000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 1270000,
+            "y": 6985000,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 8,
+        "width": 254000,
+        "corners": [
+          {
+            "x": -2540000,
+            "y": 0,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -2540000,
+            "y": -2540000,
+            "style": 0,
+            "node": 1
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": {
+          "value": "1",
+          "x": -3175000,
+          "y": -1270000,
+          "layer": 9,
+          "angle": 0,
+          "size": 0,
+          "width": 0,
+          "merge": -1,
+          "submerge": -1,
+          "font": 2,
+          "options": 1
+        },
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 8,
+        "width": 254000,
+        "corners": [
+          {
+            "x": 2540000,
+            "y": 0,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 2540000,
+            "y": -2540000,
+            "style": 0,
+            "node": 1
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": {
+          "value": "2",
+          "x": 1905000,
+          "y": -1270000,
+          "layer": 9,
+          "angle": 0,
+          "size": 0,
+          "width": 0,
+          "merge": -1,
+          "submerge": -1,
+          "font": 2,
+          "options": 1
+        },
+        "description": null
+      }
+    ]
+  },
+  "physical_pin_mapping_verified": false,
+  "diagnostics": [
+    {
+      "code": "SYMBOL_TEXT_RENDERING",
+      "severity": "loss",
+      "message": "SIMPLEX replaces source fonts; source property anchors are used as native baselines. Justification, text styling and exact glyph bounds are not reproduced.",
+      "context": {}
+    },
+    {
+      "code": "TARGET_PIN_STROKE",
+      "severity": "assumption",
+      "message": "Pin stroke width is a declared conversion setting; the library has no resolved project pin stroke.",
+      "context": {
+        "width_mm": 0.254
+      }
+    },
+    {
+      "code": "SYMBOL_FOOTPRINT_UNRESOLVED",
+      "severity": "loss",
+      "message": "Native PART placeholder used; source footprint identifier/filters are retained in JSON.",
+      "context": {}
+    },
+    {
+      "code": "SYMBOL_METADATA_NOT_TRANSFERRED",
+      "severity": "loss",
+      "message": "Source datasheet/custom properties/footprint filters retained only in JSON.",
+      "context": {
+        "properties": [
+          "Description",
+          "ki_keywords"
+        ]
+      }
+    },
+    {
+      "code": "SOURCE_LINE_WIDTH_DEFAULT",
+      "severity": "assumption",
+      "message": "Zero source stroke resolves to declared default width.",
+      "context": {
+        "unit": 0,
+        "graphic": 7,
+        "width_mm": 0.254
+      }
+    },
+    {
+      "code": "SYMBOL_ELECTRICAL_TYPE_NOT_TRANSFERRED",
+      "severity": "loss",
+      "message": "Source electrical types are retained in JSON only. The confirmed CDS profile stores a numbered connection endpoint and optional name, without KiCad electrical rules; input/output direction, drive constraints and ERC semantics are not transferred.",
+      "context": {
+        "source_electrical_types": {
+          "input": 1,
+          "passive": 1
+        }
+      }
+    }
+  ],
+  "artifact_sha256": "5e3c9f2376f3ad70283288d16d9e50e802340444fed80d405234c5d67ab254d2",
+  "counts": {
+    "components": 1,
+    "pins": 2,
+    "polylines": 11,
+    "losses": 4,
+    "assumptions": 2
+  },
+  "pin_semantics": {
+    "electrical_rules_transferred": false,
+    "native_representation": "numbered layer-8 segment; body Node=0, external Node=1; optional layer-14 name",
+    "pins": [
+      {
+        "source_pin_number": "1",
+        "source_pin_name": "FEED",
+        "source_electrical_type": "input",
+        "target_pin_number": "1",
+        "target_polyline_index": 9,
+        "connection_point_nm": [
+          -2540000,
+          -2540000
+        ]
+      },
+      {
+        "source_pin_number": "2",
+        "source_pin_name": "PCB_Trace",
+        "source_electrical_type": "passive",
+        "target_pin_number": "2",
+        "target_polyline_index": 10,
+        "connection_point_nm": [
+          2540000,
+          -2540000
+        ]
+      }
+    ]
+  },
+  "source": {
+    "path": "/Users/egorananev/Desktop/hse/1-2 курс/ПРОЕКТ/tests/fixtures/symbols/Device.kicad_sym",
+    "sha256": "972f851ebf7c10dfe97eefd5d847406154b18ee6158013bd19165477d6364abd"
+  },
+  "output": "/Users/egorananev/Desktop/hse/1-2 курс/ПРОЕКТ/output/symbols/Antenna_Chip_electrical.cds"
+}

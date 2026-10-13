@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "footprint_libraries": {
+    "Resistor_SMD": "..",
+    "Capacitor_SMD": "..",
+    "Connector_PinHeader_2.54mm": ".."
+  },
+  "aperture_defaults": {
+    "mask_margin": 0.05,
+    "paste_margin": 0,
+    "paste_ratio": 0
+  },
+  "components": [
+    {
+      "id": "R0805",
+      "symbol_library": "../../../KiCad/Pickit-cache.lib",
+      "symbol": "R",
+      "footprint": "Resistor_SMD:R_0805_2012Metric",
+      "reference": "R1"
+    },
+    {
+      "id": "C0805",
+      "symbol_library": "../../../KiCad/Pickit-cache.lib",
+      "symbol": "C",
+      "footprint": "Capacitor_SMD:C_0805_2012Metric",
+      "reference": "C1"
+    },
+    {
+      "id": "Header6",
+      "symbol_library": "../../../KiCad/Pickit-cache.lib",
+      "symbol": "CONN_01X06",
+      "footprint": "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical",
+      "reference": "P1"
+    }
+  ]
+}

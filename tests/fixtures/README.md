@@ -104,3 +104,64 @@ rectangle и attributes. Координаты, flags и CRLF не изменен
 reader проверяет physical numbers/free-end Nodes и semantic roundtrip.
 Новые R/C/CONN_01X06 controls в `output/symbols` генерируются из cache, а не
 из этого фрагмента. См. [SCHEMATOR_CONVERTER.md](../../docs/SCHEMATOR_CONVERTER.md).
+
+## Контроль связанных компонентов
+
+`components/control.json` вручную назначает R/C/CONN_01X06 из cache точным
+Resistor_SMD:R_0805_2012Metric, Capacitor_SMD:C_0805_2012Metric и
+Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical. Это library bindings,
+не восстановленные реальные BOM instances Pickit.
+
+Новые целые C0805/PinHeader6 `.kicad_mod` получены без изменений из официальной
+KiCad Libraries, pinned revision 51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c.
+URL/SHA256/size — `components/provenance.json`, license — `LICENSE.md`.
+Tests проверяют fixture bytes и весь component chain, используя opaque fake
+STL bytes во временных каталогах; реальные models не нужны для unit tests.
+Локальный runtime bundle использует только три существующие настоящие модели.
+Правила: [COMPONENT_BUNDLE.md](../../docs/COMPONENT_BUNDLE.md).
+
+## Реальный контроль curves УГО
+
+Целые неизменённые Device (531 definitions) и Connector (397), той же KiCad
+symbols 9.0.0 revision/license, дополнены в `symbols/`; provenance содержит
+URL/bytes/SHA256. Они используются как source sample; не все definitions
+поддержаны target writer. L/L_Small/C_Polarized_US/TestPoint/Conn_Coaxial и
+legacy CP1/INDUCTOR дают семь воспроизводимых CDS/report controls.
+
+`components/curves.json` задаёт modern L и legacy INDUCTOR → L0805, TestPoint
+→ pad D1.0mm. Новые целые L0805/TestPoint footprints из pinned KiCad 51f8a59...
+сохраняются без изменений; hashes/URL — `components/curves-provenance.json`,
+license — `LICENSE.md`. TP source не имеет model reference: пакет строится с
+explicit `--allow-missing-models`, его chain_complete false. Остальные два
+bindings используют один existing STL. Models в unit tests — временные opaque
+bytes; реальные meshes не читаются для geometry. [SYMBOL_CURVES.md](../../docs/SYMBOL_CURVES.md).
+
+## Контроль электрических типов УГО
+
+Пять `*_electrical` controls получены из неизменённой Device KiCad9:
+Antenna/Antenna_Chip/DelayLine/Q_SCR_AGK/Speaker. Source names у них скрыты;
+сохранены в JSON вместе с типами. Остальные обычные типы проверяются synthetic
+modern/legacy probes, это не coverage всей библиотеки.
+
+`components/electrical.json` вручную назначает SCR_AGK → SOT-23 и Speaker →
+Speaker_CUI_CMR-1206S-67. Generic SCR binding проверяет number identity,
+не пригодность корпуса конкретному компоненту. SOT-23 переиспользован без
+изменений; Speaker footprint добавлен целиком из той же pinned KiCad 51f8a59...
+URL/bytes/hashes — `components/electrical-provenance.json`; license — `LICENSE.md`.
+В тестах models — temporary opaque bytes; runtime использует два существующих
+STL. [Профиль и source evidence](../../docs/SYMBOL_ELECTRICAL.md).
+
+## Контроль заливки и текста УГО
+
+Шесть `*_body` controls созданы из целых unchanged Device KiCad9:
+D_Filled/C_Polarized/Antenna_Shield/C_Network04/Ammeter_DC/FrequencyCounter.
+Проверяются rectangles/polygons/circles, background occlusion loss и literal
+A/Hz в native body descriptions. Source fill/text flags не редактируются.
+Синтетические probes проверяют concavity, fill bound, text effects/legacy T.
+
+`components/body.json` задаёт D_Filled → D_SOD-123 и Ammeter_DC → Header2.
+Meter/header — тестовая привязка, не доказанная physical suitability прибора.
+Новый PinHeader_1x02_P2.54mm_Vertical сохранён целиком из KiCad pinned 51f8a59...
+URL/bytes/SHA256 — `components/body-provenance.json`, license — `LICENSE.md`.
+Два real STL только копируются/хешируются; tests используют temporary opaque
+bytes. [Правила и source evidence](../../docs/SYMBOL_BODY.md).

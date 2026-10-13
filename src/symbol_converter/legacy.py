@@ -60,8 +60,29 @@ def parse_pin(t: list[str], symbol: Symbol) -> None:
         hidden, (namesize, namesize), (numsize, numsize), raw=t))
 
 
-def parse_graphic(t: list[str], symbol: Symbol) -> None:
+def parse_graphic(t: list[str], symbol: Symbol, raw_line: str = '') -> None:
     kind = t[0]
+    if kind == 'T':
+        count(t,(9,11,13),'graphic text')
+        if any(not re.fullmatch(r'-?\d+',value) for value in t[1:8]):
+            raise SymbolParseError('Legacy graphic text requires integer fields')
+        height=mm(t[4],nonnegative=True)
+        if height<=0 or t[5] not in ('0','1'):
+            raise SymbolParseError('Invalid legacy graphic text size/visibility')
+        quoted=raw_line.split(None,8)[-1].startswith('"')
+        text=t[8] if quoted else t[8].replace('~',' ')
+        text=text.replace("''",'"')
+        if len(t)>=11 and (t[9] not in ('Normal','Italic') or not re.fullmatch(r'\d+',t[10])):
+            raise SymbolParseError('Invalid legacy graphic text style')
+        if len(t)==13 and (t[11] not in ('L','C','R') or t[12] not in ('T','C','B')):
+            raise SymbolParseError('Invalid legacy graphic text justification')
+        data=dict(text=text,at=(mm(t[2]),mm(t[3]),int(t[1])/10),size=(height,height),
+                  hidden=t[5]=='1',italic=len(t)>=11 and t[9]=='Italic',
+                  bold=len(t)>=11 and int(t[10])>0,
+                  horizontal_justify=t[11] if len(t)==13 else 'C',
+                  vertical_justify=t[12] if len(t)==13 else 'C')
+        block_for(symbol,t[6],t[7]).graphics.append(Graphic('text',data,0,'none',t))
+        return
     if kind == 'S':
         count(t, (9,), 'rectangle')
         unit, style, width = t[5:8]
@@ -174,7 +195,7 @@ def parse_legacy(text: str) -> Library:
                 elif kind == 'X':
                     parse_pin(t, symbol)
                 elif kind in ('S', 'C', 'P', 'A', 'T', 'B'):
-                    parse_graphic(t, symbol)
+                    parse_graphic(t, symbol, line)
                 else:
                     raise SymbolParseError(f'Unexpected record in DRAW: {kind}')
             elif re.fullmatch(r'F\d+', kind):

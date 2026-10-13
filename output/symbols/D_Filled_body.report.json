@@ -1,0 +1,2048 @@
+{
+  "schema_version": 1,
+  "kind": "schemator_symbol_conversion",
+  "status": "generated_with_loss",
+  "target": {
+    "repository": "niconson/Schematic-Constructor",
+    "revision": "e7443c374f5c8644fb3483f794a50161de60dd01",
+    "version": "1.429",
+    "profile": "schemator-cds-straight-v1",
+    "encoding": "cp1251",
+    "coordinates": "nanometres, Y up; source library coordinates preserved",
+    "text_angle_rule": "negative source angle modulo 360",
+    "source_body_profile": "bounded-fills-body-text-v1"
+  },
+  "contract_verified_against_source": true,
+  "target_records_validated": true,
+  "target_output_generated": true,
+  "target_import_verified": false,
+  "gui_validated": false,
+  "source_format": "kicad_sym",
+  "source_version": "20241209",
+  "source_symbol": {
+    "name": "D_Filled",
+    "properties": {
+      "Reference": {
+        "name": "Reference",
+        "value": "D",
+        "at": [
+          0.0,
+          2.54,
+          0.0
+        ],
+        "hidden": false,
+        "raw": [
+          "property",
+          "Reference",
+          "D",
+          [
+            "at",
+            "0",
+            "2.54",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ]
+          ]
+        ]
+      },
+      "Value": {
+        "name": "Value",
+        "value": "D_Filled",
+        "at": [
+          0.0,
+          -2.54,
+          0.0
+        ],
+        "hidden": false,
+        "raw": [
+          "property",
+          "Value",
+          "D_Filled",
+          [
+            "at",
+            "0",
+            "-2.54",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ]
+          ]
+        ]
+      },
+      "Footprint": {
+        "name": "Footprint",
+        "value": "",
+        "at": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "hidden": true,
+        "raw": [
+          "property",
+          "Footprint",
+          "",
+          [
+            "at",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ],
+            [
+              "hide",
+              "yes"
+            ]
+          ]
+        ]
+      },
+      "Datasheet": {
+        "name": "Datasheet",
+        "value": "~",
+        "at": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "hidden": true,
+        "raw": [
+          "property",
+          "Datasheet",
+          "~",
+          [
+            "at",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ],
+            [
+              "hide",
+              "yes"
+            ]
+          ]
+        ]
+      },
+      "Description": {
+        "name": "Description",
+        "value": "Diode, filled shape",
+        "at": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "hidden": true,
+        "raw": [
+          "property",
+          "Description",
+          "Diode, filled shape",
+          [
+            "at",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ],
+            [
+              "hide",
+              "yes"
+            ]
+          ]
+        ]
+      },
+      "Sim.Device": {
+        "name": "Sim.Device",
+        "value": "D",
+        "at": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "hidden": true,
+        "raw": [
+          "property",
+          "Sim.Device",
+          "D",
+          [
+            "at",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ],
+            [
+              "hide",
+              "yes"
+            ]
+          ]
+        ]
+      },
+      "Sim.Pins": {
+        "name": "Sim.Pins",
+        "value": "1=K 2=A",
+        "at": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "hidden": true,
+        "raw": [
+          "property",
+          "Sim.Pins",
+          "1=K 2=A",
+          [
+            "at",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ],
+            [
+              "hide",
+              "yes"
+            ]
+          ]
+        ]
+      },
+      "ki_keywords": {
+        "name": "ki_keywords",
+        "value": "diode",
+        "at": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "hidden": true,
+        "raw": [
+          "property",
+          "ki_keywords",
+          "diode",
+          [
+            "at",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ],
+            [
+              "hide",
+              "yes"
+            ]
+          ]
+        ]
+      },
+      "ki_fp_filters": {
+        "name": "ki_fp_filters",
+        "value": "TO-???* *_Diode_* *SingleDiode* D_*",
+        "at": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "hidden": true,
+        "raw": [
+          "property",
+          "ki_fp_filters",
+          "TO-???* *_Diode_* *SingleDiode* D_*",
+          [
+            "at",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ],
+            [
+              "hide",
+              "yes"
+            ]
+          ]
+        ]
+      }
+    },
+    "units": [
+      {
+        "number": 0,
+        "style": 1,
+        "source_id": "D_Filled_0_1",
+        "display_name": null,
+        "pins": [],
+        "graphics": [
+          {
+            "kind": "polyline",
+            "geometry": {
+              "points": [
+                [
+                  -1.27,
+                  1.27
+                ],
+                [
+                  -1.27,
+                  -1.27
+                ]
+              ]
+            },
+            "width": 0.254,
+            "fill": "none",
+            "raw": [
+              "polyline",
+              [
+                "pts",
+                [
+                  "xy",
+                  "-1.27",
+                  "1.27"
+                ],
+                [
+                  "xy",
+                  "-1.27",
+                  "-1.27"
+                ]
+              ],
+              [
+                "stroke",
+                [
+                  "width",
+                  "0.254"
+                ],
+                [
+                  "type",
+                  "default"
+                ]
+              ],
+              [
+                "fill",
+                [
+                  "type",
+                  "none"
+                ]
+              ]
+            ]
+          },
+          {
+            "kind": "polyline",
+            "geometry": {
+              "points": [
+                [
+                  1.27,
+                  1.27
+                ],
+                [
+                  1.27,
+                  -1.27
+                ],
+                [
+                  -1.27,
+                  0.0
+                ],
+                [
+                  1.27,
+                  1.27
+                ]
+              ]
+            },
+            "width": 0.254,
+            "fill": "outline",
+            "raw": [
+              "polyline",
+              [
+                "pts",
+                [
+                  "xy",
+                  "1.27",
+                  "1.27"
+                ],
+                [
+                  "xy",
+                  "1.27",
+                  "-1.27"
+                ],
+                [
+                  "xy",
+                  "-1.27",
+                  "0"
+                ],
+                [
+                  "xy",
+                  "1.27",
+                  "1.27"
+                ]
+              ],
+              [
+                "stroke",
+                [
+                  "width",
+                  "0.254"
+                ],
+                [
+                  "type",
+                  "default"
+                ]
+              ],
+              [
+                "fill",
+                [
+                  "type",
+                  "outline"
+                ]
+              ]
+            ]
+          },
+          {
+            "kind": "polyline",
+            "geometry": {
+              "points": [
+                [
+                  1.27,
+                  0.0
+                ],
+                [
+                  -1.27,
+                  0.0
+                ]
+              ]
+            },
+            "width": 0.0,
+            "fill": "none",
+            "raw": [
+              "polyline",
+              [
+                "pts",
+                [
+                  "xy",
+                  "1.27",
+                  "0"
+                ],
+                [
+                  "xy",
+                  "-1.27",
+                  "0"
+                ]
+              ],
+              [
+                "stroke",
+                [
+                  "width",
+                  "0"
+                ],
+                [
+                  "type",
+                  "default"
+                ]
+              ],
+              [
+                "fill",
+                [
+                  "type",
+                  "none"
+                ]
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "number": 1,
+        "style": 1,
+        "source_id": "D_Filled_1_1",
+        "display_name": null,
+        "pins": [
+          {
+            "number": "1",
+            "name": "K",
+            "at": [
+              -3.81,
+              0.0,
+              0.0
+            ],
+            "length": 2.54,
+            "electrical_type": "passive",
+            "graphic_style": "line",
+            "hidden": false,
+            "name_size": [
+              1.27,
+              1.27
+            ],
+            "number_size": [
+              1.27,
+              1.27
+            ],
+            "alternates": [],
+            "raw": [
+              "pin",
+              "passive",
+              "line",
+              [
+                "at",
+                "-3.81",
+                "0",
+                "0"
+              ],
+              [
+                "length",
+                "2.54"
+              ],
+              [
+                "name",
+                "K",
+                [
+                  "effects",
+                  [
+                    "font",
+                    [
+                      "size",
+                      "1.27",
+                      "1.27"
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "number",
+                "1",
+                [
+                  "effects",
+                  [
+                    "font",
+                    [
+                      "size",
+                      "1.27",
+                      "1.27"
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          },
+          {
+            "number": "2",
+            "name": "A",
+            "at": [
+              3.81,
+              0.0,
+              180.0
+            ],
+            "length": 2.54,
+            "electrical_type": "passive",
+            "graphic_style": "line",
+            "hidden": false,
+            "name_size": [
+              1.27,
+              1.27
+            ],
+            "number_size": [
+              1.27,
+              1.27
+            ],
+            "alternates": [],
+            "raw": [
+              "pin",
+              "passive",
+              "line",
+              [
+                "at",
+                "3.81",
+                "0",
+                "180"
+              ],
+              [
+                "length",
+                "2.54"
+              ],
+              [
+                "name",
+                "A",
+                [
+                  "effects",
+                  [
+                    "font",
+                    [
+                      "size",
+                      "1.27",
+                      "1.27"
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "number",
+                "2",
+                [
+                  "effects",
+                  [
+                    "font",
+                    [
+                      "size",
+                      "1.27",
+                      "1.27"
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          }
+        ],
+        "graphics": []
+      }
+    ],
+    "extends": null,
+    "inheritance_chain": [],
+    "aliases": [],
+    "alias_of": null,
+    "unit_count": 1,
+    "pin_names_hidden": true,
+    "pin_numbers_hidden": true,
+    "pin_name_offset": 1.016,
+    "in_bom": true,
+    "on_board": true,
+    "power": false,
+    "diagnostics": [],
+    "raw": [
+      "symbol",
+      "D_Filled",
+      [
+        "pin_numbers",
+        [
+          "hide",
+          "yes"
+        ]
+      ],
+      [
+        "pin_names",
+        [
+          "offset",
+          "1.016"
+        ],
+        [
+          "hide",
+          "yes"
+        ]
+      ],
+      [
+        "exclude_from_sim",
+        "no"
+      ],
+      [
+        "in_bom",
+        "yes"
+      ],
+      [
+        "on_board",
+        "yes"
+      ],
+      [
+        "property",
+        "Reference",
+        "D",
+        [
+          "at",
+          "0",
+          "2.54",
+          "0"
+        ],
+        [
+          "effects",
+          [
+            "font",
+            [
+              "size",
+              "1.27",
+              "1.27"
+            ]
+          ]
+        ]
+      ],
+      [
+        "property",
+        "Value",
+        "D_Filled",
+        [
+          "at",
+          "0",
+          "-2.54",
+          "0"
+        ],
+        [
+          "effects",
+          [
+            "font",
+            [
+              "size",
+              "1.27",
+              "1.27"
+            ]
+          ]
+        ]
+      ],
+      [
+        "property",
+        "Footprint",
+        "",
+        [
+          "at",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "effects",
+          [
+            "font",
+            [
+              "size",
+              "1.27",
+              "1.27"
+            ]
+          ],
+          [
+            "hide",
+            "yes"
+          ]
+        ]
+      ],
+      [
+        "property",
+        "Datasheet",
+        "~",
+        [
+          "at",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "effects",
+          [
+            "font",
+            [
+              "size",
+              "1.27",
+              "1.27"
+            ]
+          ],
+          [
+            "hide",
+            "yes"
+          ]
+        ]
+      ],
+      [
+        "property",
+        "Description",
+        "Diode, filled shape",
+        [
+          "at",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "effects",
+          [
+            "font",
+            [
+              "size",
+              "1.27",
+              "1.27"
+            ]
+          ],
+          [
+            "hide",
+            "yes"
+          ]
+        ]
+      ],
+      [
+        "property",
+        "Sim.Device",
+        "D",
+        [
+          "at",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "effects",
+          [
+            "font",
+            [
+              "size",
+              "1.27",
+              "1.27"
+            ]
+          ],
+          [
+            "hide",
+            "yes"
+          ]
+        ]
+      ],
+      [
+        "property",
+        "Sim.Pins",
+        "1=K 2=A",
+        [
+          "at",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "effects",
+          [
+            "font",
+            [
+              "size",
+              "1.27",
+              "1.27"
+            ]
+          ],
+          [
+            "hide",
+            "yes"
+          ]
+        ]
+      ],
+      [
+        "property",
+        "ki_keywords",
+        "diode",
+        [
+          "at",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "effects",
+          [
+            "font",
+            [
+              "size",
+              "1.27",
+              "1.27"
+            ]
+          ],
+          [
+            "hide",
+            "yes"
+          ]
+        ]
+      ],
+      [
+        "property",
+        "ki_fp_filters",
+        "TO-???* *_Diode_* *SingleDiode* D_*",
+        [
+          "at",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "effects",
+          [
+            "font",
+            [
+              "size",
+              "1.27",
+              "1.27"
+            ]
+          ],
+          [
+            "hide",
+            "yes"
+          ]
+        ]
+      ],
+      [
+        "symbol",
+        "D_Filled_0_1",
+        [
+          "polyline",
+          [
+            "pts",
+            [
+              "xy",
+              "-1.27",
+              "1.27"
+            ],
+            [
+              "xy",
+              "-1.27",
+              "-1.27"
+            ]
+          ],
+          [
+            "stroke",
+            [
+              "width",
+              "0.254"
+            ],
+            [
+              "type",
+              "default"
+            ]
+          ],
+          [
+            "fill",
+            [
+              "type",
+              "none"
+            ]
+          ]
+        ],
+        [
+          "polyline",
+          [
+            "pts",
+            [
+              "xy",
+              "1.27",
+              "1.27"
+            ],
+            [
+              "xy",
+              "1.27",
+              "-1.27"
+            ],
+            [
+              "xy",
+              "-1.27",
+              "0"
+            ],
+            [
+              "xy",
+              "1.27",
+              "1.27"
+            ]
+          ],
+          [
+            "stroke",
+            [
+              "width",
+              "0.254"
+            ],
+            [
+              "type",
+              "default"
+            ]
+          ],
+          [
+            "fill",
+            [
+              "type",
+              "outline"
+            ]
+          ]
+        ],
+        [
+          "polyline",
+          [
+            "pts",
+            [
+              "xy",
+              "1.27",
+              "0"
+            ],
+            [
+              "xy",
+              "-1.27",
+              "0"
+            ]
+          ],
+          [
+            "stroke",
+            [
+              "width",
+              "0"
+            ],
+            [
+              "type",
+              "default"
+            ]
+          ],
+          [
+            "fill",
+            [
+              "type",
+              "none"
+            ]
+          ]
+        ]
+      ],
+      [
+        "symbol",
+        "D_Filled_1_1",
+        [
+          "pin",
+          "passive",
+          "line",
+          [
+            "at",
+            "-3.81",
+            "0",
+            "0"
+          ],
+          [
+            "length",
+            "2.54"
+          ],
+          [
+            "name",
+            "K",
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ]
+            ]
+          ],
+          [
+            "number",
+            "1",
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ]
+            ]
+          ]
+        ],
+        [
+          "pin",
+          "passive",
+          "line",
+          [
+            "at",
+            "3.81",
+            "0",
+            "180"
+          ],
+          [
+            "length",
+            "2.54"
+          ],
+          [
+            "name",
+            "A",
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ]
+            ]
+          ],
+          [
+            "number",
+            "2",
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ]
+            ]
+          ]
+        ]
+      ],
+      [
+        "embedded_fonts",
+        "no"
+      ]
+    ]
+  },
+  "conversion_settings": {
+    "footprint_name": null,
+    "reference": "D1",
+    "project_name": "D_Filled_body.cds",
+    "default_line_width_mm": 0.254,
+    "pin_width_mm": 0.254,
+    "fill_tolerance_mm": 0.01
+  },
+  "target_component": {
+    "pin_count": 2,
+    "bounds": [
+      -3962400,
+      -1422400,
+      3962400,
+      1422400
+    ],
+    "reference": {
+      "value": "D1",
+      "x": 0,
+      "y": 2540000,
+      "layer": 7,
+      "angle": 0,
+      "size": 1270000,
+      "width": 127000,
+      "merge": -1,
+      "submerge": -1,
+      "font": 2,
+      "options": 1
+    },
+    "value": {
+      "value": "D_Filled",
+      "x": 0,
+      "y": -2540000,
+      "layer": 13,
+      "angle": 0,
+      "size": 1270000,
+      "width": 127000,
+      "merge": -1,
+      "submerge": -1,
+      "font": 2,
+      "options": 1
+    },
+    "footprint": {
+      "value": "PART",
+      "x": 0,
+      "y": 0,
+      "layer": 12,
+      "angle": 0,
+      "size": 0,
+      "width": 0,
+      "merge": -1,
+      "submerge": -1,
+      "font": 2,
+      "options": 1
+    },
+    "polylines": [
+      {
+        "closed": false,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": -1270000,
+            "y": 1270000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -1270000,
+            "y": -1270000,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": true,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": 1270000,
+            "y": 1270000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 1270000,
+            "y": -1270000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -1270000,
+            "y": 0,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": 1143000,
+            "y": -1206500,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 1270000,
+            "y": -1206500,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": 889000,
+            "y": -1079500,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 1270000,
+            "y": -1079500,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": 635000,
+            "y": -952500,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 1270000,
+            "y": -952500,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": 381000,
+            "y": -825500,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 1270000,
+            "y": -825500,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": 127000,
+            "y": -698500,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 1270000,
+            "y": -698500,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": -127000,
+            "y": -571500,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 1270000,
+            "y": -571500,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": -381000,
+            "y": -444500,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 1270000,
+            "y": -444500,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": -635000,
+            "y": -317500,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 1270000,
+            "y": -317500,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": -889000,
+            "y": -190500,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 1270000,
+            "y": -190500,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": -1143000,
+            "y": -63500,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 1270000,
+            "y": -63500,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": -1143000,
+            "y": 63500,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 1270000,
+            "y": 63500,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": -889000,
+            "y": 190500,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 1270000,
+            "y": 190500,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": -635000,
+            "y": 317500,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 1270000,
+            "y": 317500,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": -381000,
+            "y": 444500,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 1270000,
+            "y": 444500,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": -127000,
+            "y": 571500,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 1270000,
+            "y": 571500,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": 127000,
+            "y": 698500,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 1270000,
+            "y": 698500,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": 381000,
+            "y": 825500,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 1270000,
+            "y": 825500,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": 635000,
+            "y": 952500,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 1270000,
+            "y": 952500,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": 889000,
+            "y": 1079500,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 1270000,
+            "y": 1079500,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": 1143000,
+            "y": 1206500,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 1270000,
+            "y": 1206500,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": 1270000,
+            "y": 0,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -1270000,
+            "y": 0,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 8,
+        "width": 254000,
+        "corners": [
+          {
+            "x": -1270000,
+            "y": 0,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -3810000,
+            "y": 0,
+            "style": 0,
+            "node": 1
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": {
+          "value": "1",
+          "x": -2540000,
+          "y": 635000,
+          "layer": 9,
+          "angle": 0,
+          "size": 0,
+          "width": 0,
+          "merge": -1,
+          "submerge": -1,
+          "font": 2,
+          "options": 1
+        },
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 8,
+        "width": 254000,
+        "corners": [
+          {
+            "x": 1270000,
+            "y": 0,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 3810000,
+            "y": 0,
+            "style": 0,
+            "node": 1
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": {
+          "value": "2",
+          "x": 2540000,
+          "y": -635000,
+          "layer": 9,
+          "angle": 0,
+          "size": 0,
+          "width": 0,
+          "merge": -1,
+          "submerge": -1,
+          "font": 2,
+          "options": 1
+        },
+        "description": null
+      }
+    ]
+  },
+  "physical_pin_mapping_verified": false,
+  "diagnostics": [
+    {
+      "code": "SYMBOL_TEXT_RENDERING",
+      "severity": "loss",
+      "message": "SIMPLEX replaces source fonts; source property anchors are used as native baselines. Justification, text styling and exact glyph bounds are not reproduced.",
+      "context": {}
+    },
+    {
+      "code": "TARGET_PIN_STROKE",
+      "severity": "assumption",
+      "message": "Pin stroke width is a declared conversion setting; the library has no resolved project pin stroke.",
+      "context": {
+        "width_mm": 0.254
+      }
+    },
+    {
+      "code": "SYMBOL_FOOTPRINT_UNRESOLVED",
+      "severity": "loss",
+      "message": "Native PART placeholder used; source footprint identifier/filters are retained in JSON.",
+      "context": {}
+    },
+    {
+      "code": "SYMBOL_METADATA_NOT_TRANSFERRED",
+      "severity": "loss",
+      "message": "Source datasheet/custom properties/footprint filters retained only in JSON.",
+      "context": {
+        "properties": [
+          "Description",
+          "Sim.Device",
+          "Sim.Pins",
+          "ki_keywords",
+          "ki_fp_filters"
+        ]
+      }
+    },
+    {
+      "code": "SYMBOL_FILL_APPROXIMATED",
+      "severity": "approximation",
+      "message": "Foreground fill covered by boundary and overlapping straight strokes; tolerance includes quantization.",
+      "context": {
+        "source_kind": "polyline",
+        "source_fill": "outline",
+        "coordinates": "source Y up; foreground fills use 10nm grid; background curves use 1nm grid",
+        "native_policy": "boundary_and_overlapping_strokes",
+        "nominal_interior_covered": true,
+        "encoded_expansion_bound_mm": 0.01,
+        "bound_scope": "ideal round-ended strokes relative to source fill plus resolved source stroke; native caps/rasterization unverified",
+        "emitted_polylines": 21,
+        "collapsed_spans_skipped": 0,
+        "stroke_width_nm": 254000,
+        "unit": 0,
+        "graphic": 1,
+        "target_polyline_indices": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21
+        ]
+      }
+    },
+    {
+      "code": "SOURCE_LINE_WIDTH_DEFAULT",
+      "severity": "assumption",
+      "message": "Zero source stroke resolves to declared default width.",
+      "context": {
+        "unit": 0,
+        "graphic": 2,
+        "width_mm": 0.254
+      }
+    },
+    {
+      "code": "SYMBOL_ELECTRICAL_TYPE_NOT_TRANSFERRED",
+      "severity": "loss",
+      "message": "Physical pin numbers/connectivity records are retained; KiCad passive electrical type is not a native ERC attribute.",
+      "context": {}
+    },
+    {
+      "code": "SYMBOL_FILL_STROKE_UNVERIFIED",
+      "severity": "assumption",
+      "message": "Fill coverage/expansion bounds assume ideal round-ended strokes; native caps/joins, draw order and rasterization are not GUI-verified.",
+      "context": {}
+    }
+  ],
+  "artifact_sha256": "e874fa59704107cca07c642a31aac9bcdb7e90374e2cc8245afb2decc66fd283",
+  "counts": {
+    "components": 1,
+    "pins": 2,
+    "polylines": 25,
+    "losses": 4,
+    "assumptions": 3,
+    "approximations": 1,
+    "filled_graphics": 1,
+    "fill_polylines": 21
+  },
+  "filled_graphics": [
+    {
+      "source_kind": "polyline",
+      "source_fill": "outline",
+      "coordinates": "source Y up; foreground fills use 10nm grid; background curves use 1nm grid",
+      "native_policy": "boundary_and_overlapping_strokes",
+      "nominal_interior_covered": true,
+      "encoded_expansion_bound_mm": 0.01,
+      "bound_scope": "ideal round-ended strokes relative to source fill plus resolved source stroke; native caps/rasterization unverified",
+      "emitted_polylines": 21,
+      "collapsed_spans_skipped": 0,
+      "stroke_width_nm": 254000,
+      "unit": 0,
+      "graphic": 1,
+      "target_polyline_indices": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ]
+    }
+  ],
+  "source": {
+    "path": "/Users/egorananev/Desktop/hse/1-2 курс/ПРОЕКТ/tests/fixtures/symbols/Device.kicad_sym",
+    "sha256": "972f851ebf7c10dfe97eefd5d847406154b18ee6158013bd19165477d6364abd"
+  },
+  "output": "/Users/egorananev/Desktop/hse/1-2 курс/ПРОЕКТ/output/symbols/D_Filled_body.cds"
+}

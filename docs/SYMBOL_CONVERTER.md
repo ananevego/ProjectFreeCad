@@ -53,7 +53,8 @@ CLI не читает meshes и не создаёт 3D-модели.
   родитель не изменяется. Это проверено по официальному reader KiCad 9.0.0.
 - Строки и разметка сохраняются как исходные данные. Старый `~`, overbar,
   свойства шрифта и текстовые effects не превращаются в текст Схематора.
-- Неизвестные расширения и legacy T/B сохраняются в raw records с
+- Legacy T нормализован (size/angle/visibility/style/justification/plain text);
+  raw сохраняется. Неизвестные расширения и legacy B сохраняются в raw records с
   `SOURCE_EXTENSION_UNNORMALIZED`. Новее проверенного профиля 20241209 —
   `SOURCE_VERSION_UNVERIFIED`. Это не обещание поддержки будущего формата.
 - Ошибочные числа, пропущенные обязательные properties, неизвестные pin
@@ -105,8 +106,10 @@ Metadata библиотеки сохраняется в `raw_metadata`. Raw geom
 Добавлены 31 тест: реальные определения, units/common styles, цепочки
 inheritance, aliases, численная нормализация, графика, pin conflicts,
 extensions, CLI/repeatability/protected outputs. После source этапа было 162
-теста; с отдельными 31 target tests общий набор составляет 193.
-В копии без STL/STEP проходят те же 193 теста с тремя явными пропусками
+теста; с отдельными 31 target tests было 193. После component links и добавления
+42 проверок было 235 тестов; с 31 curve tests было 266, после 19 electrical
+tests было 285; после 27 body tests — 312. В копии без STL/STEP проходят те же
+312 тестов с тремя явными пропусками
 optional integration tests моделей. Исходники cache и контрольные FPL
 сохранены в переносимой копии; новые symbol tests не требуют моделей или сети.
 
@@ -119,3 +122,9 @@ optional integration tests моделей. Исходники cache и конт�
 - [Исследование Схематора](SCHEMATOR_FORMAT_RESEARCH.md): обнаружены официальные
   исходники; минимальный straight component profile подтверждён, полный
   формат и GUI-проверка остаются открытыми.
+
+2026-10-13: source sample дополнена целыми Device (531 definitions) и Connector
+(397), той же KiCad symbols 9.0.0 revision/license. Source parser читает их
+целиком; target support проверен на ограниченной выборке, не всех 928 УГО.
+Modern и legacy curves/политика разрешения: [SYMBOL_CURVES.md](SYMBOL_CURVES.md).
+Inspection flags по-прежнему отделены от target generation/links.

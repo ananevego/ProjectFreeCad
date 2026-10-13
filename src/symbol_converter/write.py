@@ -24,6 +24,8 @@ def main(argv=None) -> int:
     parser.add_argument('--reference',help='Numbered reference; default source prefix + 1')
     parser.add_argument('--default-line-width',type=float,default=.254)
     parser.add_argument('--pin-width',type=float,default=.254)
+    parser.add_argument('--curve-tolerance',type=float,default=.01,help='Maximum resolved curve centerline error in mm, default 0.01')
+    parser.add_argument('--fill-tolerance',type=float,default=.01,help='Maximum ideal fill expansion beyond source fill/stroke in mm, default 0.01')
     parser.add_argument('--strict',action='store_true')
     args=parser.parse_args(argv)
     report_path=args.report or args.output.with_suffix('.report.json')
@@ -44,7 +46,8 @@ def main(argv=None) -> int:
         try:
             result=convert_symbol(library,args.symbol,footprint_name=args.footprint_name,
                 reference=args.reference,project_name=args.output.name,
-                default_line_width=args.default_line_width,pin_width=args.pin_width,strict=args.strict)
+                default_line_width=args.default_line_width,pin_width=args.pin_width,
+                curve_tolerance=args.curve_tolerance,fill_tolerance=args.fill_tolerance,strict=args.strict)
             report=result.report
         except LossySymbolConversionError as error:
             report=error.report

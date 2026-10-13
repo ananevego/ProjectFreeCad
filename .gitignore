@@ -24,3 +24,6 @@ desktop.ini
 
 # Batch manifests/reports/cache contain local paths and generated libraries.
 /output/batches/
+
+# Portable component bundles contain copied existing meshes and runtime reports.
+/output/components/

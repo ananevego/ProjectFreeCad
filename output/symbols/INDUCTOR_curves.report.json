@@ -1,0 +1,1592 @@
+{
+  "schema_version": 1,
+  "kind": "schemator_symbol_conversion",
+  "status": "generated_with_loss",
+  "target": {
+    "repository": "niconson/Schematic-Constructor",
+    "revision": "e7443c374f5c8644fb3483f794a50161de60dd01",
+    "version": "1.429",
+    "profile": "schemator-cds-straight-v1",
+    "encoding": "cp1251",
+    "coordinates": "nanometres, Y up; source library coordinates preserved",
+    "text_angle_rule": "negative source angle modulo 360",
+    "source_graphics_profile": "unfilled-curves-v1"
+  },
+  "contract_verified_against_source": true,
+  "target_records_validated": true,
+  "target_output_generated": true,
+  "target_import_verified": false,
+  "gui_validated": false,
+  "source_format": "legacy_lib",
+  "source_version": "2.3",
+  "source_symbol": {
+    "name": "INDUCTOR",
+    "properties": {
+      "Reference": {
+        "name": "Reference",
+        "value": "L",
+        "at": [
+          -1.27,
+          0.0,
+          90
+        ],
+        "hidden": false,
+        "raw": [
+          "F0",
+          "L",
+          "-50",
+          "0",
+          "50",
+          "V",
+          "V",
+          "C",
+          "CNN"
+        ]
+      },
+      "Value": {
+        "name": "Value",
+        "value": "INDUCTOR",
+        "at": [
+          2.54,
+          0.0,
+          90
+        ],
+        "hidden": false,
+        "raw": [
+          "F1",
+          "INDUCTOR",
+          "100",
+          "0",
+          "50",
+          "V",
+          "V",
+          "C",
+          "CNN"
+        ]
+      },
+      "Footprint": {
+        "name": "Footprint",
+        "value": "",
+        "at": [
+          0.0,
+          0.0,
+          0
+        ],
+        "hidden": false,
+        "raw": [
+          "F2",
+          "",
+          "0",
+          "0",
+          "60",
+          "H",
+          "V",
+          "C",
+          "CNN"
+        ]
+      },
+      "Datasheet": {
+        "name": "Datasheet",
+        "value": "",
+        "at": [
+          0.0,
+          0.0,
+          0
+        ],
+        "hidden": false,
+        "raw": [
+          "F3",
+          "",
+          "0",
+          "0",
+          "60",
+          "H",
+          "V",
+          "C",
+          "CNN"
+        ]
+      }
+    },
+    "units": [
+      {
+        "number": 0,
+        "style": 1,
+        "source_id": "INDUCTOR_0_1",
+        "display_name": null,
+        "pins": [],
+        "graphics": [
+          {
+            "kind": "legacy_arc",
+            "geometry": {
+              "center": [
+                0.0,
+                -3.81
+              ],
+              "radius": 1.27,
+              "start_angle": -88.9,
+              "end_angle": 88.9,
+              "start": [
+                0.0254,
+                -5.0546
+              ],
+              "end": [
+                0.0254,
+                -2.54
+              ]
+            },
+            "width": 0.0,
+            "fill": "none",
+            "raw": [
+              "A",
+              "0",
+              "-150",
+              "50",
+              "-889",
+              "889",
+              "0",
+              "1",
+              "0",
+              "N",
+              "1",
+              "-199",
+              "1",
+              "-100"
+            ]
+          },
+          {
+            "kind": "legacy_arc",
+            "geometry": {
+              "center": [
+                0.0,
+                -1.2446
+              ],
+              "radius": 1.2953999999999999,
+              "start_angle": -88.9,
+              "end_angle": 88.9,
+              "start": [
+                0.0254,
+                -2.5145999999999997
+              ],
+              "end": [
+                0.0254,
+                0.0508
+              ]
+            },
+            "width": 0.0,
+            "fill": "none",
+            "raw": [
+              "A",
+              "0",
+              "-49",
+              "51",
+              "-889",
+              "889",
+              "0",
+              "1",
+              "0",
+              "N",
+              "1",
+              "-99",
+              "1",
+              "2"
+            ]
+          },
+          {
+            "kind": "legacy_arc",
+            "geometry": {
+              "center": [
+                0.0,
+                1.2953999999999999
+              ],
+              "radius": 1.2953999999999999,
+              "start_angle": -88.9,
+              "end_angle": 88.9,
+              "start": [
+                0.0254,
+                0.0254
+              ],
+              "end": [
+                0.0254,
+                2.5907999999999998
+              ]
+            },
+            "width": 0.0,
+            "fill": "none",
+            "raw": [
+              "A",
+              "0",
+              "51",
+              "51",
+              "-889",
+              "889",
+              "0",
+              "1",
+              "0",
+              "N",
+              "1",
+              "1",
+              "1",
+              "102"
+            ]
+          },
+          {
+            "kind": "legacy_arc",
+            "geometry": {
+              "center": [
+                0.0,
+                3.7592
+              ],
+              "radius": 1.2191999999999998,
+              "start_angle": -88.9,
+              "end_angle": 88.9,
+              "start": [
+                0.0254,
+                2.5654
+              ],
+              "end": [
+                0.0254,
+                4.9784
+              ]
+            },
+            "width": 0.0,
+            "fill": "none",
+            "raw": [
+              "A",
+              "0",
+              "148",
+              "48",
+              "-889",
+              "889",
+              "0",
+              "1",
+              "0",
+              "N",
+              "1",
+              "101",
+              "1",
+              "196"
+            ]
+          }
+        ]
+      },
+      {
+        "number": 1,
+        "style": 1,
+        "source_id": "INDUCTOR_1_1",
+        "display_name": null,
+        "pins": [
+          {
+            "number": "1",
+            "name": "1",
+            "at": [
+              0.0,
+              7.62,
+              270
+            ],
+            "length": 2.54,
+            "electrical_type": "passive",
+            "graphic_style": "line",
+            "hidden": false,
+            "name_size": [
+              1.778,
+              1.778
+            ],
+            "number_size": [
+              1.778,
+              1.778
+            ],
+            "alternates": [],
+            "raw": [
+              "X",
+              "1",
+              "1",
+              "0",
+              "300",
+              "100",
+              "D",
+              "70",
+              "70",
+              "1",
+              "1",
+              "P"
+            ]
+          },
+          {
+            "number": "2",
+            "name": "2",
+            "at": [
+              0.0,
+              -7.62,
+              90
+            ],
+            "length": 2.54,
+            "electrical_type": "passive",
+            "graphic_style": "line",
+            "hidden": false,
+            "name_size": [
+              1.778,
+              1.778
+            ],
+            "number_size": [
+              1.778,
+              1.778
+            ],
+            "alternates": [],
+            "raw": [
+              "X",
+              "2",
+              "2",
+              "0",
+              "-300",
+              "100",
+              "U",
+              "70",
+              "70",
+              "1",
+              "1",
+              "P"
+            ]
+          }
+        ],
+        "graphics": []
+      }
+    ],
+    "extends": null,
+    "inheritance_chain": [],
+    "aliases": [],
+    "alias_of": null,
+    "unit_count": 1,
+    "pin_names_hidden": true,
+    "pin_numbers_hidden": true,
+    "pin_name_offset": 1.016,
+    "in_bom": true,
+    "on_board": true,
+    "power": false,
+    "diagnostics": [],
+    "raw": [
+      "DEF INDUCTOR L 0 40 N N 1 F N",
+      "F0 \"L\" -50 0 50 V V C CNN",
+      "F1 \"INDUCTOR\" 100 0 50 V V C CNN",
+      "F2 \"\" 0 0 60 H V C CNN",
+      "F3 \"\" 0 0 60 H V C CNN",
+      "DRAW",
+      "A 0 -150 50 -889 889 0 1 0 N 1 -199 1 -100",
+      "A 0 -49 51 -889 889 0 1 0 N 1 -99 1 2",
+      "A 0 51 51 -889 889 0 1 0 N 1 1 1 102",
+      "A 0 148 48 -889 889 0 1 0 N 1 101 1 196",
+      "X 1 1 0 300 100 D 70 70 1 1 P",
+      "X 2 2 0 -300 100 U 70 70 1 1 P",
+      "ENDDRAW",
+      "ENDDEF"
+    ]
+  },
+  "conversion_settings": {
+    "footprint_name": null,
+    "reference": "L1",
+    "project_name": "INDUCTOR_curves.cds",
+    "default_line_width_mm": 0.254,
+    "pin_width_mm": 0.254,
+    "curve_tolerance_mm": 0.01
+  },
+  "target_component": {
+    "pin_count": 2,
+    "bounds": [
+      -152400,
+      -7772400,
+      1438820,
+      7772400
+    ],
+    "reference": {
+      "value": "L1",
+      "x": -1270000,
+      "y": 0,
+      "layer": 7,
+      "angle": 270,
+      "size": 1270000,
+      "width": 127000,
+      "merge": -1,
+      "submerge": -1,
+      "font": 2,
+      "options": 1
+    },
+    "value": {
+      "value": "INDUCTOR",
+      "x": 2540000,
+      "y": 0,
+      "layer": 13,
+      "angle": 270,
+      "size": 1270000,
+      "width": 127000,
+      "merge": -1,
+      "submerge": -1,
+      "font": 2,
+      "options": 1
+    },
+    "footprint": {
+      "value": "PART",
+      "x": 0,
+      "y": 0,
+      "layer": 12,
+      "angle": 0,
+      "size": 0,
+      "width": 0,
+      "merge": -1,
+      "submerge": -1,
+      "font": 2,
+      "options": 1
+    },
+    "polylines": [
+      {
+        "closed": false,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": 25401,
+            "y": -2539954,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 324790,
+            "y": -2581923,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 605783,
+            "y": -2693448,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 852465,
+            "y": -2868212,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 1050866,
+            "y": -3096317,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 1189747,
+            "y": -3364845,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 1261244,
+            "y": -3658585,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 1261305,
+            "y": -3960901,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 1189929,
+            "y": -4254670,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 1051157,
+            "y": -4523254,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 852850,
+            "y": -4751440,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 606238,
+            "y": -4926305,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 325291,
+            "y": -5037945,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 25919,
+            "y": -5080036,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": 25399,
+            "y": 50751,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 330844,
+            "y": 8046,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 617542,
+            "y": -105644,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 869244,
+            "y": -283874,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 1071689,
+            "y": -516547,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 1213405,
+            "y": -790476,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 1286360,
+            "y": -1090140,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 1286420,
+            "y": -1398556,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 1213583,
+            "y": -1698248,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 1071975,
+            "y": -1972233,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 869621,
+            "y": -2204985,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 617988,
+            "y": -2383314,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 331335,
+            "y": -2497116,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 25907,
+            "y": -2539941,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": 25399,
+            "y": 2590751,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 330844,
+            "y": 2548046,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 617542,
+            "y": 2434356,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 869244,
+            "y": 2256126,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 1071689,
+            "y": 2023453,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 1213405,
+            "y": 1749524,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 1286360,
+            "y": 1449860,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 1286420,
+            "y": 1141444,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 1213583,
+            "y": 841752,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 1071975,
+            "y": 567767,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 869621,
+            "y": 335015,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 617988,
+            "y": 156686,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 331335,
+            "y": 42884,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 25907,
+            "y": 59,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": 25401,
+            "y": 4978435,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 312629,
+            "y": 4937947,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 582169,
+            "y": 4830769,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 818773,
+            "y": 4662965,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 1009053,
+            "y": 4444030,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 1142245,
+            "y": 4186349,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 1210813,
+            "y": 3904502,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 1210877,
+            "y": 3614434,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 1142434,
+            "y": 3332557,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 1009357,
+            "y": 3074817,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 819173,
+            "y": 2855798,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 582644,
+            "y": 2687890,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 313151,
+            "y": 2580592,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 25941,
+            "y": 2539976,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 8,
+        "width": 254000,
+        "corners": [
+          {
+            "x": 0,
+            "y": 5080000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 0,
+            "y": 7620000,
+            "style": 0,
+            "node": 1
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": {
+          "value": "1",
+          "x": 889000,
+          "y": 6350000,
+          "layer": 9,
+          "angle": 0,
+          "size": 0,
+          "width": 0,
+          "merge": -1,
+          "submerge": -1,
+          "font": 2,
+          "options": 1
+        },
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 8,
+        "width": 254000,
+        "corners": [
+          {
+            "x": 0,
+            "y": -5080000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 0,
+            "y": -7620000,
+            "style": 0,
+            "node": 1
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": {
+          "value": "2",
+          "x": -889000,
+          "y": -6350000,
+          "layer": 9,
+          "angle": 0,
+          "size": 0,
+          "width": 0,
+          "merge": -1,
+          "submerge": -1,
+          "font": 2,
+          "options": 1
+        },
+        "description": null
+      }
+    ]
+  },
+  "physical_pin_mapping_verified": false,
+  "diagnostics": [
+    {
+      "code": "SYMBOL_TEXT_RENDERING",
+      "severity": "loss",
+      "message": "SIMPLEX replaces source fonts; source property anchors are used as native baselines. Justification, text styling and exact glyph bounds are not reproduced.",
+      "context": {}
+    },
+    {
+      "code": "TARGET_PIN_STROKE",
+      "severity": "assumption",
+      "message": "Pin stroke width is a declared conversion setting; the library has no resolved project pin stroke.",
+      "context": {
+        "width_mm": 0.254
+      }
+    },
+    {
+      "code": "SYMBOL_FOOTPRINT_UNRESOLVED",
+      "severity": "loss",
+      "message": "Native PART placeholder used; source footprint identifier/filters are retained in JSON.",
+      "context": {}
+    },
+    {
+      "code": "SOURCE_LINE_WIDTH_DEFAULT",
+      "severity": "assumption",
+      "message": "Zero source stroke resolves to declared default width.",
+      "context": {
+        "unit": 0,
+        "graphic": 0,
+        "width_mm": 0.254
+      }
+    },
+    {
+      "code": "SYMBOL_CURVE_APPROXIMATED",
+      "severity": "approximation",
+      "message": "Unfilled curve converted to straight segments; tolerance includes NM quantization.",
+      "context": {
+        "source_kind": "legacy_arc",
+        "center_mm": [
+          0.0,
+          -3.81
+        ],
+        "radius_mm": 1.2703,
+        "start_angle_radians": 1.550798992821746,
+        "sweep_radians": -3.1011899889301047,
+        "closed": false,
+        "corners": 14,
+        "segments": 13,
+        "tolerance_mm": 0.01,
+        "max_centerline_error_mm": 0.01,
+        "error_scope": "Resolved curve centerline -> straight native NM segments; source-resolution changes are separate",
+        "quantization_budget_mm": 1e-05,
+        "legacy_resolution": {
+          "profile": "kicad-9.0.0-legacy-arc",
+          "schematic_iu_per_mm": 10000,
+          "endpoints_swapped": true,
+          "explicit_endpoints": true,
+          "radius_difference_mm": 0.00029999999999996696,
+          "endpoint_shifts_mm": [
+            4.6025394921408456e-05,
+            0.025440843307967614
+          ],
+          "original_endpoints_in_resolved_order": [
+            [
+              0.0254,
+              -2.54
+            ],
+            [
+              0.0254,
+              -5.0546
+            ]
+          ],
+          "resolved_endpoints_mm": [
+            [
+              0.02540092032385211,
+              -2.539953983807397
+            ],
+            [
+              0.025919092795798168,
+              -5.080035546994116
+            ]
+          ],
+          "policy": "KiCad9 endpoint swap, clockwise in source Y-up frame; GetRadius rounded to 100nm IU; end direction projected to that radius"
+        },
+        "unit": 0,
+        "graphic": 0,
+        "target_polyline_index": 0
+      }
+    },
+    {
+      "code": "SYMBOL_LEGACY_ARC_RESOLVED",
+      "severity": "loss",
+      "message": "Legacy overdefined arc resolved by the explicit KiCad9 geometry profile; raw definitions retained.",
+      "context": {
+        "unit": 0,
+        "graphic": 0,
+        "profile": "kicad-9.0.0-legacy-arc",
+        "schematic_iu_per_mm": 10000,
+        "endpoints_swapped": true,
+        "explicit_endpoints": true,
+        "radius_difference_mm": 0.00029999999999996696,
+        "endpoint_shifts_mm": [
+          4.6025394921408456e-05,
+          0.025440843307967614
+        ],
+        "original_endpoints_in_resolved_order": [
+          [
+            0.0254,
+            -2.54
+          ],
+          [
+            0.0254,
+            -5.0546
+          ]
+        ],
+        "resolved_endpoints_mm": [
+          [
+            0.02540092032385211,
+            -2.539953983807397
+          ],
+          [
+            0.025919092795798168,
+            -5.080035546994116
+          ]
+        ],
+        "policy": "KiCad9 endpoint swap, clockwise in source Y-up frame; GetRadius rounded to 100nm IU; end direction projected to that radius"
+      }
+    },
+    {
+      "code": "SOURCE_LINE_WIDTH_DEFAULT",
+      "severity": "assumption",
+      "message": "Zero source stroke resolves to declared default width.",
+      "context": {
+        "unit": 0,
+        "graphic": 1,
+        "width_mm": 0.254
+      }
+    },
+    {
+      "code": "SYMBOL_CURVE_APPROXIMATED",
+      "severity": "approximation",
+      "message": "Unfilled curve converted to straight segments; tolerance includes NM quantization.",
+      "context": {
+        "source_kind": "legacy_arc",
+        "center_mm": [
+          0.0,
+          -1.2446
+        ],
+        "radius_mm": 1.2956,
+        "start_angle_radians": 1.551190995937692,
+        "sweep_radians": -3.101989988759438,
+        "closed": false,
+        "corners": 14,
+        "segments": 13,
+        "tolerance_mm": 0.01,
+        "max_centerline_error_mm": 0.01,
+        "error_scope": "Resolved curve centerline -> straight native NM segments; source-resolution changes are separate",
+        "quantization_budget_mm": 1e-05,
+        "legacy_resolution": {
+          "profile": "kicad-9.0.0-legacy-arc",
+          "schematic_iu_per_mm": 10000,
+          "endpoints_swapped": true,
+          "explicit_endpoints": true,
+          "radius_difference_mm": 0.00020000000000020002,
+          "endpoint_shifts_mm": [
+            4.899567745553101e-05,
+            0.025346025394921128
+          ],
+          "original_endpoints_in_resolved_order": [
+            [
+              0.0254,
+              0.0508
+            ],
+            [
+              0.0254,
+              -2.5146
+            ]
+          ],
+          "resolved_endpoints_mm": [
+            [
+              0.02539903948506768,
+              0.05075101373845259
+            ],
+            [
+              0.025906819154201993,
+              -2.539940957710097
+            ]
+          ],
+          "policy": "KiCad9 endpoint swap, clockwise in source Y-up frame; GetRadius rounded to 100nm IU; end direction projected to that radius"
+        },
+        "unit": 0,
+        "graphic": 1,
+        "target_polyline_index": 1
+      }
+    },
+    {
+      "code": "SYMBOL_LEGACY_ARC_RESOLVED",
+      "severity": "loss",
+      "message": "Legacy overdefined arc resolved by the explicit KiCad9 geometry profile; raw definitions retained.",
+      "context": {
+        "unit": 0,
+        "graphic": 1,
+        "profile": "kicad-9.0.0-legacy-arc",
+        "schematic_iu_per_mm": 10000,
+        "endpoints_swapped": true,
+        "explicit_endpoints": true,
+        "radius_difference_mm": 0.00020000000000020002,
+        "endpoint_shifts_mm": [
+          4.899567745553101e-05,
+          0.025346025394921128
+        ],
+        "original_endpoints_in_resolved_order": [
+          [
+            0.0254,
+            0.0508
+          ],
+          [
+            0.0254,
+            -2.5146
+          ]
+        ],
+        "resolved_endpoints_mm": [
+          [
+            0.02539903948506768,
+            0.05075101373845259
+          ],
+          [
+            0.025906819154201993,
+            -2.539940957710097
+          ]
+        ],
+        "policy": "KiCad9 endpoint swap, clockwise in source Y-up frame; GetRadius rounded to 100nm IU; end direction projected to that radius"
+      }
+    },
+    {
+      "code": "SOURCE_LINE_WIDTH_DEFAULT",
+      "severity": "assumption",
+      "message": "Zero source stroke resolves to declared default width.",
+      "context": {
+        "unit": 0,
+        "graphic": 2,
+        "width_mm": 0.254
+      }
+    },
+    {
+      "code": "SYMBOL_CURVE_APPROXIMATED",
+      "severity": "approximation",
+      "message": "Unfilled curve converted to straight segments; tolerance includes NM quantization.",
+      "context": {
+        "source_kind": "legacy_arc",
+        "center_mm": [
+          0.0,
+          1.2954
+        ],
+        "radius_mm": 1.2956,
+        "start_angle_radians": 1.551190995937692,
+        "sweep_radians": -3.101989988759438,
+        "closed": false,
+        "corners": 14,
+        "segments": 13,
+        "tolerance_mm": 0.01,
+        "max_centerline_error_mm": 0.01,
+        "error_scope": "Resolved curve centerline -> straight native NM segments; source-resolution changes are separate",
+        "quantization_budget_mm": 1e-05,
+        "legacy_resolution": {
+          "profile": "kicad-9.0.0-legacy-arc",
+          "schematic_iu_per_mm": 10000,
+          "endpoints_swapped": true,
+          "explicit_endpoints": true,
+          "radius_difference_mm": 0.00020000000000020002,
+          "endpoint_shifts_mm": [
+            4.899567745571139e-05,
+            0.02534602539492126
+          ],
+          "original_endpoints_in_resolved_order": [
+            [
+              0.0254,
+              2.5908
+            ],
+            [
+              0.0254,
+              0.0254
+            ]
+          ],
+          "resolved_endpoints_mm": [
+            [
+              0.02539903948506768,
+              2.5907510137384526
+            ],
+            [
+              0.025906819154201993,
+              5.9042289902944134e-05
+            ]
+          ],
+          "policy": "KiCad9 endpoint swap, clockwise in source Y-up frame; GetRadius rounded to 100nm IU; end direction projected to that radius"
+        },
+        "unit": 0,
+        "graphic": 2,
+        "target_polyline_index": 2
+      }
+    },
+    {
+      "code": "SYMBOL_LEGACY_ARC_RESOLVED",
+      "severity": "loss",
+      "message": "Legacy overdefined arc resolved by the explicit KiCad9 geometry profile; raw definitions retained.",
+      "context": {
+        "unit": 0,
+        "graphic": 2,
+        "profile": "kicad-9.0.0-legacy-arc",
+        "schematic_iu_per_mm": 10000,
+        "endpoints_swapped": true,
+        "explicit_endpoints": true,
+        "radius_difference_mm": 0.00020000000000020002,
+        "endpoint_shifts_mm": [
+          4.899567745571139e-05,
+          0.02534602539492126
+        ],
+        "original_endpoints_in_resolved_order": [
+          [
+            0.0254,
+            2.5908
+          ],
+          [
+            0.0254,
+            0.0254
+          ]
+        ],
+        "resolved_endpoints_mm": [
+          [
+            0.02539903948506768,
+            2.5907510137384526
+          ],
+          [
+            0.025906819154201993,
+            5.9042289902944134e-05
+          ]
+        ],
+        "policy": "KiCad9 endpoint swap, clockwise in source Y-up frame; GetRadius rounded to 100nm IU; end direction projected to that radius"
+      }
+    },
+    {
+      "code": "SOURCE_LINE_WIDTH_DEFAULT",
+      "severity": "assumption",
+      "message": "Zero source stroke resolves to declared default width.",
+      "context": {
+        "unit": 0,
+        "graphic": 3,
+        "width_mm": 0.254
+      }
+    },
+    {
+      "code": "SYMBOL_CURVE_APPROXIMATED",
+      "severity": "approximation",
+      "message": "Unfilled curve converted to straight segments; tolerance includes NM quantization.",
+      "context": {
+        "source_kind": "legacy_arc",
+        "center_mm": [
+          0.0,
+          3.7592
+        ],
+        "radius_mm": 1.2195,
+        "start_angle_radians": 1.5499660067586796,
+        "sweep_radians": -3.0994889475295153,
+        "closed": false,
+        "corners": 14,
+        "segments": 13,
+        "tolerance_mm": 0.01,
+        "max_centerline_error_mm": 0.01,
+        "error_scope": "Resolved curve centerline -> straight native NM segments; source-resolution changes are separate",
+        "quantization_budget_mm": 1e-05,
+        "legacy_resolution": {
+          "profile": "kicad-9.0.0-legacy-arc",
+          "schematic_iu_per_mm": 10000,
+          "endpoints_swapped": true,
+          "explicit_endpoints": true,
+          "radius_difference_mm": 0.000300000000000189,
+          "endpoint_shifts_mm": [
+            3.5445369567194484e-05,
+            0.025429817808014878
+          ],
+          "original_endpoints_in_resolved_order": [
+            [
+              0.0254,
+              4.9784
+            ],
+            [
+              0.0254,
+              2.5654
+            ]
+          ],
+          "resolved_endpoints_mm": [
+            [
+              0.02540073828499855,
+              4.9784354376799325
+            ],
+            [
+              0.025940937527757123,
+              2.5399759361954093
+            ]
+          ],
+          "policy": "KiCad9 endpoint swap, clockwise in source Y-up frame; GetRadius rounded to 100nm IU; end direction projected to that radius"
+        },
+        "unit": 0,
+        "graphic": 3,
+        "target_polyline_index": 3
+      }
+    },
+    {
+      "code": "SYMBOL_LEGACY_ARC_RESOLVED",
+      "severity": "loss",
+      "message": "Legacy overdefined arc resolved by the explicit KiCad9 geometry profile; raw definitions retained.",
+      "context": {
+        "unit": 0,
+        "graphic": 3,
+        "profile": "kicad-9.0.0-legacy-arc",
+        "schematic_iu_per_mm": 10000,
+        "endpoints_swapped": true,
+        "explicit_endpoints": true,
+        "radius_difference_mm": 0.000300000000000189,
+        "endpoint_shifts_mm": [
+          3.5445369567194484e-05,
+          0.025429817808014878
+        ],
+        "original_endpoints_in_resolved_order": [
+          [
+            0.0254,
+            4.9784
+          ],
+          [
+            0.0254,
+            2.5654
+          ]
+        ],
+        "resolved_endpoints_mm": [
+          [
+            0.02540073828499855,
+            4.9784354376799325
+          ],
+          [
+            0.025940937527757123,
+            2.5399759361954093
+          ]
+        ],
+        "policy": "KiCad9 endpoint swap, clockwise in source Y-up frame; GetRadius rounded to 100nm IU; end direction projected to that radius"
+      }
+    },
+    {
+      "code": "SYMBOL_ELECTRICAL_TYPE_NOT_TRANSFERRED",
+      "severity": "loss",
+      "message": "Physical pin numbers/connectivity records are retained; KiCad passive electrical type is not a native ERC attribute.",
+      "context": {}
+    },
+    {
+      "code": "SYMBOL_CURVE_STROKE_UNVERIFIED",
+      "severity": "assumption",
+      "message": "Curve tolerance covers centerlines; native stroke caps/joins and rasterization are not GUI-verified.",
+      "context": {}
+    }
+  ],
+  "artifact_sha256": "24b36caf5aa6266a44e962e1d01a5268a5ea3d5afd7a68e6c786926d7acc5ea1",
+  "counts": {
+    "components": 1,
+    "pins": 2,
+    "polylines": 6,
+    "losses": 7,
+    "assumptions": 6,
+    "approximations": 4
+  },
+  "curves": [
+    {
+      "source_kind": "legacy_arc",
+      "center_mm": [
+        0.0,
+        -3.81
+      ],
+      "radius_mm": 1.2703,
+      "start_angle_radians": 1.550798992821746,
+      "sweep_radians": -3.1011899889301047,
+      "closed": false,
+      "corners": 14,
+      "segments": 13,
+      "tolerance_mm": 0.01,
+      "max_centerline_error_mm": 0.01,
+      "error_scope": "Resolved curve centerline -> straight native NM segments; source-resolution changes are separate",
+      "quantization_budget_mm": 1e-05,
+      "legacy_resolution": {
+        "profile": "kicad-9.0.0-legacy-arc",
+        "schematic_iu_per_mm": 10000,
+        "endpoints_swapped": true,
+        "explicit_endpoints": true,
+        "radius_difference_mm": 0.00029999999999996696,
+        "endpoint_shifts_mm": [
+          4.6025394921408456e-05,
+          0.025440843307967614
+        ],
+        "original_endpoints_in_resolved_order": [
+          [
+            0.0254,
+            -2.54
+          ],
+          [
+            0.0254,
+            -5.0546
+          ]
+        ],
+        "resolved_endpoints_mm": [
+          [
+            0.02540092032385211,
+            -2.539953983807397
+          ],
+          [
+            0.025919092795798168,
+            -5.080035546994116
+          ]
+        ],
+        "policy": "KiCad9 endpoint swap, clockwise in source Y-up frame; GetRadius rounded to 100nm IU; end direction projected to that radius"
+      },
+      "unit": 0,
+      "graphic": 0,
+      "target_polyline_index": 0
+    },
+    {
+      "source_kind": "legacy_arc",
+      "center_mm": [
+        0.0,
+        -1.2446
+      ],
+      "radius_mm": 1.2956,
+      "start_angle_radians": 1.551190995937692,
+      "sweep_radians": -3.101989988759438,
+      "closed": false,
+      "corners": 14,
+      "segments": 13,
+      "tolerance_mm": 0.01,
+      "max_centerline_error_mm": 0.01,
+      "error_scope": "Resolved curve centerline -> straight native NM segments; source-resolution changes are separate",
+      "quantization_budget_mm": 1e-05,
+      "legacy_resolution": {
+        "profile": "kicad-9.0.0-legacy-arc",
+        "schematic_iu_per_mm": 10000,
+        "endpoints_swapped": true,
+        "explicit_endpoints": true,
+        "radius_difference_mm": 0.00020000000000020002,
+        "endpoint_shifts_mm": [
+          4.899567745553101e-05,
+          0.025346025394921128
+        ],
+        "original_endpoints_in_resolved_order": [
+          [
+            0.0254,
+            0.0508
+          ],
+          [
+            0.0254,
+            -2.5146
+          ]
+        ],
+        "resolved_endpoints_mm": [
+          [
+            0.02539903948506768,
+            0.05075101373845259
+          ],
+          [
+            0.025906819154201993,
+            -2.539940957710097
+          ]
+        ],
+        "policy": "KiCad9 endpoint swap, clockwise in source Y-up frame; GetRadius rounded to 100nm IU; end direction projected to that radius"
+      },
+      "unit": 0,
+      "graphic": 1,
+      "target_polyline_index": 1
+    },
+    {
+      "source_kind": "legacy_arc",
+      "center_mm": [
+        0.0,
+        1.2954
+      ],
+      "radius_mm": 1.2956,
+      "start_angle_radians": 1.551190995937692,
+      "sweep_radians": -3.101989988759438,
+      "closed": false,
+      "corners": 14,
+      "segments": 13,
+      "tolerance_mm": 0.01,
+      "max_centerline_error_mm": 0.01,
+      "error_scope": "Resolved curve centerline -> straight native NM segments; source-resolution changes are separate",
+      "quantization_budget_mm": 1e-05,
+      "legacy_resolution": {
+        "profile": "kicad-9.0.0-legacy-arc",
+        "schematic_iu_per_mm": 10000,
+        "endpoints_swapped": true,
+        "explicit_endpoints": true,
+        "radius_difference_mm": 0.00020000000000020002,
+        "endpoint_shifts_mm": [
+          4.899567745571139e-05,
+          0.02534602539492126
+        ],
+        "original_endpoints_in_resolved_order": [
+          [
+            0.0254,
+            2.5908
+          ],
+          [
+            0.0254,
+            0.0254
+          ]
+        ],
+        "resolved_endpoints_mm": [
+          [
+            0.02539903948506768,
+            2.5907510137384526
+          ],
+          [
+            0.025906819154201993,
+            5.9042289902944134e-05
+          ]
+        ],
+        "policy": "KiCad9 endpoint swap, clockwise in source Y-up frame; GetRadius rounded to 100nm IU; end direction projected to that radius"
+      },
+      "unit": 0,
+      "graphic": 2,
+      "target_polyline_index": 2
+    },
+    {
+      "source_kind": "legacy_arc",
+      "center_mm": [
+        0.0,
+        3.7592
+      ],
+      "radius_mm": 1.2195,
+      "start_angle_radians": 1.5499660067586796,
+      "sweep_radians": -3.0994889475295153,
+      "closed": false,
+      "corners": 14,
+      "segments": 13,
+      "tolerance_mm": 0.01,
+      "max_centerline_error_mm": 0.01,
+      "error_scope": "Resolved curve centerline -> straight native NM segments; source-resolution changes are separate",
+      "quantization_budget_mm": 1e-05,
+      "legacy_resolution": {
+        "profile": "kicad-9.0.0-legacy-arc",
+        "schematic_iu_per_mm": 10000,
+        "endpoints_swapped": true,
+        "explicit_endpoints": true,
+        "radius_difference_mm": 0.000300000000000189,
+        "endpoint_shifts_mm": [
+          3.5445369567194484e-05,
+          0.025429817808014878
+        ],
+        "original_endpoints_in_resolved_order": [
+          [
+            0.0254,
+            4.9784
+          ],
+          [
+            0.0254,
+            2.5654
+          ]
+        ],
+        "resolved_endpoints_mm": [
+          [
+            0.02540073828499855,
+            4.9784354376799325
+          ],
+          [
+            0.025940937527757123,
+            2.5399759361954093
+          ]
+        ],
+        "policy": "KiCad9 endpoint swap, clockwise in source Y-up frame; GetRadius rounded to 100nm IU; end direction projected to that radius"
+      },
+      "unit": 0,
+      "graphic": 3,
+      "target_polyline_index": 3
+    }
+  ],
+  "source": {
+    "path": "/Users/egorananev/Desktop/hse/1-2 курс/ПРОЕКТ/KiCad/Pickit-cache.lib",
+    "sha256": "2392caa9775ccf212837314970deee07105228d5070917c31d757d39af459b3d"
+  },
+  "output": "/Users/egorananev/Desktop/hse/1-2 курс/ПРОЕКТ/output/symbols/INDUCTOR_curves.cds"
+}

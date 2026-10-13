@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "footprint_libraries": {
+    "Diode_SMD": "..",
+    "Connector_PinHeader_2.54mm": ".."
+  },
+  "symbol_fill_tolerance": 0.01,
+  "aperture_defaults": {
+    "mask_margin": 0.05,
+    "paste_margin": 0,
+    "paste_ratio": 0
+  },
+  "components": [
+    {
+      "id": "FilledDiode",
+      "symbol_library": "../symbols/Device.kicad_sym",
+      "symbol": "D_Filled",
+      "footprint": "Diode_SMD:D_SOD-123",
+      "reference": "D1"
+    },
+    {
+      "id": "MeterText",
+      "symbol_library": "../symbols/Device.kicad_sym",
+      "symbol": "Ammeter_DC",
+      "footprint": "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical",
+      "reference": "PA1"
+    }
+  ]
+}

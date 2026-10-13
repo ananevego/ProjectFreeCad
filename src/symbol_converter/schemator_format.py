@@ -94,6 +94,16 @@ def native_integer(value) -> int:
     return value
 
 
+def safe_body_text(value: str) -> str:
+    safe_string(value)
+    # TextList::Draw interprets apostrophe/backtick/pipe and IsCommand detects
+    # suffixes/links. This subset accepts literal labels, never command text.
+    if any(c in value for c in "'`|~^") or '${' in value or 'PrintableArea' in value or value.endswith(
+            ('BLK','BOM','PATH','DATE','ZONE','BLK_PTR')):
+        raise SymbolParseError('Graphic text contains native control syntax or unsupported markup')
+    return value
+
+
 def _identifier(value: str, pattern: re.Pattern) -> bool:
     # Native ParsePin converts the numeric suffix with signed-int atoi.
     if not isinstance(value, str) or not pattern.fullmatch(value):
@@ -150,7 +160,9 @@ def validate_component(component: ComponentRecord) -> None:
             raise SymbolParseError('CDS pin line/node has no pin number attribute')
         if poly.description is not None:
             if poly.pin is None:
-                raise SymbolParseError('Pin description has no owning pin')
+                if poly.layer!=PART_OUTLINE:
+                    raise SymbolParseError('Body description has no owning outline')
+                safe_body_text(poly.description.value)
             texts.append((poly.description,PIN_DESCRIPTION))
     if len(numbers) != component.pin_count:
         raise SymbolParseError('CDS n_pins does not match attached physical pin records')
