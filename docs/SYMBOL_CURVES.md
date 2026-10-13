@@ -104,7 +104,8 @@ Source URLs/hashes/anchors — `output/symbols/curve-source-evidence.json`.
 - Для `unfilled-curves-v1` — `fill none`, standard single-unit body, ordinary line pins.
   Simple fills/background loss и graphic text теперь имеют отдельный
   [body profile](SYMBOL_BODY.md). Filled arcs/Bezier, power/no-connect/hidden/styled pins,
-  alternates, multi-unit/power/virtual и source diagnostics остаются отказами.
+  alternates, shared/power/virtual units и source diagnostics остаются отказами.
+  Disjoint unit layout с rebased curve metadata: [SYMBOL_UNITS.md](SYMBOL_UNITS.md).
 - До 4096 corners на curve, до 32 768 body corners суммарно. Дегенерация или
   слишком малый допуск вызывает отказ; молчаливого ослабления допуска нет.
 - Source/derived center/radius/points ограничены signed 32-bit NM range;
@@ -148,5 +149,5 @@ opaque temporary bytes; реальные STL не интерпретируютс
 
 2026-10-13: обычные electrical types добавлены с явной потерей ERC;
 [SYMBOL_ELECTRICAL.md](SYMBOL_ELECTRICAL.md). Simple fills/body text также
-добавлены с явными losses: [SYMBOL_BODY.md](SYMBOL_BODY.md). Далее multi-unit/
-merge и native GUI validation.
+добавлены с явными losses: [SYMBOL_BODY.md](SYMBOL_BODY.md). Disjoint multi-unit
+layout готов; native hierarchy/independent units и GUI остаются открытыми.

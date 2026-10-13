@@ -187,3 +187,11 @@ setting в mm, default .01, `.00002 < value <= 1`; распространяет�
 body text не добавляет electrical pins. Mapping true подтверждает только
 номер 1/2, physical suitability meter/header и native GUI не проверены.
 Общий набор — 312 тестов; старые три bundles неизменны. [SYMBOL_BODY.md](SYMBOL_BODY.md).
+
+Партия `components/units.json`: Array2/Array4/SIP4, 2/4/2 source units в
+одном physical CDS component на binding, pin sets 4/8/4. Три existing STL,
+204252 source bytes, 17 files; summary `output/symbol-units.summary.json`.
+Optional `symbol_unit_gap` задаёт X gap в mm, default2.54, positive on NM grid
+и <=100. Common/shared pins reject; source number identity mapping сохраняет
+прежние правила, native hierarchy/independent sections не подтверждаются.
+336 тестов; четыре старых bundles неизменны. [SYMBOL_UNITS.md](SYMBOL_UNITS.md).

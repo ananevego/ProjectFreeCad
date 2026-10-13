@@ -165,3 +165,20 @@ Meter/header — тестовая привязка, не доказанная ph
 URL/bytes/SHA256 — `components/body-provenance.json`, license — `LICENSE.md`.
 Два real STL только копируются/хешируются; tests используют temporary opaque
 bytes. [Правила и source evidence](../../docs/SYMBOL_BODY.md).
+
+## Контроль disjoint multi-unit
+
+Пять `*_units` controls получены из unchanged Device KiCad9:
+R_Pack02_Split/R_Pack03_Split/R_Pack04_Split/R_Pack02_SIP_Split и
+R_Potentiometer_Dual_Separate. Common graphics повторяются по views; disjoint
+pin numbers сохраняются в одном ordinary component. Source symbols не
+разбираются на отдельные физические детали. Shared/common pins отклоняются.
+
+`components/units.json` назначает Array2/Array4 точным Resistor_SMD concave
+footprints; SIP4 использует собственный source Footprint property. Новые целые
+R_Array_Concave_2x0603/R_Array_Concave_4x0603/R_Array_SIP4 из pinned KiCad
+51f8a59... сохранены без изменений; URL/bytes/SHA256 — `units-provenance.json`
+в `components/`, license — `LICENSE.md`. Три existing STL только копируются.
+Tests используют opaque temporary bytes, проверяют source/CDS/FPL identities
+и relocation; physical suitability/GUI/netlist/hierarchy не подтверждены.
+[Профиль и ограничения](../../docs/SYMBOL_UNITS.md).

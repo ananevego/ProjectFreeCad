@@ -143,5 +143,6 @@ strict/CLI/geometry budgets, source immutability, linked scope и relocation.
 Copy без STL/STEP проходит с 3 optional integration skips. Прежние passive/
 curve/electrical controls и три старых bundles остаются byte-identical.
 
-Далее — multi-unit/merge contract и ограниченный writer profile. Power/no-connect/
-hidden/alternate pins, full geometry coverage и native GUI остаются открытыми.
+2026-10-13: disjoint units могут использовать этот body profile после exact
+NM placement; [SYMBOL_UNITS.md](SYMBOL_UNITS.md). Далее power/no-connect policy.
+Native hierarchy/shared/hidden/alternate pins, full geometry и GUI остаются открытыми.

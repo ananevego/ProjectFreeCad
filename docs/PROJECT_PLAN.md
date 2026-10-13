@@ -32,7 +32,7 @@
 |---|---|---|---|
 | 1 | Завершить единичные footprints — в работе | src/footprint_converter, tests/fixtures | Legacy arcs; аудит text fields; небольшая реальная выборка; все неподдерживаемые конструкции имеют явную диагностику, прежние результаты воспроизводимы |
 | 2 | Пакетный CLI и отчёт покрытия — выполнен для малых партий | Новый batch-модуль поверх convert_detailed и io, tests | Изолированные ошибки, стабильные имена, manifest, resume с проверкой исходника/настроек/выхода; тестовая партия воспроизводима; нет записи в STL/STEP |
-| 3 | УГО KiCad → Схематор — parser/writer, curves, ordinary pins, simple fills/body text готовы с losses | src/symbol_converter, target fixtures | Pins/units/inheritance, source/native profiles; расширение power/no-connect/units/geometry, import/connectivity и сравнение выборки |
+| 3 | УГО KiCad → Схематор — parser/writer, curves/pins/fills/text и disjoint-unit layout готовы с losses | src/symbol_converter, target fixtures | Source/native profiles; power/no-connect/shared units/hierarchy/geometry, import/connectivity и сравнение выборки |
 | 4 | Связи компонентов и переносимый 3D-комплект — выполнен для малого MVP | src/component_converter, config/manifest | Точные identifiers, pin/pad mapping по source/CDS/FPL; явные unresolved/ambiguous; category tree + уникальные flat STL aliases; hashes и перенос без исходников проверены |
 | 5 | Валидация в целевых программах — ожидает среды | FreePCB2 2.428/Схематор/OpenSCAD, docs | Load/save roundtrip, тексты и слои, NPTH/Gerber, масштабы/положение/ориентация STL; протокол и исправление найденных ошибок |
 | 6 | Масштабирование и итоговая поставка — не начат | Версионированные библиотеки, batch, docs/output | Малая → средняя → полная проверенная партия; измеренное покрытие, журнал исключений, лицензии и руководство; согласованные требования закрыты |
@@ -81,11 +81,16 @@
    Сначала ограниченный профиль с явными losses и реальными controls; проверить
    старые bytes, curved outlines, pin visibility и linked chains. Power/hidden/
    no-connect и multi-unit/merge этим подпунктом не закрываются.
-10. **Multi-unit/merge (следующий шаг).** Проследить native представление
+10. **Multi-unit/merge (исследование и disjoint layout выполнены 2026-10-13; hierarchy открыта).** Проследить native представление
     нескольких логических секций одного physical component и привязку к pads.
     Разделить common/source units, power units и alternate body styles;
     не объединять дубли механически. Реализовать только подтверждённый профиль,
     с явными ограничениями и real controls/number mapping.
+11. **Power/no-connect pins (следующий шаг).** Разделить power pins ordinary
+    components, virtual power symbols и no-connect endpoints. Проверить native
+    запись/Node/physical count, сохранить source/ERC semantics и explicit losses.
+    Hidden/styled/alternate/shared pins расширять отдельными подтверждёнными
+    профилями; GUI и hierarchy этим шагом не закрываются.
 
 ## Зависимости и ограничения
 
@@ -297,3 +302,31 @@
   Это инженерная оценка объёма, не измеренное покрытие библиотек.
 - Далее: multi-unit/merge contract и ограниченный profile, footprints,
   native GUI/3D validation и масштабирование.
+
+## Результат disjoint multi-unit layout — 2026-10-13
+
+- Накопленные links/curves/electrical/body изменения отправлены в Git:
+  commit 94584fdd7b3de52d7a03dd37cc214b066d5f96c6, origin/master.
+  Native CDS CRLF сохранены; runtime bundles и model stores не включены.
+- Merge/hierarchy исследованы: ordinary part chain хранит все body/pin
+  attributes до part_end; merge indices служат import filtering, BLK/BLK_PTR
+  зависят от иерархии/страниц. Native independent units/hierarchy не объявлены
+  поддержанными.
+- Профиль `disjoint-units-layout-v1`: 2–16 logical units с уникальными
+  physical numbers размещаются рядом в одном component. Default gap2.54mm,
+  integer NM translations, common graphics повторяются по source views.
+  Source/layout/global record indices сохранены; independent placement,
+  suffixes/per-unit labels имеют явный loss. Common/repeated/power pins reject.
+- Пять real Device controls; Array2/Array4/SIP4 дают 3 file chains, 3 existing
+  STL, 204252 source bytes, 17 package files. Source/CDS/FPL numbers 4/8/4
+  проверены; physical suitability/GUI/netlist/3D alignment не подтверждены.
+- 24 новых проверки; всего **336**, все проходят. Copy без STL/STEP — с
+  3 optional integration skips. Literal Nodes/translation, shared/refusals,
+  legacy/inheritance, curve/fill/text rebasing, strict/budgets/overflow и
+  relocation проверены. Single-unit controls и 4 old bundles неизменны.
+- Правила/primary evidence: [SYMBOL_UNITS.md](SYMBOL_UNITS.md).
+- **Остаток: 4 незавершённых блока (1, 3, 5, 6), примерно 20–30% проекта**.
+  Это оценка объёма работ, не измеренное library coverage. Multi-unit
+  hierarchy/shared/power/no-connect/hidden/alternates остаются в блоке 3.
+- Далее: power/no-connect policy, затем shared/styled/hidden profiles,
+  footprint coverage, native GUI/3D validation и масштабирование.

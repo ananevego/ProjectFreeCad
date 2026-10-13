@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "footprint_libraries": {
+    "Resistor_SMD": "..",
+    "Resistor_THT": ".."
+  },
+  "symbol_unit_gap": 2.54,
+  "aperture_defaults": {
+    "mask_margin": 0.05,
+    "paste_margin": 0,
+    "paste_ratio": 0
+  },
+  "components": [
+    {
+      "id": "Array2",
+      "symbol_library": "../symbols/Device.kicad_sym",
+      "symbol": "R_Pack02_Split",
+      "footprint": "Resistor_SMD:R_Array_Concave_2x0603",
+      "reference": "RN1"
+    },
+    {
+      "id": "Array4",
+      "symbol_library": "../symbols/Device.kicad_sym",
+      "symbol": "R_Pack04_Split",
+      "footprint": "Resistor_SMD:R_Array_Concave_4x0603",
+      "reference": "RN2"
+    },
+    {
+      "id": "SIP4",
+      "symbol_library": "../symbols/Device.kicad_sym",
+      "symbol": "R_Pack02_SIP_Split",
+      "reference": "RN3"
+    }
+  ]
+}

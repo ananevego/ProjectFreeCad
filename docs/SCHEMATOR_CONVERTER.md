@@ -57,7 +57,8 @@ Python API: `src.symbol_converter.target.convert_symbol(library, name, ...)`
 
 ## Поддержанный профиль
 
-- Один unit, standard body style, common sections; разрешённое source
+- Single-unit либо disjoint-unit compound layout (2–16 units), standard body
+  style/common graphics; разрешённое source
   inheritance/alias обрабатывает существующий parser.
 - Видимые pins девяти обычных electrical types с прямым segment, положительной длиной,
   cardinal angles 0/90/180/270 и без alternates. Hidden pin numbers разрешены:
@@ -81,10 +82,10 @@ Python API: `src.symbol_converter.target.convert_symbol(library, name, ...)`
   `@` в value/package зарезервирован native component index. Поддержка encoding
   не доказывает наличие всех glyphs в выбранном native font.
 
-Multi-unit/power/virtual/BOM-excluded symbols, power_in/power_out/no_connect/hidden/styled pins,
+Shared/common-pin multi-unit, power/virtual/BOM-excluded symbols, power_in/power_out/no_connect/hidden/styled pins,
 alternate body styles, filled arcs/Bezier/open filled polygons, цветные/dashed
 strokes, source diagnostics и будущие неизвестные records пока отклоняются.
-PIC24 из cache отклоняется из-за duplicates; LM393 — из-за нескольких units.
+PIC24 из cache отклоняется из-за duplicates; LM393 — из-за power unit.
 Библиотека читается целиком, writer выбирает ровно один symbol; batch УГО пока нет.
 
 ## Подтверждённые native записи
@@ -137,7 +138,7 @@ hidden pin labels, layers и semantic write/read roundtrip.
 направления, номера/имена/Nodes, settings, losses/strict, malformed native
 records, целевая сетка/overflow, защита файлов и воспроизводимость CLI.
 После writer было 193, component stage — 235, curves stage — 266;
-electrical stage добавил 19 (285); body stage — 27, всего 312 тестов.
+electrical stage добавил 19 (285); body — 27 (312), units — 24, всего 336 тестов.
 Копия без STL/STEP проходит с 3 optional integration
 skips моделей. Контрольные `.cds` воспроизводятся побайтно.
 
@@ -155,5 +156,7 @@ Standalone writer по-прежнему не проверяет pads. Linked exp
 в своих reports. 2026-10-13 добавлены unfilled curves и реальная выборка;
 обычные electrical types — с явной потерей ERC. Simple fills и body text
 реализованы: [SYMBOL_BODY.md](SYMBOL_BODY.md), `--fill-tolerance` default .01.
-Далее units/merge и отдельная power/no-connect политика. В Windows нужны import,
+Disjoint units уже имеют отдельный [layout profile](SYMBOL_UNITS.md),
+`--unit-gap` default2.54mm. Native hierarchy/independent sections остаются loss;
+далее power/no-connect policy. В Windows нужны import,
 визуальное сравнение, подключение проводов, netlist и load/save roundtrip.

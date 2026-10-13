@@ -121,5 +121,6 @@ real controls, linked verification scope и relocation. Копия без STL/ST
 curve CDS/reports и оба старых комплекта воспроизводятся без изменений.
 
 2026-10-13: simple fills/body text добавлены; [SYMBOL_BODY.md](SYMBOL_BODY.md).
-Далее multi-unit/merge. Power/no-connect, hidden/alternate pins и native GUI
+Disjoint multi-unit layout добавлен: [SYMBOL_UNITS.md](SYMBOL_UNITS.md).
+Далее power/no-connect. Native hierarchy/shared/hidden/alternate pins и GUI
 остаются отдельными незавершёнными задачами.

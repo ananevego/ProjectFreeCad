@@ -1,0 +1,24 @@
+{
+  "commit": "51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c",
+  "modified": false,
+  "files": [
+    {
+      "file": "R_Array_Concave_2x0603.kicad_mod",
+      "sha256": "2a20378a19df8b853836a24e84c4f57086cd31b5396dd9566b9d6af25c6cbca0",
+      "bytes": 3665,
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Resistor_SMD.pretty/R_Array_Concave_2x0603.kicad_mod"
+    },
+    {
+      "file": "R_Array_Concave_4x0603.kicad_mod",
+      "sha256": "bd5991fb39612d06b71292dedc0004a404cbf8c3744f22742d59e16cc02f1e7e",
+      "bytes": 4229,
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Resistor_SMD.pretty/R_Array_Concave_4x0603.kicad_mod"
+    },
+    {
+      "file": "R_Array_SIP4.kicad_mod",
+      "sha256": "f6735b1a668caffbac184cd2d74b796ba88d2e6d77976292b86abb00dacaac5b",
+      "bytes": 2111,
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Resistor_THT.pretty/R_Array_SIP4.kicad_mod"
+    }
+  ]
+}

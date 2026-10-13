@@ -19,6 +19,7 @@ from .body_graphics import (
     DEFAULT_FILL_TOLERANCE, MAX_SYMBOL_FILL_STROKES, validate_fill_tolerance,
     render_fill, render_graphic_text,
 )
+from .multiunit import DEFAULT_UNIT_GAP, validate_unit_gap, compose_units
 
 # These types share the native numbered endpoint representation. Their KiCad
 # electrical rules survive in JSON only; power/no-connect need separate policy.
@@ -88,10 +89,11 @@ def convert_symbol(library: Library, name: str, *, footprint_name: str | None = 
                    default_line_width: float = .254, pin_width: float = .254,
                    curve_tolerance: float = DEFAULT_CURVE_TOLERANCE,
                    fill_tolerance: float = DEFAULT_FILL_TOLERANCE,
+                   unit_gap: float = DEFAULT_UNIT_GAP,
                    strict: bool = False) -> SymbolConversionResult:
     """Generate one component; physical footprint/GUI verification stays separate.
 
-    Profile: one unit, one standard body style, visible positive-length ordinary
+    Profile: standard body style, visible positive-length ordinary
     line pins, simple body fills and quarter-turn property/body texts.
     Unfilled curves are tessellated with an explicit NM-grid error budget.
     Foreground fill is bounded; background occlusion is lost explicitly.
@@ -102,12 +104,23 @@ def convert_symbol(library: Library, name: str, *, footprint_name: str | None = 
     symbol = library.get_symbol(name)
     if symbol.diagnostics:
         raise SymbolParseError(f'{name}: unresolved source diagnostics (including pin duplicates/extensions)')
-    if symbol.unit_count!=1 or any(u.style not in (0,1) for u in symbol.units):
-        raise SymbolParseError('CDS profile supports one unit and standard body style only')
+    if any(u.style not in (0,1) for u in symbol.units):
+        raise SymbolParseError('CDS profile supports standard body style only')
     if symbol.power or not symbol.in_bom or not symbol.on_board:
         raise SymbolParseError('Power/virtual/BOM-excluded symbols are outside the CDS profile')
     validate_tolerance(curve_tolerance)
     validate_fill_tolerance(fill_tolerance)
+    validate_unit_gap(unit_gap)
+    if symbol.unit_count!=1:
+        cds,report,document=compose_units(library,symbol,converter=convert_symbol,unit_gap=unit_gap,
+            conversion_settings=dict(footprint_name=footprint_name,reference=reference,project_name=project_name,
+                default_line_width=default_line_width,pin_width=pin_width,curve_tolerance=curve_tolerance,
+                fill_tolerance=fill_tolerance))
+        if strict:
+            report.update(status='rejected_loss',target_output_generated=False)
+            report['proposed_artifact_sha256']=report.pop('artifact_sha256')
+            raise LossySymbolConversionError(report)
+        return SymbolConversionResult(cds,report,document)
     line_width = _positive(default_line_width,'Default line width')
     pin_width_nm = _positive(pin_width,'Pin width')
     safe_string(project_name)

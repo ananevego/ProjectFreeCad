@@ -29,6 +29,7 @@ from src.symbol_converter.schemator_format import parse_cds
 from src.symbol_converter.target import convert_symbol, LossySymbolConversionError
 from src.symbol_converter.curves import validate_tolerance, DEFAULT_CURVE_TOLERANCE
 from src.symbol_converter.body_graphics import validate_fill_tolerance, DEFAULT_FILL_TOLERANCE
+from src.symbol_converter.multiunit import validate_unit_gap, DEFAULT_UNIT_GAP
 from .links import LinkError, footprint_identifier, pin_mapping, stable_name
 from .records import read_fpl_links
 
@@ -70,7 +71,7 @@ def load_config(path: Path) -> tuple[dict, bytes]:
     config = json.loads(data.decode('utf-8-sig'), object_pairs_hook=_unique_pairs,
                         parse_constant=_invalid_constant)
     if not isinstance(config, dict) or set(config) - {
-            'schema_version', 'footprint_libraries', 'components', 'aperture_defaults', 'symbol_curve_tolerance', 'symbol_fill_tolerance'}:
+            'schema_version', 'footprint_libraries', 'components', 'aperture_defaults', 'symbol_curve_tolerance', 'symbol_fill_tolerance', 'symbol_unit_gap'}:
         raise ValueError('Unknown/invalid component config fields')
     if type(config.get('schema_version')) is not int or config['schema_version'] != 1:
         raise ValueError('Expected component config schema_version 1')
@@ -101,6 +102,7 @@ def load_config(path: Path) -> tuple[dict, bytes]:
     aperture = config.get('aperture_defaults', {})
     validate_tolerance(config.get('symbol_curve_tolerance',DEFAULT_CURVE_TOLERANCE))
     validate_fill_tolerance(config.get('symbol_fill_tolerance',DEFAULT_FILL_TOLERANCE))
+    validate_unit_gap(config.get('symbol_unit_gap',DEFAULT_UNIT_GAP))
     if not isinstance(aperture, dict) or set(aperture) - {'mask_margin', 'paste_margin', 'paste_ratio'} or any(
             value is not None and (type(value) not in (float, int) or not math.isfinite(value))
             for value in aperture.values()):
@@ -265,7 +267,8 @@ def _convert_item(component: dict, config: dict, base: Path, stage: Path,
         symbol_result = convert_symbol(library, component['symbol'], footprint_name=target_name,
             reference=component.get('reference'), project_name='symbol.cds',
             curve_tolerance=config.get('symbol_curve_tolerance',DEFAULT_CURVE_TOLERANCE),
-            fill_tolerance=config.get('symbol_fill_tolerance',DEFAULT_FILL_TOLERANCE),strict=strict)
+            fill_tolerance=config.get('symbol_fill_tolerance',DEFAULT_FILL_TOLERANCE),
+            unit_gap=config.get('symbol_unit_gap',DEFAULT_UNIT_GAP),strict=strict)
         visible_references = set(ref.path for ref in fp.models)
         matches, resolutions = [], []
         for ref in fp.models:
@@ -407,6 +410,8 @@ def export_bundle(config_path: Path, output: Path, *, stl_root: Path = DEFAULT_S
             manifest['settings']['symbol_curve_tolerance_mm'] = config['symbol_curve_tolerance']
         if 'symbol_fill_tolerance' in config:
             manifest['settings']['symbol_fill_tolerance_mm'] = config['symbol_fill_tolerance']
+        if 'symbol_unit_gap' in config:
+            manifest['settings']['symbol_unit_gap_mm'] = config['symbol_unit_gap']
         (stage/'manifest.json').write_bytes(json_bytes(manifest))
         manifest = verify_bundle(stage)
         if output.exists() or output.is_symlink():

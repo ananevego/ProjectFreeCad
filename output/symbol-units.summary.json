@@ -1,0 +1,123 @@
+{
+  "bundle": "output/components/units",
+  "components": [
+    {
+      "chain_complete": true,
+      "footprint": "components/c_Array2_920a8d53d0bee6a2/footprint.fpl",
+      "id": "Array2",
+      "pin_numbers": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "source": {
+        "footprint_identifier": "Resistor_SMD:R_Array_Concave_2x0603",
+        "footprint_sha256": "2a20378a19df8b853836a24e84c4f57086cd31b5396dd9566b9d6af25c6cbca0",
+        "selection": "explicit_config",
+        "source_footprint_property": "",
+        "symbol": "R_Pack02_Split",
+        "symbol_library": "../symbols/Device.kicad_sym",
+        "symbol_library_sha256": "972f851ebf7c10dfe97eefd5d847406154b18ee6158013bd19165477d6364abd"
+      },
+      "source_target_mapping_verified": true,
+      "source_units": 2,
+      "symbol": "components/c_Array2_920a8d53d0bee6a2/symbol.cds"
+    },
+    {
+      "chain_complete": true,
+      "footprint": "components/c_Array4_e9c4f9a4e5b43d55/footprint.fpl",
+      "id": "Array4",
+      "pin_numbers": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      "source": {
+        "footprint_identifier": "Resistor_SMD:R_Array_Concave_4x0603",
+        "footprint_sha256": "bd5991fb39612d06b71292dedc0004a404cbf8c3744f22742d59e16cc02f1e7e",
+        "selection": "explicit_config",
+        "source_footprint_property": "",
+        "symbol": "R_Pack04_Split",
+        "symbol_library": "../symbols/Device.kicad_sym",
+        "symbol_library_sha256": "972f851ebf7c10dfe97eefd5d847406154b18ee6158013bd19165477d6364abd"
+      },
+      "source_target_mapping_verified": true,
+      "source_units": 4,
+      "symbol": "components/c_Array4_e9c4f9a4e5b43d55/symbol.cds"
+    },
+    {
+      "chain_complete": true,
+      "footprint": "components/c_SIP4_3ac72b3c8ddc76e8/footprint.fpl",
+      "id": "SIP4",
+      "pin_numbers": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "source": {
+        "footprint_identifier": "Resistor_THT:R_Array_SIP4",
+        "footprint_sha256": "f6735b1a668caffbac184cd2d74b796ba88d2e6d77976292b86abb00dacaac5b",
+        "selection": "source_property",
+        "source_footprint_property": "Resistor_THT:R_Array_SIP4",
+        "symbol": "R_Pack02_SIP_Split",
+        "symbol_library": "../symbols/Device.kicad_sym",
+        "symbol_library_sha256": "972f851ebf7c10dfe97eefd5d847406154b18ee6158013bd19165477d6364abd"
+      },
+      "source_target_mapping_verified": true,
+      "source_units": 2,
+      "symbol": "components/c_SIP4_3ac72b3c8ddc76e8/symbol.cds"
+    }
+  ],
+  "gui_validated": false,
+  "independent_unit_placement_transferred": false,
+  "kind": "symbol_units_control_summary",
+  "manifest_sha256": "1512806b63303324e3ba2f1f2f3b3896c5acc64bb518815d02031375464ec8af",
+  "model_geometry_validated": false,
+  "models": [
+    {
+      "bytes": 31184,
+      "canonical_path": "models/Resistor_SMD.3dshapes/R_Array_Concave_2x0603.stl",
+      "frame_validated": false,
+      "import_basename": "mdl_Resistor_SMD.3dshapes_R_Array_Concave_2x0603_a5a10a814338b9a2.stl",
+      "runtime_path": "openscad_models/Bundle.3dshapes/mdl_Resistor_SMD.3dshapes_R_Array_Concave_2x0603_a5a10a814338b9a2.stl",
+      "sha256": "04d843c1f44d08bb77261beff1ceafcdfcd4aadc88147ef534dca9d4d7bf545e",
+      "source_relative": "Resistor_SMD.3dshapes/R_Array_Concave_2x0603.stl"
+    },
+    {
+      "bytes": 60684,
+      "canonical_path": "models/Resistor_SMD.3dshapes/R_Array_Concave_4x0603.stl",
+      "frame_validated": false,
+      "import_basename": "mdl_Resistor_SMD.3dshapes_R_Array_Concave_4x0603_df14394c4d8df713.stl",
+      "runtime_path": "openscad_models/Bundle.3dshapes/mdl_Resistor_SMD.3dshapes_R_Array_Concave_4x0603_df14394c4d8df713.stl",
+      "sha256": "11b01059a28ea1c2cf514e6e1f2c3ef8df9515d99cd0f3325801383e5a395e45",
+      "source_relative": "Resistor_SMD.3dshapes/R_Array_Concave_4x0603.stl"
+    },
+    {
+      "bytes": 112384,
+      "canonical_path": "models/Resistor_THT.3dshapes/R_Array_SIP4.stl",
+      "frame_validated": false,
+      "import_basename": "mdl_Resistor_THT.3dshapes_R_Array_SIP4_e85a27d696a92b5c.stl",
+      "runtime_path": "openscad_models/Bundle.3dshapes/mdl_Resistor_THT.3dshapes_R_Array_SIP4_e85a27d696a92b5c.stl",
+      "sha256": "3cf4c5bc0e78896dfbf9f2a7e5667b321500efe56d84c3a214f68b03a721d35b",
+      "source_relative": "Resistor_THT.3dshapes/R_Array_SIP4.stl"
+    }
+  ],
+  "native_hierarchical_merge_generated": false,
+  "native_import_verified": false,
+  "schema_version": 1,
+  "summary": {
+    "complete_chains": 3,
+    "generated_components": 3,
+    "generated_with_loss": 3,
+    "models": 3,
+    "total": 3
+  },
+  "symbol_unit_gap_mm": 2.54
+}

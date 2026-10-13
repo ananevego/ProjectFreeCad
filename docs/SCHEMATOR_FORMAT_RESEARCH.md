@@ -119,3 +119,10 @@ Modern text/legacy T представлен description на body polyline; writ
 profile исключает native commands; fonts/layout/z-order остаются losses.
 Source anchors/hashes, limits и 27 новых проверок (всего 312):
 [SYMBOL_BODY.md](SYMBOL_BODY.md). Native GUI/font/fill rendering не подтверждены.
+
+2026-10-13: ordinary part chain используется для disjoint-unit layout: один
+Reference/Footprint, несколько размещённых body views, сумма уникальных pin
+attributes. Merge indices служат import filtering; BLK/BLK_PTR hierarchy
+потребовала бы отдельных suffix/page/link contracts. Она не генерируется,
+independent unit placement имеет explicit loss. Source evidence, limits,
+24 новых проверки (всего 336): [SYMBOL_UNITS.md](SYMBOL_UNITS.md).

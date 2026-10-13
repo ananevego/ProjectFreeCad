@@ -135,7 +135,8 @@ PY
 
 Legacy arcs, тексты, batch, source/native УГО, links, curves и ordinary
 electrical profile и simple fills/body text реализованы; актуальный следующий
-подпункт — multi-unit/merge УГО. Windows roundtrip/3D/Gerber остаются незавершёнными.
+подпункт — power/no-connect УГО после disjoint unit layout. Windows roundtrip/
+independent units/hierarchy/3D/Gerber остаются незавершёнными.
 
 ## Аудит текстов и D_SOD-123
 

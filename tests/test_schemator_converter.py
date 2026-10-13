@@ -158,9 +158,9 @@ class SchematorContractTests(unittest.TestCase):
         with self.assertRaisesRegex(SymbolParseError,'source diagnostics'):
             convert_symbol(self.legacy,'PIC24FJ256GB106')
 
-    def test_multiunit_body_styles_and_power_are_explicitly_rejected(self):
+    def test_unsupported_multiunit_power_body_styles_and_virtual_symbols_rejected(self):
         lib=parse_library((PROJECT/'tests/fixtures/symbols/Comparator.kicad_sym').read_text())
-        with self.assertRaisesRegex(SymbolParseError,'one unit'):
+        with self.assertRaisesRegex(SymbolParseError,'unsupported electrical type'):
             convert_symbol(lib,'LM393')
         with self.assertRaisesRegex(SymbolParseError,'Power/virtual'):
             convert_symbol(self.legacy,'GND')
