@@ -1,0 +1,1808 @@
+{
+  "schema_version": 1,
+  "kind": "schemator_symbol_conversion",
+  "status": "generated_with_loss",
+  "target": {
+    "repository": "niconson/Schematic-Constructor",
+    "revision": "e7443c374f5c8644fb3483f794a50161de60dd01",
+    "version": "1.429",
+    "profile": "schemator-cds-straight-v1",
+    "encoding": "cp1251",
+    "coordinates": "nanometres, Y up; source library coordinates preserved",
+    "text_angle_rule": "negative source angle modulo 360",
+    "source_pin_profile": "visible-line-power-v1",
+    "source_pin_presentation_profile": "kicad9-editor-pin-markers-v1",
+    "source_body_profile": "bounded-fills-body-text-v1"
+  },
+  "contract_verified_against_source": true,
+  "target_records_validated": true,
+  "target_output_generated": true,
+  "target_import_verified": false,
+  "gui_validated": false,
+  "source_format": "kicad_sym",
+  "source_version": "20241209",
+  "source_symbol": {
+    "name": "74LVC1G79",
+    "properties": {
+      "Reference": {
+        "name": "Reference",
+        "value": "U",
+        "at": [
+          -5.08,
+          10.16,
+          0.0
+        ],
+        "hidden": false,
+        "raw": [
+          "property",
+          "Reference",
+          "U",
+          [
+            "at",
+            "-5.08",
+            "10.16",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ]
+          ]
+        ]
+      },
+      "Value": {
+        "name": "Value",
+        "value": "74LVC1G79",
+        "at": [
+          7.62,
+          -10.16,
+          0.0
+        ],
+        "hidden": false,
+        "raw": [
+          "property",
+          "Value",
+          "74LVC1G79",
+          [
+            "at",
+            "7.62",
+            "-10.16",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ]
+          ]
+        ]
+      },
+      "Footprint": {
+        "name": "Footprint",
+        "value": "",
+        "at": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "hidden": true,
+        "raw": [
+          "property",
+          "Footprint",
+          "",
+          [
+            "at",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ],
+            [
+              "hide",
+              "yes"
+            ]
+          ]
+        ]
+      },
+      "Datasheet": {
+        "name": "Datasheet",
+        "value": "http://www.ti.com/lit/sg/scyt129e/scyt129e.pdf",
+        "at": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "hidden": true,
+        "raw": [
+          "property",
+          "Datasheet",
+          "http://www.ti.com/lit/sg/scyt129e/scyt129e.pdf",
+          [
+            "at",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ],
+            [
+              "hide",
+              "yes"
+            ]
+          ]
+        ]
+      },
+      "Description": {
+        "name": "Description",
+        "value": "Single D Flip-Flop, Low-Voltage CMOS",
+        "at": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "hidden": true,
+        "raw": [
+          "property",
+          "Description",
+          "Single D Flip-Flop, Low-Voltage CMOS",
+          [
+            "at",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ],
+            [
+              "hide",
+              "yes"
+            ]
+          ]
+        ]
+      },
+      "ki_keywords": {
+        "name": "ki_keywords",
+        "value": "Single D Flip-Flop D CMOS",
+        "at": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "hidden": true,
+        "raw": [
+          "property",
+          "ki_keywords",
+          "Single D Flip-Flop D CMOS",
+          [
+            "at",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ],
+            [
+              "hide",
+              "yes"
+            ]
+          ]
+        ]
+      },
+      "ki_fp_filters": {
+        "name": "ki_fp_filters",
+        "value": "SOT* SG*",
+        "at": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "hidden": true,
+        "raw": [
+          "property",
+          "ki_fp_filters",
+          "SOT* SG*",
+          [
+            "at",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ],
+            [
+              "hide",
+              "yes"
+            ]
+          ]
+        ]
+      }
+    },
+    "units": [
+      {
+        "number": 0,
+        "style": 1,
+        "source_id": "74LVC1G79_0_1",
+        "display_name": null,
+        "pins": [],
+        "graphics": [
+          {
+            "kind": "rectangle",
+            "geometry": {
+              "start": [
+                -7.62,
+                7.62
+              ],
+              "end": [
+                7.62,
+                -7.62
+              ]
+            },
+            "width": 0.254,
+            "fill": "background",
+            "raw": [
+              "rectangle",
+              [
+                "start",
+                "-7.62",
+                "7.62"
+              ],
+              [
+                "end",
+                "7.62",
+                "-7.62"
+              ],
+              [
+                "stroke",
+                [
+                  "width",
+                  "0.254"
+                ],
+                [
+                  "type",
+                  "default"
+                ]
+              ],
+              [
+                "fill",
+                [
+                  "type",
+                  "background"
+                ]
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "number": 1,
+        "style": 1,
+        "source_id": "74LVC1G79_1_1",
+        "display_name": null,
+        "pins": [
+          {
+            "number": "1",
+            "name": "D",
+            "at": [
+              -12.7,
+              5.08,
+              0.0
+            ],
+            "length": 5.08,
+            "electrical_type": "input",
+            "graphic_style": "line",
+            "hidden": false,
+            "name_size": [
+              1.27,
+              1.27
+            ],
+            "number_size": [
+              1.27,
+              1.27
+            ],
+            "alternates": [],
+            "raw": [
+              "pin",
+              "input",
+              "line",
+              [
+                "at",
+                "-12.7",
+                "5.08",
+                "0"
+              ],
+              [
+                "length",
+                "5.08"
+              ],
+              [
+                "name",
+                "D",
+                [
+                  "effects",
+                  [
+                    "font",
+                    [
+                      "size",
+                      "1.27",
+                      "1.27"
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "number",
+                "1",
+                [
+                  "effects",
+                  [
+                    "font",
+                    [
+                      "size",
+                      "1.27",
+                      "1.27"
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          },
+          {
+            "number": "2",
+            "name": "C",
+            "at": [
+              -12.7,
+              -5.08,
+              0.0
+            ],
+            "length": 5.08,
+            "electrical_type": "input",
+            "graphic_style": "clock",
+            "hidden": false,
+            "name_size": [
+              1.27,
+              1.27
+            ],
+            "number_size": [
+              1.27,
+              1.27
+            ],
+            "alternates": [],
+            "raw": [
+              "pin",
+              "input",
+              "clock",
+              [
+                "at",
+                "-12.7",
+                "-5.08",
+                "0"
+              ],
+              [
+                "length",
+                "5.08"
+              ],
+              [
+                "name",
+                "C",
+                [
+                  "effects",
+                  [
+                    "font",
+                    [
+                      "size",
+                      "1.27",
+                      "1.27"
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "number",
+                "2",
+                [
+                  "effects",
+                  [
+                    "font",
+                    [
+                      "size",
+                      "1.27",
+                      "1.27"
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          },
+          {
+            "number": "5",
+            "name": "VCC",
+            "at": [
+              0.0,
+              12.7,
+              270.0
+            ],
+            "length": 5.08,
+            "electrical_type": "power_in",
+            "graphic_style": "line",
+            "hidden": false,
+            "name_size": [
+              1.27,
+              1.27
+            ],
+            "number_size": [
+              1.27,
+              1.27
+            ],
+            "alternates": [],
+            "raw": [
+              "pin",
+              "power_in",
+              "line",
+              [
+                "at",
+                "0",
+                "12.7",
+                "270"
+              ],
+              [
+                "length",
+                "5.08"
+              ],
+              [
+                "name",
+                "VCC",
+                [
+                  "effects",
+                  [
+                    "font",
+                    [
+                      "size",
+                      "1.27",
+                      "1.27"
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "number",
+                "5",
+                [
+                  "effects",
+                  [
+                    "font",
+                    [
+                      "size",
+                      "1.27",
+                      "1.27"
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          },
+          {
+            "number": "3",
+            "name": "GND",
+            "at": [
+              0.0,
+              -12.7,
+              90.0
+            ],
+            "length": 5.08,
+            "electrical_type": "power_in",
+            "graphic_style": "line",
+            "hidden": false,
+            "name_size": [
+              1.27,
+              1.27
+            ],
+            "number_size": [
+              1.27,
+              1.27
+            ],
+            "alternates": [],
+            "raw": [
+              "pin",
+              "power_in",
+              "line",
+              [
+                "at",
+                "0",
+                "-12.7",
+                "90"
+              ],
+              [
+                "length",
+                "5.08"
+              ],
+              [
+                "name",
+                "GND",
+                [
+                  "effects",
+                  [
+                    "font",
+                    [
+                      "size",
+                      "1.27",
+                      "1.27"
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "number",
+                "3",
+                [
+                  "effects",
+                  [
+                    "font",
+                    [
+                      "size",
+                      "1.27",
+                      "1.27"
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          },
+          {
+            "number": "4",
+            "name": "Q",
+            "at": [
+              12.7,
+              5.08,
+              180.0
+            ],
+            "length": 5.08,
+            "electrical_type": "output",
+            "graphic_style": "line",
+            "hidden": false,
+            "name_size": [
+              1.27,
+              1.27
+            ],
+            "number_size": [
+              1.27,
+              1.27
+            ],
+            "alternates": [],
+            "raw": [
+              "pin",
+              "output",
+              "line",
+              [
+                "at",
+                "12.7",
+                "5.08",
+                "180"
+              ],
+              [
+                "length",
+                "5.08"
+              ],
+              [
+                "name",
+                "Q",
+                [
+                  "effects",
+                  [
+                    "font",
+                    [
+                      "size",
+                      "1.27",
+                      "1.27"
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "number",
+                "4",
+                [
+                  "effects",
+                  [
+                    "font",
+                    [
+                      "size",
+                      "1.27",
+                      "1.27"
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          }
+        ],
+        "graphics": []
+      }
+    ],
+    "extends": null,
+    "inheritance_chain": [],
+    "aliases": [],
+    "alias_of": null,
+    "unit_count": 1,
+    "pin_names_hidden": false,
+    "pin_numbers_hidden": false,
+    "pin_name_offset": 1.016,
+    "in_bom": true,
+    "on_board": true,
+    "power": false,
+    "diagnostics": [],
+    "raw": [
+      "symbol",
+      "74LVC1G79",
+      [
+        "pin_names",
+        [
+          "offset",
+          "1.016"
+        ]
+      ],
+      [
+        "exclude_from_sim",
+        "no"
+      ],
+      [
+        "in_bom",
+        "yes"
+      ],
+      [
+        "on_board",
+        "yes"
+      ],
+      [
+        "property",
+        "Reference",
+        "U",
+        [
+          "at",
+          "-5.08",
+          "10.16",
+          "0"
+        ],
+        [
+          "effects",
+          [
+            "font",
+            [
+              "size",
+              "1.27",
+              "1.27"
+            ]
+          ]
+        ]
+      ],
+      [
+        "property",
+        "Value",
+        "74LVC1G79",
+        [
+          "at",
+          "7.62",
+          "-10.16",
+          "0"
+        ],
+        [
+          "effects",
+          [
+            "font",
+            [
+              "size",
+              "1.27",
+              "1.27"
+            ]
+          ]
+        ]
+      ],
+      [
+        "property",
+        "Footprint",
+        "",
+        [
+          "at",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "effects",
+          [
+            "font",
+            [
+              "size",
+              "1.27",
+              "1.27"
+            ]
+          ],
+          [
+            "hide",
+            "yes"
+          ]
+        ]
+      ],
+      [
+        "property",
+        "Datasheet",
+        "http://www.ti.com/lit/sg/scyt129e/scyt129e.pdf",
+        [
+          "at",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "effects",
+          [
+            "font",
+            [
+              "size",
+              "1.27",
+              "1.27"
+            ]
+          ],
+          [
+            "hide",
+            "yes"
+          ]
+        ]
+      ],
+      [
+        "property",
+        "Description",
+        "Single D Flip-Flop, Low-Voltage CMOS",
+        [
+          "at",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "effects",
+          [
+            "font",
+            [
+              "size",
+              "1.27",
+              "1.27"
+            ]
+          ],
+          [
+            "hide",
+            "yes"
+          ]
+        ]
+      ],
+      [
+        "property",
+        "ki_keywords",
+        "Single D Flip-Flop D CMOS",
+        [
+          "at",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "effects",
+          [
+            "font",
+            [
+              "size",
+              "1.27",
+              "1.27"
+            ]
+          ],
+          [
+            "hide",
+            "yes"
+          ]
+        ]
+      ],
+      [
+        "property",
+        "ki_fp_filters",
+        "SOT* SG*",
+        [
+          "at",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "effects",
+          [
+            "font",
+            [
+              "size",
+              "1.27",
+              "1.27"
+            ]
+          ],
+          [
+            "hide",
+            "yes"
+          ]
+        ]
+      ],
+      [
+        "symbol",
+        "74LVC1G79_0_1",
+        [
+          "rectangle",
+          [
+            "start",
+            "-7.62",
+            "7.62"
+          ],
+          [
+            "end",
+            "7.62",
+            "-7.62"
+          ],
+          [
+            "stroke",
+            [
+              "width",
+              "0.254"
+            ],
+            [
+              "type",
+              "default"
+            ]
+          ],
+          [
+            "fill",
+            [
+              "type",
+              "background"
+            ]
+          ]
+        ]
+      ],
+      [
+        "symbol",
+        "74LVC1G79_1_1",
+        [
+          "pin",
+          "input",
+          "line",
+          [
+            "at",
+            "-12.7",
+            "5.08",
+            "0"
+          ],
+          [
+            "length",
+            "5.08"
+          ],
+          [
+            "name",
+            "D",
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ]
+            ]
+          ],
+          [
+            "number",
+            "1",
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ]
+            ]
+          ]
+        ],
+        [
+          "pin",
+          "input",
+          "clock",
+          [
+            "at",
+            "-12.7",
+            "-5.08",
+            "0"
+          ],
+          [
+            "length",
+            "5.08"
+          ],
+          [
+            "name",
+            "C",
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ]
+            ]
+          ],
+          [
+            "number",
+            "2",
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ]
+            ]
+          ]
+        ],
+        [
+          "pin",
+          "power_in",
+          "line",
+          [
+            "at",
+            "0",
+            "12.7",
+            "270"
+          ],
+          [
+            "length",
+            "5.08"
+          ],
+          [
+            "name",
+            "VCC",
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ]
+            ]
+          ],
+          [
+            "number",
+            "5",
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ]
+            ]
+          ]
+        ],
+        [
+          "pin",
+          "power_in",
+          "line",
+          [
+            "at",
+            "0",
+            "-12.7",
+            "90"
+          ],
+          [
+            "length",
+            "5.08"
+          ],
+          [
+            "name",
+            "GND",
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ]
+            ]
+          ],
+          [
+            "number",
+            "3",
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ]
+            ]
+          ]
+        ],
+        [
+          "pin",
+          "output",
+          "line",
+          [
+            "at",
+            "12.7",
+            "5.08",
+            "180"
+          ],
+          [
+            "length",
+            "5.08"
+          ],
+          [
+            "name",
+            "Q",
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ]
+            ]
+          ],
+          [
+            "number",
+            "4",
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ]
+            ]
+          ]
+        ]
+      ],
+      [
+        "embedded_fonts",
+        "no"
+      ]
+    ]
+  },
+  "conversion_settings": {
+    "footprint_name": null,
+    "reference": "U1",
+    "project_name": "74LVC1G79_pins.cds",
+    "default_line_width_mm": 0.254,
+    "pin_width_mm": 0.254,
+    "fill_tolerance_mm": 0.01
+  },
+  "target_component": {
+    "pin_count": 5,
+    "bounds": [
+      -12852400,
+      -12852400,
+      12852400,
+      12852400
+    ],
+    "reference": {
+      "value": "U1",
+      "x": -5080000,
+      "y": 10160000,
+      "layer": 7,
+      "angle": 0,
+      "size": 1270000,
+      "width": 127000,
+      "merge": -1,
+      "submerge": -1,
+      "font": 2,
+      "options": 1
+    },
+    "value": {
+      "value": "74LVC1G79",
+      "x": 7620000,
+      "y": -10160000,
+      "layer": 13,
+      "angle": 0,
+      "size": 1270000,
+      "width": 127000,
+      "merge": -1,
+      "submerge": -1,
+      "font": 2,
+      "options": 1
+    },
+    "footprint": {
+      "value": "PART",
+      "x": 0,
+      "y": 0,
+      "layer": 12,
+      "angle": 0,
+      "size": 0,
+      "width": 0,
+      "merge": -1,
+      "submerge": -1,
+      "font": 2,
+      "options": 1
+    },
+    "polylines": [
+      {
+        "closed": true,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": -7620000,
+            "y": 7620000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 7620000,
+            "y": 7620000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 7620000,
+            "y": -7620000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -7620000,
+            "y": -7620000,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 8,
+        "width": 254000,
+        "corners": [
+          {
+            "x": -7620000,
+            "y": 5080000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -12700000,
+            "y": 5080000,
+            "style": 0,
+            "node": 1
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": {
+          "value": "1",
+          "x": -10160000,
+          "y": 5715000,
+          "layer": 9,
+          "angle": 0,
+          "size": 1270000,
+          "width": 127000,
+          "merge": -1,
+          "submerge": -1,
+          "font": 2,
+          "options": 1
+        },
+        "description": {
+          "value": "D",
+          "x": -6604000,
+          "y": 5080000,
+          "layer": 14,
+          "angle": 0,
+          "size": 1270000,
+          "width": 127000,
+          "merge": -1,
+          "submerge": -1,
+          "font": 2,
+          "options": 1
+        }
+      },
+      {
+        "closed": false,
+        "layer": 8,
+        "width": 254000,
+        "corners": [
+          {
+            "x": -7620000,
+            "y": -5080000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -12700000,
+            "y": -5080000,
+            "style": 0,
+            "node": 1
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": {
+          "value": "2",
+          "x": -10160000,
+          "y": -4445000,
+          "layer": 9,
+          "angle": 0,
+          "size": 1270000,
+          "width": 127000,
+          "merge": -1,
+          "submerge": -1,
+          "font": 2,
+          "options": 1
+        },
+        "description": {
+          "value": "C",
+          "x": -6604000,
+          "y": -5080000,
+          "layer": 14,
+          "angle": 0,
+          "size": 1270000,
+          "width": 127000,
+          "merge": -1,
+          "submerge": -1,
+          "font": 2,
+          "options": 1
+        }
+      },
+      {
+        "closed": false,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": -7620000,
+            "y": -4445000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -6985000,
+            "y": -5080000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -7620000,
+            "y": -5715000,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 8,
+        "width": 254000,
+        "corners": [
+          {
+            "x": 0,
+            "y": 7620000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 0,
+            "y": 12700000,
+            "style": 0,
+            "node": 1
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": {
+          "value": "5",
+          "x": 635000,
+          "y": 10160000,
+          "layer": 9,
+          "angle": 0,
+          "size": 1270000,
+          "width": 127000,
+          "merge": -1,
+          "submerge": -1,
+          "font": 2,
+          "options": 1
+        },
+        "description": {
+          "value": "VCC",
+          "x": 0,
+          "y": 6604000,
+          "layer": 14,
+          "angle": 0,
+          "size": 1270000,
+          "width": 127000,
+          "merge": -1,
+          "submerge": -1,
+          "font": 2,
+          "options": 1
+        }
+      },
+      {
+        "closed": false,
+        "layer": 8,
+        "width": 254000,
+        "corners": [
+          {
+            "x": 0,
+            "y": -7620000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 0,
+            "y": -12700000,
+            "style": 0,
+            "node": 1
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": {
+          "value": "3",
+          "x": -635000,
+          "y": -10160000,
+          "layer": 9,
+          "angle": 0,
+          "size": 1270000,
+          "width": 127000,
+          "merge": -1,
+          "submerge": -1,
+          "font": 2,
+          "options": 1
+        },
+        "description": {
+          "value": "GND",
+          "x": 0,
+          "y": -6604000,
+          "layer": 14,
+          "angle": 0,
+          "size": 1270000,
+          "width": 127000,
+          "merge": -1,
+          "submerge": -1,
+          "font": 2,
+          "options": 1
+        }
+      },
+      {
+        "closed": false,
+        "layer": 8,
+        "width": 254000,
+        "corners": [
+          {
+            "x": 7620000,
+            "y": 5080000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 12700000,
+            "y": 5080000,
+            "style": 0,
+            "node": 1
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": {
+          "value": "4",
+          "x": 10160000,
+          "y": 4445000,
+          "layer": 9,
+          "angle": 0,
+          "size": 1270000,
+          "width": 127000,
+          "merge": -1,
+          "submerge": -1,
+          "font": 2,
+          "options": 1
+        },
+        "description": {
+          "value": "Q",
+          "x": 6604000,
+          "y": 5080000,
+          "layer": 14,
+          "angle": 0,
+          "size": 1270000,
+          "width": 127000,
+          "merge": -1,
+          "submerge": -1,
+          "font": 2,
+          "options": 1
+        }
+      }
+    ]
+  },
+  "physical_pin_mapping_verified": false,
+  "diagnostics": [
+    {
+      "code": "SYMBOL_TEXT_RENDERING",
+      "severity": "loss",
+      "message": "SIMPLEX replaces source fonts; source property anchors are used as native baselines. Justification, text styling and exact glyph bounds are not reproduced.",
+      "context": {}
+    },
+    {
+      "code": "TARGET_PIN_STROKE",
+      "severity": "assumption",
+      "message": "Pin stroke width is a declared conversion setting; the library has no resolved project pin stroke.",
+      "context": {
+        "width_mm": 0.254
+      }
+    },
+    {
+      "code": "SYMBOL_FOOTPRINT_UNRESOLVED",
+      "severity": "loss",
+      "message": "Native PART placeholder used; source footprint identifier/filters are retained in JSON.",
+      "context": {}
+    },
+    {
+      "code": "SYMBOL_METADATA_NOT_TRANSFERRED",
+      "severity": "loss",
+      "message": "Source datasheet/custom properties/footprint filters retained only in JSON.",
+      "context": {
+        "properties": [
+          "Datasheet",
+          "Description",
+          "ki_keywords",
+          "ki_fp_filters"
+        ]
+      }
+    },
+    {
+      "code": "SYMBOL_BACKGROUND_FILL_NOT_TRANSFERRED",
+      "severity": "loss",
+      "message": "Only the body boundary is retained; source background color and occlusion are not transferred.",
+      "context": {
+        "source_kind": "rectangle",
+        "source_fill": "background",
+        "coordinates": "source Y up; foreground fills use 10nm grid; background curves use 1nm grid",
+        "native_policy": "boundary_only",
+        "background_occlusion_transferred": false,
+        "emitted_polylines": 1,
+        "collapsed_spans_skipped": 0,
+        "unit": 0,
+        "graphic": 0,
+        "target_polyline_indices": [
+          0
+        ]
+      }
+    },
+    {
+      "code": "SYMBOL_PIN_MARKER_GRAPHICS",
+      "severity": "loss",
+      "message": "KiCad9 editor marker is emitted as non-electrical body strokes; native logical style, project sizing override, caps/joins and font layout are not transferred or GUI-verified.",
+      "context": {
+        "source_pin_number": "2",
+        "source_graphic_style": "clock",
+        "source_body_nm": [
+          -7620000,
+          -5080000
+        ],
+        "target_marker_body_nm": [
+          -7620000,
+          -5080000
+        ],
+        "external_radius_nm": 635000,
+        "internal_radius_nm": 635000,
+        "source_geometry_profile": "kicad9-editor-pin-markers-v1",
+        "sizing_policy": "KiCad9 editor default m_PinSymbolSize=0; integer 100nm text heights / 2",
+        "electrical_style_transferred": false,
+        "gui_validated": false,
+        "unit": 1,
+        "target_pin_polyline_index": 2,
+        "target_polyline_indices": [
+          3
+        ]
+      }
+    },
+    {
+      "code": "SYMBOL_ELECTRICAL_TYPE_NOT_TRANSFERRED",
+      "severity": "loss",
+      "message": "Source electrical types are retained in JSON only. The confirmed CDS profile stores a numbered connection endpoint and optional name, without KiCad electrical rules; input/output direction, drive constraints and ERC semantics are not transferred.",
+      "context": {
+        "source_electrical_types": {
+          "input": 2,
+          "power_in": 2,
+          "output": 1
+        }
+      }
+    },
+    {
+      "code": "SYMBOL_PIN_LABEL_LAYOUT",
+      "severity": "loss",
+      "message": "Pin numbers/names use a declared horizontal placement policy; exact KiCad automatic label layout is not reproduced.",
+      "context": {}
+    }
+  ],
+  "artifact_sha256": "290fcb25c8e401f05f950f258a7b01f7bdcbd07bea2d95fc34614fd4e5501fb4",
+  "counts": {
+    "components": 1,
+    "pins": 5,
+    "polylines": 7,
+    "losses": 7,
+    "assumptions": 1,
+    "power_pins": 2,
+    "no_connect_pins": 0,
+    "hidden_pins": 0,
+    "styled_pins": 1,
+    "approximations": 0,
+    "filled_graphics": 1,
+    "fill_polylines": 1
+  },
+  "pin_semantics": {
+    "electrical_rules_transferred": false,
+    "native_representation": "numbered layer-8 segment; body Node=0, external Node=1; optional layer-14 name",
+    "pins": [
+      {
+        "source_pin_number": "1",
+        "source_pin_name": "D",
+        "source_electrical_type": "input",
+        "target_pin_number": "1",
+        "target_polyline_index": 1,
+        "connection_point_nm": [
+          -12700000,
+          5080000
+        ],
+        "target_node_flags": [
+          0,
+          1
+        ],
+        "native_connectable": true,
+        "source_hidden": false,
+        "source_graphic_style": "line",
+        "source_implicit_global_power": false,
+        "native_implicit_global_power_transferred": false,
+        "native_pin_visible": true
+      },
+      {
+        "source_pin_number": "2",
+        "source_pin_name": "C",
+        "source_electrical_type": "input",
+        "target_pin_number": "2",
+        "target_polyline_index": 2,
+        "connection_point_nm": [
+          -12700000,
+          -5080000
+        ],
+        "target_node_flags": [
+          0,
+          1
+        ],
+        "native_connectable": true,
+        "source_hidden": false,
+        "source_graphic_style": "clock",
+        "source_implicit_global_power": false,
+        "native_implicit_global_power_transferred": false,
+        "native_pin_visible": true
+      },
+      {
+        "source_pin_number": "5",
+        "source_pin_name": "VCC",
+        "source_electrical_type": "power_in",
+        "target_pin_number": "5",
+        "target_polyline_index": 4,
+        "connection_point_nm": [
+          0,
+          12700000
+        ],
+        "target_node_flags": [
+          0,
+          1
+        ],
+        "native_connectable": true,
+        "native_power_role_transferred": false,
+        "source_hidden": false,
+        "source_graphic_style": "line",
+        "source_implicit_global_power": false,
+        "native_implicit_global_power_transferred": false,
+        "native_pin_visible": true
+      },
+      {
+        "source_pin_number": "3",
+        "source_pin_name": "GND",
+        "source_electrical_type": "power_in",
+        "target_pin_number": "3",
+        "target_polyline_index": 5,
+        "connection_point_nm": [
+          0,
+          -12700000
+        ],
+        "target_node_flags": [
+          0,
+          1
+        ],
+        "native_connectable": true,
+        "native_power_role_transferred": false,
+        "source_hidden": false,
+        "source_graphic_style": "line",
+        "source_implicit_global_power": false,
+        "native_implicit_global_power_transferred": false,
+        "native_pin_visible": true
+      },
+      {
+        "source_pin_number": "4",
+        "source_pin_name": "Q",
+        "source_electrical_type": "output",
+        "target_pin_number": "4",
+        "target_polyline_index": 6,
+        "connection_point_nm": [
+          12700000,
+          5080000
+        ],
+        "target_node_flags": [
+          0,
+          1
+        ],
+        "native_connectable": true,
+        "source_hidden": false,
+        "source_graphic_style": "line",
+        "source_implicit_global_power": false,
+        "native_implicit_global_power_transferred": false,
+        "native_pin_visible": true
+      }
+    ],
+    "power_roles_transferred": false,
+    "native_no_connect_enforced": false,
+    "power_pin_policy": "visible numbered terminal; source power role in JSON only",
+    "implicit_global_power_transferred": false
+  },
+  "filled_graphics": [
+    {
+      "source_kind": "rectangle",
+      "source_fill": "background",
+      "coordinates": "source Y up; foreground fills use 10nm grid; background curves use 1nm grid",
+      "native_policy": "boundary_only",
+      "background_occlusion_transferred": false,
+      "emitted_polylines": 1,
+      "collapsed_spans_skipped": 0,
+      "unit": 0,
+      "graphic": 0,
+      "target_polyline_indices": [
+        0
+      ]
+    }
+  ],
+  "pin_markers": [
+    {
+      "source_pin_number": "2",
+      "source_graphic_style": "clock",
+      "source_body_nm": [
+        -7620000,
+        -5080000
+      ],
+      "target_marker_body_nm": [
+        -7620000,
+        -5080000
+      ],
+      "external_radius_nm": 635000,
+      "internal_radius_nm": 635000,
+      "source_geometry_profile": "kicad9-editor-pin-markers-v1",
+      "sizing_policy": "KiCad9 editor default m_PinSymbolSize=0; integer 100nm text heights / 2",
+      "electrical_style_transferred": false,
+      "gui_validated": false,
+      "unit": 1,
+      "target_pin_polyline_index": 2,
+      "target_polyline_indices": [
+        3
+      ]
+    }
+  ],
+  "source": {
+    "path": "/Users/egorananev/Desktop/hse/1-2 курс/ПРОЕКТ/tests/fixtures/symbols/74xGxx.kicad_sym",
+    "sha256": "daa0c2b0ed7f39dd63833dac8721d621c97b12179b72d1157e7de7125ac08a8a"
+  },
+  "output": "/Users/egorananev/Desktop/hse/1-2 курс/ПРОЕКТ/output/symbols/74LVC1G79_pins.cds"
+}

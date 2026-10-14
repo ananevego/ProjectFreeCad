@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "footprint_libraries": {
+    "Package_TO_SOT_SMD": "..",
+    "Package_DIP": "..",
+    "Connector_PinHeader_2.54mm": ".."
+  },
+  "symbol_hidden_pin_policy": "reveal-with-loss",
+  "symbol_no_connect_policy": "connectable-with-loss",
+  "aperture_defaults": {"mask_margin": 0.05, "paste_margin": 0, "paste_ratio": 0},
+  "components": [
+    {"id": "Clock5", "symbol_library": "../symbols/74xGxx.kicad_sym", "symbol": "74LVC1G79", "footprint": "Package_TO_SOT_SMD:SOT-23-5", "reference": "U1"},
+    {"id": "Inverted5", "symbol_library": "../symbols/74xGxx.kicad_sym", "symbol": "74LVC1G125", "footprint": "Package_TO_SOT_SMD:SOT-23-5", "reference": "U2"},
+    {"id": "DualClock8", "symbol_library": "../symbols/74xGxx.kicad_sym", "symbol": "74LVC2G79", "footprint": "Package_DIP:DIP-8_W7.62mm", "reference": "U3"},
+    {"id": "Hidden5", "symbol_library": "../symbols/Comparator.kicad_sym", "symbol": "MIC845H", "footprint": "Package_TO_SOT_SMD:SOT-23-5", "reference": "U4"},
+    {"id": "Hidden6", "symbol_library": "../symbols/Connector.kicad_sym", "symbol": "AVR-PDI-6", "footprint": "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical", "reference": "J1"}
+  ]
+}

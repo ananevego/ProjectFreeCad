@@ -158,10 +158,9 @@ class SchematorContractTests(unittest.TestCase):
         with self.assertRaisesRegex(SymbolParseError,'source diagnostics'):
             convert_symbol(self.legacy,'PIC24FJ256GB106')
 
-    def test_unsupported_multiunit_power_body_styles_and_virtual_symbols_rejected(self):
+    def test_multiunit_power_uses_numbered_terminals_and_virtual_body_styles_reject(self):
         lib=parse_library((PROJECT/'tests/fixtures/symbols/Comparator.kicad_sym').read_text())
-        with self.assertRaisesRegex(SymbolParseError,'unsupported electrical type'):
-            convert_symbol(lib,'LM393')
+        self.assertEqual(convert_symbol(lib,'LM393').document.components[0].pin_count,8)
         with self.assertRaisesRegex(SymbolParseError,'Power/virtual'):
             convert_symbol(self.legacy,'GND')
         bad=modern();bad.symbols['Base'].units[0].style=2
@@ -169,10 +168,10 @@ class SchematorContractTests(unittest.TestCase):
             convert_symbol(bad,'Base')
 
     def test_hidden_shaped_or_alternate_pins_rejected(self):
-        for change in [('hidden',True),('graphic_style','inverted'),
+        for change in [('hidden',True),('graphic_style','future_style'),
                        ('alternates',[dict(name='ALT',electrical_type='output',graphic_style='line')])]:
             lib=modern();setattr(lib.symbols['Base'].pins_for()[0],*change)
-            with self.subTest(change=change),self.assertRaisesRegex(SymbolParseError,'only visible line'):
+            with self.subTest(change=change),self.assertRaisesRegex(SymbolParseError,'hidden pin|unsupported graphic style|alternate pin modes'):
                 convert_symbol(lib,'Base')
 
     def test_unsupported_bezier_graphic_rejected(self):

@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "footprint_libraries": {"Resistor_THT": ".."},
+  "symbol_common_pin_policy": "common-view-with-loss",
+  "aperture_defaults": {"mask_margin": 0.05, "paste_margin": 0, "paste_ratio": 0},
+  "components": [
+    {"id": "Network3", "symbol_library": "../symbols/Device.kicad_sym", "symbol": "R_Network03_Split", "reference": "RN1"},
+    {"id": "Network4", "symbol_library": "../symbols/Device.kicad_sym", "symbol": "R_Network04_Split", "reference": "RN2"},
+    {"id": "Network7", "symbol_library": "../symbols/Device.kicad_sym", "symbol": "R_Network07_Split", "reference": "RN3"}
+  ]
+}

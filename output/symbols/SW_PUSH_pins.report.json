@@ -1,0 +1,1089 @@
+{
+  "schema_version": 1,
+  "kind": "schemator_symbol_conversion",
+  "status": "generated_with_loss",
+  "target": {
+    "repository": "niconson/Schematic-Constructor",
+    "revision": "e7443c374f5c8644fb3483f794a50161de60dd01",
+    "version": "1.429",
+    "profile": "schemator-cds-straight-v1",
+    "encoding": "cp1251",
+    "coordinates": "nanometres, Y up; source library coordinates preserved",
+    "text_angle_rule": "negative source angle modulo 360",
+    "source_pin_profile": "visible-line-electrical-v1",
+    "source_pin_presentation_profile": "kicad9-editor-pin-markers-v1"
+  },
+  "contract_verified_against_source": true,
+  "target_records_validated": true,
+  "target_output_generated": true,
+  "target_import_verified": false,
+  "gui_validated": false,
+  "source_format": "legacy_lib",
+  "source_version": "2.3",
+  "source_symbol": {
+    "name": "SW_PUSH",
+    "properties": {
+      "Reference": {
+        "name": "Reference",
+        "value": "SW",
+        "at": [
+          3.81,
+          2.794,
+          0
+        ],
+        "hidden": false,
+        "raw": [
+          "F0",
+          "SW",
+          "150",
+          "110",
+          "50",
+          "H",
+          "V",
+          "C",
+          "CNN"
+        ]
+      },
+      "Value": {
+        "name": "Value",
+        "value": "SW_PUSH",
+        "at": [
+          0.0,
+          -2.032,
+          0
+        ],
+        "hidden": false,
+        "raw": [
+          "F1",
+          "SW_PUSH",
+          "0",
+          "-80",
+          "50",
+          "H",
+          "V",
+          "C",
+          "CNN"
+        ]
+      },
+      "Footprint": {
+        "name": "Footprint",
+        "value": "",
+        "at": [
+          0.0,
+          0.0,
+          0
+        ],
+        "hidden": false,
+        "raw": [
+          "F2",
+          "",
+          "0",
+          "0",
+          "60",
+          "H",
+          "V",
+          "C",
+          "CNN"
+        ]
+      },
+      "Datasheet": {
+        "name": "Datasheet",
+        "value": "",
+        "at": [
+          0.0,
+          0.0,
+          0
+        ],
+        "hidden": false,
+        "raw": [
+          "F3",
+          "",
+          "0",
+          "0",
+          "60",
+          "H",
+          "V",
+          "C",
+          "CNN"
+        ]
+      }
+    },
+    "units": [
+      {
+        "number": 0,
+        "style": 1,
+        "source_id": "SW_PUSH_0_1",
+        "display_name": null,
+        "pins": [
+          {
+            "number": "1",
+            "name": "1",
+            "at": [
+              -7.62,
+              0.0,
+              0
+            ],
+            "length": 5.08,
+            "electrical_type": "passive",
+            "graphic_style": "inverted",
+            "hidden": false,
+            "name_size": [
+              1.524,
+              1.524
+            ],
+            "number_size": [
+              1.524,
+              1.524
+            ],
+            "alternates": [],
+            "raw": [
+              "X",
+              "1",
+              "1",
+              "-300",
+              "0",
+              "200",
+              "R",
+              "60",
+              "60",
+              "0",
+              "1",
+              "P",
+              "I"
+            ]
+          },
+          {
+            "number": "2",
+            "name": "2",
+            "at": [
+              7.62,
+              0.0,
+              180
+            ],
+            "length": 5.08,
+            "electrical_type": "passive",
+            "graphic_style": "inverted",
+            "hidden": false,
+            "name_size": [
+              1.524,
+              1.524
+            ],
+            "number_size": [
+              1.524,
+              1.524
+            ],
+            "alternates": [],
+            "raw": [
+              "X",
+              "2",
+              "2",
+              "300",
+              "0",
+              "200",
+              "L",
+              "60",
+              "60",
+              "0",
+              "1",
+              "P",
+              "I"
+            ]
+          }
+        ],
+        "graphics": [
+          {
+            "kind": "rectangle",
+            "geometry": {
+              "start": [
+                -4.318,
+                1.27
+              ],
+              "end": [
+                4.318,
+                1.524
+              ]
+            },
+            "width": 0.0,
+            "fill": "none",
+            "raw": [
+              "S",
+              "-170",
+              "50",
+              "170",
+              "60",
+              "0",
+              "1",
+              "0",
+              "N"
+            ]
+          },
+          {
+            "kind": "polyline",
+            "geometry": {
+              "points": [
+                [
+                  -1.016,
+                  1.524
+                ],
+                [
+                  -0.762,
+                  2.286
+                ],
+                [
+                  0.762,
+                  2.286
+                ],
+                [
+                  1.016,
+                  1.524
+                ]
+              ]
+            },
+            "width": 0.0,
+            "fill": "none",
+            "raw": [
+              "P",
+              "4",
+              "0",
+              "1",
+              "0",
+              "-40",
+              "60",
+              "-30",
+              "90",
+              "30",
+              "90",
+              "40",
+              "60",
+              "N"
+            ]
+          }
+        ]
+      }
+    ],
+    "extends": null,
+    "inheritance_chain": [],
+    "aliases": [],
+    "alias_of": null,
+    "unit_count": 1,
+    "pin_names_hidden": true,
+    "pin_numbers_hidden": true,
+    "pin_name_offset": 1.016,
+    "in_bom": true,
+    "on_board": true,
+    "power": false,
+    "diagnostics": [],
+    "raw": [
+      "DEF SW_PUSH SW 0 40 N N 1 F N",
+      "F0 \"SW\" 150 110 50 H V C CNN",
+      "F1 \"SW_PUSH\" 0 -80 50 H V C CNN",
+      "F2 \"\" 0 0 60 H V C CNN",
+      "F3 \"\" 0 0 60 H V C CNN",
+      "DRAW",
+      "S -170 50 170 60 0 1 0 N",
+      "P 4 0 1 0  -40 60  -30 90  30 90  40 60 N",
+      "X 1 1 -300 0 200 R 60 60 0 1 P I",
+      "X 2 2 300 0 200 L 60 60 0 1 P I",
+      "ENDDRAW",
+      "ENDDEF"
+    ]
+  },
+  "conversion_settings": {
+    "footprint_name": null,
+    "reference": "SW1",
+    "project_name": "SW_PUSH_pins.cds",
+    "default_line_width_mm": 0.254,
+    "pin_width_mm": 0.254,
+    "curve_tolerance_mm": 0.01
+  },
+  "target_component": {
+    "pin_count": 2,
+    "bounds": [
+      -7772400,
+      -914400,
+      7772400,
+      2438400
+    ],
+    "reference": {
+      "value": "SW1",
+      "x": 3810000,
+      "y": 2794000,
+      "layer": 7,
+      "angle": 0,
+      "size": 1270000,
+      "width": 127000,
+      "merge": -1,
+      "submerge": -1,
+      "font": 2,
+      "options": 1
+    },
+    "value": {
+      "value": "SW_PUSH",
+      "x": 0,
+      "y": -2032000,
+      "layer": 13,
+      "angle": 0,
+      "size": 1270000,
+      "width": 127000,
+      "merge": -1,
+      "submerge": -1,
+      "font": 2,
+      "options": 1
+    },
+    "footprint": {
+      "value": "PART",
+      "x": 0,
+      "y": 0,
+      "layer": 12,
+      "angle": 0,
+      "size": 0,
+      "width": 0,
+      "merge": -1,
+      "submerge": -1,
+      "font": 2,
+      "options": 1
+    },
+    "polylines": [
+      {
+        "closed": true,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": -4318000,
+            "y": 1270000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 4318000,
+            "y": 1270000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 4318000,
+            "y": 1524000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -4318000,
+            "y": 1524000,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": -1016000,
+            "y": 1524000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -762000,
+            "y": 2286000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 762000,
+            "y": 2286000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 1016000,
+            "y": 1524000,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 8,
+        "width": 254000,
+        "corners": [
+          {
+            "x": -4064000,
+            "y": 0,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -7620000,
+            "y": 0,
+            "style": 0,
+            "node": 1
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": {
+          "value": "1",
+          "x": -5080000,
+          "y": 762000,
+          "layer": 9,
+          "angle": 0,
+          "size": 0,
+          "width": 0,
+          "merge": -1,
+          "submerge": -1,
+          "font": 2,
+          "options": 1
+        },
+        "description": null
+      },
+      {
+        "closed": true,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": -2540000,
+            "y": 0,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -2577295,
+            "y": 235471,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -2685529,
+            "y": 447892,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -2854108,
+            "y": 616471,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -3066529,
+            "y": 724705,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -3302000,
+            "y": 762000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -3537471,
+            "y": 724705,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -3749892,
+            "y": 616471,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -3918471,
+            "y": 447892,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -4026705,
+            "y": 235471,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -4064000,
+            "y": 0,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -4026705,
+            "y": -235471,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -3918471,
+            "y": -447892,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -3749892,
+            "y": -616471,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -3537471,
+            "y": -724705,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -3302000,
+            "y": -762000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -3066529,
+            "y": -724705,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -2854108,
+            "y": -616471,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -2685529,
+            "y": -447892,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -2577295,
+            "y": -235471,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 8,
+        "width": 254000,
+        "corners": [
+          {
+            "x": 4064000,
+            "y": 0,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 7620000,
+            "y": 0,
+            "style": 0,
+            "node": 1
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": {
+          "value": "2",
+          "x": 5080000,
+          "y": -762000,
+          "layer": 9,
+          "angle": 0,
+          "size": 0,
+          "width": 0,
+          "merge": -1,
+          "submerge": -1,
+          "font": 2,
+          "options": 1
+        },
+        "description": null
+      },
+      {
+        "closed": true,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": 4064000,
+            "y": 0,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 4026705,
+            "y": 235471,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 3918471,
+            "y": 447892,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 3749892,
+            "y": 616471,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 3537471,
+            "y": 724705,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 3302000,
+            "y": 762000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 3066529,
+            "y": 724705,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 2854108,
+            "y": 616471,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 2685529,
+            "y": 447892,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 2577295,
+            "y": 235471,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 2540000,
+            "y": 0,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 2577295,
+            "y": -235471,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 2685529,
+            "y": -447892,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 2854108,
+            "y": -616471,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 3066529,
+            "y": -724705,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 3302000,
+            "y": -762000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 3537471,
+            "y": -724705,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 3749892,
+            "y": -616471,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 3918471,
+            "y": -447892,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 4026705,
+            "y": -235471,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      }
+    ]
+  },
+  "physical_pin_mapping_verified": false,
+  "diagnostics": [
+    {
+      "code": "SYMBOL_TEXT_RENDERING",
+      "severity": "loss",
+      "message": "SIMPLEX replaces source fonts; source property anchors are used as native baselines. Justification, text styling and exact glyph bounds are not reproduced.",
+      "context": {}
+    },
+    {
+      "code": "TARGET_PIN_STROKE",
+      "severity": "assumption",
+      "message": "Pin stroke width is a declared conversion setting; the library has no resolved project pin stroke.",
+      "context": {
+        "width_mm": 0.254
+      }
+    },
+    {
+      "code": "SYMBOL_FOOTPRINT_UNRESOLVED",
+      "severity": "loss",
+      "message": "Native PART placeholder used; source footprint identifier/filters are retained in JSON.",
+      "context": {}
+    },
+    {
+      "code": "SOURCE_LINE_WIDTH_DEFAULT",
+      "severity": "assumption",
+      "message": "Zero source stroke resolves to declared default width.",
+      "context": {
+        "unit": 0,
+        "graphic": 0,
+        "width_mm": 0.254
+      }
+    },
+    {
+      "code": "SOURCE_LINE_WIDTH_DEFAULT",
+      "severity": "assumption",
+      "message": "Zero source stroke resolves to declared default width.",
+      "context": {
+        "unit": 0,
+        "graphic": 1,
+        "width_mm": 0.254
+      }
+    },
+    {
+      "code": "SYMBOL_PIN_MARKER_GRAPHICS",
+      "severity": "loss",
+      "message": "KiCad9 editor marker is emitted as non-electrical body strokes; native logical style, project sizing override, caps/joins and font layout are not transferred or GUI-verified.",
+      "context": {
+        "source_pin_number": "1",
+        "source_graphic_style": "inverted",
+        "source_body_nm": [
+          -2540000,
+          0
+        ],
+        "target_marker_body_nm": [
+          -2540000,
+          0
+        ],
+        "external_radius_nm": 762000,
+        "internal_radius_nm": 762000,
+        "source_geometry_profile": "kicad9-editor-pin-markers-v1",
+        "sizing_policy": "KiCad9 editor default m_PinSymbolSize=0; integer 100nm text heights / 2",
+        "electrical_style_transferred": false,
+        "gui_validated": false,
+        "center_mm": [
+          -3.302,
+          0.0
+        ],
+        "radius_mm": 0.762,
+        "max_centerline_error_mm": 0.01,
+        "curve_corners": 20,
+        "unit": 0,
+        "target_pin_polyline_index": 2,
+        "target_polyline_indices": [
+          3
+        ]
+      }
+    },
+    {
+      "code": "SYMBOL_PIN_MARKER_CURVE_APPROXIMATED",
+      "severity": "approximation",
+      "message": "Inversion bubble approximated by straight NM strokes with the declared centerline tolerance.",
+      "context": {
+        "source_pin_number": "1",
+        "source_graphic_style": "inverted",
+        "source_body_nm": [
+          -2540000,
+          0
+        ],
+        "target_marker_body_nm": [
+          -2540000,
+          0
+        ],
+        "external_radius_nm": 762000,
+        "internal_radius_nm": 762000,
+        "source_geometry_profile": "kicad9-editor-pin-markers-v1",
+        "sizing_policy": "KiCad9 editor default m_PinSymbolSize=0; integer 100nm text heights / 2",
+        "electrical_style_transferred": false,
+        "gui_validated": false,
+        "center_mm": [
+          -3.302,
+          0.0
+        ],
+        "radius_mm": 0.762,
+        "max_centerline_error_mm": 0.01,
+        "curve_corners": 20,
+        "unit": 0,
+        "target_pin_polyline_index": 2,
+        "target_polyline_indices": [
+          3
+        ]
+      }
+    },
+    {
+      "code": "SYMBOL_PIN_MARKER_GRAPHICS",
+      "severity": "loss",
+      "message": "KiCad9 editor marker is emitted as non-electrical body strokes; native logical style, project sizing override, caps/joins and font layout are not transferred or GUI-verified.",
+      "context": {
+        "source_pin_number": "2",
+        "source_graphic_style": "inverted",
+        "source_body_nm": [
+          2540000,
+          0
+        ],
+        "target_marker_body_nm": [
+          2540000,
+          0
+        ],
+        "external_radius_nm": 762000,
+        "internal_radius_nm": 762000,
+        "source_geometry_profile": "kicad9-editor-pin-markers-v1",
+        "sizing_policy": "KiCad9 editor default m_PinSymbolSize=0; integer 100nm text heights / 2",
+        "electrical_style_transferred": false,
+        "gui_validated": false,
+        "center_mm": [
+          3.302,
+          0.0
+        ],
+        "radius_mm": 0.762,
+        "max_centerline_error_mm": 0.01,
+        "curve_corners": 20,
+        "unit": 0,
+        "target_pin_polyline_index": 4,
+        "target_polyline_indices": [
+          5
+        ]
+      }
+    },
+    {
+      "code": "SYMBOL_PIN_MARKER_CURVE_APPROXIMATED",
+      "severity": "approximation",
+      "message": "Inversion bubble approximated by straight NM strokes with the declared centerline tolerance.",
+      "context": {
+        "source_pin_number": "2",
+        "source_graphic_style": "inverted",
+        "source_body_nm": [
+          2540000,
+          0
+        ],
+        "target_marker_body_nm": [
+          2540000,
+          0
+        ],
+        "external_radius_nm": 762000,
+        "internal_radius_nm": 762000,
+        "source_geometry_profile": "kicad9-editor-pin-markers-v1",
+        "sizing_policy": "KiCad9 editor default m_PinSymbolSize=0; integer 100nm text heights / 2",
+        "electrical_style_transferred": false,
+        "gui_validated": false,
+        "center_mm": [
+          3.302,
+          0.0
+        ],
+        "radius_mm": 0.762,
+        "max_centerline_error_mm": 0.01,
+        "curve_corners": 20,
+        "unit": 0,
+        "target_pin_polyline_index": 4,
+        "target_polyline_indices": [
+          5
+        ]
+      }
+    },
+    {
+      "code": "SYMBOL_ELECTRICAL_TYPE_NOT_TRANSFERRED",
+      "severity": "loss",
+      "message": "Source electrical types are retained in JSON only. The confirmed CDS profile stores a numbered connection endpoint and optional name, without KiCad electrical rules; input/output direction, drive constraints and ERC semantics are not transferred.",
+      "context": {
+        "source_electrical_types": {
+          "passive": 2
+        }
+      }
+    }
+  ],
+  "artifact_sha256": "a34af53948c4114857386ece75b74b5c6a549b431990cf49b0f9a4d4f655cd00",
+  "counts": {
+    "components": 1,
+    "pins": 2,
+    "polylines": 6,
+    "losses": 5,
+    "assumptions": 3,
+    "hidden_pins": 0,
+    "styled_pins": 2,
+    "approximations": 2
+  },
+  "pin_semantics": {
+    "electrical_rules_transferred": false,
+    "native_representation": "numbered layer-8 segment; body Node=0, external Node=1; optional layer-14 name",
+    "pins": [
+      {
+        "source_pin_number": "1",
+        "source_pin_name": "1",
+        "source_electrical_type": "passive",
+        "target_pin_number": "1",
+        "target_polyline_index": 2,
+        "connection_point_nm": [
+          -7620000,
+          0
+        ],
+        "source_hidden": false,
+        "source_graphic_style": "inverted",
+        "source_implicit_global_power": false,
+        "native_implicit_global_power_transferred": false,
+        "native_connectable": true,
+        "target_node_flags": [
+          0,
+          1
+        ],
+        "native_pin_visible": true
+      },
+      {
+        "source_pin_number": "2",
+        "source_pin_name": "2",
+        "source_electrical_type": "passive",
+        "target_pin_number": "2",
+        "target_polyline_index": 4,
+        "connection_point_nm": [
+          7620000,
+          0
+        ],
+        "source_hidden": false,
+        "source_graphic_style": "inverted",
+        "source_implicit_global_power": false,
+        "native_implicit_global_power_transferred": false,
+        "native_connectable": true,
+        "target_node_flags": [
+          0,
+          1
+        ],
+        "native_pin_visible": true
+      }
+    ],
+    "implicit_global_power_transferred": false
+  },
+  "pin_markers": [
+    {
+      "source_pin_number": "1",
+      "source_graphic_style": "inverted",
+      "source_body_nm": [
+        -2540000,
+        0
+      ],
+      "target_marker_body_nm": [
+        -2540000,
+        0
+      ],
+      "external_radius_nm": 762000,
+      "internal_radius_nm": 762000,
+      "source_geometry_profile": "kicad9-editor-pin-markers-v1",
+      "sizing_policy": "KiCad9 editor default m_PinSymbolSize=0; integer 100nm text heights / 2",
+      "electrical_style_transferred": false,
+      "gui_validated": false,
+      "center_mm": [
+        -3.302,
+        0.0
+      ],
+      "radius_mm": 0.762,
+      "max_centerline_error_mm": 0.01,
+      "curve_corners": 20,
+      "unit": 0,
+      "target_pin_polyline_index": 2,
+      "target_polyline_indices": [
+        3
+      ]
+    },
+    {
+      "source_pin_number": "2",
+      "source_graphic_style": "inverted",
+      "source_body_nm": [
+        2540000,
+        0
+      ],
+      "target_marker_body_nm": [
+        2540000,
+        0
+      ],
+      "external_radius_nm": 762000,
+      "internal_radius_nm": 762000,
+      "source_geometry_profile": "kicad9-editor-pin-markers-v1",
+      "sizing_policy": "KiCad9 editor default m_PinSymbolSize=0; integer 100nm text heights / 2",
+      "electrical_style_transferred": false,
+      "gui_validated": false,
+      "center_mm": [
+        3.302,
+        0.0
+      ],
+      "radius_mm": 0.762,
+      "max_centerline_error_mm": 0.01,
+      "curve_corners": 20,
+      "unit": 0,
+      "target_pin_polyline_index": 4,
+      "target_polyline_indices": [
+        5
+      ]
+    }
+  ],
+  "source": {
+    "path": "/Users/egorananev/Desktop/hse/1-2 курс/ПРОЕКТ/KiCad/Pickit-cache.lib",
+    "sha256": "2392caa9775ccf212837314970deee07105228d5070917c31d757d39af459b3d"
+  },
+  "output": "/Users/egorananev/Desktop/hse/1-2 курс/ПРОЕКТ/output/symbols/SW_PUSH_pins.cds"
+}

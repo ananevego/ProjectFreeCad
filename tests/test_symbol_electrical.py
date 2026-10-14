@@ -104,12 +104,11 @@ class SymbolElectricalTests(unittest.TestCase):
         self.assertEqual(report['proposed_artifact_sha256'],
                          hashlib.sha256(convert_symbol(modern(),'Base').cds.encode('cp1251')).hexdigest())
 
-    def test_power_and_no_connect_are_rejected_for_modern_and_legacy(self):
-        for kind,letter in [('power_in','W'),('power_out','w'),('no_connect','N')]:
-            for source,name in [(modern((kind,)),'Base'),
-                                (parse_library(legacy(f'X IN 1 -200 0 100 R 40 50 1 1 {letter}')),'Test')]:
-                with self.subTest(kind=kind,name=name),self.assertRaisesRegex(SymbolParseError,'unsupported electrical type'):
-                    convert_symbol(source,name)
+    def test_no_connect_is_rejected_by_default_for_modern_and_legacy(self):
+        for source,name in [(modern(('no_connect',)),'Base'),
+                            (parse_library(legacy('X IN 1 -200 0 100 R 40 50 1 1 N')),'Test')]:
+            with self.subTest(name=name),self.assertRaisesRegex(SymbolParseError,'no-connect cannot be enforced'):
+                convert_symbol(source,name)
 
     def test_unknown_type_is_rejected_after_typed_model_mutation(self):
         source=modern(('input',));source.symbols['Base'].pins_for()[0].electrical_type='future_type'
@@ -117,10 +116,10 @@ class SymbolElectricalTests(unittest.TestCase):
             convert_symbol(source,'Base')
 
     def test_nonpassive_hidden_shaped_and_alternate_pins_remain_rejected(self):
-        for attr,value in [('hidden',True),('graphic_style','clock'),
+        for attr,value in [('hidden',True),('graphic_style','future_style'),
                            ('alternates',[dict(name='ALT',electrical_type='output',graphic_style='line')])]:
             source=modern(('output',));setattr(source.symbols['Base'].pins_for()[0],attr,value)
-            with self.subTest(attr=attr),self.assertRaisesRegex(SymbolParseError,'only visible line'):
+            with self.subTest(attr=attr),self.assertRaisesRegex(SymbolParseError,'hidden pin|unsupported graphic style|alternate pin modes'):
                 convert_symbol(source,'Base')
 
     def test_legacy_type_codes_keep_number_function_and_external_point(self):

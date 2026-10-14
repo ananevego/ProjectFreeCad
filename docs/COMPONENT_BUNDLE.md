@@ -1,6 +1,6 @@
 # Связи компонентов и переносимый комплект
 
-Состояние на 2026-10-13: `src/component_converter` собирает библиотечные
+Состояние на 2026-10-14: `src/component_converter` собирает библиотечные
 связки УГО → footprint → существующий STL. Проверяются точные идентификаторы,
 номера выводов/площадок, записи созданных CDS/FPL и SHA256 копий моделей.
 Это проверка библиотечных связей, не перенос схемы Pickit или её netlist.
@@ -64,6 +64,13 @@ basename или похожие имена не используются для �
 polylines. Legacy resolution и его radius/endpoint losses учитываются
 отдельно. Curve controls/политика: [SYMBOL_CURVES.md](SYMBOL_CURVES.md).
 
+Опциональный `symbol_no_connect_policy` имеет значения `reject` (default) и
+`connectable-with-loss`. Explicit lossy режим действует на всю партию и
+сохраняет NC как обычные подключаемые numbered terminals с per-pin loss.
+Настройка проверяется до публикации и сохраняется в manifest; number mapping
+не подтверждает NC enforcement или перенос power/ERC rules.
+[Политика и контрольный комплект](SYMBOL_POWER.md).
+
 Опциональный `model_transform` на компоненте содержит ровно три вектора:
 `translation`, `rotation`, `scale`. Он задаёт **полную** target transform в
 mm/degrees/unitless и заменяет source transform, как в footprint API.
@@ -75,7 +82,8 @@ numbers, без удаления повторов внутри rendering или 
 номера. Такие повторы получают `ambiguous`; несовпадения — `unresolved` с
 missing/extra lists. Механические NPTH исключаются из электрического множества.
 Source номера в разных units разрешены, alternate styles должны иметь одинаковое
-физическое множество; native writer пока поддерживает только один unit.
+физическое множество; native writer разрешает disjoint multi-unit layout,
+но common/repeated pins отклоняет.
 Функции выводов, механическая пригодность корпуса и ERC этой проверкой не доказаны.
 
 ## Содержимое комплекта
@@ -195,3 +203,22 @@ Optional `symbol_unit_gap` задаёт X gap в mm, default2.54, positive on NM
 и <=100. Common/shared pins reject; source number identity mapping сохраняет
 прежние правила, native hierarchy/independent sections не подтверждаются.
 336 тестов; четыре старых bundles неизменны. [SYMBOL_UNITS.md](SYMBOL_UNITS.md).
+
+Партия `components/power.json`: LM393→DIP-8, MCP1525→SOT-23 и MCP601_8PIN→DIP-8.
+Явный `symbol_no_connect_policy=connectable-with-loss` нужен для NC 1/5/8
+последнего компонента; pin numbers сохраняются подключаемыми с loss.
+3 complete file chains, 2 existing assets (287168 source bytes), 15 package
+files с manifest. Повторная сборка, relocation и неизменность пяти предыдущих
+bundles проверены; source/physical functions, native GUI и 3D alignment
+не подтверждены. 23 новых теста, всего **359**; копия без STL/STEP проходит
+с 3 optional integration skips. [SYMBOL_POWER.md](SYMBOL_POWER.md).
+
+`symbol_hidden_pin_policy`: default `reject`, explicit `reveal-with-loss`
+сохраняет hidden physical pins видимыми и теряет implicit global nets.
+Партия `components/pins.json`: 5 chains/3 assets/553052 source bytes/23 files;
+number identity и relocation проверены. [SYMBOL_PINS.md](SYMBOL_PINS.md).
+
+`symbol_common_pin_policy`: default `reject`, explicit `common-view-with-loss`
+сохраняет original unit=0 pins один раз в дополнительной view одного component.
+Repeated records остаются отказом. `components/common.json`: 3 chains/3 assets/
+466152 bytes/17 files, все source-property mappings. [SYMBOL_COMMON.md](SYMBOL_COMMON.md).

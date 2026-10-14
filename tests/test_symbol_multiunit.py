@@ -219,9 +219,9 @@ class SymbolMultiUnitTests(unittest.TestCase):
         self.assertEqual((result.report['counts']['source_units'],result.report['counts']['pins']),(2,6))
         self.assertEqual(len(result.report['filled_graphics']),2)
 
-    def test_power_and_common_real_units_reject_instead_of_partial_conversion(self):
+    def test_power_unit_is_included_and_common_real_units_still_reject(self):
         comparator=parse_library((FIXTURES/'symbols/Comparator.kicad_sym').read_text())
-        with self.assertRaisesRegex(SymbolParseError,'unsupported electrical type'):convert_symbol(comparator,'LM393')
+        self.assertEqual(convert_symbol(comparator,'LM393').report['counts']['power_pins'],2)
         with self.assertRaisesRegex(SymbolParseError,'common pins'):convert_symbol(self.device,'D_Dual_CommonAnode_AKK_Split')
 
     def test_saved_multiunit_controls_and_pinned_footprints_are_reproducible(self):
@@ -240,12 +240,17 @@ class SymbolMultiUnitTests(unittest.TestCase):
     def test_all_previous_single_unit_controls_keep_native_and_report_bytes(self):
         cache=parse_library((PROJECT/'KiCad/Pickit-cache.lib').read_text())
         connector=parse_library((FIXTURES/'symbols/Connector.kicad_sym').read_text())
-        libs=[cache,self.device,connector]
+        comparator=parse_library((FIXTURES/'symbols/Comparator.kicad_sym').read_text())
+        gates=parse_library((FIXTURES/'symbols/74xGxx.kicad_sym').read_text())
+        libs=[cache,self.device,connector,comparator,gates]
         for path in (PROJECT/'output/symbols').glob('*.cds'):
             if path.name.endswith('_units.cds'):continue
             old=json.loads(path.with_suffix('.report.json').read_text());name=old['source_symbol']['name']
+            if old['source_symbol']['unit_count']!=1:continue
             lib=next(lib for lib in libs if lib.source_format==old['source_format'] and (name in lib.symbols or name in lib.aliases))
-            result=convert_symbol(lib,name,project_name=path.name)
+            result=convert_symbol(lib,name,project_name=path.name,
+                no_connect_policy=old['conversion_settings'].get('no_connect_policy','reject'),
+                hidden_pin_policy=old['conversion_settings'].get('hidden_pin_policy','reject'))
             self.assertEqual(result.cds.encode('cp1251'),path.read_bytes(),path.name)
             self.assertEqual(json.loads(json.dumps(result.report)),{k:v for k,v in old.items() if k not in ('source','output')},path.name)
 

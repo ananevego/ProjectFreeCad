@@ -1,0 +1,194 @@
+{
+  "bundle": "output/components/pins",
+  "components": [
+    {
+      "chain_complete": true,
+      "footprint": "components/c_Clock5_5b3e2fd2a363e205/footprint.fpl",
+      "hidden_pins": 0,
+      "id": "Clock5",
+      "pin_numbers": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "source": {
+        "footprint_identifier": "Package_TO_SOT_SMD:SOT-23-5",
+        "footprint_sha256": "455a3f7c3e5eb5b8847eaa5df23e18651e78ab9f75afd09a0883758a0d901761",
+        "selection": "explicit_config",
+        "source_footprint_property": "",
+        "symbol": "74LVC1G79",
+        "symbol_library": "../symbols/74xGxx.kicad_sym",
+        "symbol_library_sha256": "daa0c2b0ed7f39dd63833dac8721d621c97b12179b72d1157e7de7125ac08a8a"
+      },
+      "source_target_mapping_verified": true,
+      "source_units": 1,
+      "styled_pins": 1,
+      "symbol": "components/c_Clock5_5b3e2fd2a363e205/symbol.cds"
+    },
+    {
+      "chain_complete": true,
+      "footprint": "components/c_DualClock8_53ac1c9b9c1c7450/footprint.fpl",
+      "hidden_pins": 0,
+      "id": "DualClock8",
+      "pin_numbers": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      "source": {
+        "footprint_identifier": "Package_DIP:DIP-8_W7.62mm",
+        "footprint_sha256": "222fb44370968119abbd978176814cc43a71bc32ac2de275d8a3c418c0830fc6",
+        "selection": "explicit_config",
+        "source_footprint_property": "",
+        "symbol": "74LVC2G79",
+        "symbol_library": "../symbols/74xGxx.kicad_sym",
+        "symbol_library_sha256": "daa0c2b0ed7f39dd63833dac8721d621c97b12179b72d1157e7de7125ac08a8a"
+      },
+      "source_target_mapping_verified": true,
+      "source_units": 3,
+      "styled_pins": 2,
+      "symbol": "components/c_DualClock8_53ac1c9b9c1c7450/symbol.cds"
+    },
+    {
+      "chain_complete": true,
+      "footprint": "components/c_Hidden5_26b4cc09f9280c8a/footprint.fpl",
+      "hidden_pins": 1,
+      "id": "Hidden5",
+      "pin_numbers": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "source": {
+        "footprint_identifier": "Package_TO_SOT_SMD:SOT-23-5",
+        "footprint_sha256": "455a3f7c3e5eb5b8847eaa5df23e18651e78ab9f75afd09a0883758a0d901761",
+        "selection": "explicit_config",
+        "source_footprint_property": "Package_TO_SOT_SMD:SOT-353_SC-70-5",
+        "symbol": "MIC845H",
+        "symbol_library": "../symbols/Comparator.kicad_sym",
+        "symbol_library_sha256": "7edcabe434cc8fe34d8c773483ab1ac5019829cf07836397c1689e7c3a3503bc"
+      },
+      "source_target_mapping_verified": true,
+      "source_units": 1,
+      "styled_pins": 0,
+      "symbol": "components/c_Hidden5_26b4cc09f9280c8a/symbol.cds"
+    },
+    {
+      "chain_complete": true,
+      "footprint": "components/c_Hidden6_a2290aba12d2b621/footprint.fpl",
+      "hidden_pins": 2,
+      "id": "Hidden6",
+      "pin_numbers": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "source": {
+        "footprint_identifier": "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical",
+        "footprint_sha256": "5f2993c50dbd5024384bf6fa972fcd10d40d0837039e1e371b326a27d9f5b8b7",
+        "selection": "explicit_config",
+        "source_footprint_property": "",
+        "symbol": "AVR-PDI-6",
+        "symbol_library": "../symbols/Connector.kicad_sym",
+        "symbol_library_sha256": "f3820e341582909b9489769c3b32dcf613e205057a8b2b66f889cdb0b1b0473a"
+      },
+      "source_target_mapping_verified": true,
+      "source_units": 1,
+      "styled_pins": 0,
+      "symbol": "components/c_Hidden6_a2290aba12d2b621/symbol.cds"
+    },
+    {
+      "chain_complete": true,
+      "footprint": "components/c_Inverted5_23d3a089b4c41b8c/footprint.fpl",
+      "hidden_pins": 0,
+      "id": "Inverted5",
+      "pin_numbers": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "source": {
+        "footprint_identifier": "Package_TO_SOT_SMD:SOT-23-5",
+        "footprint_sha256": "455a3f7c3e5eb5b8847eaa5df23e18651e78ab9f75afd09a0883758a0d901761",
+        "selection": "explicit_config",
+        "source_footprint_property": "",
+        "symbol": "74LVC1G125",
+        "symbol_library": "../symbols/74xGxx.kicad_sym",
+        "symbol_library_sha256": "daa0c2b0ed7f39dd63833dac8721d621c97b12179b72d1157e7de7125ac08a8a"
+      },
+      "source_target_mapping_verified": true,
+      "source_units": 1,
+      "styled_pins": 1,
+      "symbol": "components/c_Inverted5_23d3a089b4c41b8c/symbol.cds"
+    }
+  ],
+  "electrical_style_transferred": false,
+  "gui_validated": false,
+  "implicit_global_power_transferred": false,
+  "kind": "symbol_pin_graphics_control_summary",
+  "manifest_sha256": "0a5407cfc53888e2a184fa298b39ab05d9f3e1c1f94ffb6a59d648a172c96f03",
+  "model_geometry_validated": false,
+  "models": [
+    {
+      "bytes": 258184,
+      "canonical_path": "models/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x06_P2.54mm_Vertical.stl",
+      "frame_validated": false,
+      "import_basename": "mdl_Connector_PinHeader_2.54mm.3dshapes_PinHeader_1x06_P2.54mm_V_8bd87857e511204a.stl",
+      "runtime_path": "openscad_models/Bundle.3dshapes/mdl_Connector_PinHeader_2.54mm.3dshapes_PinHeader_1x06_P2.54mm_V_8bd87857e511204a.stl",
+      "sha256": "0ce7ac295621dba994dcdb549dd436c7ca28466aae7dad82ad1d45934f505dc1",
+      "source_relative": "Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x06_P2.54mm_Vertical.stl"
+    },
+    {
+      "bytes": 250484,
+      "canonical_path": "models/Package_DIP.3dshapes/DIP-8_W7.62mm.stl",
+      "frame_validated": false,
+      "import_basename": "mdl_Package_DIP.3dshapes_DIP-8_W7.62mm_31cca7f26b74f516.stl",
+      "runtime_path": "openscad_models/Bundle.3dshapes/mdl_Package_DIP.3dshapes_DIP-8_W7.62mm_31cca7f26b74f516.stl",
+      "sha256": "9ce840ed4fcff379271f7300115728fff58e1868ad676ce9d62ccafed5cfdce8",
+      "source_relative": "Package_DIP.3dshapes/DIP-8_W7.62mm.stl"
+    },
+    {
+      "bytes": 44384,
+      "canonical_path": "models/Package_TO_SOT_SMD.3dshapes/SOT-23-5.stl",
+      "frame_validated": false,
+      "import_basename": "mdl_Package_TO_SOT_SMD.3dshapes_SOT-23-5_bc14922ffd39e0ca.stl",
+      "runtime_path": "openscad_models/Bundle.3dshapes/mdl_Package_TO_SOT_SMD.3dshapes_SOT-23-5_bc14922ffd39e0ca.stl",
+      "sha256": "fba5277f3bfa3c2a500350ddaf23f568ac97586b07c12b9f402849d3dcfc1507",
+      "source_relative": "Package_TO_SOT_SMD.3dshapes/SOT-23-5.stl"
+    }
+  ],
+  "native_import_verified": false,
+  "schema_version": 1,
+  "settings": {
+    "allow_missing_models": false,
+    "aperture_defaults": {
+      "mask_margin": 0.05,
+      "paste_margin": 0,
+      "paste_ratio": 0
+    },
+    "strict": false,
+    "symbol_hidden_pin_policy": "reveal-with-loss",
+    "symbol_no_connect_policy": "connectable-with-loss"
+  },
+  "summary": {
+    "complete_chains": 5,
+    "generated_components": 5,
+    "generated_with_loss": 5,
+    "models": 3,
+    "total": 5
+  }
+}

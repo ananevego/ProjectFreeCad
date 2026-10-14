@@ -39,7 +39,8 @@ def pin_mapping(symbol: Symbol, footprint: Footprint) -> dict:
 
     Shared numbers across separate units are allowed by the source format.
     Alternate body styles must describe the same set of physical numbers.
-    Native generation has a stricter disjoint-unit profile: shared pins reject.
+    Native generation defaults to disjoint units; original unit-0 pins may
+    use an explicit common-view policy. Cross-unit repeated records reject.
     """
     if not 1 <= symbol.unit_count <= 256:
         raise LinkError('failed', 'SYMBOL_UNIT_LIMIT', 'Mapping unit count outside profile limit')

@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "kind": "symbol_pin_graphics_source_research",
+  "source_profile": "kicad9-editor-pin-markers-v1",
+  "native_profile": "schemator-cds-straight-v1",
+  "gui_validated": false,
+  "implicit_global_power_transferred": false,
+  "electrical_style_transferred": false,
+  "conclusion_scope": "Markers follow KiCad9 SCH_PAINTER screen rendering in source Y-up coordinates, using text-height-derived default sizes with m_PinSymbolSize=0. The plotter uses different clock triangles. Decorations are native layer-6 body strokes without electrical nodes; one numbered layer-8 segment retains the external source endpoint. Hidden pins default reject; explicit reveal mode loses visibility and implicit global-power name connections. NC needs its independent explicit policy; alternate modes, stacked terminals and styled NC remain rejected.",
+  "files": [
+    {
+      "path": "eeschema/sch_pin.cpp",
+      "sha256": "47acab3c54afb49b1703b139fbc768e4b7f78678a0099717bcfe8c8b863fc17c",
+      "bytes": 72998,
+      "url": "https://github.com/KiCad/kicad-source-mirror/blob/9.0.0/eeschema/sch_pin.cpp",
+      "line_anchors": [
+        73,
+        87,
+        364,
+        1068,
+        1102
+      ]
+    },
+    {
+      "path": "eeschema/sch_painter.cpp",
+      "sha256": "fd1d53bc563e403917285b3509a1d1ce6ea9f40b0b65b330d93c3101e63c4826",
+      "bytes": 100082,
+      "url": "https://github.com/KiCad/kicad-source-mirror/blob/9.0.0/eeschema/sch_painter.cpp",
+      "line_anchors": [
+        713,
+        729,
+        862,
+        944,
+        964,
+        969,
+        981,
+        1000,
+        1016,
+        1047
+      ]
+    }
+  ]
+}

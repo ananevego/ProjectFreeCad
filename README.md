@@ -12,9 +12,9 @@ MountingHole NPTH, SOT-23 и численные
 D_SOD-123, пакетный CLI, исходный parser УГО и минимальный writer Схематора;
 добавлен сборщик связей и переносимого комплекта, окружности/дуги УГО
 и профиль обычных электрических типов выводов, простой заливки и текста;
-добавлен disjoint multi-unit layout; проходят 336 тестов.
+добавлены disjoint multi-unit layout и power/NC policy; проходят 398 тестов.
 Source parser читает `.kicad_sym` и старые `.lib`, сохраняя pins/units/inheritance.
-Writer создаёт `.cds` для односекционных R/C/connector и составных resistor packs. Проверена цепочка
+Writer создаёт `.cds` для R/C/connector, составных resistor packs и физических компонентов с power pins. Проверена цепочка
 symbol → footprint → существующий STL на трёх controls; GUI и физическое
 совмещение 3D ещё впереди.
 
@@ -43,9 +43,9 @@ python3 -B -m src.symbol_converter.write KiCad/Pickit-cache.lib \
 
 Отдельный CLI создаёт один компонент `.cds` 1.429 (CP1251) и JSON losses.
 Поддержаны видимые прямые pins девяти обычных electrical types и
-rectangles/polylines/circles/arcs одного unit, ограниченная foreground
-заливка и literal body text;
-Power/shared units, native hierarchy и неподдерживаемая графика остаются ограничениями.
+rectangles/polylines/circles/arcs, ограниченная foreground
+заливка и literal body text, disjoint units и power terminals.
+Повторяющиеся pin records, native hierarchy и неподдерживаемая графика остаются ограничениями.
 Сохранены R/C/CONN_01X06 controls. Контракт ограниченного профиля проверен по
 исходникам и реальной записи R3; отдельный reader проверяет emitted records.
 Загрузка и connectivity в Схематоре пока не подтверждены.
@@ -60,7 +60,7 @@ endpoint changes. Правила: [SYMBOL_CURVES.md](docs/SYMBOL_CURVES.md).
 
 Input/output/bidirectional/tri_state и другие обычные типы передаются как
 нумерованные endpoints с явной потерей ERC; source types остаются в JSON.
-Power/no-connect/hidden/styled/alternate pins пока отклоняются. Добавлены
+Alternate pins пока отклоняются. Добавлены
 пять реальных УГО и две linked chains SCR/Speaker с готовыми STL.
 Профиль, отчёты и команды: [SYMBOL_ELECTRICAL.md](docs/SYMBOL_ELECTRICAL.md).
 
@@ -72,9 +72,26 @@ linked chains diode/meter. [Правила и проверки](docs/SYMBOL_BODY
 
 2–16 секций с disjoint physical numbers размещаются рядом в одном native
 component; independent placement/unit suffixes имеют explicit loss. Common
-graphics повторяются, shared/common pins отклоняются. `--unit-gap` default
+graphics повторяются; original common pins требуют явного режима отдельной view. `--unit-gap` default
 2.54 mm; пять real controls и три array/SIP chains проверены. Native merge/
 hierarchy не генерируется. [Профиль и ограничения](docs/SYMBOL_UNITS.md).
+
+Power_in/power_out передаются как нумерованные terminals с явной потерей
+power/ERC rules. No-connect по умолчанию отклоняется; явный
+`--no-connect-policy connectable-with-loss` сохраняет NC как подключаемый pin
+с отдельной диагностикой. Power sections LM393 и шесть real controls проверены;
+три chains DIP-8/SOT-23 используют два существующих STL. Native запрет NC
+не реализован. [Политика и источники](docs/SYMBOL_POWER.md).
+
+Inverted/clock и другие pin markers переносятся отдельной body graphics.
+Hidden pins default reject; `--hidden-pin-policy reveal-with-loss` раскрывает
+terminals с потерей visibility/implicit global nets. Шесть real controls и
+пять chains проверены. [Профиль и ограничения](docs/SYMBOL_PINS.md).
+
+Original unit=0 pins при `--common-pin-policy common-view-with-loss`
+размещаются один раз в отдельной view того же component. Четыре real networks
+и три source-property SIP chains проверены; повторяющиеся source records
+отклоняются. [Политика и проверки](docs/SYMBOL_COMMON.md).
 
 ## Связи и переносимый комплект
 

@@ -1,0 +1,2015 @@
+{
+  "schema_version": 1,
+  "kind": "schemator_symbol_conversion",
+  "status": "generated_with_loss",
+  "target": {
+    "repository": "niconson/Schematic-Constructor",
+    "revision": "e7443c374f5c8644fb3483f794a50161de60dd01",
+    "version": "1.429",
+    "profile": "schemator-cds-straight-v1",
+    "encoding": "cp1251",
+    "coordinates": "nanometres, Y up; each source unit translated by its declared integer-NM offset",
+    "text_angle_rule": "negative source angle modulo 360",
+    "source_units_profile": "common-pins-view-v1",
+    "source_pin_profile": "visible-line-electrical-v1"
+  },
+  "contract_verified_against_source": true,
+  "target_records_validated": true,
+  "target_output_generated": true,
+  "target_import_verified": false,
+  "gui_validated": false,
+  "source_format": "kicad_sym",
+  "source_version": "20241209",
+  "source_symbol": {
+    "name": "R_Network04_Split",
+    "properties": {
+      "Reference": {
+        "name": "Reference",
+        "value": "RN",
+        "at": [
+          2.032,
+          0.0,
+          90.0
+        ],
+        "hidden": false,
+        "raw": [
+          "property",
+          "Reference",
+          "RN",
+          [
+            "at",
+            "2.032",
+            "0",
+            "90"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ]
+          ]
+        ]
+      },
+      "Value": {
+        "name": "Value",
+        "value": "R_Network04_Split",
+        "at": [
+          0.0,
+          0.0,
+          90.0
+        ],
+        "hidden": false,
+        "raw": [
+          "property",
+          "Value",
+          "R_Network04_Split",
+          [
+            "at",
+            "0",
+            "0",
+            "90"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ]
+          ]
+        ]
+      },
+      "Footprint": {
+        "name": "Footprint",
+        "value": "Resistor_THT:R_Array_SIP5",
+        "at": [
+          -2.032,
+          0.0,
+          90.0
+        ],
+        "hidden": true,
+        "raw": [
+          "property",
+          "Footprint",
+          "Resistor_THT:R_Array_SIP5",
+          [
+            "at",
+            "-2.032",
+            "0",
+            "90"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ],
+            [
+              "hide",
+              "yes"
+            ]
+          ]
+        ]
+      },
+      "Datasheet": {
+        "name": "Datasheet",
+        "value": "http://www.vishay.com/docs/31509/csc.pdf",
+        "at": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "hidden": true,
+        "raw": [
+          "property",
+          "Datasheet",
+          "http://www.vishay.com/docs/31509/csc.pdf",
+          [
+            "at",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ],
+            [
+              "hide",
+              "yes"
+            ]
+          ]
+        ]
+      },
+      "Description": {
+        "name": "Description",
+        "value": "4 resistor network, star topology, bussed resistors, split",
+        "at": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "hidden": true,
+        "raw": [
+          "property",
+          "Description",
+          "4 resistor network, star topology, bussed resistors, split",
+          [
+            "at",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ],
+            [
+              "hide",
+              "yes"
+            ]
+          ]
+        ]
+      },
+      "ki_keywords": {
+        "name": "ki_keywords",
+        "value": "R network star-topology",
+        "at": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "hidden": true,
+        "raw": [
+          "property",
+          "ki_keywords",
+          "R network star-topology",
+          [
+            "at",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ],
+            [
+              "hide",
+              "yes"
+            ]
+          ]
+        ]
+      },
+      "ki_fp_filters": {
+        "name": "ki_fp_filters",
+        "value": "R?Array?SIP*",
+        "at": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "hidden": true,
+        "raw": [
+          "property",
+          "ki_fp_filters",
+          "R?Array?SIP*",
+          [
+            "at",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ],
+            [
+              "hide",
+              "yes"
+            ]
+          ]
+        ]
+      }
+    },
+    "units": [
+      {
+        "number": 0,
+        "style": 1,
+        "source_id": "R_Network04_Split_0_1",
+        "display_name": null,
+        "pins": [
+          {
+            "number": "1",
+            "name": "R1",
+            "at": [
+              0.0,
+              3.81,
+              270.0
+            ],
+            "length": 1.27,
+            "electrical_type": "passive",
+            "graphic_style": "line",
+            "hidden": false,
+            "name_size": [
+              1.27,
+              1.27
+            ],
+            "number_size": [
+              1.27,
+              1.27
+            ],
+            "alternates": [],
+            "raw": [
+              "pin",
+              "passive",
+              "line",
+              [
+                "at",
+                "0",
+                "3.81",
+                "270"
+              ],
+              [
+                "length",
+                "1.27"
+              ],
+              [
+                "name",
+                "R1",
+                [
+                  "effects",
+                  [
+                    "font",
+                    [
+                      "size",
+                      "1.27",
+                      "1.27"
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "number",
+                "1",
+                [
+                  "effects",
+                  [
+                    "font",
+                    [
+                      "size",
+                      "1.27",
+                      "1.27"
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          }
+        ],
+        "graphics": [
+          {
+            "kind": "rectangle",
+            "geometry": {
+              "start": [
+                1.016,
+                2.54
+              ],
+              "end": [
+                -1.016,
+                -2.54
+              ]
+            },
+            "width": 0.254,
+            "fill": "none",
+            "raw": [
+              "rectangle",
+              [
+                "start",
+                "1.016",
+                "2.54"
+              ],
+              [
+                "end",
+                "-1.016",
+                "-2.54"
+              ],
+              [
+                "stroke",
+                [
+                  "width",
+                  "0.254"
+                ],
+                [
+                  "type",
+                  "default"
+                ]
+              ],
+              [
+                "fill",
+                [
+                  "type",
+                  "none"
+                ]
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "number": 1,
+        "style": 1,
+        "source_id": "R_Network04_Split_1_1",
+        "display_name": null,
+        "pins": [
+          {
+            "number": "2",
+            "name": "R1.2",
+            "at": [
+              0.0,
+              -3.81,
+              90.0
+            ],
+            "length": 1.27,
+            "electrical_type": "passive",
+            "graphic_style": "line",
+            "hidden": false,
+            "name_size": [
+              1.27,
+              1.27
+            ],
+            "number_size": [
+              1.27,
+              1.27
+            ],
+            "alternates": [],
+            "raw": [
+              "pin",
+              "passive",
+              "line",
+              [
+                "at",
+                "0",
+                "-3.81",
+                "90"
+              ],
+              [
+                "length",
+                "1.27"
+              ],
+              [
+                "name",
+                "R1.2",
+                [
+                  "effects",
+                  [
+                    "font",
+                    [
+                      "size",
+                      "1.27",
+                      "1.27"
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "number",
+                "2",
+                [
+                  "effects",
+                  [
+                    "font",
+                    [
+                      "size",
+                      "1.27",
+                      "1.27"
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          }
+        ],
+        "graphics": []
+      },
+      {
+        "number": 2,
+        "style": 1,
+        "source_id": "R_Network04_Split_2_1",
+        "display_name": null,
+        "pins": [
+          {
+            "number": "3",
+            "name": "R2.2",
+            "at": [
+              0.0,
+              -3.81,
+              90.0
+            ],
+            "length": 1.27,
+            "electrical_type": "passive",
+            "graphic_style": "line",
+            "hidden": false,
+            "name_size": [
+              1.27,
+              1.27
+            ],
+            "number_size": [
+              1.27,
+              1.27
+            ],
+            "alternates": [],
+            "raw": [
+              "pin",
+              "passive",
+              "line",
+              [
+                "at",
+                "0",
+                "-3.81",
+                "90"
+              ],
+              [
+                "length",
+                "1.27"
+              ],
+              [
+                "name",
+                "R2.2",
+                [
+                  "effects",
+                  [
+                    "font",
+                    [
+                      "size",
+                      "1.27",
+                      "1.27"
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "number",
+                "3",
+                [
+                  "effects",
+                  [
+                    "font",
+                    [
+                      "size",
+                      "1.27",
+                      "1.27"
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          }
+        ],
+        "graphics": []
+      },
+      {
+        "number": 3,
+        "style": 1,
+        "source_id": "R_Network04_Split_3_1",
+        "display_name": null,
+        "pins": [
+          {
+            "number": "4",
+            "name": "R3.2",
+            "at": [
+              0.0,
+              -3.81,
+              90.0
+            ],
+            "length": 1.27,
+            "electrical_type": "passive",
+            "graphic_style": "line",
+            "hidden": false,
+            "name_size": [
+              1.27,
+              1.27
+            ],
+            "number_size": [
+              1.27,
+              1.27
+            ],
+            "alternates": [],
+            "raw": [
+              "pin",
+              "passive",
+              "line",
+              [
+                "at",
+                "0",
+                "-3.81",
+                "90"
+              ],
+              [
+                "length",
+                "1.27"
+              ],
+              [
+                "name",
+                "R3.2",
+                [
+                  "effects",
+                  [
+                    "font",
+                    [
+                      "size",
+                      "1.27",
+                      "1.27"
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "number",
+                "4",
+                [
+                  "effects",
+                  [
+                    "font",
+                    [
+                      "size",
+                      "1.27",
+                      "1.27"
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          }
+        ],
+        "graphics": []
+      },
+      {
+        "number": 4,
+        "style": 1,
+        "source_id": "R_Network04_Split_4_1",
+        "display_name": null,
+        "pins": [
+          {
+            "number": "5",
+            "name": "R4.2",
+            "at": [
+              0.0,
+              -3.81,
+              90.0
+            ],
+            "length": 1.27,
+            "electrical_type": "passive",
+            "graphic_style": "line",
+            "hidden": false,
+            "name_size": [
+              1.27,
+              1.27
+            ],
+            "number_size": [
+              1.27,
+              1.27
+            ],
+            "alternates": [],
+            "raw": [
+              "pin",
+              "passive",
+              "line",
+              [
+                "at",
+                "0",
+                "-3.81",
+                "90"
+              ],
+              [
+                "length",
+                "1.27"
+              ],
+              [
+                "name",
+                "R4.2",
+                [
+                  "effects",
+                  [
+                    "font",
+                    [
+                      "size",
+                      "1.27",
+                      "1.27"
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "number",
+                "5",
+                [
+                  "effects",
+                  [
+                    "font",
+                    [
+                      "size",
+                      "1.27",
+                      "1.27"
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          }
+        ],
+        "graphics": []
+      }
+    ],
+    "extends": null,
+    "inheritance_chain": [],
+    "aliases": [],
+    "alias_of": null,
+    "unit_count": 4,
+    "pin_names_hidden": true,
+    "pin_numbers_hidden": false,
+    "pin_name_offset": 0.0,
+    "in_bom": true,
+    "on_board": true,
+    "power": false,
+    "diagnostics": [],
+    "raw": [
+      "symbol",
+      "R_Network04_Split",
+      [
+        "pin_names",
+        [
+          "offset",
+          "0"
+        ],
+        [
+          "hide",
+          "yes"
+        ]
+      ],
+      [
+        "exclude_from_sim",
+        "no"
+      ],
+      [
+        "in_bom",
+        "yes"
+      ],
+      [
+        "on_board",
+        "yes"
+      ],
+      [
+        "property",
+        "Reference",
+        "RN",
+        [
+          "at",
+          "2.032",
+          "0",
+          "90"
+        ],
+        [
+          "effects",
+          [
+            "font",
+            [
+              "size",
+              "1.27",
+              "1.27"
+            ]
+          ]
+        ]
+      ],
+      [
+        "property",
+        "Value",
+        "R_Network04_Split",
+        [
+          "at",
+          "0",
+          "0",
+          "90"
+        ],
+        [
+          "effects",
+          [
+            "font",
+            [
+              "size",
+              "1.27",
+              "1.27"
+            ]
+          ]
+        ]
+      ],
+      [
+        "property",
+        "Footprint",
+        "Resistor_THT:R_Array_SIP5",
+        [
+          "at",
+          "-2.032",
+          "0",
+          "90"
+        ],
+        [
+          "effects",
+          [
+            "font",
+            [
+              "size",
+              "1.27",
+              "1.27"
+            ]
+          ],
+          [
+            "hide",
+            "yes"
+          ]
+        ]
+      ],
+      [
+        "property",
+        "Datasheet",
+        "http://www.vishay.com/docs/31509/csc.pdf",
+        [
+          "at",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "effects",
+          [
+            "font",
+            [
+              "size",
+              "1.27",
+              "1.27"
+            ]
+          ],
+          [
+            "hide",
+            "yes"
+          ]
+        ]
+      ],
+      [
+        "property",
+        "Description",
+        "4 resistor network, star topology, bussed resistors, split",
+        [
+          "at",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "effects",
+          [
+            "font",
+            [
+              "size",
+              "1.27",
+              "1.27"
+            ]
+          ],
+          [
+            "hide",
+            "yes"
+          ]
+        ]
+      ],
+      [
+        "property",
+        "ki_keywords",
+        "R network star-topology",
+        [
+          "at",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "effects",
+          [
+            "font",
+            [
+              "size",
+              "1.27",
+              "1.27"
+            ]
+          ],
+          [
+            "hide",
+            "yes"
+          ]
+        ]
+      ],
+      [
+        "property",
+        "ki_fp_filters",
+        "R?Array?SIP*",
+        [
+          "at",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "effects",
+          [
+            "font",
+            [
+              "size",
+              "1.27",
+              "1.27"
+            ]
+          ],
+          [
+            "hide",
+            "yes"
+          ]
+        ]
+      ],
+      [
+        "symbol",
+        "R_Network04_Split_0_1",
+        [
+          "rectangle",
+          [
+            "start",
+            "1.016",
+            "2.54"
+          ],
+          [
+            "end",
+            "-1.016",
+            "-2.54"
+          ],
+          [
+            "stroke",
+            [
+              "width",
+              "0.254"
+            ],
+            [
+              "type",
+              "default"
+            ]
+          ],
+          [
+            "fill",
+            [
+              "type",
+              "none"
+            ]
+          ]
+        ],
+        [
+          "pin",
+          "passive",
+          "line",
+          [
+            "at",
+            "0",
+            "3.81",
+            "270"
+          ],
+          [
+            "length",
+            "1.27"
+          ],
+          [
+            "name",
+            "R1",
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ]
+            ]
+          ],
+          [
+            "number",
+            "1",
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ]
+            ]
+          ]
+        ]
+      ],
+      [
+        "symbol",
+        "R_Network04_Split_1_1",
+        [
+          "pin",
+          "passive",
+          "line",
+          [
+            "at",
+            "0",
+            "-3.81",
+            "90"
+          ],
+          [
+            "length",
+            "1.27"
+          ],
+          [
+            "name",
+            "R1.2",
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ]
+            ]
+          ],
+          [
+            "number",
+            "2",
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ]
+            ]
+          ]
+        ]
+      ],
+      [
+        "symbol",
+        "R_Network04_Split_2_1",
+        [
+          "pin",
+          "passive",
+          "line",
+          [
+            "at",
+            "0",
+            "-3.81",
+            "90"
+          ],
+          [
+            "length",
+            "1.27"
+          ],
+          [
+            "name",
+            "R2.2",
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ]
+            ]
+          ],
+          [
+            "number",
+            "3",
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ]
+            ]
+          ]
+        ]
+      ],
+      [
+        "symbol",
+        "R_Network04_Split_3_1",
+        [
+          "pin",
+          "passive",
+          "line",
+          [
+            "at",
+            "0",
+            "-3.81",
+            "90"
+          ],
+          [
+            "length",
+            "1.27"
+          ],
+          [
+            "name",
+            "R3.2",
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ]
+            ]
+          ],
+          [
+            "number",
+            "4",
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ]
+            ]
+          ]
+        ]
+      ],
+      [
+        "symbol",
+        "R_Network04_Split_4_1",
+        [
+          "pin",
+          "passive",
+          "line",
+          [
+            "at",
+            "0",
+            "-3.81",
+            "90"
+          ],
+          [
+            "length",
+            "1.27"
+          ],
+          [
+            "name",
+            "R4.2",
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ]
+            ]
+          ],
+          [
+            "number",
+            "5",
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ]
+            ]
+          ]
+        ]
+      ],
+      [
+        "embedded_fonts",
+        "no"
+      ]
+    ]
+  },
+  "conversion_settings": {
+    "footprint_name": null,
+    "reference": "RN1",
+    "project_name": "R_Network04_Split_common.cds",
+    "default_line_width_mm": 0.254,
+    "pin_width_mm": 0.254,
+    "unit_gap_mm": 2.54,
+    "common_pin_policy": "common-view-with-loss"
+  },
+  "target_component": {
+    "pin_count": 5,
+    "bounds": [
+      -1168400,
+      -3962400,
+      18643600,
+      3962400
+    ],
+    "reference": {
+      "value": "RN1",
+      "x": 2032000,
+      "y": 0,
+      "layer": 7,
+      "angle": 270,
+      "size": 1270000,
+      "width": 127000,
+      "merge": -1,
+      "submerge": -1,
+      "font": 2,
+      "options": 1
+    },
+    "value": {
+      "value": "R_Network04_Split",
+      "x": 0,
+      "y": 0,
+      "layer": 13,
+      "angle": 270,
+      "size": 1270000,
+      "width": 127000,
+      "merge": -1,
+      "submerge": -1,
+      "font": 2,
+      "options": 1
+    },
+    "footprint": {
+      "value": "PART",
+      "x": 0,
+      "y": 0,
+      "layer": 12,
+      "angle": 0,
+      "size": 0,
+      "width": 0,
+      "merge": -1,
+      "submerge": -1,
+      "font": 2,
+      "options": 1
+    },
+    "polylines": [
+      {
+        "closed": true,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": 1016000,
+            "y": 2540000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -1016000,
+            "y": 2540000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -1016000,
+            "y": -2540000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 1016000,
+            "y": -2540000,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 8,
+        "width": 254000,
+        "corners": [
+          {
+            "x": 0,
+            "y": -2540000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 0,
+            "y": -3810000,
+            "style": 0,
+            "node": 1
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": {
+          "value": "2",
+          "x": -635000,
+          "y": -3175000,
+          "layer": 9,
+          "angle": 0,
+          "size": 1270000,
+          "width": 127000,
+          "merge": -1,
+          "submerge": -1,
+          "font": 2,
+          "options": 1
+        },
+        "description": null
+      },
+      {
+        "closed": true,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": 5892800,
+            "y": 2540000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 3860800,
+            "y": 2540000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 3860800,
+            "y": -2540000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 5892800,
+            "y": -2540000,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 8,
+        "width": 254000,
+        "corners": [
+          {
+            "x": 4876800,
+            "y": -2540000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 4876800,
+            "y": -3810000,
+            "style": 0,
+            "node": 1
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": {
+          "value": "3",
+          "x": 4241800,
+          "y": -3175000,
+          "layer": 9,
+          "angle": 0,
+          "size": 1270000,
+          "width": 127000,
+          "merge": -1,
+          "submerge": -1,
+          "font": 2,
+          "options": 1
+        },
+        "description": null
+      },
+      {
+        "closed": true,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": 10769600,
+            "y": 2540000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 8737600,
+            "y": 2540000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 8737600,
+            "y": -2540000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 10769600,
+            "y": -2540000,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 8,
+        "width": 254000,
+        "corners": [
+          {
+            "x": 9753600,
+            "y": -2540000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 9753600,
+            "y": -3810000,
+            "style": 0,
+            "node": 1
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": {
+          "value": "4",
+          "x": 9118600,
+          "y": -3175000,
+          "layer": 9,
+          "angle": 0,
+          "size": 1270000,
+          "width": 127000,
+          "merge": -1,
+          "submerge": -1,
+          "font": 2,
+          "options": 1
+        },
+        "description": null
+      },
+      {
+        "closed": true,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": 15646400,
+            "y": 2540000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 13614400,
+            "y": 2540000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 13614400,
+            "y": -2540000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 15646400,
+            "y": -2540000,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 8,
+        "width": 254000,
+        "corners": [
+          {
+            "x": 14630400,
+            "y": -2540000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 14630400,
+            "y": -3810000,
+            "style": 0,
+            "node": 1
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": {
+          "value": "5",
+          "x": 13995400,
+          "y": -3175000,
+          "layer": 9,
+          "angle": 0,
+          "size": 1270000,
+          "width": 127000,
+          "merge": -1,
+          "submerge": -1,
+          "font": 2,
+          "options": 1
+        },
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 8,
+        "width": 254000,
+        "corners": [
+          {
+            "x": 18491200,
+            "y": 2540000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 18491200,
+            "y": 3810000,
+            "style": 0,
+            "node": 1
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": {
+          "value": "1",
+          "x": 19126200,
+          "y": 3175000,
+          "layer": 9,
+          "angle": 0,
+          "size": 1270000,
+          "width": 127000,
+          "merge": -1,
+          "submerge": -1,
+          "font": 2,
+          "options": 1
+        },
+        "description": null
+      }
+    ]
+  },
+  "physical_pin_mapping_verified": false,
+  "diagnostics": [
+    {
+      "code": "SYMBOL_TEXT_RENDERING",
+      "severity": "loss",
+      "message": "SIMPLEX replaces source fonts; source property anchors are used as native baselines. Justification, text styling and exact glyph bounds are not reproduced.",
+      "context": {}
+    },
+    {
+      "code": "TARGET_PIN_STROKE",
+      "severity": "assumption",
+      "message": "Pin stroke width is a declared conversion setting; the library has no resolved project pin stroke.",
+      "context": {
+        "width_mm": 0.254
+      }
+    },
+    {
+      "code": "SYMBOL_FOOTPRINT_UNRESOLVED",
+      "severity": "loss",
+      "message": "Native PART placeholder used; source footprint identifier/filters are retained in JSON.",
+      "context": {}
+    },
+    {
+      "code": "SYMBOL_METADATA_NOT_TRANSFERRED",
+      "severity": "loss",
+      "message": "Source datasheet/custom properties/footprint filters retained only in JSON.",
+      "context": {
+        "properties": [
+          "Datasheet",
+          "Description",
+          "ki_keywords",
+          "ki_fp_filters"
+        ]
+      }
+    },
+    {
+      "code": "SYMBOL_PIN_LABEL_LAYOUT",
+      "severity": "loss",
+      "message": "Pin numbers/names use a declared horizontal placement policy; exact KiCad automatic label layout is not reproduced.",
+      "context": {}
+    },
+    {
+      "code": "SYMBOL_ELECTRICAL_TYPE_NOT_TRANSFERRED",
+      "severity": "loss",
+      "message": "Source electrical types remain in JSON; numbered native endpoints do not transfer KiCad ERC rules.",
+      "context": {
+        "source_electrical_types": {
+          "passive": 5
+        }
+      }
+    },
+    {
+      "code": "SYMBOL_UNITS_FLATTENED",
+      "severity": "loss",
+      "message": "Logical units are laid out side by side in one physical component. Independent unit placement, unit suffixes, per-unit reference/value labels and native hierarchical merge semantics are not transferred.",
+      "context": {
+        "source_units": 4,
+        "unit_gap_mm": 2.54
+      }
+    },
+    {
+      "code": "SYMBOL_COMMON_PINS_PLACED_ONCE",
+      "severity": "loss",
+      "message": "Original unit-0 pins are rendered once in a separate common view of the same physical component. Shared logical-view appearance, independent placement and native hierarchy are not transferred; cross-unit repeated records are not deduplicated.",
+      "context": {
+        "source_unit": 0,
+        "source_pin_numbers": [
+          "1"
+        ],
+        "target_polyline_indices": [
+          8
+        ],
+        "rendered_unit": 0
+      }
+    }
+  ],
+  "artifact_sha256": "db38124d80ebd8cdb6d6f2d9264643007f8d90c6c312a464c577af4b2365cb53",
+  "counts": {
+    "components": 1,
+    "pins": 5,
+    "source_units": 4,
+    "polylines": 9,
+    "losses": 7,
+    "assumptions": 1,
+    "common_pins": 1,
+    "rendered_views": 5
+  },
+  "unit_layout": {
+    "source_units": 4,
+    "native_components": 1,
+    "independent_unit_placement_transferred": false,
+    "native_hierarchical_merge_generated": false,
+    "common_pin_policy": "common-view-with-loss",
+    "unit_order": "ascending logical units, then original common pins in unit-0 view; integer-NM X layout",
+    "bounds_scope": "geometry, source body-text anchors and stroke margin; glyph bounds unverified",
+    "units": [
+      {
+        "source_unit": 1,
+        "translation_nm": [
+          0,
+          0
+        ],
+        "source_view_bounds_nm": [
+          -1168400,
+          -3962400,
+          1168400,
+          2692400
+        ],
+        "target_bounds_nm": [
+          -1168400,
+          -3962400,
+          1168400,
+          2692400
+        ],
+        "target_polyline_indices": [
+          0,
+          1
+        ],
+        "common_graphics_copied": [
+          {
+            "source_unit": 0,
+            "style": 1,
+            "source_id": "R_Network04_Split_0_1",
+            "count": 1
+          }
+        ],
+        "pins": [
+          {
+            "number": "2",
+            "name": "R1.2",
+            "electrical_type": "passive",
+            "source_connection_mm": [
+              0.0,
+              -3.81
+            ],
+            "target_polyline_index": 1,
+            "target_body_nm": [
+              0,
+              -2540000
+            ],
+            "target_connection_nm": [
+              0,
+              -3810000
+            ]
+          }
+        ]
+      },
+      {
+        "source_unit": 2,
+        "translation_nm": [
+          4876800,
+          0
+        ],
+        "source_view_bounds_nm": [
+          -1168400,
+          -3962400,
+          1168400,
+          2692400
+        ],
+        "target_bounds_nm": [
+          3708400,
+          -3962400,
+          6045200,
+          2692400
+        ],
+        "target_polyline_indices": [
+          2,
+          3
+        ],
+        "common_graphics_copied": [
+          {
+            "source_unit": 0,
+            "style": 1,
+            "source_id": "R_Network04_Split_0_1",
+            "count": 1
+          }
+        ],
+        "pins": [
+          {
+            "number": "3",
+            "name": "R2.2",
+            "electrical_type": "passive",
+            "source_connection_mm": [
+              0.0,
+              -3.81
+            ],
+            "target_polyline_index": 3,
+            "target_body_nm": [
+              4876800,
+              -2540000
+            ],
+            "target_connection_nm": [
+              4876800,
+              -3810000
+            ]
+          }
+        ]
+      },
+      {
+        "source_unit": 3,
+        "translation_nm": [
+          9753600,
+          0
+        ],
+        "source_view_bounds_nm": [
+          -1168400,
+          -3962400,
+          1168400,
+          2692400
+        ],
+        "target_bounds_nm": [
+          8585200,
+          -3962400,
+          10922000,
+          2692400
+        ],
+        "target_polyline_indices": [
+          4,
+          5
+        ],
+        "common_graphics_copied": [
+          {
+            "source_unit": 0,
+            "style": 1,
+            "source_id": "R_Network04_Split_0_1",
+            "count": 1
+          }
+        ],
+        "pins": [
+          {
+            "number": "4",
+            "name": "R3.2",
+            "electrical_type": "passive",
+            "source_connection_mm": [
+              0.0,
+              -3.81
+            ],
+            "target_polyline_index": 5,
+            "target_body_nm": [
+              9753600,
+              -2540000
+            ],
+            "target_connection_nm": [
+              9753600,
+              -3810000
+            ]
+          }
+        ]
+      },
+      {
+        "source_unit": 4,
+        "translation_nm": [
+          14630400,
+          0
+        ],
+        "source_view_bounds_nm": [
+          -1168400,
+          -3962400,
+          1168400,
+          2692400
+        ],
+        "target_bounds_nm": [
+          13462000,
+          -3962400,
+          15798800,
+          2692400
+        ],
+        "target_polyline_indices": [
+          6,
+          7
+        ],
+        "common_graphics_copied": [
+          {
+            "source_unit": 0,
+            "style": 1,
+            "source_id": "R_Network04_Split_0_1",
+            "count": 1
+          }
+        ],
+        "pins": [
+          {
+            "number": "5",
+            "name": "R4.2",
+            "electrical_type": "passive",
+            "source_connection_mm": [
+              0.0,
+              -3.81
+            ],
+            "target_polyline_index": 7,
+            "target_body_nm": [
+              14630400,
+              -2540000
+            ],
+            "target_connection_nm": [
+              14630400,
+              -3810000
+            ]
+          }
+        ]
+      },
+      {
+        "source_unit": 0,
+        "translation_nm": [
+          18491200,
+          0
+        ],
+        "source_view_bounds_nm": [
+          -152400,
+          2387600,
+          152400,
+          3962400
+        ],
+        "target_bounds_nm": [
+          18338800,
+          2387600,
+          18643600,
+          3962400
+        ],
+        "target_polyline_indices": [
+          8
+        ],
+        "common_graphics_copied": [],
+        "pins": [
+          {
+            "number": "1",
+            "name": "R1",
+            "electrical_type": "passive",
+            "source_connection_mm": [
+              0.0,
+              3.81
+            ],
+            "target_polyline_index": 8,
+            "target_body_nm": [
+              18491200,
+              2540000
+            ],
+            "target_connection_nm": [
+              18491200,
+              3810000
+            ]
+          }
+        ]
+      }
+    ],
+    "rendered_views": 5,
+    "common_pin_numbers": [
+      "1"
+    ]
+  },
+  "pin_semantics": {
+    "electrical_rules_transferred": false,
+    "native_representation": "numbered layer-8 segment; body Node=0, external Node=1; optional layer-14 name",
+    "pins": [
+      {
+        "source_pin_number": "2",
+        "source_pin_name": "R1.2",
+        "source_electrical_type": "passive",
+        "target_pin_number": "2",
+        "target_polyline_index": 1,
+        "connection_point_nm": [
+          0,
+          -3810000
+        ],
+        "rendered_unit": 1
+      },
+      {
+        "source_pin_number": "3",
+        "source_pin_name": "R2.2",
+        "source_electrical_type": "passive",
+        "target_pin_number": "3",
+        "target_polyline_index": 3,
+        "connection_point_nm": [
+          4876800,
+          -3810000
+        ],
+        "rendered_unit": 2
+      },
+      {
+        "source_pin_number": "4",
+        "source_pin_name": "R3.2",
+        "source_electrical_type": "passive",
+        "target_pin_number": "4",
+        "target_polyline_index": 5,
+        "connection_point_nm": [
+          9753600,
+          -3810000
+        ],
+        "rendered_unit": 3
+      },
+      {
+        "source_pin_number": "5",
+        "source_pin_name": "R4.2",
+        "source_electrical_type": "passive",
+        "target_pin_number": "5",
+        "target_polyline_index": 7,
+        "connection_point_nm": [
+          14630400,
+          -3810000
+        ],
+        "rendered_unit": 4
+      },
+      {
+        "source_pin_number": "1",
+        "source_pin_name": "R1",
+        "source_electrical_type": "passive",
+        "target_pin_number": "1",
+        "target_polyline_index": 8,
+        "connection_point_nm": [
+          18491200,
+          3810000
+        ],
+        "rendered_unit": 0
+      }
+    ]
+  },
+  "source": {
+    "path": "/Users/egorananev/Desktop/hse/1-2 курс/ПРОЕКТ/tests/fixtures/symbols/Device.kicad_sym",
+    "sha256": "972f851ebf7c10dfe97eefd5d847406154b18ee6158013bd19165477d6364abd"
+  },
+  "output": "/Users/egorananev/Desktop/hse/1-2 курс/ПРОЕКТ/output/symbols/R_Network04_Split_common.cds"
+}

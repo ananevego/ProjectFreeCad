@@ -1,6 +1,6 @@
 # План разработки конвертера KiCad → FreePCB2
 
-Обновлён 2026-10-13 по состоянию репозитория и предыдущего чата.
+Обновлён 2026-10-14 по состоянию репозитория и предыдущего чата.
 Цель: перенос библиотечных УГО, footprints и связей с готовыми 3D-моделями.
 Около 20 000 footprints — ориентир масштаба, а не подтверждённый размер
 доступных исходников. Повторно конвертировать ранее полученные 7 225 STL не нужно.
@@ -32,7 +32,7 @@
 |---|---|---|---|
 | 1 | Завершить единичные footprints — в работе | src/footprint_converter, tests/fixtures | Legacy arcs; аудит text fields; небольшая реальная выборка; все неподдерживаемые конструкции имеют явную диагностику, прежние результаты воспроизводимы |
 | 2 | Пакетный CLI и отчёт покрытия — выполнен для малых партий | Новый batch-модуль поверх convert_detailed и io, tests | Изолированные ошибки, стабильные имена, manifest, resume с проверкой исходника/настроек/выхода; тестовая партия воспроизводима; нет записи в STL/STEP |
-| 3 | УГО KiCad → Схематор — parser/writer, curves/pins/fills/text и disjoint-unit layout готовы с losses | src/symbol_converter, target fixtures | Source/native profiles; power/no-connect/shared units/hierarchy/geometry, import/connectivity и сравнение выборки |
+| 3 | УГО KiCad → Схематор — parser/writer, curves/pins/fills/text, disjoint/common units, markers и power/NC/hidden policies готовы с losses | src/symbol_converter, target fixtures | Source/native profiles; NC/implicit-net enforcement/repeated pins/alternate modes/hierarchy/geometry, import/connectivity и сравнение выборки |
 | 4 | Связи компонентов и переносимый 3D-комплект — выполнен для малого MVP | src/component_converter, config/manifest | Точные identifiers, pin/pad mapping по source/CDS/FPL; явные unresolved/ambiguous; category tree + уникальные flat STL aliases; hashes и перенос без исходников проверены |
 | 5 | Валидация в целевых программах — ожидает среды | FreePCB2 2.428/Схематор/OpenSCAD, docs | Load/save roundtrip, тексты и слои, NPTH/Gerber, масштабы/положение/ориентация STL; протокол и исправление найденных ошибок |
 | 6 | Масштабирование и итоговая поставка — не начат | Версионированные библиотеки, batch, docs/output | Малая → средняя → полная проверенная партия; измеренное покрытие, журнал исключений, лицензии и руководство; согласованные требования закрыты |
@@ -86,11 +86,23 @@
     Разделить common/source units, power units и alternate body styles;
     не объединять дубли механически. Реализовать только подтверждённый профиль,
     с явными ограничениями и real controls/number mapping.
-11. **Power/no-connect pins (следующий шаг).** Разделить power pins ordinary
+11. **Power/no-connect pins (выполнено 2026-10-14 для numbered power и explicit lossy NC; NC enforcement открыта).** Разделить power pins ordinary
     components, virtual power symbols и no-connect endpoints. Проверить native
     запись/Node/physical count, сохранить source/ERC semantics и explicit losses.
     Hidden/styled/alternate/shared pins расширять отдельными подтверждёнными
     профилями; GUI и hierarchy этим шагом не закрываются.
+12. **Styled/hidden pin policy (выполнено 2026-10-14 для editor markers и explicit reveal).** Проверить native представимость
+    inverted/clock markers и скрытых выводов. Сохранить physical number и
+    connection point; graphics и implicit/global net semantics разделить.
+    Поддержать только подтверждённые варианты, сохранив explicit losses,
+    default refusals и strict. Добавить real controls и bundle regression.
+13. **Common pins (выполнено 2026-10-14 для original unit=0).** Explicit
+    common view одного physical component, один record на исходный pin,
+    loss shared appearance/placement; repeated records остаются отказом.
+14. **Footprint coverage и средняя партия (следующий шаг).** Аудит representative
+    pinned source footprints, отчёт successful/loss/failed конструкций,
+    исправления наиболее частых представимых исключений. Проверить старые
+    baselines, source links и переносимость; GUI выполнять отдельным блоком.
 
 ## Зависимости и ограничения
 
@@ -330,3 +342,78 @@
   hierarchy/shared/power/no-connect/hidden/alternates остаются в блоке 3.
 - Далее: power/no-connect policy, затем shared/styled/hidden profiles,
   footprint coverage, native GUI/3D validation и масштабирование.
+
+## Результат power/no-connect policy — 2026-10-14
+
+- Профиль `visible-line-power-v1`: ordinary physical power_in/power_out
+  сохраняются как numbered terminals; source power/ERC roles остаются в JSON
+  с явной потерей. Power-only секции включаются в disjoint compound layout:
+  LM393 теперь сохраняет обе signal units и отдельную power unit, все 8 pins.
+- Native source показывает, что FindNodeLine может восстановить Node=1,
+  а group paste переводит pin attributes на электрический слой. Node=0 или
+  декоративный слой не реализуют подтверждённый запрет NC. Default policy
+  остаётся reject; explicit `connectable-with-loss` сохраняет NC подключаемыми
+  с отдельным loss на каждый pin. Native NC enforcement не закрыта.
+- API/CLI/bundle config проверяют policy. Reports содержат power/NC counts,
+  source roles, native indices/Nodes/connectability и false ERC/NC flags.
+  Strict отклоняет losses и сохраняет прежний CDS. Virtual/global power,
+  common/repeated/hidden/styled/alternate pins по-прежнему вызывают отказ.
+- Шесть real controls; три complete file chains LM393→DIP-8, MCP1525→SOT-23,
+  MCP601_8PIN→DIP-8. Все source/CDS/FPL номера сохранены, включая NC 1/5/8.
+  Два existing STL, 287168 source bytes, 15 package files с manifest; models
+  только копируются/хешируются. Physical suitability/GUI/3D не подтверждены.
+- 23 новых проверки, всего **359**, все проходят. Copy без STL/STEP — с
+  3 optional integration skips. Power W/w/NC N, modern types, source/raw
+  immutability, multi-unit rebasing, strict/CLI preservation, default/invalid
+  policy, number mapping и relocation проверены. Старые controls и пять
+  предыдущих bundles воспроизводятся без изменений.
+- Правила/primary source evidence: [SYMBOL_POWER.md](SYMBOL_POWER.md).
+- **Остаток: 4 незавершённых блока (1, 3, 5, 6), примерно 20–30% проекта**.
+  Оценка остаётся прежней: шаг расширяет подтверждённый профиль, но exact NC,
+  shared/hierarchy/hidden/styled/alternates, footprint coverage, native GUI
+  и масштабирование ещё требуют работы. Это инженерная оценка, не coverage.
+- Далее: styled/hidden pin policy, затем shared/hierarchy, footprint coverage,
+  native GUI/3D validation и масштабирование.
+
+## Результат styled/hidden pins — 2026-10-14
+
+- Подтверждён KiCad9 editor profile: восемь marker styles → non-electrical
+  layer-6 strokes, original external pin point/number сохраняются. Inversion
+  bubbles имеют bounded approximation, internal segment сокращён; logical
+  style/project sizing/font/caps/joins остаются explicit loss.
+- Hidden pins default reject; explicit reveal-with-loss сохраняет terminals
+  видимыми, visibility/implicit global power connections теряются. NC требует
+  второй explicit policy. Raw source/strict/invalid settings/budgets защищены.
+- Шесть real controls, 5 complete file chains, 3 existing STL, 553052 bytes,
+  23 files. Source/CDS/FPL number identity и relocation подтверждены;
+  physical suitability/GUI/3D не подтверждены. STL не переконвертированы.
+- 21 новый тест, всего **380**. Прежние controls и 6 bundles воспроизводятся
+  без изменений. Правила: [SYMBOL_PINS.md](SYMBOL_PINS.md).
+- **Остаток: 4 блока (1, 3, 5, 6), примерно 15–25% проекта**. Это инженерная
+  оценка, не coverage; hierarchy/shared, implicit nets/ERC/NC, footprint
+  exceptions, native GUI и scale/release ещё открыты.
+- Далее: common pins как отдельная view одного physical component; repeated
+  records не дедуплицировать, source/shared placement отразить как loss.
+
+## Результат original common pins — 2026-10-14
+
+- `common-pins-view-v1`: default reject; explicit common-view-with-loss
+  размещает original unit=0 pins один раз после logical views в том же
+  physical component. Common graphics повторяются по logical views;
+  shared appearance/independent placement/native hierarchy имеют loss.
+- Source/raw records не меняются и не дедуплицируются. Повторы положительных
+  units, common/own conflicts, empty logical views и unsupported graphics
+  остаются отказом. Hidden/NC/marker policies применяются независимо.
+- Четыре real networks (3/4/7/13 logical units, 4/5/8/14 physical pins),
+  три source-property SIP4/SIP5/SIP8 chains, 3 existing STL, 466152 bytes,
+  17 files. Source/CDS/FPL identity и relocation проверены; GUI/3D и функция
+  pads не подтверждены. Split-diodes сохраняют отказ collapsed segments.
+- 18 новых тестов; всего **398**, проходят, copy без STL/STEP — с 3 optional
+  integration skips. Семь прежних bundles воспроизводятся без изменений.
+  Правила: [SYMBOL_COMMON.md](SYMBOL_COMMON.md).
+- **Остаток: 4 блока (1, 3, 5, 6), примерно 15–25% проекта**. Инженерная
+  оценка объёма, не library coverage. Native hierarchy/implicit nets/ERC/NC,
+  alternate modes, footprint exceptions, Windows GUI/3D и scale/release
+  ещё требуют работы.
+- Далее: footprint coverage audit и средняя representative партия; затем
+  исправления по диагностике, native GUI/3D validation и масштабирование.

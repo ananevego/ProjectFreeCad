@@ -1,0 +1,661 @@
+{
+  "schema_version": 1,
+  "kind": "schemator_symbol_conversion",
+  "status": "generated_with_loss",
+  "target": {
+    "repository": "niconson/Schematic-Constructor",
+    "revision": "e7443c374f5c8644fb3483f794a50161de60dd01",
+    "version": "1.429",
+    "profile": "schemator-cds-straight-v1",
+    "encoding": "cp1251",
+    "coordinates": "nanometres, Y up; source library coordinates preserved",
+    "text_angle_rule": "negative source angle modulo 360",
+    "source_pin_profile": "visible-line-power-v1"
+  },
+  "contract_verified_against_source": true,
+  "target_records_validated": true,
+  "target_output_generated": true,
+  "target_import_verified": false,
+  "gui_validated": false,
+  "source_format": "legacy_lib",
+  "source_version": "2.3",
+  "source_symbol": {
+    "name": "MCP1525",
+    "properties": {
+      "Reference": {
+        "name": "Reference",
+        "value": "U",
+        "at": [
+          0.0,
+          5.08,
+          0
+        ],
+        "hidden": false,
+        "raw": [
+          "F0",
+          "U",
+          "0",
+          "200",
+          "60",
+          "H",
+          "V",
+          "C",
+          "CNN"
+        ]
+      },
+      "Value": {
+        "name": "Value",
+        "value": "MCP1525",
+        "at": [
+          0.0,
+          -5.08,
+          0
+        ],
+        "hidden": false,
+        "raw": [
+          "F1",
+          "MCP1525",
+          "0",
+          "-200",
+          "60",
+          "H",
+          "V",
+          "C",
+          "CNN"
+        ]
+      },
+      "Footprint": {
+        "name": "Footprint",
+        "value": "",
+        "at": [
+          -0.635,
+          0.0,
+          0
+        ],
+        "hidden": false,
+        "raw": [
+          "F2",
+          "",
+          "-25",
+          "0",
+          "60",
+          "H",
+          "V",
+          "C",
+          "CNN"
+        ]
+      },
+      "Datasheet": {
+        "name": "Datasheet",
+        "value": "",
+        "at": [
+          -0.635,
+          0.0,
+          0
+        ],
+        "hidden": false,
+        "raw": [
+          "F3",
+          "",
+          "-25",
+          "0",
+          "60",
+          "H",
+          "V",
+          "C",
+          "CNN"
+        ]
+      }
+    },
+    "units": [
+      {
+        "number": 0,
+        "style": 1,
+        "source_id": "MCP1525_0_1",
+        "display_name": null,
+        "pins": [],
+        "graphics": [
+          {
+            "kind": "rectangle",
+            "geometry": {
+              "start": [
+                -6.984999999999999,
+                3.81
+              ],
+              "end": [
+                6.984999999999999,
+                -3.81
+              ]
+            },
+            "width": 0.0,
+            "fill": "none",
+            "raw": [
+              "S",
+              "-275",
+              "150",
+              "275",
+              "-150",
+              "0",
+              "1",
+              "0",
+              "N"
+            ]
+          }
+        ]
+      },
+      {
+        "number": 1,
+        "style": 1,
+        "source_id": "MCP1525_1_1",
+        "display_name": null,
+        "pins": [
+          {
+            "number": "1",
+            "name": "Vin",
+            "at": [
+              -12.065,
+              2.54,
+              0
+            ],
+            "length": 5.08,
+            "electrical_type": "power_in",
+            "graphic_style": "line",
+            "hidden": false,
+            "name_size": [
+              1.27,
+              1.27
+            ],
+            "number_size": [
+              1.27,
+              1.27
+            ],
+            "alternates": [],
+            "raw": [
+              "X",
+              "Vin",
+              "1",
+              "-475",
+              "100",
+              "200",
+              "R",
+              "50",
+              "50",
+              "1",
+              "1",
+              "W"
+            ]
+          },
+          {
+            "number": "2",
+            "name": "Vout",
+            "at": [
+              12.065,
+              0.0,
+              180
+            ],
+            "length": 5.08,
+            "electrical_type": "power_out",
+            "graphic_style": "line",
+            "hidden": false,
+            "name_size": [
+              1.27,
+              1.27
+            ],
+            "number_size": [
+              1.27,
+              1.27
+            ],
+            "alternates": [],
+            "raw": [
+              "X",
+              "Vout",
+              "2",
+              "475",
+              "0",
+              "200",
+              "L",
+              "50",
+              "50",
+              "1",
+              "1",
+              "w"
+            ]
+          },
+          {
+            "number": "3",
+            "name": "GND",
+            "at": [
+              -12.065,
+              -2.54,
+              0
+            ],
+            "length": 5.08,
+            "electrical_type": "power_in",
+            "graphic_style": "line",
+            "hidden": false,
+            "name_size": [
+              1.27,
+              1.27
+            ],
+            "number_size": [
+              1.27,
+              1.27
+            ],
+            "alternates": [],
+            "raw": [
+              "X",
+              "GND",
+              "3",
+              "-475",
+              "-100",
+              "200",
+              "R",
+              "50",
+              "50",
+              "1",
+              "1",
+              "W"
+            ]
+          }
+        ],
+        "graphics": []
+      }
+    ],
+    "extends": null,
+    "inheritance_chain": [],
+    "aliases": [],
+    "alias_of": null,
+    "unit_count": 1,
+    "pin_names_hidden": false,
+    "pin_numbers_hidden": false,
+    "pin_name_offset": 1.016,
+    "in_bom": true,
+    "on_board": true,
+    "power": false,
+    "diagnostics": [],
+    "raw": [
+      "DEF MCP1525 U 0 40 Y Y 1 F N",
+      "F0 \"U\" 0 200 60 H V C CNN",
+      "F1 \"MCP1525\" 0 -200 60 H V C CNN",
+      "F2 \"\" -25 0 60 H V C CNN",
+      "F3 \"\" -25 0 60 H V C CNN",
+      "DRAW",
+      "S -275 150 275 -150 0 1 0 N",
+      "X Vin 1 -475 100 200 R 50 50 1 1 W",
+      "X Vout 2 475 0 200 L 50 50 1 1 w",
+      "X GND 3 -475 -100 200 R 50 50 1 1 W",
+      "ENDDRAW",
+      "ENDDEF"
+    ]
+  },
+  "conversion_settings": {
+    "footprint_name": null,
+    "reference": "U1",
+    "project_name": "MCP1525_power.cds",
+    "default_line_width_mm": 0.254,
+    "pin_width_mm": 0.254
+  },
+  "target_component": {
+    "pin_count": 3,
+    "bounds": [
+      -12217400,
+      -3962400,
+      12217400,
+      3962400
+    ],
+    "reference": {
+      "value": "U1",
+      "x": 0,
+      "y": 5080000,
+      "layer": 7,
+      "angle": 0,
+      "size": 1524000,
+      "width": 152400,
+      "merge": -1,
+      "submerge": -1,
+      "font": 2,
+      "options": 1
+    },
+    "value": {
+      "value": "MCP1525",
+      "x": 0,
+      "y": -5080000,
+      "layer": 13,
+      "angle": 0,
+      "size": 1524000,
+      "width": 152400,
+      "merge": -1,
+      "submerge": -1,
+      "font": 2,
+      "options": 1
+    },
+    "footprint": {
+      "value": "PART",
+      "x": 0,
+      "y": 0,
+      "layer": 12,
+      "angle": 0,
+      "size": 0,
+      "width": 0,
+      "merge": -1,
+      "submerge": -1,
+      "font": 2,
+      "options": 1
+    },
+    "polylines": [
+      {
+        "closed": true,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": -6985000,
+            "y": 3810000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 6985000,
+            "y": 3810000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 6985000,
+            "y": -3810000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -6985000,
+            "y": -3810000,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 8,
+        "width": 254000,
+        "corners": [
+          {
+            "x": -6985000,
+            "y": 2540000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -12065000,
+            "y": 2540000,
+            "style": 0,
+            "node": 1
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": {
+          "value": "1",
+          "x": -9525000,
+          "y": 3175000,
+          "layer": 9,
+          "angle": 0,
+          "size": 1270000,
+          "width": 127000,
+          "merge": -1,
+          "submerge": -1,
+          "font": 2,
+          "options": 1
+        },
+        "description": {
+          "value": "Vin",
+          "x": -5969000,
+          "y": 2540000,
+          "layer": 14,
+          "angle": 0,
+          "size": 1270000,
+          "width": 127000,
+          "merge": -1,
+          "submerge": -1,
+          "font": 2,
+          "options": 1
+        }
+      },
+      {
+        "closed": false,
+        "layer": 8,
+        "width": 254000,
+        "corners": [
+          {
+            "x": 6985000,
+            "y": 0,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 12065000,
+            "y": 0,
+            "style": 0,
+            "node": 1
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": {
+          "value": "2",
+          "x": 9525000,
+          "y": -635000,
+          "layer": 9,
+          "angle": 0,
+          "size": 1270000,
+          "width": 127000,
+          "merge": -1,
+          "submerge": -1,
+          "font": 2,
+          "options": 1
+        },
+        "description": {
+          "value": "Vout",
+          "x": 5969000,
+          "y": 0,
+          "layer": 14,
+          "angle": 0,
+          "size": 1270000,
+          "width": 127000,
+          "merge": -1,
+          "submerge": -1,
+          "font": 2,
+          "options": 1
+        }
+      },
+      {
+        "closed": false,
+        "layer": 8,
+        "width": 254000,
+        "corners": [
+          {
+            "x": -6985000,
+            "y": -2540000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -12065000,
+            "y": -2540000,
+            "style": 0,
+            "node": 1
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": {
+          "value": "3",
+          "x": -9525000,
+          "y": -1905000,
+          "layer": 9,
+          "angle": 0,
+          "size": 1270000,
+          "width": 127000,
+          "merge": -1,
+          "submerge": -1,
+          "font": 2,
+          "options": 1
+        },
+        "description": {
+          "value": "GND",
+          "x": -5969000,
+          "y": -2540000,
+          "layer": 14,
+          "angle": 0,
+          "size": 1270000,
+          "width": 127000,
+          "merge": -1,
+          "submerge": -1,
+          "font": 2,
+          "options": 1
+        }
+      }
+    ]
+  },
+  "physical_pin_mapping_verified": false,
+  "diagnostics": [
+    {
+      "code": "SYMBOL_TEXT_RENDERING",
+      "severity": "loss",
+      "message": "SIMPLEX replaces source fonts; source property anchors are used as native baselines. Justification, text styling and exact glyph bounds are not reproduced.",
+      "context": {}
+    },
+    {
+      "code": "TARGET_PIN_STROKE",
+      "severity": "assumption",
+      "message": "Pin stroke width is a declared conversion setting; the library has no resolved project pin stroke.",
+      "context": {
+        "width_mm": 0.254
+      }
+    },
+    {
+      "code": "SYMBOL_FOOTPRINT_UNRESOLVED",
+      "severity": "loss",
+      "message": "Native PART placeholder used; source footprint identifier/filters are retained in JSON.",
+      "context": {}
+    },
+    {
+      "code": "SOURCE_LINE_WIDTH_DEFAULT",
+      "severity": "assumption",
+      "message": "Zero source stroke resolves to declared default width.",
+      "context": {
+        "unit": 0,
+        "graphic": 0,
+        "width_mm": 0.254
+      }
+    },
+    {
+      "code": "SYMBOL_ELECTRICAL_TYPE_NOT_TRANSFERRED",
+      "severity": "loss",
+      "message": "Source electrical types are retained in JSON only. The confirmed CDS profile stores a numbered connection endpoint and optional name, without KiCad electrical rules; input/output direction, drive constraints and ERC semantics are not transferred.",
+      "context": {
+        "source_electrical_types": {
+          "power_in": 2,
+          "power_out": 1
+        }
+      }
+    },
+    {
+      "code": "SYMBOL_PIN_LABEL_LAYOUT",
+      "severity": "loss",
+      "message": "Pin numbers/names use a declared horizontal placement policy; exact KiCad automatic label layout is not reproduced.",
+      "context": {}
+    }
+  ],
+  "artifact_sha256": "bd0e486cb0b5fbe0bfdd30bf03a5831be6dcbee5d18fd616325466bd243a7faa",
+  "counts": {
+    "components": 1,
+    "pins": 3,
+    "polylines": 4,
+    "losses": 4,
+    "assumptions": 2,
+    "power_pins": 3,
+    "no_connect_pins": 0
+  },
+  "pin_semantics": {
+    "electrical_rules_transferred": false,
+    "native_representation": "numbered layer-8 segment; body Node=0, external Node=1; optional layer-14 name",
+    "pins": [
+      {
+        "source_pin_number": "1",
+        "source_pin_name": "Vin",
+        "source_electrical_type": "power_in",
+        "target_pin_number": "1",
+        "target_polyline_index": 1,
+        "connection_point_nm": [
+          -12065000,
+          2540000
+        ],
+        "target_node_flags": [
+          0,
+          1
+        ],
+        "native_connectable": true,
+        "native_power_role_transferred": false
+      },
+      {
+        "source_pin_number": "2",
+        "source_pin_name": "Vout",
+        "source_electrical_type": "power_out",
+        "target_pin_number": "2",
+        "target_polyline_index": 2,
+        "connection_point_nm": [
+          12065000,
+          0
+        ],
+        "target_node_flags": [
+          0,
+          1
+        ],
+        "native_connectable": true,
+        "native_power_role_transferred": false
+      },
+      {
+        "source_pin_number": "3",
+        "source_pin_name": "GND",
+        "source_electrical_type": "power_in",
+        "target_pin_number": "3",
+        "target_polyline_index": 3,
+        "connection_point_nm": [
+          -12065000,
+          -2540000
+        ],
+        "target_node_flags": [
+          0,
+          1
+        ],
+        "native_connectable": true,
+        "native_power_role_transferred": false
+      }
+    ],
+    "power_roles_transferred": false,
+    "native_no_connect_enforced": false,
+    "power_pin_policy": "visible numbered terminal; source power role in JSON only"
+  },
+  "source": {
+    "path": "/Users/egorananev/Desktop/hse/1-2 курс/ПРОЕКТ/KiCad/Pickit-cache.lib",
+    "sha256": "2392caa9775ccf212837314970deee07105228d5070917c31d757d39af459b3d"
+  },
+  "output": "/Users/egorananev/Desktop/hse/1-2 курс/ПРОЕКТ/output/symbols/MCP1525_power.cds"
+}

@@ -19,7 +19,9 @@ from .body_graphics import (
     DEFAULT_FILL_TOLERANCE, MAX_SYMBOL_FILL_STROKES, validate_fill_tolerance,
     render_fill, render_graphic_text,
 )
-from .multiunit import DEFAULT_UNIT_GAP, validate_unit_gap, compose_units
+from .multiunit import DEFAULT_UNIT_GAP, validate_unit_gap, compose_units, validate_common_pin_policy
+from .pin_policy import POWER_TYPES, validate_no_connect_policy, add_power_semantics
+from .pin_graphics import validate_hidden_policy, render_markers, add_presentation_semantics
 
 # These types share the native numbered endpoint representation. Their KiCad
 # electrical rules survive in JSON only; power/no-connect need separate policy.
@@ -90,11 +92,15 @@ def convert_symbol(library: Library, name: str, *, footprint_name: str | None = 
                    curve_tolerance: float = DEFAULT_CURVE_TOLERANCE,
                    fill_tolerance: float = DEFAULT_FILL_TOLERANCE,
                    unit_gap: float = DEFAULT_UNIT_GAP,
+                   no_connect_policy: str = 'reject',
+                   hidden_pin_policy: str = 'reject',
+                   common_pin_policy: str = 'reject',
                    strict: bool = False) -> SymbolConversionResult:
     """Generate one component; physical footprint/GUI verification stays separate.
 
-    Profile: standard body style, visible positive-length ordinary
-    line pins, simple body fills and quarter-turn property/body texts.
+    Profile: standard body style, positive-length numbered pins with
+    optional editor markers, simple fills and quarter-turn texts.
+    Hidden/common/NC pins require their own explicit lossy policies.
     Unfilled curves are tessellated with an explicit NM-grid error budget.
     Foreground fill is bounded; background occlusion is lost explicitly.
     No Bezier approximations or pin deduplication are performed.
@@ -111,11 +117,15 @@ def convert_symbol(library: Library, name: str, *, footprint_name: str | None = 
     validate_tolerance(curve_tolerance)
     validate_fill_tolerance(fill_tolerance)
     validate_unit_gap(unit_gap)
+    validate_no_connect_policy(no_connect_policy)
+    validate_hidden_policy(hidden_pin_policy)
+    validate_common_pin_policy(common_pin_policy)
     if symbol.unit_count!=1:
         cds,report,document=compose_units(library,symbol,converter=convert_symbol,unit_gap=unit_gap,
             conversion_settings=dict(footprint_name=footprint_name,reference=reference,project_name=project_name,
                 default_line_width=default_line_width,pin_width=pin_width,curve_tolerance=curve_tolerance,
-                fill_tolerance=fill_tolerance))
+                fill_tolerance=fill_tolerance,no_connect_policy=no_connect_policy,hidden_pin_policy=hidden_pin_policy,
+                common_pin_policy=common_pin_policy))
         if strict:
             report.update(status='rejected_loss',target_output_generated=False)
             report['proposed_artifact_sha256']=report.pop('artifact_sha256')
@@ -260,13 +270,19 @@ def convert_symbol(library: Library, name: str, *, footprint_name: str | None = 
         raise SymbolParseError('CDS profile requires at least one physical pin')
     seen=set()
     pin_semantics=[]
+    pin_markers=[]
     electrical_counts={}
     for pin in pins:
-        if pin.hidden or pin.graphic_style!='line' or pin.alternates:
-            raise SymbolParseError(f'Pin {pin.number}: only visible line pins without alternates are supported')
-        if pin.electrical_type not in VISIBLE_LINE_ELECTRICAL:
-            raise SymbolParseError(f'Pin {pin.number}: unsupported electrical type {pin.electrical_type!r}; '
-                                   'power/no-connect types require a separate conversion policy')
+        if pin.alternates:
+            raise SymbolParseError(f'Pin {pin.number}: alternate pin modes are outside the target profile')
+        if pin.hidden and hidden_pin_policy=='reject':
+            raise SymbolParseError(f'Pin {pin.number}: hidden pin requires explicit reveal-with-loss policy')
+        if pin.electrical_type=='no_connect':
+            if no_connect_policy=='reject':
+                raise SymbolParseError(f'Pin {pin.number}: no-connect cannot be enforced by the confirmed native profile; '
+                                       'explicit connectable-with-loss policy required for a numbered terminal')
+        elif pin.electrical_type not in VISIBLE_LINE_ELECTRICAL | POWER_TYPES:
+            raise SymbolParseError(f'Pin {pin.number}: unsupported electrical type {pin.electrical_type!r}')
         if not PIN_IDENTIFIER.fullmatch(pin.number) or pin.number in seen:
             raise SymbolParseError(f'Pin {pin.number!r}: ambiguous/unsupported native number')
         seen.add(pin.number)
@@ -277,12 +293,15 @@ def convert_symbol(library: Library, name: str, *, footprint_name: str | None = 
         external=(_nm(pin.at[0]),_nm(pin.at[1]))
         body=(_nm(pin.at[0]+dx*pin.length),_nm(pin.at[1]+dy*pin.length))
         num_size=_positive(pin.number_size[1],'Pin number text height')
+        name_size=_nm(pin.name_size[1]) if pin.graphic_style!='line' else num_size
+        if name_size<0:raise SymbolParseError('Negative pin marker text size')
+        decorators,terminal_body,marker=render_markers(pin,body,external,(dx,dy),pin_width_nm,curve_tolerance)
         show_number=not symbol.pin_numbers_hidden
         mid=((external[0]+body[0])//2,(external[1]+body[1])//2)
         offset=max(pin_width_nm,num_size//2)
         label=TextRecord(pin.number,mid[0]-dy*offset,mid[1]+dx*offset,PIN_NUMBER,
                          0,num_size if show_number else 0,max(1,num_size//10) if show_number else 0)
-        poly=PolylineRecord(False,PIN_LINE,pin_width_nm,[Corner(*body),Corner(*external,node=1)],pin=label)
+        poly=PolylineRecord(False,PIN_LINE,pin_width_nm,[Corner(*terminal_body),Corner(*external,node=1)],pin=label)
         if not symbol.pin_names_hidden and pin.name not in ('','~'):
             size=_positive(pin.name_size[1],'Pin name text height')
             distance=_nm(symbol.pin_name_offset)
@@ -291,9 +310,36 @@ def convert_symbol(library: Library, name: str, *, footprint_name: str | None = 
         pin_semantics.append(dict(source_pin_number=pin.number,source_pin_name=pin.name,
             source_electrical_type=pin.electrical_type,target_pin_number=label.value,
             target_polyline_index=len(polylines),connection_point_nm=external))
+        if pin.electrical_type=='no_connect':
+            diagnostic('SYMBOL_NO_CONNECT_AS_TERMINAL','loss',
+                'Explicit connectable-with-loss policy: source NC pin is emitted as an ordinary connectable '
+                'numbered terminal. Native no-connect enforcement is not transferred; Node=0 or another layer '
+                'would not enforce it because native import/connectivity code can restore pin layers/nodes.',
+                pin_number=pin.number,target_polyline_index=len(polylines),native_no_connect_enforced=False)
+        if pin.hidden:
+            diagnostic('SYMBOL_HIDDEN_PIN_REVEALED','loss',
+                'Explicit reveal-with-loss policy emits a visible numbered terminal. Hidden visibility '
+                'and implicit global power connections are not transferred; wire this terminal explicitly.',
+                pin_number=pin.number,target_polyline_index=len(polylines),
+                source_implicit_global_power=pin.electrical_type=='power_in',implicit_global_power_transferred=False)
         electrical_counts[pin.electrical_type]=electrical_counts.get(pin.electrical_type,0)+1
         polylines.append(poly)
-    extended_electrical = any(pin.electrical_type!='passive' for pin in pins)
+        if marker:
+            body_corners+=sum(len(p.corners) for p in decorators)
+            if body_corners>MAX_BODY_CORNERS:
+                raise SymbolParseError('Symbol body exceeds 32768 native corners including pin markers')
+            marker.update(unit=next(u.number for u in symbol.units if any(p is pin for p in u.pins)),
+                target_pin_polyline_index=len(polylines)-1,
+                target_polyline_indices=list(range(len(polylines),len(polylines)+len(decorators))))
+            pin_markers.append(marker)
+            diagnostic('SYMBOL_PIN_MARKER_GRAPHICS','loss',
+                'KiCad9 editor marker is emitted as non-electrical body strokes; native logical style, '
+                'project sizing override, caps/joins and font layout are not transferred or GUI-verified.',**marker)
+            if 'curve_corners' in marker:
+                diagnostic('SYMBOL_PIN_MARKER_CURVE_APPROXIMATED','approximation',
+                    'Inversion bubble approximated by straight NM strokes with the declared centerline tolerance.',**marker)
+            polylines.extend(decorators)
+    extended_electrical = any(pin.electrical_type!='passive' or pin.hidden or pin.graphic_style!='line' for pin in pins)
     if extended_electrical:
         diagnostic('SYMBOL_ELECTRICAL_TYPE_NOT_TRANSFERRED','loss',
             'Source electrical types are retained in JSON only. The confirmed CDS profile stores '
@@ -347,6 +393,8 @@ def convert_symbol(library: Library, name: str, *, footprint_name: str | None = 
         report['pin_semantics']=dict(electrical_rules_transferred=False,
             native_representation='numbered layer-8 segment; body Node=0, external Node=1; optional layer-14 name',
             pins=pin_semantics)
+        add_power_semantics(report,electrical_counts,no_connect_policy)
+        add_presentation_semantics(report,pins,hidden_pin_policy)
     if curves:
         diagnostic('SYMBOL_CURVE_STROKE_UNVERIFIED','assumption',
             'Curve tolerance covers centerlines; native stroke caps/joins and rasterization are not GUI-verified.')
@@ -372,6 +420,11 @@ def convert_symbol(library: Library, name: str, *, footprint_name: str | None = 
     if texts:
         report['graphic_texts']=[metadata for _,metadata in texts]
         report['counts']['graphic_texts']=len(texts)
+    if pin_markers:
+        report['pin_markers']=pin_markers
+        report['counts']['approximations']=sum(d['severity']=='approximation' for d in diagnostics)
+        if any('curve_corners' in m for m in pin_markers):
+            report['conversion_settings']['curve_tolerance_mm']=curve_tolerance
     if strict and report['counts']['losses']:
         report.update(status='rejected_loss',target_output_generated=False)
         report['proposed_artifact_sha256']=report.pop('artifact_sha256')

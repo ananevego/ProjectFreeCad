@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "kind": "symbol_power_nc_source_research",
+  "native_profile": "schemator-cds-straight-v1",
+  "source_pin_profile": "visible-line-power-v1",
+  "target_contract_complete": false,
+  "gui_validated": false,
+  "power_roles_transferred": false,
+  "native_no_connect_enforced": false,
+  "default_no_connect_policy": "reject",
+  "explicit_no_connect_policy": "connectable-with-loss",
+  "conclusion_scope": "Visible line power_in/power_out pins use the same numbered native terminals. The confirmed record subset has no KiCad electrical type field. Node=0 is not a permanent NC prohibition: FindNodeLine promotes endpoint nodes after geometric connections. Group paste forces pin-attribute graphics onto LAY_PIN_LINE. NC therefore rejects by default; explicit lossy mode preserves the physical number but emits an ordinary connectable terminal. Number identity does not imply ERC, NC enforcement, native import or physical package validation.",
+  "files": [
+    {
+      "path": "Documents.cpp",
+      "sha256": "7eebf1ce2c33e2b2869c5893a10d39e40cf9ec69cf8ea338e1b8d149de36b6b3",
+      "bytes": 424221,
+      "url": "https://github.com/niconson/Schematic-Constructor/blob/e7443c374f5c8644fb3483f794a50161de60dd01/Documents.cpp",
+      "line_anchors": [
+        2148,
+        2171,
+        2294,
+        7894,
+        7950,
+        8032,
+        8044,
+        8173,
+        8190,
+        12200,
+        12217
+      ]
+    },
+    {
+      "path": "FreePcbView.cpp",
+      "sha256": "10453fa78811c3f2bf13caa73e492af67ce4f8baf8e6c2e49d8acc52d9aac179",
+      "bytes": 505506,
+      "url": "https://github.com/niconson/Schematic-Constructor/blob/e7443c374f5c8644fb3483f794a50161de60dd01/FreePcbView.cpp",
+      "line_anchors": [
+        5898,
+        10870,
+        10873,
+        10877
+      ]
+    }
+  ]
+}

@@ -1,0 +1,132 @@
+{
+  "bundle": "output/components/power",
+  "components": [
+    {
+      "chain_complete": true,
+      "footprint": "components/c_Amplifier8NC_2dc6b19609a29037/footprint.fpl",
+      "id": "Amplifier8NC",
+      "native_no_connect_enforced": false,
+      "no_connect_pins": 3,
+      "no_connect_policy": "connectable-with-loss",
+      "pin_numbers": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      "power_pins": 2,
+      "power_roles_transferred": false,
+      "source": {
+        "footprint_identifier": "Package_DIP:DIP-8_W7.62mm",
+        "footprint_sha256": "222fb44370968119abbd978176814cc43a71bc32ac2de275d8a3c418c0830fc6",
+        "selection": "explicit_config",
+        "source_footprint_property": "",
+        "symbol": "MCP601_8PIN",
+        "symbol_library": "../../../KiCad/Pickit-cache.lib",
+        "symbol_library_sha256": "2392caa9775ccf212837314970deee07105228d5070917c31d757d39af459b3d"
+      },
+      "source_target_mapping_verified": true,
+      "source_units": 1,
+      "symbol": "components/c_Amplifier8NC_2dc6b19609a29037/symbol.cds"
+    },
+    {
+      "chain_complete": true,
+      "footprint": "components/c_Comparator8_0defca3ed6443277/footprint.fpl",
+      "id": "Comparator8",
+      "native_no_connect_enforced": false,
+      "no_connect_pins": 0,
+      "no_connect_policy": "reject",
+      "pin_numbers": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      "power_pins": 2,
+      "power_roles_transferred": false,
+      "source": {
+        "footprint_identifier": "Package_DIP:DIP-8_W7.62mm",
+        "footprint_sha256": "222fb44370968119abbd978176814cc43a71bc32ac2de275d8a3c418c0830fc6",
+        "selection": "explicit_config",
+        "source_footprint_property": "",
+        "symbol": "LM393",
+        "symbol_library": "../symbols/Comparator.kicad_sym",
+        "symbol_library_sha256": "7edcabe434cc8fe34d8c773483ab1ac5019829cf07836397c1689e7c3a3503bc"
+      },
+      "source_target_mapping_verified": true,
+      "source_units": 3,
+      "symbol": "components/c_Comparator8_0defca3ed6443277/symbol.cds"
+    },
+    {
+      "chain_complete": true,
+      "footprint": "components/c_Regulator3_a7e9f5c3e787657e/footprint.fpl",
+      "id": "Regulator3",
+      "native_no_connect_enforced": false,
+      "no_connect_pins": 0,
+      "no_connect_policy": "reject",
+      "pin_numbers": [
+        "1",
+        "2",
+        "3"
+      ],
+      "power_pins": 3,
+      "power_roles_transferred": false,
+      "source": {
+        "footprint_identifier": "Package_TO_SOT_SMD:SOT-23",
+        "footprint_sha256": "0d88c86c1b6d8c1aae4aa8c09386264c089d4451a128b6ccd63ed253f4300b15",
+        "selection": "explicit_config",
+        "source_footprint_property": "",
+        "symbol": "MCP1525",
+        "symbol_library": "../../../KiCad/Pickit-cache.lib",
+        "symbol_library_sha256": "2392caa9775ccf212837314970deee07105228d5070917c31d757d39af459b3d"
+      },
+      "source_target_mapping_verified": true,
+      "source_units": 1,
+      "symbol": "components/c_Regulator3_a7e9f5c3e787657e/symbol.cds"
+    }
+  ],
+  "gui_validated": false,
+  "kind": "symbol_power_control_summary",
+  "manifest_sha256": "3f6ffb073f6168089f13dc1acdc74d1629145d1a83198bf7b67fb03cdb4c4bd7",
+  "model_geometry_validated": false,
+  "models": [
+    {
+      "bytes": 250484,
+      "canonical_path": "models/Package_DIP.3dshapes/DIP-8_W7.62mm.stl",
+      "frame_validated": false,
+      "import_basename": "mdl_Package_DIP.3dshapes_DIP-8_W7.62mm_31cca7f26b74f516.stl",
+      "runtime_path": "openscad_models/Bundle.3dshapes/mdl_Package_DIP.3dshapes_DIP-8_W7.62mm_31cca7f26b74f516.stl",
+      "sha256": "9ce840ed4fcff379271f7300115728fff58e1868ad676ce9d62ccafed5cfdce8",
+      "source_relative": "Package_DIP.3dshapes/DIP-8_W7.62mm.stl"
+    },
+    {
+      "bytes": 36684,
+      "canonical_path": "models/Package_TO_SOT_SMD.3dshapes/SOT-23.stl",
+      "frame_validated": false,
+      "import_basename": "mdl_Package_TO_SOT_SMD.3dshapes_SOT-23_269a7bc9c71b73bf.stl",
+      "runtime_path": "openscad_models/Bundle.3dshapes/mdl_Package_TO_SOT_SMD.3dshapes_SOT-23_269a7bc9c71b73bf.stl",
+      "sha256": "f7503d3059c3ebe4e03ca4ddb744e3f9ae154c36d2bb53de4ecf3668f2518338",
+      "source_relative": "Package_TO_SOT_SMD.3dshapes/SOT-23.stl"
+    }
+  ],
+  "native_import_verified": false,
+  "native_no_connect_enforced": false,
+  "power_roles_transferred": false,
+  "schema_version": 1,
+  "summary": {
+    "complete_chains": 3,
+    "generated_components": 3,
+    "generated_with_loss": 3,
+    "models": 2,
+    "total": 3
+  },
+  "symbol_no_connect_policy": "connectable-with-loss"
+}

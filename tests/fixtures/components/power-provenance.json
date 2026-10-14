@@ -1,0 +1,12 @@
+{
+  "commit": "51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c",
+  "modified": false,
+  "files": [
+    {
+      "file": "DIP-8_W7.62mm.kicad_mod",
+      "sha256": "222fb44370968119abbd978176814cc43a71bc32ac2de275d8a3c418c0830fc6",
+      "bytes": 3641,
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Package_DIP.pretty/DIP-8_W7.62mm.kicad_mod"
+    }
+  ]
+}

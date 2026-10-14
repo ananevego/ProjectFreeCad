@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "kind": "symbol_common_pins_source_research",
+  "native_profile": "schemator-cds-straight-v1",
+  "source_units_profile": "common-pins-view-v1",
+  "target_contract_complete": false,
+  "gui_validated": false,
+  "independent_unit_placement_transferred": false,
+  "native_hierarchical_merge_generated": false,
+  "conclusion_scope": "The native ordinary component owns one chain of body and numbered pin records. KiCad unit-0 physical pins can therefore be emitted once in an additional common view in this same component, with explicit shared-view placement loss. This transforms original common records, never deduplicates positive-unit repeated records. Common graphics remain in logical views; the additional view contains only original common pins and their decorative markers. Independent unit placement, native hierarchy, ERC and implicit global-net behavior are not claimed.",
+  "files": [
+    {
+      "path": "Documents.cpp",
+      "sha256": "7eebf1ce2c33e2b2869c5893a10d39e40cf9ec69cf8ea338e1b8d149de36b6b3",
+      "bytes": 424221,
+      "url": "https://github.com/niconson/Schematic-Constructor/blob/e7443c374f5c8644fb3483f794a50161de60dd01/Documents.cpp",
+      "line_anchors": [
+        1525,
+        1607,
+        1690,
+        2053,
+        2075,
+        2171,
+        2325,
+        3017,
+        12217,
+        12972
+      ]
+    },
+    {
+      "path": "FreePcbView.cpp",
+      "sha256": "10453fa78811c3f2bf13caa73e492af67ce4f8baf8e6c2e49d8acc52d9aac179",
+      "bytes": 505506,
+      "url": "https://github.com/niconson/Schematic-Constructor/blob/e7443c374f5c8644fb3483f794a50161de60dd01/FreePcbView.cpp",
+      "line_anchors": [
+        7584,
+        7825,
+        15020,
+        15037,
+        15058
+      ]
+    }
+  ],
+  "default_common_pin_policy": "reject",
+  "explicit_common_pin_policy": "common-view-with-loss"
+}

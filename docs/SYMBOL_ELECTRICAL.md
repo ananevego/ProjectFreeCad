@@ -1,6 +1,6 @@
 # Электрические типы выводов УГО
 
-Состояние на 2026-10-13: `visible-line-electrical-v1` расширяет source profile
+Состояние на 2026-10-14: `visible-line-electrical-v1` расширяет source profile
 writer, сохраняя прежний native `schemator-cds-straight-v1`. Обычные видимые
 прямые выводы передаются как номер, segment и external Node=1; исходный
 электрический тип остаётся в JSON с явным loss. ERC-правила KiCad в `.cds`
@@ -20,18 +20,19 @@ writer, сохраняя прежний native `schemator-cds-straight-v1`. Об
 | open_collector | C | Нумерованный endpoint; drive rules только в JSON |
 | open_emitter | E | Нумерованный endpoint; drive rules только в JSON |
 
-`power_in`, `power_out`, `no_connect` пока вызывают явный отказ: требуется
-отдельная политика power/no-connect. Hidden pins, alternates, clock/inverted
-и другие graphic styles тоже отклоняются. Тип и graphic style проверяются
-раздельно. Удалять неподдержанные выводы или превращать no-connect в обычную
-точку подключения writer не будет.
+`power_in`/`power_out` разрешены в отдельном [power profile](SYMBOL_POWER.md)
+с loss power/ERC rules. `no_connect` по умолчанию отклоняется; explicit
+`connectable-with-loss` сохраняет номер как обычную подключаемую точку
+с per-pin loss. Hidden pins требуют [explicit reveal](SYMBOL_PINS.md);
+clock/inverted и другие editor markers разрешены. Alternate modes отклоняются. Тип и graphic style проверяются раздельно; выводы не удаляются.
 
-Сохраняются прежние ограничения: один unit/standard body style, положительная
+Сохраняются прежние ограничения: standard body style, положительная
 длина, cardinal directions, уникальные native identifiers и endpoints,
 CP1251, явные font/layout losses. Simple fills/body text добавлены в отдельном
 [body profile](SYMBOL_BODY.md). Hidden **имена/номера**
 допустимы: physical number сохраняется с size=0, скрытое имя не рисуется,
-но остаётся в source metadata. Hidden pin целиком остаётся отказом.
+но остаётся в source metadata. Hidden pin целиком default reject;
+explicit reveal сохраняет visible terminal с потерей implicit/global nets.
 
 ## Подтверждение native контракта
 
@@ -90,8 +91,8 @@ source/CDS/FPL number identity. `electrical_rules_transferred` остаётся 
 
 Все source pin names здесь скрыты; они сохранены в JSON. Реальная выборка
 подтверждает input/mixed profiles, остальные обычные типы — synthetic modern/
-legacy probes. Это не заявка на поддержку всех IC: многие требуют power pins,
-filled body, styled pins или нескольких units.
+legacy probes. Это не заявка на поддержку всех IC: source styles, shared/
+hidden/alternate pins и неподдержанная графика остаются ограничениями.
 
 ```sh
 python3 -B -m src.symbol_converter.write tests/fixtures/symbols/Device.kicad_sym \
@@ -122,5 +123,9 @@ curve CDS/reports и оба старых комплекта воспроизво
 
 2026-10-13: simple fills/body text добавлены; [SYMBOL_BODY.md](SYMBOL_BODY.md).
 Disjoint multi-unit layout добавлен: [SYMBOL_UNITS.md](SYMBOL_UNITS.md).
-Далее power/no-connect. Native hierarchy/shared/hidden/alternate pins и GUI
-остаются отдельными незавершёнными задачами.
+Power/no-connect policy добавлена: [SYMBOL_POWER.md](SYMBOL_POWER.md).
+Всего 359 тестов. Original common pins разрешены по [common policy](SYMBOL_COMMON.md).
+Native hierarchy/repeated records/alternate modes и GUI остаются открытыми.
+
+Актуальные extensions: [SYMBOL_PINS.md](SYMBOL_PINS.md),
+[SYMBOL_COMMON.md](SYMBOL_COMMON.md); всего 398 тестов.

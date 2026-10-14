@@ -1,0 +1,18 @@
+{
+  "commit": "51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c",
+  "modified": false,
+  "files": [
+    {
+      "file": "R_Array_SIP5.kicad_mod",
+      "sha256": "101a63bc1488f83fdf0af3d181d9a8b19cefde2dc03c97844368cb4e2b824d08",
+      "bytes": 2245,
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Resistor_THT.pretty/R_Array_SIP5.kicad_mod"
+    },
+    {
+      "file": "R_Array_SIP8.kicad_mod",
+      "sha256": "6e98959a7ea59e760eec3ee98ecf902d77f24129449399eb0eae352a3293e4db",
+      "bytes": 2640,
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Resistor_THT.pretty/R_Array_SIP8.kicad_mod"
+    }
+  ]
+}

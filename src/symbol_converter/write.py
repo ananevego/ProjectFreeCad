@@ -27,7 +27,13 @@ def main(argv=None) -> int:
     parser.add_argument('--curve-tolerance',type=float,default=.01,help='Maximum resolved curve centerline error in mm, default 0.01')
     parser.add_argument('--fill-tolerance',type=float,default=.01,help='Maximum ideal fill expansion beyond source fill/stroke in mm, default 0.01')
     parser.add_argument('--unit-gap',type=float,default=2.54,help='Gap between compound unit bounds in mm, default 2.54')
+    parser.add_argument('--no-connect-policy',choices=('reject','connectable-with-loss'),default='reject',
+        help='NC pins reject by default; explicit lossy mode emits ordinary connectable terminals')
     parser.add_argument('--strict',action='store_true')
+    parser.add_argument('--hidden-pin-policy',choices=('reject','reveal-with-loss'),default='reject',
+        help='Hidden pins reject by default; explicit reveal mode loses hidden/global-net semantics')
+    parser.add_argument('--common-pin-policy',choices=('reject','common-view-with-loss'),default='reject',
+        help='Common unit-0 pins reject by default; explicit mode emits one extra common view')
     args=parser.parse_args(argv)
     report_path=args.report or args.output.with_suffix('.report.json')
     exit_code=0
@@ -48,7 +54,9 @@ def main(argv=None) -> int:
             result=convert_symbol(library,args.symbol,footprint_name=args.footprint_name,
                 reference=args.reference,project_name=args.output.name,
                 default_line_width=args.default_line_width,pin_width=args.pin_width,
-                curve_tolerance=args.curve_tolerance,fill_tolerance=args.fill_tolerance,unit_gap=args.unit_gap,strict=args.strict)
+                curve_tolerance=args.curve_tolerance,fill_tolerance=args.fill_tolerance,unit_gap=args.unit_gap,
+                no_connect_policy=args.no_connect_policy,hidden_pin_policy=args.hidden_pin_policy,
+                common_pin_policy=args.common_pin_policy,strict=args.strict)
             report=result.report
         except LossySymbolConversionError as error:
             report=error.report

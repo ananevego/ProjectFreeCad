@@ -1,6 +1,6 @@
 # Минимальный конвертер УГО KiCad → Схематор
 
-Состояние на 2026-10-13: отдельный writer создаёт один компонент в `.cds`
+Состояние на 2026-10-14: отдельный writer создаёт один компонент в `.cds`
 1.429. Профиль native records `schemator-cds-straight-v1` проверен по исходникам Схематора,
 неизменённой записи R3 из существующей схемы и отдельному reader результата.
 Импорт, соединение проводов и load/save в Windows-программе ещё не проверены.
@@ -60,7 +60,8 @@ Python API: `src.symbol_converter.target.convert_symbol(library, name, ...)`
 - Single-unit либо disjoint-unit compound layout (2–16 units), standard body
   style/common graphics; разрешённое source
   inheritance/alias обрабатывает существующий parser.
-- Видимые pins девяти обычных electrical types с прямым segment, положительной длиной,
+- Numbered pins девяти обычных и двух power electrical types; editor
+  markers добавляются как body strokes. Положительная длина,
   cardinal angles 0/90/180/270 и без alternates. Hidden pin numbers разрешены:
   номер остаётся электрическим атрибутом с нулевым размером текста.
 - Уникальные номера вида `1`, `64`, `A1`: ASCII prefix и положительный suffix
@@ -82,10 +83,12 @@ Python API: `src.symbol_converter.target.convert_symbol(library, name, ...)`
   `@` в value/package зарезервирован native component index. Поддержка encoding
   не доказывает наличие всех glyphs в выбранном native font.
 
-Shared/common-pin multi-unit, power/virtual/BOM-excluded symbols, power_in/power_out/no_connect/hidden/styled pins,
+Global power/virtual/BOM-excluded symbols, repeated physical records,
+common/hidden/no_connect без соответствующей explicit policy,
 alternate body styles, filled arcs/Bezier/open filled polygons, цветные/dashed
 strokes, source diagnostics и будущие неизвестные records пока отклоняются.
-PIC24 из cache отклоняется из-за duplicates; LM393 — из-за power unit.
+PIC24 из cache отклоняется из-за duplicates; LM393 теперь включает power unit
+с сохранением номеров и явной потерей power/ERC rules.
 Библиотека читается целиком, writer выбирает ровно один symbol; batch УГО пока нет.
 
 ## Подтверждённые native записи
@@ -138,7 +141,8 @@ hidden pin labels, layers и semantic write/read roundtrip.
 направления, номера/имена/Nodes, settings, losses/strict, malformed native
 records, целевая сетка/overflow, защита файлов и воспроизводимость CLI.
 После writer было 193, component stage — 235, curves stage — 266;
-electrical stage добавил 19 (285); body — 27 (312), units — 24, всего 336 тестов.
+electrical stage добавил 19 (285); body — 27 (312), units — 24 (336),
+power/NC — 23, всего 359 тестов.
 Копия без STL/STEP проходит с 3 optional integration
 skips моделей. Контрольные `.cds` воспроизводятся побайтно.
 
@@ -158,5 +162,11 @@ Standalone writer по-прежнему не проверяет pads. Linked exp
 реализованы: [SYMBOL_BODY.md](SYMBOL_BODY.md), `--fill-tolerance` default .01.
 Disjoint units уже имеют отдельный [layout profile](SYMBOL_UNITS.md),
 `--unit-gap` default2.54mm. Native hierarchy/independent sections остаются loss;
-далее power/no-connect policy. В Windows нужны import,
+Power/no-connect policy добавлена: [SYMBOL_POWER.md](SYMBOL_POWER.md).
+Visible line power pins сохраняются как terminals; NC default reject, explicit
+`--no-connect-policy connectable-with-loss` допускает подключение с loss.
+В Windows нужны import,
 визуальное сравнение, подключение проводов, netlist и load/save roundtrip.
+
+Актуальные extensions: [SYMBOL_PINS.md](SYMBOL_PINS.md),
+[SYMBOL_COMMON.md](SYMBOL_COMMON.md); всего 398 тестов.

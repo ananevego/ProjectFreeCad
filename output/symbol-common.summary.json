@@ -1,0 +1,145 @@
+{
+  "bundle": "output/components/common",
+  "components": [
+    {
+      "chain_complete": true,
+      "common_pin_numbers": [
+        "1"
+      ],
+      "footprint": "components/c_Network3_2aa3e3f68736f14a/footprint.fpl",
+      "id": "Network3",
+      "pin_numbers": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "rendered_views": 4,
+      "source": {
+        "footprint_identifier": "Resistor_THT:R_Array_SIP4",
+        "footprint_sha256": "f6735b1a668caffbac184cd2d74b796ba88d2e6d77976292b86abb00dacaac5b",
+        "selection": "source_property",
+        "source_footprint_property": "Resistor_THT:R_Array_SIP4",
+        "symbol": "R_Network03_Split",
+        "symbol_library": "../symbols/Device.kicad_sym",
+        "symbol_library_sha256": "972f851ebf7c10dfe97eefd5d847406154b18ee6158013bd19165477d6364abd"
+      },
+      "source_target_mapping_verified": true,
+      "source_units": 3,
+      "symbol": "components/c_Network3_2aa3e3f68736f14a/symbol.cds"
+    },
+    {
+      "chain_complete": true,
+      "common_pin_numbers": [
+        "1"
+      ],
+      "footprint": "components/c_Network4_277300ce697891eb/footprint.fpl",
+      "id": "Network4",
+      "pin_numbers": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "rendered_views": 5,
+      "source": {
+        "footprint_identifier": "Resistor_THT:R_Array_SIP5",
+        "footprint_sha256": "101a63bc1488f83fdf0af3d181d9a8b19cefde2dc03c97844368cb4e2b824d08",
+        "selection": "source_property",
+        "source_footprint_property": "Resistor_THT:R_Array_SIP5",
+        "symbol": "R_Network04_Split",
+        "symbol_library": "../symbols/Device.kicad_sym",
+        "symbol_library_sha256": "972f851ebf7c10dfe97eefd5d847406154b18ee6158013bd19165477d6364abd"
+      },
+      "source_target_mapping_verified": true,
+      "source_units": 4,
+      "symbol": "components/c_Network4_277300ce697891eb/symbol.cds"
+    },
+    {
+      "chain_complete": true,
+      "common_pin_numbers": [
+        "1"
+      ],
+      "footprint": "components/c_Network7_037ef47c425c2bed/footprint.fpl",
+      "id": "Network7",
+      "pin_numbers": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      "rendered_views": 8,
+      "source": {
+        "footprint_identifier": "Resistor_THT:R_Array_SIP8",
+        "footprint_sha256": "6e98959a7ea59e760eec3ee98ecf902d77f24129449399eb0eae352a3293e4db",
+        "selection": "source_property",
+        "source_footprint_property": "Resistor_THT:R_Array_SIP8",
+        "symbol": "R_Network07_Split",
+        "symbol_library": "../symbols/Device.kicad_sym",
+        "symbol_library_sha256": "972f851ebf7c10dfe97eefd5d847406154b18ee6158013bd19165477d6364abd"
+      },
+      "source_target_mapping_verified": true,
+      "source_units": 7,
+      "symbol": "components/c_Network7_037ef47c425c2bed/symbol.cds"
+    }
+  ],
+  "gui_validated": false,
+  "independent_unit_placement_transferred": false,
+  "kind": "symbol_common_control_summary",
+  "manifest_sha256": "19d58ee73421e6348d87245f9a4758ec1c9713de0518297a8b442100395fce48",
+  "model_geometry_validated": false,
+  "models": [
+    {
+      "bytes": 112384,
+      "canonical_path": "models/Resistor_THT.3dshapes/R_Array_SIP4.stl",
+      "frame_validated": false,
+      "import_basename": "mdl_Resistor_THT.3dshapes_R_Array_SIP4_e85a27d696a92b5c.stl",
+      "runtime_path": "openscad_models/Bundle.3dshapes/mdl_Resistor_THT.3dshapes_R_Array_SIP4_e85a27d696a92b5c.stl",
+      "sha256": "3cf4c5bc0e78896dfbf9f2a7e5667b321500efe56d84c3a214f68b03a721d35b",
+      "source_relative": "Resistor_THT.3dshapes/R_Array_SIP4.stl"
+    },
+    {
+      "bytes": 141084,
+      "canonical_path": "models/Resistor_THT.3dshapes/R_Array_SIP5.stl",
+      "frame_validated": false,
+      "import_basename": "mdl_Resistor_THT.3dshapes_R_Array_SIP5_1ce3e53d2d1ca96e.stl",
+      "runtime_path": "openscad_models/Bundle.3dshapes/mdl_Resistor_THT.3dshapes_R_Array_SIP5_1ce3e53d2d1ca96e.stl",
+      "sha256": "41a3afe4d0d8002f5fbe36192af393298c8ba5995e249458592c27cbf8c6f07f",
+      "source_relative": "Resistor_THT.3dshapes/R_Array_SIP5.stl"
+    },
+    {
+      "bytes": 212684,
+      "canonical_path": "models/Resistor_THT.3dshapes/R_Array_SIP8.stl",
+      "frame_validated": false,
+      "import_basename": "mdl_Resistor_THT.3dshapes_R_Array_SIP8_86a2c26a027a203d.stl",
+      "runtime_path": "openscad_models/Bundle.3dshapes/mdl_Resistor_THT.3dshapes_R_Array_SIP8_86a2c26a027a203d.stl",
+      "sha256": "c927fef27bc40ce8d603895d9d60f71b44993e844cd142291e899841e6984ff4",
+      "source_relative": "Resistor_THT.3dshapes/R_Array_SIP8.stl"
+    }
+  ],
+  "native_hierarchical_merge_generated": false,
+  "native_import_verified": false,
+  "schema_version": 1,
+  "settings": {
+    "allow_missing_models": false,
+    "aperture_defaults": {
+      "mask_margin": 0.05,
+      "paste_margin": 0,
+      "paste_ratio": 0
+    },
+    "strict": false,
+    "symbol_common_pin_policy": "common-view-with-loss"
+  },
+  "summary": {
+    "complete_chains": 3,
+    "generated_components": 3,
+    "generated_with_loss": 3,
+    "models": 3,
+    "total": 3
+  }
+}

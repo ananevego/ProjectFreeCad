@@ -108,8 +108,9 @@ inheritance, aliases, численная нормализация, график�
 extensions, CLI/repeatability/protected outputs. После source этапа было 162
 теста; с отдельными 31 target tests было 193. После component links и добавления
 42 проверок было 235 тестов; с 31 curve tests было 266, после 19 electrical
-tests было 285; body — 312, units — 336. В копии без STL/STEP проходят те же
-336 тестов с тремя явными пропусками
+tests было 285; body — 312, units — 336, power/NC — 359.
+Добавлены markers/common pins: 398. В копии без STL/STEP
+проходят те же 398 тестов с тремя явными пропусками
 optional integration tests моделей. Исходники cache и контрольные FPL
 сохранены в переносимой копии; новые symbol tests не требуют моделей или сети.
 

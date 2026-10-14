@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "footprint_libraries": {
+    "Package_DIP": "..",
+    "Package_TO_SOT_SMD": ".."
+  },
+  "symbol_no_connect_policy": "connectable-with-loss",
+  "aperture_defaults": {
+    "mask_margin": 0.05,
+    "paste_margin": 0,
+    "paste_ratio": 0
+  },
+  "components": [
+    {
+      "id": "Comparator8",
+      "symbol_library": "../symbols/Comparator.kicad_sym",
+      "symbol": "LM393",
+      "footprint": "Package_DIP:DIP-8_W7.62mm",
+      "reference": "U1"
+    },
+    {
+      "id": "Regulator3",
+      "symbol_library": "../../../KiCad/Pickit-cache.lib",
+      "symbol": "MCP1525",
+      "footprint": "Package_TO_SOT_SMD:SOT-23",
+      "reference": "U2"
+    },
+    {
+      "id": "Amplifier8NC",
+      "symbol_library": "../../../KiCad/Pickit-cache.lib",
+      "symbol": "MCP601_8PIN",
+      "footprint": "Package_DIP:DIP-8_W7.62mm",
+      "reference": "U3"
+    }
+  ]
+}

@@ -33,6 +33,12 @@
       "sha256": "f3820e341582909b9489769c3b32dcf613e205057a8b2b66f889cdb0b1b0473a",
       "bytes": 4875263,
       "url": "https://gitlab.com/kicad/libraries/kicad-symbols/-/raw/a9012d8971ef2ea3243ffc9f19a5b4f153d8b334/Connector.kicad_sym"
+    },
+    {
+      "file": "74xGxx.kicad_sym",
+      "sha256": "daa0c2b0ed7f39dd63833dac8721d621c97b12179b72d1157e7de7125ac08a8a",
+      "bytes": 359792,
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-symbols/a9012d8971ef2ea3243ffc9f19a5b4f153d8b334b/74xGxx.kicad_sym"
     }
   ]
 }

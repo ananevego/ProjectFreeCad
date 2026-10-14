@@ -1,0 +1,2542 @@
+{
+  "schema_version": 1,
+  "kind": "schemator_symbol_conversion",
+  "status": "generated_with_loss",
+  "target": {
+    "repository": "niconson/Schematic-Constructor",
+    "revision": "e7443c374f5c8644fb3483f794a50161de60dd01",
+    "version": "1.429",
+    "profile": "schemator-cds-straight-v1",
+    "encoding": "cp1251",
+    "coordinates": "nanometres, Y up; source library coordinates preserved",
+    "text_angle_rule": "negative source angle modulo 360",
+    "source_pin_profile": "visible-line-power-v1",
+    "source_pin_presentation_profile": "kicad9-editor-pin-markers-v1",
+    "source_body_profile": "bounded-fills-body-text-v1"
+  },
+  "contract_verified_against_source": true,
+  "target_records_validated": true,
+  "target_output_generated": true,
+  "target_import_verified": false,
+  "gui_validated": false,
+  "source_format": "kicad_sym",
+  "source_version": "20241209",
+  "source_symbol": {
+    "name": "MIC845H",
+    "properties": {
+      "Reference": {
+        "name": "Reference",
+        "value": "U",
+        "at": [
+          3.81,
+          5.08,
+          0.0
+        ],
+        "hidden": false,
+        "raw": [
+          "property",
+          "Reference",
+          "U",
+          [
+            "at",
+            "3.81",
+            "5.08",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ]
+          ]
+        ]
+      },
+      "Value": {
+        "name": "Value",
+        "value": "MIC845H",
+        "at": [
+          7.62,
+          -5.08,
+          0.0
+        ],
+        "hidden": false,
+        "raw": [
+          "property",
+          "Value",
+          "MIC845H",
+          [
+            "at",
+            "7.62",
+            "-5.08",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ]
+          ]
+        ]
+      },
+      "Footprint": {
+        "name": "Footprint",
+        "value": "Package_TO_SOT_SMD:SOT-353_SC-70-5",
+        "at": [
+          0.0,
+          -9.525,
+          0.0
+        ],
+        "hidden": true,
+        "raw": [
+          "property",
+          "Footprint",
+          "Package_TO_SOT_SMD:SOT-353_SC-70-5",
+          [
+            "at",
+            "0",
+            "-9.525",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ],
+            [
+              "hide",
+              "yes"
+            ]
+          ]
+        ]
+      },
+      "Datasheet": {
+        "name": "Datasheet",
+        "value": "http://ww1.microchip.com/downloads/en/DeviceDoc/mic845.pdf",
+        "at": [
+          3.81,
+          5.08,
+          0.0
+        ],
+        "hidden": true,
+        "raw": [
+          "property",
+          "Datasheet",
+          "http://ww1.microchip.com/downloads/en/DeviceDoc/mic845.pdf",
+          [
+            "at",
+            "3.81",
+            "5.08",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ],
+            [
+              "hide",
+              "yes"
+            ]
+          ]
+        ]
+      },
+      "Description": {
+        "name": "Description",
+        "value": "Micro-Power Comparator / Battery Monitor, Active-High Push-Pull Output, SC-70-5",
+        "at": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "hidden": true,
+        "raw": [
+          "property",
+          "Description",
+          "Micro-Power Comparator / Battery Monitor, Active-High Push-Pull Output, SC-70-5",
+          [
+            "at",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ],
+            [
+              "hide",
+              "yes"
+            ]
+          ]
+        ]
+      },
+      "ki_keywords": {
+        "name": "ki_keywords",
+        "value": "single cmp",
+        "at": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "hidden": true,
+        "raw": [
+          "property",
+          "ki_keywords",
+          "single cmp",
+          [
+            "at",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ],
+            [
+              "hide",
+              "yes"
+            ]
+          ]
+        ]
+      },
+      "ki_fp_filters": {
+        "name": "ki_fp_filters",
+        "value": "*SC?70*",
+        "at": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "hidden": true,
+        "raw": [
+          "property",
+          "ki_fp_filters",
+          "*SC?70*",
+          [
+            "at",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "effects",
+            [
+              "font",
+              [
+                "size",
+                "1.27",
+                "1.27"
+              ]
+            ],
+            [
+              "hide",
+              "yes"
+            ]
+          ]
+        ]
+      }
+    },
+    "units": [
+      {
+        "number": 0,
+        "style": 1,
+        "source_id": "MIC845H_0_1",
+        "display_name": null,
+        "pins": [],
+        "graphics": [
+          {
+            "kind": "polyline",
+            "geometry": {
+              "points": [
+                [
+                  -2.54,
+                  5.08
+                ],
+                [
+                  7.62,
+                  0.0
+                ],
+                [
+                  -2.54,
+                  -5.08
+                ],
+                [
+                  -2.54,
+                  5.08
+                ]
+              ]
+            },
+            "width": 0.254,
+            "fill": "background",
+            "raw": [
+              "polyline",
+              [
+                "pts",
+                [
+                  "xy",
+                  "-2.54",
+                  "5.08"
+                ],
+                [
+                  "xy",
+                  "7.62",
+                  "0"
+                ],
+                [
+                  "xy",
+                  "-2.54",
+                  "-5.08"
+                ],
+                [
+                  "xy",
+                  "-2.54",
+                  "5.08"
+                ]
+              ],
+              [
+                "stroke",
+                [
+                  "width",
+                  "0.254"
+                ],
+                [
+                  "type",
+                  "default"
+                ]
+              ],
+              [
+                "fill",
+                [
+                  "type",
+                  "background"
+                ]
+              ]
+            ]
+          },
+          {
+            "kind": "polyline",
+            "geometry": {
+              "points": [
+                [
+                  1.27,
+                  0.0
+                ],
+                [
+                  0.762,
+                  0.0
+                ]
+              ]
+            },
+            "width": 0.0,
+            "fill": "none",
+            "raw": [
+              "polyline",
+              [
+                "pts",
+                [
+                  "xy",
+                  "1.27",
+                  "0"
+                ],
+                [
+                  "xy",
+                  "0.762",
+                  "0"
+                ]
+              ],
+              [
+                "stroke",
+                [
+                  "width",
+                  "0"
+                ],
+                [
+                  "type",
+                  "default"
+                ]
+              ],
+              [
+                "fill",
+                [
+                  "type",
+                  "none"
+                ]
+              ]
+            ]
+          },
+          {
+            "kind": "polyline",
+            "geometry": {
+              "points": [
+                [
+                  1.27,
+                  -1.27
+                ],
+                [
+                  1.905,
+                  -1.27
+                ],
+                [
+                  3.175,
+                  1.27
+                ],
+                [
+                  3.81,
+                  1.27
+                ]
+              ]
+            },
+            "width": 0.0,
+            "fill": "none",
+            "raw": [
+              "polyline",
+              [
+                "pts",
+                [
+                  "xy",
+                  "1.27",
+                  "-1.27"
+                ],
+                [
+                  "xy",
+                  "1.905",
+                  "-1.27"
+                ],
+                [
+                  "xy",
+                  "3.175",
+                  "1.27"
+                ],
+                [
+                  "xy",
+                  "3.81",
+                  "1.27"
+                ]
+              ],
+              [
+                "stroke",
+                [
+                  "width",
+                  "0"
+                ],
+                [
+                  "type",
+                  "default"
+                ]
+              ],
+              [
+                "fill",
+                [
+                  "type",
+                  "none"
+                ]
+              ]
+            ]
+          },
+          {
+            "kind": "polyline",
+            "geometry": {
+              "points": [
+                [
+                  2.032,
+                  0.0
+                ],
+                [
+                  1.524,
+                  0.0
+                ]
+              ]
+            },
+            "width": 0.0,
+            "fill": "none",
+            "raw": [
+              "polyline",
+              [
+                "pts",
+                [
+                  "xy",
+                  "2.032",
+                  "0"
+                ],
+                [
+                  "xy",
+                  "1.524",
+                  "0"
+                ]
+              ],
+              [
+                "stroke",
+                [
+                  "width",
+                  "0"
+                ],
+                [
+                  "type",
+                  "default"
+                ]
+              ],
+              [
+                "fill",
+                [
+                  "type",
+                  "none"
+                ]
+              ]
+            ]
+          },
+          {
+            "kind": "polyline",
+            "geometry": {
+              "points": [
+                [
+                  2.286,
+                  0.0
+                ],
+                [
+                  2.794,
+                  0.0
+                ]
+              ]
+            },
+            "width": 0.0,
+            "fill": "none",
+            "raw": [
+              "polyline",
+              [
+                "pts",
+                [
+                  "xy",
+                  "2.286",
+                  "0"
+                ],
+                [
+                  "xy",
+                  "2.794",
+                  "0"
+                ]
+              ],
+              [
+                "stroke",
+                [
+                  "width",
+                  "0"
+                ],
+                [
+                  "type",
+                  "default"
+                ]
+              ],
+              [
+                "fill",
+                [
+                  "type",
+                  "none"
+                ]
+              ]
+            ]
+          },
+          {
+            "kind": "polyline",
+            "geometry": {
+              "points": [
+                [
+                  3.048,
+                  0.0
+                ],
+                [
+                  3.556,
+                  0.0
+                ]
+              ]
+            },
+            "width": 0.0,
+            "fill": "none",
+            "raw": [
+              "polyline",
+              [
+                "pts",
+                [
+                  "xy",
+                  "3.048",
+                  "0"
+                ],
+                [
+                  "xy",
+                  "3.556",
+                  "0"
+                ]
+              ],
+              [
+                "stroke",
+                [
+                  "width",
+                  "0"
+                ],
+                [
+                  "type",
+                  "default"
+                ]
+              ],
+              [
+                "fill",
+                [
+                  "type",
+                  "none"
+                ]
+              ]
+            ]
+          },
+          {
+            "kind": "polyline",
+            "geometry": {
+              "points": [
+                [
+                  3.81,
+                  0.0
+                ],
+                [
+                  4.318,
+                  0.0
+                ]
+              ]
+            },
+            "width": 0.0,
+            "fill": "none",
+            "raw": [
+              "polyline",
+              [
+                "pts",
+                [
+                  "xy",
+                  "3.81",
+                  "0"
+                ],
+                [
+                  "xy",
+                  "4.318",
+                  "0"
+                ]
+              ],
+              [
+                "stroke",
+                [
+                  "width",
+                  "0"
+                ],
+                [
+                  "type",
+                  "default"
+                ]
+              ],
+              [
+                "fill",
+                [
+                  "type",
+                  "none"
+                ]
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "number": 1,
+        "style": 1,
+        "source_id": "MIC845H_1_1",
+        "display_name": null,
+        "pins": [
+          {
+            "number": "3",
+            "name": "+",
+            "at": [
+              -5.08,
+              0.0,
+              0.0
+            ],
+            "length": 2.54,
+            "electrical_type": "input",
+            "graphic_style": "line",
+            "hidden": false,
+            "name_size": [
+              1.27,
+              1.27
+            ],
+            "number_size": [
+              1.27,
+              1.27
+            ],
+            "alternates": [],
+            "raw": [
+              "pin",
+              "input",
+              "line",
+              [
+                "at",
+                "-5.08",
+                "0",
+                "0"
+              ],
+              [
+                "length",
+                "2.54"
+              ],
+              [
+                "name",
+                "+",
+                [
+                  "effects",
+                  [
+                    "font",
+                    [
+                      "size",
+                      "1.27",
+                      "1.27"
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "number",
+                "3",
+                [
+                  "effects",
+                  [
+                    "font",
+                    [
+                      "size",
+                      "1.27",
+                      "1.27"
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          },
+          {
+            "number": "1",
+            "name": "NIC",
+            "at": [
+              -2.54,
+              0.0,
+              0.0
+            ],
+            "length": 2.54,
+            "electrical_type": "no_connect",
+            "graphic_style": "line",
+            "hidden": true,
+            "name_size": [
+              1.27,
+              1.27
+            ],
+            "number_size": [
+              1.27,
+              1.27
+            ],
+            "alternates": [],
+            "raw": [
+              "pin",
+              "no_connect",
+              "line",
+              [
+                "at",
+                "-2.54",
+                "0",
+                "0"
+              ],
+              [
+                "length",
+                "2.54"
+              ],
+              [
+                "hide",
+                "yes"
+              ],
+              [
+                "name",
+                "NIC",
+                [
+                  "effects",
+                  [
+                    "font",
+                    [
+                      "size",
+                      "1.27",
+                      "1.27"
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "number",
+                "1",
+                [
+                  "effects",
+                  [
+                    "font",
+                    [
+                      "size",
+                      "1.27",
+                      "1.27"
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          },
+          {
+            "number": "5",
+            "name": "V+",
+            "at": [
+              0.0,
+              7.62,
+              270.0
+            ],
+            "length": 3.81,
+            "electrical_type": "power_in",
+            "graphic_style": "line",
+            "hidden": false,
+            "name_size": [
+              1.27,
+              1.27
+            ],
+            "number_size": [
+              1.27,
+              1.27
+            ],
+            "alternates": [],
+            "raw": [
+              "pin",
+              "power_in",
+              "line",
+              [
+                "at",
+                "0",
+                "7.62",
+                "270"
+              ],
+              [
+                "length",
+                "3.81"
+              ],
+              [
+                "name",
+                "V+",
+                [
+                  "effects",
+                  [
+                    "font",
+                    [
+                      "size",
+                      "1.27",
+                      "1.27"
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "number",
+                "5",
+                [
+                  "effects",
+                  [
+                    "font",
+                    [
+                      "size",
+                      "1.27",
+                      "1.27"
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          },
+          {
+            "number": "2",
+            "name": "GND",
+            "at": [
+              0.0,
+              -7.62,
+              90.0
+            ],
+            "length": 3.81,
+            "electrical_type": "power_in",
+            "graphic_style": "line",
+            "hidden": false,
+            "name_size": [
+              1.27,
+              1.27
+            ],
+            "number_size": [
+              1.27,
+              1.27
+            ],
+            "alternates": [],
+            "raw": [
+              "pin",
+              "power_in",
+              "line",
+              [
+                "at",
+                "0",
+                "-7.62",
+                "90"
+              ],
+              [
+                "length",
+                "3.81"
+              ],
+              [
+                "name",
+                "GND",
+                [
+                  "effects",
+                  [
+                    "font",
+                    [
+                      "size",
+                      "1.27",
+                      "1.27"
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "number",
+                "2",
+                [
+                  "effects",
+                  [
+                    "font",
+                    [
+                      "size",
+                      "1.27",
+                      "1.27"
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          },
+          {
+            "number": "4",
+            "name": "~",
+            "at": [
+              10.16,
+              0.0,
+              180.0
+            ],
+            "length": 2.54,
+            "electrical_type": "output",
+            "graphic_style": "line",
+            "hidden": false,
+            "name_size": [
+              1.27,
+              1.27
+            ],
+            "number_size": [
+              1.27,
+              1.27
+            ],
+            "alternates": [],
+            "raw": [
+              "pin",
+              "output",
+              "line",
+              [
+                "at",
+                "10.16",
+                "0",
+                "180"
+              ],
+              [
+                "length",
+                "2.54"
+              ],
+              [
+                "name",
+                "~",
+                [
+                  "effects",
+                  [
+                    "font",
+                    [
+                      "size",
+                      "1.27",
+                      "1.27"
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "number",
+                "4",
+                [
+                  "effects",
+                  [
+                    "font",
+                    [
+                      "size",
+                      "1.27",
+                      "1.27"
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          }
+        ],
+        "graphics": []
+      }
+    ],
+    "extends": null,
+    "inheritance_chain": [],
+    "aliases": [],
+    "alias_of": null,
+    "unit_count": 1,
+    "pin_names_hidden": false,
+    "pin_numbers_hidden": false,
+    "pin_name_offset": 0.127,
+    "in_bom": true,
+    "on_board": true,
+    "power": false,
+    "diagnostics": [],
+    "raw": [
+      "symbol",
+      "MIC845H",
+      [
+        "pin_names",
+        [
+          "offset",
+          "0.127"
+        ]
+      ],
+      [
+        "exclude_from_sim",
+        "no"
+      ],
+      [
+        "in_bom",
+        "yes"
+      ],
+      [
+        "on_board",
+        "yes"
+      ],
+      [
+        "property",
+        "Reference",
+        "U",
+        [
+          "at",
+          "3.81",
+          "5.08",
+          "0"
+        ],
+        [
+          "effects",
+          [
+            "font",
+            [
+              "size",
+              "1.27",
+              "1.27"
+            ]
+          ]
+        ]
+      ],
+      [
+        "property",
+        "Value",
+        "MIC845H",
+        [
+          "at",
+          "7.62",
+          "-5.08",
+          "0"
+        ],
+        [
+          "effects",
+          [
+            "font",
+            [
+              "size",
+              "1.27",
+              "1.27"
+            ]
+          ]
+        ]
+      ],
+      [
+        "property",
+        "Footprint",
+        "Package_TO_SOT_SMD:SOT-353_SC-70-5",
+        [
+          "at",
+          "0",
+          "-9.525",
+          "0"
+        ],
+        [
+          "effects",
+          [
+            "font",
+            [
+              "size",
+              "1.27",
+              "1.27"
+            ]
+          ],
+          [
+            "hide",
+            "yes"
+          ]
+        ]
+      ],
+      [
+        "property",
+        "Datasheet",
+        "http://ww1.microchip.com/downloads/en/DeviceDoc/mic845.pdf",
+        [
+          "at",
+          "3.81",
+          "5.08",
+          "0"
+        ],
+        [
+          "effects",
+          [
+            "font",
+            [
+              "size",
+              "1.27",
+              "1.27"
+            ]
+          ],
+          [
+            "hide",
+            "yes"
+          ]
+        ]
+      ],
+      [
+        "property",
+        "Description",
+        "Micro-Power Comparator / Battery Monitor, Active-High Push-Pull Output, SC-70-5",
+        [
+          "at",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "effects",
+          [
+            "font",
+            [
+              "size",
+              "1.27",
+              "1.27"
+            ]
+          ],
+          [
+            "hide",
+            "yes"
+          ]
+        ]
+      ],
+      [
+        "property",
+        "ki_keywords",
+        "single cmp",
+        [
+          "at",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "effects",
+          [
+            "font",
+            [
+              "size",
+              "1.27",
+              "1.27"
+            ]
+          ],
+          [
+            "hide",
+            "yes"
+          ]
+        ]
+      ],
+      [
+        "property",
+        "ki_fp_filters",
+        "*SC?70*",
+        [
+          "at",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "effects",
+          [
+            "font",
+            [
+              "size",
+              "1.27",
+              "1.27"
+            ]
+          ],
+          [
+            "hide",
+            "yes"
+          ]
+        ]
+      ],
+      [
+        "symbol",
+        "MIC845H_0_1",
+        [
+          "polyline",
+          [
+            "pts",
+            [
+              "xy",
+              "-2.54",
+              "5.08"
+            ],
+            [
+              "xy",
+              "7.62",
+              "0"
+            ],
+            [
+              "xy",
+              "-2.54",
+              "-5.08"
+            ],
+            [
+              "xy",
+              "-2.54",
+              "5.08"
+            ]
+          ],
+          [
+            "stroke",
+            [
+              "width",
+              "0.254"
+            ],
+            [
+              "type",
+              "default"
+            ]
+          ],
+          [
+            "fill",
+            [
+              "type",
+              "background"
+            ]
+          ]
+        ],
+        [
+          "polyline",
+          [
+            "pts",
+            [
+              "xy",
+              "1.27",
+              "0"
+            ],
+            [
+              "xy",
+              "0.762",
+              "0"
+            ]
+          ],
+          [
+            "stroke",
+            [
+              "width",
+              "0"
+            ],
+            [
+              "type",
+              "default"
+            ]
+          ],
+          [
+            "fill",
+            [
+              "type",
+              "none"
+            ]
+          ]
+        ],
+        [
+          "polyline",
+          [
+            "pts",
+            [
+              "xy",
+              "1.27",
+              "-1.27"
+            ],
+            [
+              "xy",
+              "1.905",
+              "-1.27"
+            ],
+            [
+              "xy",
+              "3.175",
+              "1.27"
+            ],
+            [
+              "xy",
+              "3.81",
+              "1.27"
+            ]
+          ],
+          [
+            "stroke",
+            [
+              "width",
+              "0"
+            ],
+            [
+              "type",
+              "default"
+            ]
+          ],
+          [
+            "fill",
+            [
+              "type",
+              "none"
+            ]
+          ]
+        ],
+        [
+          "polyline",
+          [
+            "pts",
+            [
+              "xy",
+              "2.032",
+              "0"
+            ],
+            [
+              "xy",
+              "1.524",
+              "0"
+            ]
+          ],
+          [
+            "stroke",
+            [
+              "width",
+              "0"
+            ],
+            [
+              "type",
+              "default"
+            ]
+          ],
+          [
+            "fill",
+            [
+              "type",
+              "none"
+            ]
+          ]
+        ],
+        [
+          "polyline",
+          [
+            "pts",
+            [
+              "xy",
+              "2.286",
+              "0"
+            ],
+            [
+              "xy",
+              "2.794",
+              "0"
+            ]
+          ],
+          [
+            "stroke",
+            [
+              "width",
+              "0"
+            ],
+            [
+              "type",
+              "default"
+            ]
+          ],
+          [
+            "fill",
+            [
+              "type",
+              "none"
+            ]
+          ]
+        ],
+        [
+          "polyline",
+          [
+            "pts",
+            [
+              "xy",
+              "3.048",
+              "0"
+            ],
+            [
+              "xy",
+              "3.556",
+              "0"
+            ]
+          ],
+          [
+            "stroke",
+            [
+              "width",
+              "0"
+            ],
+            [
+              "type",
+              "default"
+            ]
+          ],
+          [
+            "fill",
+            [
+              "type",
+              "none"
+            ]
+          ]
+        ],
+        [
+          "polyline",
+          [
+            "pts",
+            [
+              "xy",
+              "3.81",
+              "0"
+            ],
+            [
+              "xy",
+              "4.318",
+              "0"
+            ]
+          ],
+          [
+            "stroke",
+            [
+              "width",
+              "0"
+            ],
+            [
+              "type",
+              "default"
+            ]
+          ],
+          [
+            "fill",
+            [
+              "type",
+              "none"
+            ]
+          ]
+        ]
+      ],
+      [
+        "symbol",
+        "MIC845H_1_1",
+        [
+          "pin",
+          "input",
+          "line",
+          [
+            "at",
+            "-5.08",
+            "0",
+            "0"
+          ],
+          [
+            "length",
+            "2.54"
+          ],
+          [
+            "name",
+            "+",
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ]
+            ]
+          ],
+          [
+            "number",
+            "3",
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ]
+            ]
+          ]
+        ],
+        [
+          "pin",
+          "no_connect",
+          "line",
+          [
+            "at",
+            "-2.54",
+            "0",
+            "0"
+          ],
+          [
+            "length",
+            "2.54"
+          ],
+          [
+            "hide",
+            "yes"
+          ],
+          [
+            "name",
+            "NIC",
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ]
+            ]
+          ],
+          [
+            "number",
+            "1",
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ]
+            ]
+          ]
+        ],
+        [
+          "pin",
+          "power_in",
+          "line",
+          [
+            "at",
+            "0",
+            "7.62",
+            "270"
+          ],
+          [
+            "length",
+            "3.81"
+          ],
+          [
+            "name",
+            "V+",
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ]
+            ]
+          ],
+          [
+            "number",
+            "5",
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ]
+            ]
+          ]
+        ],
+        [
+          "pin",
+          "power_in",
+          "line",
+          [
+            "at",
+            "0",
+            "-7.62",
+            "90"
+          ],
+          [
+            "length",
+            "3.81"
+          ],
+          [
+            "name",
+            "GND",
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ]
+            ]
+          ],
+          [
+            "number",
+            "2",
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ]
+            ]
+          ]
+        ],
+        [
+          "pin",
+          "output",
+          "line",
+          [
+            "at",
+            "10.16",
+            "0",
+            "180"
+          ],
+          [
+            "length",
+            "2.54"
+          ],
+          [
+            "name",
+            "~",
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ]
+            ]
+          ],
+          [
+            "number",
+            "4",
+            [
+              "effects",
+              [
+                "font",
+                [
+                  "size",
+                  "1.27",
+                  "1.27"
+                ]
+              ]
+            ]
+          ]
+        ]
+      ],
+      [
+        "embedded_fonts",
+        "no"
+      ]
+    ]
+  },
+  "conversion_settings": {
+    "footprint_name": null,
+    "reference": "U1",
+    "project_name": "MIC845H_pins.cds",
+    "default_line_width_mm": 0.254,
+    "pin_width_mm": 0.254,
+    "no_connect_policy": "connectable-with-loss",
+    "hidden_pin_policy": "reveal-with-loss",
+    "fill_tolerance_mm": 0.01
+  },
+  "target_component": {
+    "pin_count": 5,
+    "bounds": [
+      -5232400,
+      -7772400,
+      10312400,
+      7772400
+    ],
+    "reference": {
+      "value": "U1",
+      "x": 3810000,
+      "y": 5080000,
+      "layer": 7,
+      "angle": 0,
+      "size": 1270000,
+      "width": 127000,
+      "merge": -1,
+      "submerge": -1,
+      "font": 2,
+      "options": 1
+    },
+    "value": {
+      "value": "MIC845H",
+      "x": 7620000,
+      "y": -5080000,
+      "layer": 13,
+      "angle": 0,
+      "size": 1270000,
+      "width": 127000,
+      "merge": -1,
+      "submerge": -1,
+      "font": 2,
+      "options": 1
+    },
+    "footprint": {
+      "value": "PART",
+      "x": 0,
+      "y": 0,
+      "layer": 12,
+      "angle": 0,
+      "size": 0,
+      "width": 0,
+      "merge": -1,
+      "submerge": -1,
+      "font": 2,
+      "options": 1
+    },
+    "polylines": [
+      {
+        "closed": true,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": -2540000,
+            "y": 5080000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 7620000,
+            "y": 0,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -2540000,
+            "y": -5080000,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": 1270000,
+            "y": 0,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 762000,
+            "y": 0,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": 1270000,
+            "y": -1270000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 1905000,
+            "y": -1270000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 3175000,
+            "y": 1270000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 3810000,
+            "y": 1270000,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": 2032000,
+            "y": 0,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 1524000,
+            "y": 0,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": 2286000,
+            "y": 0,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 2794000,
+            "y": 0,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": 3048000,
+            "y": 0,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 3556000,
+            "y": 0,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 6,
+        "width": 254000,
+        "corners": [
+          {
+            "x": 3810000,
+            "y": 0,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 4318000,
+            "y": 0,
+            "style": 0,
+            "node": 0
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": null,
+        "description": null
+      },
+      {
+        "closed": false,
+        "layer": 8,
+        "width": 254000,
+        "corners": [
+          {
+            "x": -2540000,
+            "y": 0,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -5080000,
+            "y": 0,
+            "style": 0,
+            "node": 1
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": {
+          "value": "3",
+          "x": -3810000,
+          "y": 635000,
+          "layer": 9,
+          "angle": 0,
+          "size": 1270000,
+          "width": 127000,
+          "merge": -1,
+          "submerge": -1,
+          "font": 2,
+          "options": 1
+        },
+        "description": {
+          "value": "+",
+          "x": -2413000,
+          "y": 0,
+          "layer": 14,
+          "angle": 0,
+          "size": 1270000,
+          "width": 127000,
+          "merge": -1,
+          "submerge": -1,
+          "font": 2,
+          "options": 1
+        }
+      },
+      {
+        "closed": false,
+        "layer": 8,
+        "width": 254000,
+        "corners": [
+          {
+            "x": 0,
+            "y": 0,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": -2540000,
+            "y": 0,
+            "style": 0,
+            "node": 1
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": {
+          "value": "1",
+          "x": -1270000,
+          "y": 635000,
+          "layer": 9,
+          "angle": 0,
+          "size": 1270000,
+          "width": 127000,
+          "merge": -1,
+          "submerge": -1,
+          "font": 2,
+          "options": 1
+        },
+        "description": {
+          "value": "NIC",
+          "x": 127000,
+          "y": 0,
+          "layer": 14,
+          "angle": 0,
+          "size": 1270000,
+          "width": 127000,
+          "merge": -1,
+          "submerge": -1,
+          "font": 2,
+          "options": 1
+        }
+      },
+      {
+        "closed": false,
+        "layer": 8,
+        "width": 254000,
+        "corners": [
+          {
+            "x": 0,
+            "y": 3810000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 0,
+            "y": 7620000,
+            "style": 0,
+            "node": 1
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": {
+          "value": "5",
+          "x": 635000,
+          "y": 5715000,
+          "layer": 9,
+          "angle": 0,
+          "size": 1270000,
+          "width": 127000,
+          "merge": -1,
+          "submerge": -1,
+          "font": 2,
+          "options": 1
+        },
+        "description": {
+          "value": "V+",
+          "x": 0,
+          "y": 3683000,
+          "layer": 14,
+          "angle": 0,
+          "size": 1270000,
+          "width": 127000,
+          "merge": -1,
+          "submerge": -1,
+          "font": 2,
+          "options": 1
+        }
+      },
+      {
+        "closed": false,
+        "layer": 8,
+        "width": 254000,
+        "corners": [
+          {
+            "x": 0,
+            "y": -3810000,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 0,
+            "y": -7620000,
+            "style": 0,
+            "node": 1
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": {
+          "value": "2",
+          "x": -635000,
+          "y": -5715000,
+          "layer": 9,
+          "angle": 0,
+          "size": 1270000,
+          "width": 127000,
+          "merge": -1,
+          "submerge": -1,
+          "font": 2,
+          "options": 1
+        },
+        "description": {
+          "value": "GND",
+          "x": 0,
+          "y": -3683000,
+          "layer": 14,
+          "angle": 0,
+          "size": 1270000,
+          "width": 127000,
+          "merge": -1,
+          "submerge": -1,
+          "font": 2,
+          "options": 1
+        }
+      },
+      {
+        "closed": false,
+        "layer": 8,
+        "width": 254000,
+        "corners": [
+          {
+            "x": 7620000,
+            "y": 0,
+            "style": 0,
+            "node": 0
+          },
+          {
+            "x": 10160000,
+            "y": 0,
+            "style": 0,
+            "node": 1
+          }
+        ],
+        "hatch": 0,
+        "merge": -1,
+        "submerge": -1,
+        "source": -1,
+        "source_invert": 0,
+        "pin": {
+          "value": "4",
+          "x": 8890000,
+          "y": -635000,
+          "layer": 9,
+          "angle": 0,
+          "size": 1270000,
+          "width": 127000,
+          "merge": -1,
+          "submerge": -1,
+          "font": 2,
+          "options": 1
+        },
+        "description": null
+      }
+    ]
+  },
+  "physical_pin_mapping_verified": false,
+  "diagnostics": [
+    {
+      "code": "SYMBOL_TEXT_RENDERING",
+      "severity": "loss",
+      "message": "SIMPLEX replaces source fonts; source property anchors are used as native baselines. Justification, text styling and exact glyph bounds are not reproduced.",
+      "context": {}
+    },
+    {
+      "code": "TARGET_PIN_STROKE",
+      "severity": "assumption",
+      "message": "Pin stroke width is a declared conversion setting; the library has no resolved project pin stroke.",
+      "context": {
+        "width_mm": 0.254
+      }
+    },
+    {
+      "code": "SYMBOL_FOOTPRINT_UNRESOLVED",
+      "severity": "loss",
+      "message": "Native PART placeholder used; source footprint identifier/filters are retained in JSON.",
+      "context": {}
+    },
+    {
+      "code": "SYMBOL_METADATA_NOT_TRANSFERRED",
+      "severity": "loss",
+      "message": "Source datasheet/custom properties/footprint filters retained only in JSON.",
+      "context": {
+        "properties": [
+          "Datasheet",
+          "Description",
+          "ki_keywords",
+          "ki_fp_filters"
+        ]
+      }
+    },
+    {
+      "code": "SYMBOL_BACKGROUND_FILL_NOT_TRANSFERRED",
+      "severity": "loss",
+      "message": "Only the body boundary is retained; source background color and occlusion are not transferred.",
+      "context": {
+        "source_kind": "polyline",
+        "source_fill": "background",
+        "coordinates": "source Y up; foreground fills use 10nm grid; background curves use 1nm grid",
+        "native_policy": "boundary_only",
+        "background_occlusion_transferred": false,
+        "emitted_polylines": 1,
+        "collapsed_spans_skipped": 0,
+        "unit": 0,
+        "graphic": 0,
+        "target_polyline_indices": [
+          0
+        ]
+      }
+    },
+    {
+      "code": "SOURCE_LINE_WIDTH_DEFAULT",
+      "severity": "assumption",
+      "message": "Zero source stroke resolves to declared default width.",
+      "context": {
+        "unit": 0,
+        "graphic": 1,
+        "width_mm": 0.254
+      }
+    },
+    {
+      "code": "SOURCE_LINE_WIDTH_DEFAULT",
+      "severity": "assumption",
+      "message": "Zero source stroke resolves to declared default width.",
+      "context": {
+        "unit": 0,
+        "graphic": 2,
+        "width_mm": 0.254
+      }
+    },
+    {
+      "code": "SOURCE_LINE_WIDTH_DEFAULT",
+      "severity": "assumption",
+      "message": "Zero source stroke resolves to declared default width.",
+      "context": {
+        "unit": 0,
+        "graphic": 3,
+        "width_mm": 0.254
+      }
+    },
+    {
+      "code": "SOURCE_LINE_WIDTH_DEFAULT",
+      "severity": "assumption",
+      "message": "Zero source stroke resolves to declared default width.",
+      "context": {
+        "unit": 0,
+        "graphic": 4,
+        "width_mm": 0.254
+      }
+    },
+    {
+      "code": "SOURCE_LINE_WIDTH_DEFAULT",
+      "severity": "assumption",
+      "message": "Zero source stroke resolves to declared default width.",
+      "context": {
+        "unit": 0,
+        "graphic": 5,
+        "width_mm": 0.254
+      }
+    },
+    {
+      "code": "SOURCE_LINE_WIDTH_DEFAULT",
+      "severity": "assumption",
+      "message": "Zero source stroke resolves to declared default width.",
+      "context": {
+        "unit": 0,
+        "graphic": 6,
+        "width_mm": 0.254
+      }
+    },
+    {
+      "code": "SYMBOL_NO_CONNECT_AS_TERMINAL",
+      "severity": "loss",
+      "message": "Explicit connectable-with-loss policy: source NC pin is emitted as an ordinary connectable numbered terminal. Native no-connect enforcement is not transferred; Node=0 or another layer would not enforce it because native import/connectivity code can restore pin layers/nodes.",
+      "context": {
+        "pin_number": "1",
+        "target_polyline_index": 8,
+        "native_no_connect_enforced": false
+      }
+    },
+    {
+      "code": "SYMBOL_HIDDEN_PIN_REVEALED",
+      "severity": "loss",
+      "message": "Explicit reveal-with-loss policy emits a visible numbered terminal. Hidden visibility and implicit global power connections are not transferred; wire this terminal explicitly.",
+      "context": {
+        "pin_number": "1",
+        "target_polyline_index": 8,
+        "source_implicit_global_power": false,
+        "implicit_global_power_transferred": false
+      }
+    },
+    {
+      "code": "SYMBOL_ELECTRICAL_TYPE_NOT_TRANSFERRED",
+      "severity": "loss",
+      "message": "Source electrical types are retained in JSON only. The confirmed CDS profile stores a numbered connection endpoint and optional name, without KiCad electrical rules; input/output direction, drive constraints and ERC semantics are not transferred.",
+      "context": {
+        "source_electrical_types": {
+          "input": 1,
+          "no_connect": 1,
+          "power_in": 2,
+          "output": 1
+        }
+      }
+    },
+    {
+      "code": "SYMBOL_PIN_LABEL_LAYOUT",
+      "severity": "loss",
+      "message": "Pin numbers/names use a declared horizontal placement policy; exact KiCad automatic label layout is not reproduced.",
+      "context": {}
+    }
+  ],
+  "artifact_sha256": "2eb748a456acbf174a84a6258bccf7d34536e1bc8555b691218ebf50c6db4af7",
+  "counts": {
+    "components": 1,
+    "pins": 5,
+    "polylines": 12,
+    "losses": 8,
+    "assumptions": 7,
+    "power_pins": 2,
+    "no_connect_pins": 1,
+    "hidden_pins": 1,
+    "styled_pins": 0,
+    "approximations": 0,
+    "filled_graphics": 1,
+    "fill_polylines": 1
+  },
+  "pin_semantics": {
+    "electrical_rules_transferred": false,
+    "native_representation": "numbered layer-8 segment; body Node=0, external Node=1; optional layer-14 name",
+    "pins": [
+      {
+        "source_pin_number": "3",
+        "source_pin_name": "+",
+        "source_electrical_type": "input",
+        "target_pin_number": "3",
+        "target_polyline_index": 7,
+        "connection_point_nm": [
+          -5080000,
+          0
+        ],
+        "target_node_flags": [
+          0,
+          1
+        ],
+        "native_connectable": true,
+        "source_hidden": false,
+        "source_graphic_style": "line",
+        "source_implicit_global_power": false,
+        "native_implicit_global_power_transferred": false,
+        "native_pin_visible": true
+      },
+      {
+        "source_pin_number": "1",
+        "source_pin_name": "NIC",
+        "source_electrical_type": "no_connect",
+        "target_pin_number": "1",
+        "target_polyline_index": 8,
+        "connection_point_nm": [
+          -2540000,
+          0
+        ],
+        "target_node_flags": [
+          0,
+          1
+        ],
+        "native_connectable": true,
+        "native_no_connect_enforced": false,
+        "source_hidden": true,
+        "source_graphic_style": "line",
+        "source_implicit_global_power": false,
+        "native_implicit_global_power_transferred": false,
+        "native_pin_visible": true
+      },
+      {
+        "source_pin_number": "5",
+        "source_pin_name": "V+",
+        "source_electrical_type": "power_in",
+        "target_pin_number": "5",
+        "target_polyline_index": 9,
+        "connection_point_nm": [
+          0,
+          7620000
+        ],
+        "target_node_flags": [
+          0,
+          1
+        ],
+        "native_connectable": true,
+        "native_power_role_transferred": false,
+        "source_hidden": false,
+        "source_graphic_style": "line",
+        "source_implicit_global_power": false,
+        "native_implicit_global_power_transferred": false,
+        "native_pin_visible": true
+      },
+      {
+        "source_pin_number": "2",
+        "source_pin_name": "GND",
+        "source_electrical_type": "power_in",
+        "target_pin_number": "2",
+        "target_polyline_index": 10,
+        "connection_point_nm": [
+          0,
+          -7620000
+        ],
+        "target_node_flags": [
+          0,
+          1
+        ],
+        "native_connectable": true,
+        "native_power_role_transferred": false,
+        "source_hidden": false,
+        "source_graphic_style": "line",
+        "source_implicit_global_power": false,
+        "native_implicit_global_power_transferred": false,
+        "native_pin_visible": true
+      },
+      {
+        "source_pin_number": "4",
+        "source_pin_name": "~",
+        "source_electrical_type": "output",
+        "target_pin_number": "4",
+        "target_polyline_index": 11,
+        "connection_point_nm": [
+          10160000,
+          0
+        ],
+        "target_node_flags": [
+          0,
+          1
+        ],
+        "native_connectable": true,
+        "source_hidden": false,
+        "source_graphic_style": "line",
+        "source_implicit_global_power": false,
+        "native_implicit_global_power_transferred": false,
+        "native_pin_visible": true
+      }
+    ],
+    "power_roles_transferred": false,
+    "native_no_connect_enforced": false,
+    "power_pin_policy": "visible numbered terminal; source power role in JSON only",
+    "no_connect_policy": "connectable-with-loss",
+    "implicit_global_power_transferred": false,
+    "hidden_pin_policy": "reveal-with-loss"
+  },
+  "filled_graphics": [
+    {
+      "source_kind": "polyline",
+      "source_fill": "background",
+      "coordinates": "source Y up; foreground fills use 10nm grid; background curves use 1nm grid",
+      "native_policy": "boundary_only",
+      "background_occlusion_transferred": false,
+      "emitted_polylines": 1,
+      "collapsed_spans_skipped": 0,
+      "unit": 0,
+      "graphic": 0,
+      "target_polyline_indices": [
+        0
+      ]
+    }
+  ],
+  "source": {
+    "path": "/Users/egorananev/Desktop/hse/1-2 курс/ПРОЕКТ/tests/fixtures/symbols/Comparator.kicad_sym",
+    "sha256": "7edcabe434cc8fe34d8c773483ab1ac5019829cf07836397c1689e7c3a3503bc"
+  },
+  "output": "/Users/egorananev/Desktop/hse/1-2 курс/ПРОЕКТ/output/symbols/MIC845H_pins.cds"
+}

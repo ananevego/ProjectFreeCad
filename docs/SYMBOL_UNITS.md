@@ -1,6 +1,6 @@
 # Multi-unit УГО в одном физическом компоненте
 
-Состояние на 2026-10-13: `disjoint-units-layout-v1` размещает 2–16 логических
+Состояние на 2026-10-14: `disjoint-units-layout-v1` размещает 2–16 логических
 секций KiCad рядом внутри **одного обычного native component** `.cds` 1.429.
 Физические номера сохранены; независимое размещение секций, unit suffixes и
 иерархический merge не передаются и имеют явный loss. Это ограниченный
@@ -39,17 +39,20 @@ Primary URLs/bytes/SHA256/anchors — `output/symbols/units-source-evidence.json
   duplicates/source diagnostics отвергаются, как прежде; cross-unit repeats
   дополнительно отклоняются. Номера не меняются и не дедуплицируются.
 - Common sections unit=0 с **graphics** копируются в каждую выбранную view.
-  Common **pins** пока требуют отдельной политики и вызывают отказ: запись
-  нельзя просто размножить, сохранив однозначную physical identity.
-- Каждая declared unit должна иметь хотя бы один physical pin. Power units,
-  no-connect/hidden/styled/alternate pins, virtual/BOM-excluded symbols пока
-  отвергаются по существующему pin/symbol profile.
+  Common **pins** default reject; explicit [common-view policy](SYMBOL_COMMON.md)
+  размещает original unit=0 pins один раз в дополнительной view той же детали.
+- Каждая declared unit должна иметь хотя бы один physical pin. Visible line
+  power units разрешены по [power profile](SYMBOL_POWER.md). NC по умолчанию
+  отклоняется, explicit lossy policy сохраняет подключаемый terminal. Hidden
+  pins требуют [explicit reveal](SYMBOL_PINS.md); markers разрешены в editor
+  profile. Alternate pins и virtual/BOM-excluded symbols отклоняются.
 - Graphics/text/fill допускаются только в подтверждённых предыдущих профилях.
   Source common graphics, inheritance и aliases сохраняются без изменения.
 
 Например, R_Pack04_Split имеет pin sets `[8,1]`, `[7,2]`, `[6,3]`, `[5,4]`
-и теперь генерируется. R_Network03_Split/common-anode diodes с unit=0 pin
-отклоняются. LM393 отклоняется из-за отдельной power unit; PIC24 cache —
+и теперь генерируется. R_Network03_Split разрешён с explicit common policy;
+common-anode split-diodes сохраняют отдельный отказ для collapsed contours.
+LM393 теперь сохраняет обе signal units и отдельную power unit; PIC24 cache —
 по прежним unresolved duplicates. Эти ограничения не исправляют source молча.
 
 ## Размещение и отчёты
@@ -90,7 +93,7 @@ graphic losses/approximations — по rendered view. ERC rules остаются
 
 `SYMBOL_UNITS_FLATTENED` — loss. `strict` возвращает rejection report с
 полным source/layout/proposed hash и сохраняет предыдущий CDS. Неподдержанные
-shared/power units не публикуют частичные секции. Single-unit CDS/reports
+shared units или pins вне профиля не публикуют частичные секции. Single-unit CDS/reports
 не меняются; source pin mapping и GUI/3D scope остаются раздельными.
 
 ## Контроль и команды
@@ -135,6 +138,10 @@ curve/fill/text rebasing, aggregate budgets/overflow, strict/CLI preservation
 и relocation проверены. Все старые single-unit controls/reports и четыре
 предыдущих bundles воспроизводятся без изменений.
 
-Далее — power/no-connect policy. Shared pins, hidden/styled/alternate pins,
-native independent units/hierarchy, GUI/3D validation и library scale остаются
-незавершёнными задачами.
+Power/no-connect policy добавлена: [SYMBOL_POWER.md](SYMBOL_POWER.md),
+23 новых проверки, всего 359. Original common pins и markers/explicit hidden reveal также добавлены:
+[SYMBOL_COMMON.md](SYMBOL_COMMON.md), [SYMBOL_PINS.md](SYMBOL_PINS.md).
+Repeated records/alternates, native hierarchy, GUI/3D и scale остаются открытыми.
+
+Актуальные extensions: [SYMBOL_PINS.md](SYMBOL_PINS.md),
+[SYMBOL_COMMON.md](SYMBOL_COMMON.md); всего 398 тестов.

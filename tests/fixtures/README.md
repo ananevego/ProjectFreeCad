@@ -182,3 +182,36 @@ R_Array_Concave_2x0603/R_Array_Concave_4x0603/R_Array_SIP4 из pinned KiCad
 Tests используют opaque temporary bytes, проверяют source/CDS/FPL identities
 и relocation; physical suitability/GUI/netlist/hierarchy не подтверждены.
 [Профиль и ограничения](../../docs/SYMBOL_UNITS.md).
+
+## Контроль power/NC pins
+
+Шесть `*_power` controls используют целые Device/Comparator KiCad9 definitions
+и unchanged local Pickit-cache.lib: Fuse_Polarized/Opamp_Dual/LM393/LM311/
+MCP1525/MCP601_8PIN. Последний сохраняет NC 1/5/8 как подключаемые terminals
+только при explicit lossy policy; без неё ожидается отказ.
+
+`components/power.json` назначает Comparator8/Amplifier8NC→DIP-8_W7.62mm и
+Regulator3→SOT-23. Это тестовые bindings с подтверждённой number identity;
+function, mechanical suitability, native import и 3D alignment не подтверждены.
+Новый whole DIP footprint из pinned KiCad 51f8a59... сохранён без изменений;
+URL/bytes/SHA256 — `components/power-provenance.json`, license — `LICENSE.md`.
+SOT-23 переиспользован. Runtime копирует/хеширует два existing STL; unit tests
+создают temporary opaque bytes и не разбирают mesh geometry.
+[Power/NC policy и source evidence](../../docs/SYMBOL_POWER.md).
+
+## Styled/hidden controls
+
+Целая unchanged 74xGxx KiCad9 (174 definitions) добавлена в `symbols/`;
+URL/bytes/hashes — `symbols/provenance.json`, license прежняя. Шесть real
+controls и `components/pins.json` проверяют markers/hidden policy. Новый
+whole SOT-23-5 из pinned KiCad51f8a59... имеет provenance в
+`components/pins-provenance.json`; models не конвертируются. Тестовые bindings
+не подтверждают physical suitability. [Профиль](../../docs/SYMBOL_PINS.md).
+
+## Original common pins
+
+Четыре unchanged Device networks имеют 3/4/7/13 logical units и original
+common pin 1. `components/common.json` использует точные source Footprint
+properties SIP4/SIP5/SIP8. SIP5/SIP8 сохранены целиком из pinned KiCad51f8a59;
+URL/bytes/hashes — `components/common-provenance.json`, license прежняя.
+3 existing STL только копируются/хешируются. [Профиль](../../docs/SYMBOL_COMMON.md).
