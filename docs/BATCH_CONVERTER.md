@@ -11,20 +11,20 @@
 
 ```sh
 python3 -B -m src.footprint_converter.batch \
-  tests/fixtures output/batches/control \
+  tests/fixtures/medium output/batches/medium \
   --default-mask-margin 0.05 --default-paste-margin 0 --default-paste-ratio 0
 
 python3 -B -m src.footprint_converter.batch \
-  tests/fixtures output/batches/control \
+  tests/fixtures/medium output/batches/medium \
   --default-mask-margin 0.05 --default-paste-margin 0 --default-paste-ratio 0 \
   --resume
 ```
 
 Эти defaults выбраны для теста и не восстанавливают настройки исходной платы.
-В текущей выборке 7 файлов, 6 генерируются с потерями, один HC49-U имеет
-неподдерживаемый legacy model `(at ...)`. Поэтому оба запуска возвращают код 2.
-Это ожидаемая диагностика полного официального исходника; отдельный ранее
-полученный HC49-U 2D контроль не подставляется вместо него автоматически.
+В текущей средней выборке 120 pinned files: 107 generated_with_loss,
+13 failed (oval/offset drills, non-solid strokes, custom pads). Оба запуска
+возвращают 2; resume reused=107. Ранее сохранённый 7-file control ниже —
+исторический snapshot до расширения fixtures, source не изменялся.
 
 | Код CLI | Значение |
 |---|---|
@@ -157,3 +157,7 @@ ownership сохраняется для их будущего возвращен
 Существующие модели не переконвертированы. Производительность на 20 000 элементах
 и Windows locking/GUI ещё не подтверждены; средняя и полная партии относятся
 к этапу масштабирования после проверки target behavior.
+
+2026-10-14: средняя партия и read-only audit: 107/120 generated, 13 failed;
+417 тестов. Exact scopes, fixtures, timings и commands —
+[FOOTPRINT_MEDIUM.md](FOOTPRINT_MEDIUM.md).

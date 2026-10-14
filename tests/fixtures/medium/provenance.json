@@ -1,0 +1,877 @@
+{
+  "schema_version": 1,
+  "project": "KiCad community / kicad-footprints",
+  "revision": "51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c",
+  "modified": false,
+  "selection": "12 chosen categories; 10 evenly spaced sorted-path indices per category; round(i*(N-1)/9), Python ties-to-even",
+  "category_populations": {
+    "Resistor_SMD": 67,
+    "Capacitor_SMD": 103,
+    "Resistor_THT": 104,
+    "Connector_PinHeader_2.54mm": 278,
+    "Package_TO_SOT_SMD": 137,
+    "Package_DIP": 281,
+    "Package_QFP": 102,
+    "Package_DFN_QFN": 779,
+    "Connector_USB": 75,
+    "Crystal": 192,
+    "MountingHole": 167,
+    "Inductor_SMD": 692
+  },
+  "selected_per_category": 10,
+  "source_tree_metadata": {
+    "url": "https://api.github.com/repos/KiCad/kicad-footprints/git/trees/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c?recursive=1",
+    "sha256": "181483cc4da9a004fb7ab1dc129c1acbbfd12c0ca98e471a5c23491f6f2317de",
+    "truncated": false,
+    "footprint_count": 15464
+  },
+  "license": {
+    "file": "LICENSE.md",
+    "sha256": "45d2bce75e5a4208f5afb01b8fb2c406e700371c4fe2b5f5cd5c443d46db4d8f",
+    "source": "Inherited KiCad Libraries CC-BY-SA 4.0 with KiCad exception; same retained license as other pinned fixtures",
+    "git_blob_sha1": "314afa8a91e3273f3e90203b8382315bbb40bbfb",
+    "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/LICENSE.md"
+  },
+  "files": [
+    {
+      "file": "Capacitor_SMD.pretty/CP_Elec_10x10.5.kicad_mod",
+      "bytes": 5242,
+      "sha256": "58f4fb44a6fd35e4c646e19d6d0ea68bcf134ae55897f05283ffda4b1aaed049",
+      "git_blob_sha1": "de92daba784ed847eb7caf5aee1cd840c999ddde",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Capacitor_SMD.pretty/CP_Elec_10x10.5.kicad_mod"
+    },
+    {
+      "file": "Capacitor_SMD.pretty/CP_Elec_3x5.3.kicad_mod",
+      "bytes": 6582,
+      "sha256": "5d416dd293c50aa030c95ad3e62dfdb82d7205139128f7bd1b83b0b41f810629",
+      "git_blob_sha1": "c107394ac73ad51c33766197bd4aed24f852f062",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Capacitor_SMD.pretty/CP_Elec_3x5.3.kicad_mod"
+    },
+    {
+      "file": "Capacitor_SMD.pretty/CP_Elec_5x4.5.kicad_mod",
+      "bytes": 5215,
+      "sha256": "8280b8a959d5826470ed9e25556e3a05af8dfbc8dec5c1d2635fd7f94a22e6ab",
+      "git_blob_sha1": "0b286d1d55a2e2d7e7a3767d24f7c85a4b1aebd5",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Capacitor_SMD.pretty/CP_Elec_5x4.5.kicad_mod"
+    },
+    {
+      "file": "Capacitor_SMD.pretty/CP_Elec_6.3x5.3.kicad_mod",
+      "bytes": 5234,
+      "sha256": "3cae71534d4fd85aa3ec53b958a37c5df2112193baf26ca57c928738516b0c2a",
+      "git_blob_sha1": "67571485de577107a4a09acaf3aca4028e9756c1",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Capacitor_SMD.pretty/CP_Elec_6.3x5.3.kicad_mod"
+    },
+    {
+      "file": "Capacitor_SMD.pretty/CP_Elec_8x5.4.kicad_mod",
+      "bytes": 5165,
+      "sha256": "a16ac49c1621a1d9dc72ad4c67410e15b42d06cc460de1e31ecfd11384f38206",
+      "git_blob_sha1": "8f37d212ebc012cb1ae19e719744a22d4f01b6ce",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Capacitor_SMD.pretty/CP_Elec_8x5.4.kicad_mod"
+    },
+    {
+      "file": "Capacitor_SMD.pretty/C_0504_1310Metric.kicad_mod",
+      "bytes": 1686,
+      "sha256": "11bc2742f7d6b3ed6eeeeb7d9e343ea4576801ca4c860eca5e1508f9f2c18087",
+      "git_blob_sha1": "8148e7157bee03f1c5a9f96e36052dd4d216205c",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Capacitor_SMD.pretty/C_0504_1310Metric.kicad_mod"
+    },
+    {
+      "file": "Capacitor_SMD.pretty/C_1808_4520Metric_Pad1.72x2.30mm_HandSolder.kicad_mod",
+      "bytes": 2072,
+      "sha256": "4b7e84fe81ab5a99cc688903ad74bc08b0c3bcabb3c7cf82a6703c73fd918561",
+      "git_blob_sha1": "cef533315b93aae03f8393c58917c590c317be8f",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Capacitor_SMD.pretty/C_1808_4520Metric_Pad1.72x2.30mm_HandSolder.kicad_mod"
+    },
+    {
+      "file": "Capacitor_SMD.pretty/C_Elec_10x10.2.kicad_mod",
+      "bytes": 4706,
+      "sha256": "77a93dfb47cde873647a0694c88988bc907282d53904f12e8ef225441e9289c3",
+      "git_blob_sha1": "124aad9899dd00cc623c3c4305c6a2d43a8af566",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Capacitor_SMD.pretty/C_Elec_10x10.2.kicad_mod"
+    },
+    {
+      "file": "Capacitor_SMD.pretty/C_Trimmer_Murata_TZB4-A.kicad_mod",
+      "bytes": 4517,
+      "sha256": "2f45ea527ca3c5c5a09f621b21483d817859aece522da6be0852af8d57a3d7f3",
+      "git_blob_sha1": "08920bc732fbec456483e4dcbcdce23d525035e6",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Capacitor_SMD.pretty/C_Trimmer_Murata_TZB4-A.kicad_mod"
+    },
+    {
+      "file": "Capacitor_SMD.pretty/C_Trimmer_Voltronics_JZ.kicad_mod",
+      "bytes": 3644,
+      "sha256": "c1bbca6e4d1762ea1e942b3a3c8d8a74573afa47a1003fd0fb64bf4c76661861",
+      "git_blob_sha1": "b98e051873c4d98be2fe53d747ed25e8c77ef368",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Capacitor_SMD.pretty/C_Trimmer_Voltronics_JZ.kicad_mod"
+    },
+    {
+      "file": "Connector_PinHeader_2.54mm.pretty/PinHeader_1x01_P2.54mm_Horizontal.kicad_mod",
+      "bytes": 3429,
+      "sha256": "a7890bade269805c916a5feb41618c0512cbe09e0f6915a8802006dad2db27f5",
+      "git_blob_sha1": "b6f8206f6f155393717f36609076786740b63197",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Connector_PinHeader_2.54mm.pretty/PinHeader_1x01_P2.54mm_Horizontal.kicad_mod"
+    },
+    {
+      "file": "Connector_PinHeader_2.54mm.pretty/PinHeader_1x09_P2.54mm_Vertical.kicad_mod",
+      "bytes": 3715,
+      "sha256": "39d15d5879276b7358063c0e12600a00ca4ab11732ca325890e9825ea11593c5",
+      "git_blob_sha1": "881c1e88915b0aae956f7f6bf0e9b7ed7091afed",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Connector_PinHeader_2.54mm.pretty/PinHeader_1x09_P2.54mm_Vertical.kicad_mod"
+    },
+    {
+      "file": "Connector_PinHeader_2.54mm.pretty/PinHeader_1x17_P2.54mm_Horizontal.kicad_mod",
+      "bytes": 28221,
+      "sha256": "5ef44494aae08fe06d0cf19c17a7599f5e6627fcf6bdaa886588960bf42e8ef1",
+      "git_blob_sha1": "9414889258b0bfc6b0fe9782539b74e1de37edeb",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Connector_PinHeader_2.54mm.pretty/PinHeader_1x17_P2.54mm_Horizontal.kicad_mod"
+    },
+    {
+      "file": "Connector_PinHeader_2.54mm.pretty/PinHeader_1x24_P2.54mm_Vertical_SMD_Pin1Left.kicad_mod",
+      "bytes": 16150,
+      "sha256": "d35d0d26177841c23f69af74c953ab99b7808d52d849a2b02f314e16c02f36eb",
+      "git_blob_sha1": "e68c4ba7a3a0f1b2eda2b540fff9db1bbf7f55d7",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Connector_PinHeader_2.54mm.pretty/PinHeader_1x24_P2.54mm_Vertical_SMD_Pin1Left.kicad_mod"
+    },
+    {
+      "file": "Connector_PinHeader_2.54mm.pretty/PinHeader_1x32_P2.54mm_Vertical.kicad_mod",
+      "bytes": 6705,
+      "sha256": "bb849ca1cedc45294543211d1031f88683608a683998b875e812a18621a737bc",
+      "git_blob_sha1": "38b51686218903f1613011ea02b64ac4e1ee5c5f",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Connector_PinHeader_2.54mm.pretty/PinHeader_1x32_P2.54mm_Vertical.kicad_mod"
+    },
+    {
+      "file": "Connector_PinHeader_2.54mm.pretty/PinHeader_1x40_P2.54mm_Horizontal.kicad_mod",
+      "bytes": 63998,
+      "sha256": "b3867234626ac8c448d3ddcb228edad228c380ddbf663ce9db99acb8d144fcc3",
+      "git_blob_sha1": "55e482cdd5e243d60116fea5cb9b020f828c9df6",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Connector_PinHeader_2.54mm.pretty/PinHeader_1x40_P2.54mm_Horizontal.kicad_mod"
+    },
+    {
+      "file": "Connector_PinHeader_2.54mm.pretty/PinHeader_2x10_P2.54mm_Horizontal.kicad_mod",
+      "bytes": 21200,
+      "sha256": "b08bd85fd20070bd7e55b23198100ab4abb82ea78fbd7e6730eda05fea565729",
+      "git_blob_sha1": "7bc7665966784a4b6b869133a34a57dada01dd9d",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Connector_PinHeader_2.54mm.pretty/PinHeader_2x10_P2.54mm_Horizontal.kicad_mod"
+    },
+    {
+      "file": "Connector_PinHeader_2.54mm.pretty/PinHeader_2x20_P2.54mm_Horizontal.kicad_mod",
+      "bytes": 40642,
+      "sha256": "2cfb0cd2e619f632189b6c0d9e515a01762ea2d150b73946686f945064f30014",
+      "git_blob_sha1": "f511b83b17eaffd7234fc75894e97b6809d57a90",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Connector_PinHeader_2.54mm.pretty/PinHeader_2x20_P2.54mm_Horizontal.kicad_mod"
+    },
+    {
+      "file": "Connector_PinHeader_2.54mm.pretty/PinHeader_2x30_P2.54mm_Vertical.kicad_mod",
+      "bytes": 10652,
+      "sha256": "739e80f21ef5269cf1d4a6df7e860889d4dc38735ef9fec164916ddddc7d6be5",
+      "git_blob_sha1": "ea7aabfde0648ce818f7eed657a23f1a9662b4f5",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Connector_PinHeader_2.54mm.pretty/PinHeader_2x30_P2.54mm_Vertical.kicad_mod"
+    },
+    {
+      "file": "Connector_PinHeader_2.54mm.pretty/PinHeader_2x40_P2.54mm_Vertical_SMD.kicad_mod",
+      "bytes": 47633,
+      "sha256": "d19b3d47367ebf05516df327f11b3a2e6ee4637151aafe7cedce9b21c4eb5365",
+      "git_blob_sha1": "91bfb275f2ef18376cced9b890ae9ecbdb7f9384",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Connector_PinHeader_2.54mm.pretty/PinHeader_2x40_P2.54mm_Vertical_SMD.kicad_mod"
+    },
+    {
+      "file": "Connector_USB.pretty/USB3_A_Molex_48393-001.kicad_mod",
+      "bytes": 6493,
+      "sha256": "f2045f67f810b6d3ab8b8e066fe6c93464059d127b4105bda0144787e5d9c670",
+      "git_blob_sha1": "2d213deefae8a53b6b83ec539061d48439d1236d",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Connector_USB.pretty/USB3_A_Molex_48393-001.kicad_mod"
+    },
+    {
+      "file": "Connector_USB.pretty/USB_A_Connfly_DS1098_Horizontal.kicad_mod",
+      "bytes": 5908,
+      "sha256": "171c962443e83a88a4e33cf04404f32f539c2b8ee6c5863a25a0d82255a0883d",
+      "git_blob_sha1": "ce661cb7335b4439a3920e35530767eb27e6cc6d",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Connector_USB.pretty/USB_A_Connfly_DS1098_Horizontal.kicad_mod"
+    },
+    {
+      "file": "Connector_USB.pretty/USB_A_TE_292303-7_Horizontal.kicad_mod",
+      "bytes": 11797,
+      "sha256": "1fb89d7d76af4ce6b33547ab57c13c396a856cbbf67bbadabf9a58f1b44f1399",
+      "git_blob_sha1": "696678b65de962488baa03a3ab8a3374de61392b",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Connector_USB.pretty/USB_A_TE_292303-7_Horizontal.kicad_mod"
+    },
+    {
+      "file": "Connector_USB.pretty/USB_C_Plug_ShenzhenJingTuoJin_918-118A2021Y40002_Vertical.kicad_mod",
+      "bytes": 7714,
+      "sha256": "30b437f9348d9dd3255769dbc7531305fe29a23eefd96d0176708951a4b4fa1b",
+      "git_blob_sha1": "fdb1d4df8a166e13345442a7019a784d3e4d6ab6",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Connector_USB.pretty/USB_C_Plug_ShenzhenJingTuoJin_918-118A2021Y40002_Vertical.kicad_mod"
+    },
+    {
+      "file": "Connector_USB.pretty/USB_C_Receptacle_G-Switch_GT-USB-7010ASV.kicad_mod",
+      "bytes": 7749,
+      "sha256": "f5b0d469bf30aead721a8f87fcc7662ce857ef13cf65be66ab09c6d7a686c5f2",
+      "git_blob_sha1": "3085959eb1551453f3e76ce5c55dc3f31732e507",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Connector_USB.pretty/USB_C_Receptacle_G-Switch_GT-USB-7010ASV.kicad_mod"
+    },
+    {
+      "file": "Connector_USB.pretty/USB_C_Receptacle_GCT_USB4125-xx-x_6P_TopMnt_Horizontal.kicad_mod",
+      "bytes": 4745,
+      "sha256": "74e6d9084674ec8091f3153f1d8bcfd24828ac0096ac88bd382fe615145c378c",
+      "git_blob_sha1": "e1c2a521e8142f112b6c5b9f3e289da0d9732563",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Connector_USB.pretty/USB_C_Receptacle_GCT_USB4125-xx-x_6P_TopMnt_Horizontal.kicad_mod"
+    },
+    {
+      "file": "Connector_USB.pretty/USB_C_Receptacle_Molex_105450-0101.kicad_mod",
+      "bytes": 9789,
+      "sha256": "4c0ad553929671d01ad6f9bd6c54004970e6482d62016af39fa7812d5c043540",
+      "git_blob_sha1": "224e4e2045d3eee81dedad2653bd1cd2381ce6a6",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Connector_USB.pretty/USB_C_Receptacle_Molex_105450-0101.kicad_mod"
+    },
+    {
+      "file": "Connector_USB.pretty/USB_Micro-B_Amphenol_10118194_Horizontal.kicad_mod",
+      "bytes": 7764,
+      "sha256": "76e4ab3edd7bbd792b2f677e9ee95f2eb1e773230456f023649139602d244e72",
+      "git_blob_sha1": "e2f3db330ffa6bdfaea4b44310833ff600ba72bc",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Connector_USB.pretty/USB_Micro-B_Amphenol_10118194_Horizontal.kicad_mod"
+    },
+    {
+      "file": "Connector_USB.pretty/USB_Micro-B_Wuerth_614105150721_Vertical_CircularHoles.kicad_mod",
+      "bytes": 5856,
+      "sha256": "1b4ca20bd8df3d207a877d9faa8086b858bc806cd888f4b529eea373665f1fe7",
+      "git_blob_sha1": "2d12e2f18d67455fde60a88894e1060f95c5b5bc",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Connector_USB.pretty/USB_Micro-B_Wuerth_614105150721_Vertical_CircularHoles.kicad_mod"
+    },
+    {
+      "file": "Connector_USB.pretty/USB_Mini-B_Wuerth_65100516121_Horizontal.kicad_mod",
+      "bytes": 8684,
+      "sha256": "240fc410f94fe42d0ac5f16680116913915f2615c6fc32e7455768d5337547a7",
+      "git_blob_sha1": "968aed34e4fe3dfabe4b78a23913592191091de4",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Connector_USB.pretty/USB_Mini-B_Wuerth_65100516121_Horizontal.kicad_mod"
+    },
+    {
+      "file": "Crystal.pretty/Crystal_AT310_D3.0mm_L10.0mm_Horizontal.kicad_mod",
+      "bytes": 2702,
+      "sha256": "64e77794fa9b8c55a3bfd67bd4ded1fe43b5d849ac747bf68b8b34f4e088483f",
+      "git_blob_sha1": "ac13b30f469fc2fd179330449ffeafeae53bf4e4",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Crystal.pretty/Crystal_AT310_D3.0mm_L10.0mm_Horizontal.kicad_mod"
+    },
+    {
+      "file": "Crystal.pretty/Crystal_DS26_D2.0mm_L6.0mm_Horizontal_1EP_style1.kicad_mod",
+      "bytes": 3043,
+      "sha256": "b7495cbb73fac8c77322da913f8e5407ce7dc4ade2f2be7d066f17c721e8d0c4",
+      "git_blob_sha1": "4bacfe9404c77f42cea19b01d695d10449c22907",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Crystal.pretty/Crystal_DS26_D2.0mm_L6.0mm_Horizontal_1EP_style1.kicad_mod"
+    },
+    {
+      "file": "Crystal.pretty/Crystal_HC50_Vertical.kicad_mod",
+      "bytes": 2845,
+      "sha256": "c8eba36b8177c2f0102148a2fe0951d673ec280b863b68dc097f82c42d3cbb4d",
+      "git_blob_sha1": "a6e4555f072b913cdeed3589165f66e286caa7e4",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Crystal.pretty/Crystal_HC50_Vertical.kicad_mod"
+    },
+    {
+      "file": "Crystal.pretty/Crystal_SMD_0603-2Pin_6.0x3.5mm.kicad_mod",
+      "bytes": 2134,
+      "sha256": "af3e2d519dd6179cd7b944c3e2c2c1fdf491bbf683f16a6ed70f419d5708121c",
+      "git_blob_sha1": "a7676a3bf291f6f4fac42e1ec5aa749b328e5c42",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Crystal.pretty/Crystal_SMD_0603-2Pin_6.0x3.5mm.kicad_mod"
+    },
+    {
+      "file": "Crystal.pretty/Crystal_SMD_Abracon_ABM3-2Pin_5.0x3.2mm_HandSoldering.kicad_mod",
+      "bytes": 2208,
+      "sha256": "7f0f2901b2c9397cf63cac69d411fe7b189cf605f136104e41cb2001fea545d3",
+      "git_blob_sha1": "b224d036cd84625938599b8d58cb70a1fe5ab56a",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Crystal.pretty/Crystal_SMD_Abracon_ABM3-2Pin_5.0x3.2mm_HandSoldering.kicad_mod"
+    },
+    {
+      "file": "Crystal.pretty/Crystal_SMD_FOX_FE-2Pin_7.5x5.0mm.kicad_mod",
+      "bytes": 2124,
+      "sha256": "5bb357ca680a3e704cfa32307e598958f9828b15587e91ce6087d0e2fe398067",
+      "git_blob_sha1": "47a41c4f1e1e4c9ac7b8b4adc19d54c42043390b",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Crystal.pretty/Crystal_SMD_FOX_FE-2Pin_7.5x5.0mm.kicad_mod"
+    },
+    {
+      "file": "Crystal.pretty/Crystal_SMD_MicroCrystal_CM9V-T1A-2Pin_1.6x1.0mm_HandSoldering.kicad_mod",
+      "bytes": 2158,
+      "sha256": "5425a95b11e4526d8e240a14bb7135b9ad25d19c41a81a8c21c52ce67b3d0c0d",
+      "git_blob_sha1": "6223d3b07a343627fd51e1016e43a1235bbeef5c",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Crystal.pretty/Crystal_SMD_MicroCrystal_CM9V-T1A-2Pin_1.6x1.0mm_HandSoldering.kicad_mod"
+    },
+    {
+      "file": "Crystal.pretty/Crystal_SMD_SeikoEpson_MC405-2Pin_9.6x4.1mm_HandSoldering.kicad_mod",
+      "bytes": 2139,
+      "sha256": "1c574abbbea7e393b6f7c41559427737de4521c7bea4ff4a8b12d2b5cdf38003",
+      "git_blob_sha1": "1870103e6ccd80214583a6164914bb84242d1672",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Crystal.pretty/Crystal_SMD_SeikoEpson_MC405-2Pin_9.6x4.1mm_HandSoldering.kicad_mod"
+    },
+    {
+      "file": "Crystal.pretty/Resonator-2Pin_W8.0mm_H3.5mm.kicad_mod",
+      "bytes": 2795,
+      "sha256": "89c33d2fa8bd81a49a7c51043afd3e7274de102516ee069dd64fd8cc00ca6696",
+      "git_blob_sha1": "6b9dba56b2d8c8dae6dc68670f0ce53c38174f17",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Crystal.pretty/Resonator-2Pin_W8.0mm_H3.5mm.kicad_mod"
+    },
+    {
+      "file": "Crystal.pretty/Resonator_SMD_Murata_TPSKA-3Pin_7.9x3.8mm_HandSoldering.kicad_mod",
+      "bytes": 2125,
+      "sha256": "435cd06ce5f9c831c2652d644f1d5d0d47be312321234799d04a983e7bc11a92",
+      "git_blob_sha1": "25ad03720192aa04bcc99fe896dae46cbd167234",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Crystal.pretty/Resonator_SMD_Murata_TPSKA-3Pin_7.9x3.8mm_HandSoldering.kicad_mod"
+    },
+    {
+      "file": "Inductor_SMD.pretty/L_01005_0402Metric.kicad_mod",
+      "bytes": 1809,
+      "sha256": "d77aa760f13ac7c16bf20fe48e7f5378646b1fa5c814c841ac97652103633744",
+      "git_blob_sha1": "73189850db85f8d50b16f4d9752789408c76a5d4",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Inductor_SMD.pretty/L_01005_0402Metric.kicad_mod"
+    },
+    {
+      "file": "Inductor_SMD.pretty/L_Abracon_ASPI-3012S.kicad_mod",
+      "bytes": 4615,
+      "sha256": "12059db60faf95c9b47fbccc2ad3292b8427db164dbacfa8987588dc45be2b2c",
+      "git_blob_sha1": "a1ec25ca562226429db5d44c0b45b78cf81b7108",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Inductor_SMD.pretty/L_Abracon_ASPI-3012S.kicad_mod"
+    },
+    {
+      "file": "Inductor_SMD.pretty/L_Changjiang_FTC201208S.kicad_mod",
+      "bytes": 1817,
+      "sha256": "58116c2d71ab7a0c6cff006c256dda3045ed83ae666decc8d999190e6e35570b",
+      "git_blob_sha1": "d012e710d290dfbf86e44dd1c298d546546f5ea0",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Inductor_SMD.pretty/L_Changjiang_FTC201208S.kicad_mod"
+    },
+    {
+      "file": "Inductor_SMD.pretty/L_Chilisin_BWVS00606020.kicad_mod",
+      "bytes": 3089,
+      "sha256": "eb9a24aadb8be92cab04e62439d1e5324a72d472b407ee4c87f20b001e2c5a27",
+      "git_blob_sha1": "3eae63daf934e335f47d68f8c44dddd918a14e2d",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Inductor_SMD.pretty/L_Chilisin_BWVS00606020.kicad_mod"
+    },
+    {
+      "file": "Inductor_SMD.pretty/L_Coilcraft_XAL5050-XXX.kicad_mod",
+      "bytes": 2084,
+      "sha256": "3c20e722a733392d766a3872cebc52ddacd1052d1fd47b0857ab40269f40cbab",
+      "git_blob_sha1": "47a547267663d841be49c42dc0bc08ee37e2fa8b",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Inductor_SMD.pretty/L_Coilcraft_XAL5050-XXX.kicad_mod"
+    },
+    {
+      "file": "Inductor_SMD.pretty/L_Neosid_Air-Coil_SML_2turn_HDM0231A.kicad_mod",
+      "bytes": 4676,
+      "sha256": "a440c923cc63155d2901c9d991d86f0b7452491f16fa42ba16661fafe3cea56a",
+      "git_blob_sha1": "fee5f42b3daee9793e28a4ffeb97cd3f1f061826",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Inductor_SMD.pretty/L_Neosid_Air-Coil_SML_2turn_HDM0231A.kicad_mod"
+    },
+    {
+      "file": "Inductor_SMD.pretty/L_Sunlord_MWSA0602S.kicad_mod",
+      "bytes": 3572,
+      "sha256": "c7e8f0fbc2db4df41bcc37b72174b02918b646cd3dc211658d7433ab71af3047",
+      "git_blob_sha1": "a6fd1391e6bd17e2b47da2d7b3c68a6ac3e70eb2",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Inductor_SMD.pretty/L_Sunlord_MWSA0602S.kicad_mod"
+    },
+    {
+      "file": "Inductor_SMD.pretty/L_Sunlord_SWPA5040S.kicad_mod",
+      "bytes": 3571,
+      "sha256": "380590c200565f699d14475471183218eace69b56caea07d47d74f906276b272",
+      "git_blob_sha1": "a7ba21e4e4107257e8c07f4684a166bc15925f23",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Inductor_SMD.pretty/L_Sunlord_SWPA5040S.kicad_mod"
+    },
+    {
+      "file": "Inductor_SMD.pretty/L_Walsin_WLFM201209x.kicad_mod",
+      "bytes": 3115,
+      "sha256": "f7e88367418f93a01bd6f06cf4a0925fef75fd0da9fcaac6d6d9793c26f57381",
+      "git_blob_sha1": "8960dedb67083dbb501f321155a97b54fe3ad555",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Inductor_SMD.pretty/L_Walsin_WLFM201209x.kicad_mod"
+    },
+    {
+      "file": "Inductor_SMD.pretty/L_Wurth_WE-CAIR-5910.kicad_mod",
+      "bytes": 3815,
+      "sha256": "d419eaecbe6657abb5db7b73752c24c18b42b37f30970e3738680a921d0b685e",
+      "git_blob_sha1": "db3ae44570d24592f62efda7f2dcb512f16f7345",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Inductor_SMD.pretty/L_Wurth_WE-CAIR-5910.kicad_mod"
+    },
+    {
+      "file": "MountingHole.pretty/MountingHole_2.1mm.kicad_mod",
+      "bytes": 1274,
+      "sha256": "893472a945d5535997116e5eb9a5464a631c2e4f2ed64cdee45dfbc7f6daa811",
+      "git_blob_sha1": "fa77dcafde9b386c5441ac8150e8082b7cd43c6b",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/MountingHole.pretty/MountingHole_2.1mm.kicad_mod"
+    },
+    {
+      "file": "MountingHole.pretty/MountingHole_2.5mm.kicad_mod",
+      "bytes": 1274,
+      "sha256": "abd7c2d7d9e66cbc2c6a69a191e295360ad21f072e178c311a9ae96bb322ee89",
+      "git_blob_sha1": "64837a68bffcbf92babc916fc4450dc5993d2cb4",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/MountingHole.pretty/MountingHole_2.5mm.kicad_mod"
+    },
+    {
+      "file": "MountingHole.pretty/MountingHole_2.7mm_M2.5_Pad.kicad_mod",
+      "bytes": 1336,
+      "sha256": "2c45edc9571e3c3447ce01539c68469f1e0f8cc36c94642b41ba89eeb5ad500f",
+      "git_blob_sha1": "cc641ab657b326be5ca01371234bc3b58d3514b9",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/MountingHole.pretty/MountingHole_2.7mm_M2.5_Pad.kicad_mod"
+    },
+    {
+      "file": "MountingHole.pretty/MountingHole_3.2mm_M3_ISO7380.kicad_mod",
+      "bytes": 1309,
+      "sha256": "3c7ba94392acc38c1aad8d2f8bb3345be8a043d3cd10786e91244365bc93a2e5",
+      "git_blob_sha1": "29f86bb6808c4c911433c94f081008895684e6d4",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/MountingHole.pretty/MountingHole_3.2mm_M3_ISO7380.kicad_mod"
+    },
+    {
+      "file": "MountingHole.pretty/MountingHole_3mm_Pad.kicad_mod",
+      "bytes": 1301,
+      "sha256": "31cfbb6551611aa4a78cc3959074a4924c73aa59dc6c968cbe7ba9e4bfe97644",
+      "git_blob_sha1": "c2335c19324998321a324fa6d3684b503abf9436",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/MountingHole.pretty/MountingHole_3mm_Pad.kicad_mod"
+    },
+    {
+      "file": "MountingHole.pretty/MountingHole_4.3mm_M4_Pad_TopBottom.kicad_mod",
+      "bytes": 1552,
+      "sha256": "bd322d7dcebcb2d2223388e29bfbdb8747acd1c2e858a1860fb0df78d33d25c3",
+      "git_blob_sha1": "bae4ced24462837c127a30452b5c5967d6fa8da6",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/MountingHole.pretty/MountingHole_4.3mm_M4_Pad_TopBottom.kicad_mod"
+    },
+    {
+      "file": "MountingHole.pretty/MountingHole_5.3mm_M5_DIN965_Pad_TopOnly.kicad_mod",
+      "bytes": 1467,
+      "sha256": "beb9c7c156c5b44419eda5439cfef10043a7caa334db4fa0fdfca61671972a69",
+      "git_blob_sha1": "1bfb7205a237e9c852f50d31407eb238e1df40d8",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/MountingHole.pretty/MountingHole_5.3mm_M5_DIN965_Pad_TopOnly.kicad_mod"
+    },
+    {
+      "file": "MountingHole.pretty/MountingHole_5mm.kicad_mod",
+      "bytes": 1260,
+      "sha256": "82b883e8415782a283ea735685c41e18fd8d045d97f30893a9fec48949e306b0",
+      "git_blob_sha1": "1eaaaddeb6b58ccc542c96a1f9cd96f882140259",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/MountingHole.pretty/MountingHole_5mm.kicad_mod"
+    },
+    {
+      "file": "MountingHole.pretty/MountingHole_6.4mm_M6_Pad_TopBottom.kicad_mod",
+      "bytes": 1556,
+      "sha256": "fb0ee8be483cda4fb32d1b7fc64ab9075b9e5478dedd0c6914f172d86c54ea5e",
+      "git_blob_sha1": "f6d615ae764343e6d9e15d0c40f90a55de00fb7c",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/MountingHole.pretty/MountingHole_6.4mm_M6_Pad_TopBottom.kicad_mod"
+    },
+    {
+      "file": "MountingHole.pretty/ToolingHole_1.152mm.kicad_mod",
+      "bytes": 3131,
+      "sha256": "0c1c19dc2951ebd1aee1042b1b30ed66b4f63d1c06be9b8d9ce218ca51bcabd1",
+      "git_blob_sha1": "f3b49c3c74793af591a5da592c9cab339bf9d397",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/MountingHole.pretty/ToolingHole_1.152mm.kicad_mod"
+    },
+    {
+      "file": "Package_DFN_QFN.pretty/AMS_QFN-4-1EP_2x2mm_P0.95mm_EP0.7x1.6mm.kicad_mod",
+      "bytes": 4428,
+      "sha256": "e2303a78dbba037aa2b83cf0dd5499bd2f2ba2d33df842104475dd79d3390b0a",
+      "git_blob_sha1": "c96c42077391ff857c19c8fdbddc67ac3360d1d0",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Package_DFN_QFN.pretty/AMS_QFN-4-1EP_2x2mm_P0.95mm_EP0.7x1.6mm.kicad_mod"
+    },
+    {
+      "file": "Package_DFN_QFN.pretty/DFN-8-1EP_3x3mm_P0.5mm_EP1.7x2.4mm.kicad_mod",
+      "bytes": 4836,
+      "sha256": "2fc592a02f0e016e0d93d8da28b7cfca78f969db66962408435218c4c7ff1522",
+      "git_blob_sha1": "772dc98a6c807d76d785cdcd8a71d7cde67eb310",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Package_DFN_QFN.pretty/DFN-8-1EP_3x3mm_P0.5mm_EP1.7x2.4mm.kicad_mod"
+    },
+    {
+      "file": "Package_DFN_QFN.pretty/OnSemi_DFN-14-1EP_4x4mm_P0.5mm_EP2.7x3.4mm.kicad_mod",
+      "bytes": 6430,
+      "sha256": "58a11b64843bb195217b4276bee204725426ef0b957d6919512d4f8e61f319b4",
+      "git_blob_sha1": "f4cdcca1e2381cc8d47284abdb8900a56d1e2437",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Package_DFN_QFN.pretty/OnSemi_DFN-14-1EP_4x4mm_P0.5mm_EP2.7x3.4mm.kicad_mod"
+    },
+    {
+      "file": "Package_DFN_QFN.pretty/QFN-24-1EP_5x5mm_P0.65mm_EP3.4x3.4mm.kicad_mod",
+      "bytes": 8347,
+      "sha256": "27ed0bd8da40ddbedf46055bdfc514b5e657586c0dee2546d5433fef4bed800f",
+      "git_blob_sha1": "ce9fc5072a32cb0dee24646ee1c873c4d061f0f8",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Package_DFN_QFN.pretty/QFN-24-1EP_5x5mm_P0.65mm_EP3.4x3.4mm.kicad_mod"
+    },
+    {
+      "file": "Package_DFN_QFN.pretty/QFN-48-1EP_6x6mm_P0.4mm_EP4.4x4.4mm_ThermalVias.kicad_mod",
+      "bytes": 14616,
+      "sha256": "24f70be71e8bddf4dc8376ef9d62f0ec73a2141c1a00007eaf78aa69a3146792",
+      "git_blob_sha1": "f3836bf3a462bd60fa9d656c6a8887e235d2caec",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Package_DFN_QFN.pretty/QFN-48-1EP_6x6mm_P0.4mm_EP4.4x4.4mm_ThermalVias.kicad_mod"
+    },
+    {
+      "file": "Package_DFN_QFN.pretty/QFN-80-1EP_10x10mm_P0.4mm_EP3.4x3.4mm_ThermalVias.kicad_mod",
+      "bytes": 19072,
+      "sha256": "17c3a86a85d9caa525f626295e6b08eaba71ce7bafaed48967eced6b765b86ff",
+      "git_blob_sha1": "b8e8bd57936e8649667c15702d435b9c99989514",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Package_DFN_QFN.pretty/QFN-80-1EP_10x10mm_P0.4mm_EP3.4x3.4mm_ThermalVias.kicad_mod"
+    },
+    {
+      "file": "Package_DFN_QFN.pretty/Texas_RGE0024C_VQFN-24-1EP_4x4mm_P0.5mm_EP2.1x2.1mm.kicad_mod",
+      "bytes": 8528,
+      "sha256": "ad543348247eca2fe989aaa8bf294e6f7cb85976a0f09ecc46b72400d528c9c1",
+      "git_blob_sha1": "850013aeec29223761da289b0a1eed06c6a7eb22",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Package_DFN_QFN.pretty/Texas_RGE0024C_VQFN-24-1EP_4x4mm_P0.5mm_EP2.1x2.1mm.kicad_mod"
+    },
+    {
+      "file": "Package_DFN_QFN.pretty/Texas_S-PWQFN-N100_EP5.5x5.5mm.kicad_mod",
+      "bytes": 20928,
+      "sha256": "bcc80618f8379953f734d4af65681fc17b44e0c2b74b214f16d12b7bf6b6f8a8",
+      "git_blob_sha1": "e880c08239eb8919d4909cc9fafe23b65876a3fd",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Package_DFN_QFN.pretty/Texas_S-PWQFN-N100_EP5.5x5.5mm.kicad_mod"
+    },
+    {
+      "file": "Package_DFN_QFN.pretty/VQFN-32-1EP_5x5mm_P0.5mm_EP3.5x3.5mm_ThermalVias.kicad_mod",
+      "bytes": 10962,
+      "sha256": "889d668b4f088dadf2e4ccc96953a8955d4bd681d3938cce293cd71d86082dba",
+      "git_blob_sha1": "c98bbe22e500c45d98f7977f9519d3026eb8ea1b",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Package_DFN_QFN.pretty/VQFN-32-1EP_5x5mm_P0.5mm_EP3.5x3.5mm_ThermalVias.kicad_mod"
+    },
+    {
+      "file": "Package_DFN_QFN.pretty/WQFN-42-1EP_3.5x9mm_P0.5mm_EP2.05x7.55mm_ThermalVias.kicad_mod",
+      "bytes": 15748,
+      "sha256": "935f80ba0c9dfef0a93594dc1fa2443710e3e8d8466f56d83ebea34436630e52",
+      "git_blob_sha1": "2a8168487073d44ceaa8ceb7bc233e00b4f8e83d",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Package_DFN_QFN.pretty/WQFN-42-1EP_3.5x9mm_P0.5mm_EP2.05x7.55mm_ThermalVias.kicad_mod"
+    },
+    {
+      "file": "Package_DIP.pretty/CERDIP-14_W7.62mm_SideBrazed.kicad_mod",
+      "bytes": 4619,
+      "sha256": "6251c64dab5040d994513a2816d18efd19cfd565ff76fa7fd1625f60cfbc2229",
+      "git_blob_sha1": "385495188ae26da4cc1e97e911f5304d7659279d",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Package_DIP.pretty/CERDIP-14_W7.62mm_SideBrazed.kicad_mod"
+    },
+    {
+      "file": "Package_DIP.pretty/CERDIP-8_W7.62mm_SideBrazed_Socket.kicad_mod",
+      "bytes": 4119,
+      "sha256": "5a236bb969f42527afd58e602c9714fc0369635a7f6ebcd54104083f6c010461",
+      "git_blob_sha1": "9ad06c2a9b2d402c10dc1a1a871f53f458d30a52",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Package_DIP.pretty/CERDIP-8_W7.62mm_SideBrazed_Socket.kicad_mod"
+    },
+    {
+      "file": "Package_DIP.pretty/DIP-16_W7.62mm_Socket_LongPads.kicad_mod",
+      "bytes": 5024,
+      "sha256": "6f0d437cf9daa21d4f03687d193a2c5d98755e27a62490262f44affcc7ee505c",
+      "git_blob_sha1": "834d7bdd32d7c8b925ed70dd16d49dfcb632f51a",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Package_DIP.pretty/DIP-16_W7.62mm_Socket_LongPads.kicad_mod"
+    },
+    {
+      "file": "Package_DIP.pretty/DIP-24_W10.16mm.kicad_mod",
+      "bytes": 5784,
+      "sha256": "e351ddf032732595ad2aad869abb5130f1e87aece447d98b0c9684cb5f29c42e",
+      "git_blob_sha1": "c92e0c6a9358abd34ec6253f022fda6ba4a413fb",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Package_DIP.pretty/DIP-24_W10.16mm.kicad_mod"
+    },
+    {
+      "file": "Package_DIP.pretty/DIP-28_W7.62mm_LongPads.kicad_mod",
+      "bytes": 6305,
+      "sha256": "7b9a51a1a15f879d31b3bcb0c45dddd2f2597f3ed3ca995320ee2652a849f616",
+      "git_blob_sha1": "6ce3a99e4fa0fddc7a7468616e3d5c4633ca3e69",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Package_DIP.pretty/DIP-28_W7.62mm_LongPads.kicad_mod"
+    },
+    {
+      "file": "Package_DIP.pretty/DIP-48_W15.24mm_SMDSocket_SmallPads.kicad_mod",
+      "bytes": 9144,
+      "sha256": "9ba22d946b72e03d527b57522fcd8bc276d6cd939236891e46f4834657d38f37",
+      "git_blob_sha1": "1997fe014e7a01cbfdd8fa2bef73bcd37f20fe9c",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Package_DIP.pretty/DIP-48_W15.24mm_SMDSocket_SmallPads.kicad_mod"
+    },
+    {
+      "file": "Package_DIP.pretty/DIP-64_W24.13mm_SMDSocket_LongPads.kicad_mod",
+      "bytes": 11367,
+      "sha256": "e7e77bb752f0e980cf4d3454d969578b71fbc091b4f5816a950655cb7ce28e39",
+      "git_blob_sha1": "a4c38e9236ba54ad4d6e9dd2a90e194823e87fd0",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Package_DIP.pretty/DIP-64_W24.13mm_SMDSocket_LongPads.kicad_mod"
+    },
+    {
+      "file": "Package_DIP.pretty/PowerIntegrations_PDIP-8B.kicad_mod",
+      "bytes": 5364,
+      "sha256": "f411c0577f24cc63caa94241076089b9ad44d13798d4f6f75780e95ce0d14516",
+      "git_blob_sha1": "71edf1228179441212e36723191fab657fb001f8",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Package_DIP.pretty/PowerIntegrations_PDIP-8B.kicad_mod"
+    },
+    {
+      "file": "Package_DIP.pretty/SMDIP-22_W11.48mm.kicad_mod",
+      "bytes": 5423,
+      "sha256": "12a69ab1f15be0aecf6788b28b5e0f1f50a3842ffa26696dc707a927281cc01e",
+      "git_blob_sha1": "db13928bf44c48e82d54cd7686d2ad99f21908a5",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Package_DIP.pretty/SMDIP-22_W11.48mm.kicad_mod"
+    },
+    {
+      "file": "Package_DIP.pretty/Vishay_HVM-DIP-3_W7.62mm.kicad_mod",
+      "bytes": 5672,
+      "sha256": "b9b504cb1d1defcbd28f56c0b4127aeb98ce88063d8bd06f2a6c721f719255fd",
+      "git_blob_sha1": "79391dfe24c71f928523de37586501bbaf0158f0",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Package_DIP.pretty/Vishay_HVM-DIP-3_W7.62mm.kicad_mod"
+    },
+    {
+      "file": "Package_QFP.pretty/EQFP-144-1EP_20x20mm_P0.5mm_EP4x4mm.kicad_mod",
+      "bytes": 24891,
+      "sha256": "fe9658d25c9a9b63506c204e94d23bcbfec066330c1ac7bfee0ff5f0c3b3cbd7",
+      "git_blob_sha1": "133ca862ce1da803506123f4efb0b29042a5bec7",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Package_QFP.pretty/EQFP-144-1EP_20x20mm_P0.5mm_EP4x4mm.kicad_mod"
+    },
+    {
+      "file": "Package_QFP.pretty/LQFP-100-1EP_14x14mm_P0.5mm_EP6.9x6.9mm.kicad_mod",
+      "bytes": 18774,
+      "sha256": "06b574cb73fe49e1a480b05068eb7d047f643568314a12f4511b87cb772c5db8",
+      "git_blob_sha1": "184890f91c7b47a4462e168522615a45f8624f36",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Package_QFP.pretty/LQFP-100-1EP_14x14mm_P0.5mm_EP6.9x6.9mm.kicad_mod"
+    },
+    {
+      "file": "Package_QFP.pretty/LQFP-176_20x20mm_P0.4mm.kicad_mod",
+      "bytes": 27958,
+      "sha256": "384082eca907098d9c2261d9dd7bb4605f918449400e608c79393133523d8a38",
+      "git_blob_sha1": "07924472f1a9690ef2347f817e6b9058e40860b7",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Package_QFP.pretty/LQFP-176_20x20mm_P0.4mm.kicad_mod"
+    },
+    {
+      "file": "Package_QFP.pretty/LQFP-52-1EP_10x10mm_P0.65mm_EP4.8x4.8mm_ThermalVias.kicad_mod",
+      "bytes": 15195,
+      "sha256": "d7892567cddd9de6f91901c7c79e70364fe2fdc4f59d65b5ddf36e0b3397ae26",
+      "git_blob_sha1": "2f3b3ab3b263c6c601fc0900498bd8bf8dfa8c4e",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Package_QFP.pretty/LQFP-52-1EP_10x10mm_P0.65mm_EP4.8x4.8mm_ThermalVias.kicad_mod"
+    },
+    {
+      "file": "Package_QFP.pretty/LQFP-80_12x12mm_P0.5mm.kicad_mod",
+      "bytes": 15177,
+      "sha256": "528e4841fa5e3d778c3ffc9ab43f384b8221535036b462d0b2f82c08d0127b53",
+      "git_blob_sha1": "aa79a86ae031bd8a2be843aaa3b85e1a9bae9005",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Package_QFP.pretty/LQFP-80_12x12mm_P0.5mm.kicad_mod"
+    },
+    {
+      "file": "Package_QFP.pretty/PQFP-168_28x28mm_P0.65mm.kicad_mod",
+      "bytes": 27124,
+      "sha256": "66f393f1928207a5f3491dd4cdc1e9f1b13ab80ad393c095b311c9e09d8b7db4",
+      "git_blob_sha1": "f75457c27ca888e85890bc4b2808c50002243a50",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Package_QFP.pretty/PQFP-168_28x28mm_P0.65mm.kicad_mod"
+    },
+    {
+      "file": "Package_QFP.pretty/TQFP-100_14x14mm_P0.5mm.kicad_mod",
+      "bytes": 17636,
+      "sha256": "835955f91d4ce7ebad6a7af772c49cf26dff755396b5904e14ab9812575c9cdb",
+      "git_blob_sha1": "93e1d26b096a96fdc84cb6b7a31a01ab28757489",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Package_QFP.pretty/TQFP-100_14x14mm_P0.5mm.kicad_mod"
+    },
+    {
+      "file": "Package_QFP.pretty/TQFP-48-1EP_7x7mm_P0.5mm_EP3.5x3.5mm.kicad_mod",
+      "bytes": 11877,
+      "sha256": "329d3cd8d40260408a07d486c49cb1831662d7d299e1a0f4fc3f2c0a2cdce085",
+      "git_blob_sha1": "1a062b81a1493c0ea87a806fbd992e6816074784",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Package_QFP.pretty/TQFP-48-1EP_7x7mm_P0.5mm_EP3.5x3.5mm.kicad_mod"
+    },
+    {
+      "file": "Package_QFP.pretty/TQFP-64_14x14mm_P0.8mm.kicad_mod",
+      "bytes": 13101,
+      "sha256": "af01ff1d2bea254caf583850cb97e5a1597311d4a094e4cf253c35c952742140",
+      "git_blob_sha1": "55f2c1f69951d7d3c8056f92289727b67c4e5ad1",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Package_QFP.pretty/TQFP-64_14x14mm_P0.8mm.kicad_mod"
+    },
+    {
+      "file": "Package_QFP.pretty/Texas_TQFP-64-1EP_10x10mm_P0.5mm_EP8x8mm_Mask5x5mm_ThermalVias.kicad_mod",
+      "bytes": 20063,
+      "sha256": "dc4b3fa39227b177bad99f4ac05fe23628cdddb5060696bd16ca9cc7bacb1d06",
+      "git_blob_sha1": "296c282f611f962592d42bde6fe6658cb12854d7",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Package_QFP.pretty/Texas_TQFP-64-1EP_10x10mm_P0.5mm_EP8x8mm_Mask5x5mm_ThermalVias.kicad_mod"
+    },
+    {
+      "file": "Package_TO_SOT_SMD.pretty/ATPAK-2.kicad_mod",
+      "bytes": 3791,
+      "sha256": "7a30fba74c7c1f50f0d56ba1e1092a68b4c3f75d66cffe7bf616ce52a69ed143",
+      "git_blob_sha1": "40b5711b19d470a7f03ebb4548eb03ca990325ad",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Package_TO_SOT_SMD.pretty/ATPAK-2.kicad_mod"
+    },
+    {
+      "file": "Package_TO_SOT_SMD.pretty/LFPAK33.kicad_mod",
+      "bytes": 7504,
+      "sha256": "b49555bae92a0d4c9329b24fe02a3adc6365f5665ab783e66da112e0b2e74cc5",
+      "git_blob_sha1": "9e44ea44a6bbd0997f8ac5ed9c7df207224efd8b",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Package_TO_SOT_SMD.pretty/LFPAK33.kicad_mod"
+    },
+    {
+      "file": "Package_TO_SOT_SMD.pretty/SC-82AA.kicad_mod",
+      "bytes": 4072,
+      "sha256": "dc9886b30a63f05dfe31c9ee3cdca926e09fc389e733ef4feda8417fb44eb00e",
+      "git_blob_sha1": "6a2e597eb104b68e1c86540499c687a7f9aef277",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Package_TO_SOT_SMD.pretty/SC-82AA.kicad_mod"
+    },
+    {
+      "file": "Package_TO_SOT_SMD.pretty/SOT-223-8.kicad_mod",
+      "bytes": 5472,
+      "sha256": "98abb6aab82b7c98ad66b8655f369d960056b9aced379774d91bc31430f86e7b",
+      "git_blob_sha1": "2d86b9170f1e8974bd7eb1fc72ebae29cf11bf2b",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Package_TO_SOT_SMD.pretty/SOT-223-8.kicad_mod"
+    },
+    {
+      "file": "Package_TO_SOT_SMD.pretty/SOT-353_SC-70-5.kicad_mod",
+      "bytes": 4895,
+      "sha256": "869e17094994ff787b769a2d69512455a2f20950d59dd5c4103026ec413bb88e",
+      "git_blob_sha1": "dbff9982f512ab5ad9c67a352fac8ef2754b735d",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Package_TO_SOT_SMD.pretty/SOT-353_SC-70-5.kicad_mod"
+    },
+    {
+      "file": "Package_TO_SOT_SMD.pretty/SOT-89-3.kicad_mod",
+      "bytes": 4547,
+      "sha256": "0b8db9f4a8f2547a53e80e3d400798979e84b4e0b2972160ddaca99c1f659b93",
+      "git_blob_sha1": "90a704231f74b5cac0765108d13fffbcdcda23e7",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Package_TO_SOT_SMD.pretty/SOT-89-3.kicad_mod"
+    },
+    {
+      "file": "Package_TO_SOT_SMD.pretty/TO-252-5_TabPin6.kicad_mod",
+      "bytes": 5322,
+      "sha256": "b88245799fb0ada0e06b292c0e19a85201fbd7e1227b91d42409d37a5971cb68",
+      "git_blob_sha1": "9dd833fb3ff7b267830c3ca28b8445290fd9b4c5",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Package_TO_SOT_SMD.pretty/TO-252-5_TabPin6.kicad_mod"
+    },
+    {
+      "file": "Package_TO_SOT_SMD.pretty/TO-277A.kicad_mod",
+      "bytes": 5575,
+      "sha256": "79d0898cf3133a3b0bad05fb6b9f37c8bd2445e7c20b1d9ff12a4ed4be0bb18b",
+      "git_blob_sha1": "91829cf9f4c0d822aac9f86f9569c81b6e329305",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Package_TO_SOT_SMD.pretty/TO-277A.kicad_mod"
+    },
+    {
+      "file": "Package_TO_SOT_SMD.pretty/TSOT-23-8_HandSoldering.kicad_mod",
+      "bytes": 5044,
+      "sha256": "0815fc720f405e75b78e1667689048c4e3f61849820fec0cc15cf8efd334af48",
+      "git_blob_sha1": "71ac8d275a56e0f3527d241400e694841625c87f",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Package_TO_SOT_SMD.pretty/TSOT-23-8_HandSoldering.kicad_mod"
+    },
+    {
+      "file": "Package_TO_SOT_SMD.pretty/Vishay_PowerPAK_SC70-6L_Single.kicad_mod",
+      "bytes": 5070,
+      "sha256": "80a46e985b93d6ec977b9def4456ae63bc0914c03b3b81cc8e02cb6d2b7c2b3d",
+      "git_blob_sha1": "4b186b08d61f6c20d393c41bab211a77ad41727d",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Package_TO_SOT_SMD.pretty/Vishay_PowerPAK_SC70-6L_Single.kicad_mod"
+    },
+    {
+      "file": "Resistor_SMD.pretty/R_01005_0402Metric.kicad_mod",
+      "bytes": 1809,
+      "sha256": "8bdf09bd436e0d1ce5f84dfde087c1bdc4bc6935a8aadfe8990e77507ed7cb55",
+      "git_blob_sha1": "187575af3c5692b857afe2b7e146efb135fe71a3",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Resistor_SMD.pretty/R_01005_0402Metric.kicad_mod"
+    },
+    {
+      "file": "Resistor_SMD.pretty/R_0508_1220Metric_Pad1.12x2.15mm_HandSolder.kicad_mod",
+      "bytes": 1725,
+      "sha256": "d4f4507ee61a6e9c317f1bbcb2e411da88311cff083a20b78c814b1dd7fb96d2",
+      "git_blob_sha1": "9458b49cd6d0c20010dad0a1ffd4c89331c2b3dc",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Resistor_SMD.pretty/R_0508_1220Metric_Pad1.12x2.15mm_HandSolder.kicad_mod"
+    },
+    {
+      "file": "Resistor_SMD.pretty/R_0815_2038Metric_Pad1.20x4.05mm_HandSolder.kicad_mod",
+      "bytes": 2000,
+      "sha256": "0790041aa297eb5bb3b479ac95184868628e6f077e97f03fae5c1e4aa47ca159",
+      "git_blob_sha1": "69f04dc8c30f224ef51d9b749bb094c0ecb2a61d",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Resistor_SMD.pretty/R_0815_2038Metric_Pad1.20x4.05mm_HandSolder.kicad_mod"
+    },
+    {
+      "file": "Resistor_SMD.pretty/R_1218_3246Metric.kicad_mod",
+      "bytes": 1879,
+      "sha256": "c03d9f20a382ad6790494313845683d7bfea776569f209deb1000a3f2a4b40e9",
+      "git_blob_sha1": "7dd533cf9062d437e1851cc8a874ba39ab935dd3",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Resistor_SMD.pretty/R_1218_3246Metric.kicad_mod"
+    },
+    {
+      "file": "Resistor_SMD.pretty/R_2010_5025Metric_Pad1.40x2.65mm_HandSolder.kicad_mod",
+      "bytes": 2031,
+      "sha256": "a3a9377c90b396f4144cf38cbcc12cf1da01f5c29c5b0a27e0d518361ebee4d2",
+      "git_blob_sha1": "525a8639b8e4a6d234e0eeb503f5a71dc85d39f6",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Resistor_SMD.pretty/R_2010_5025Metric_Pad1.40x2.65mm_HandSolder.kicad_mod"
+    },
+    {
+      "file": "Resistor_SMD.pretty/R_Array_Concave_4x0402.kicad_mod",
+      "bytes": 4201,
+      "sha256": "c83ad22a703b603b1c03cc159806ba9ceb90f0d2b3d8617f79cbf8b6c6693257",
+      "git_blob_sha1": "ff8a772c4a6ca97c60926d49787b4296fd30b1bd",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Resistor_SMD.pretty/R_Array_Concave_4x0402.kicad_mod"
+    },
+    {
+      "file": "Resistor_SMD.pretty/R_Array_Convex_4x0603.kicad_mod",
+      "bytes": 4189,
+      "sha256": "1ca2b4baeb71ccf9590ee2d2586a2e9568af22500398042fcb00642c958f13b6",
+      "git_blob_sha1": "af0b1afad631f8f25fad2bd20ff9ec49e1720776",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Resistor_SMD.pretty/R_Array_Convex_4x0603.kicad_mod"
+    },
+    {
+      "file": "Resistor_SMD.pretty/R_Cat16-4.kicad_mod",
+      "bytes": 4399,
+      "sha256": "6f49124fea7924ec489b1f39072ded3a8cdb82a0761c1cd59faf6207c76f7417",
+      "git_blob_sha1": "6fd695eaffd5bb3a6e529be2f7cb9e5fdc8fbf37",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Resistor_SMD.pretty/R_Cat16-4.kicad_mod"
+    },
+    {
+      "file": "Resistor_SMD.pretty/R_Shunt_Ohmite_LVK24.kicad_mod",
+      "bytes": 4151,
+      "sha256": "e6b01c6d721f344a17b66ad6e48387ac950bfa15d6e5d348a0eb0625c9ed8078",
+      "git_blob_sha1": "48b088cb8f231d687485b014683be1d96b42407f",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Resistor_SMD.pretty/R_Shunt_Ohmite_LVK24.kicad_mod"
+    },
+    {
+      "file": "Resistor_SMD.pretty/R_Shunt_Vishay_WSR2_WSR3_KelvinConnection.kicad_mod",
+      "bytes": 3728,
+      "sha256": "7539da36dca4866d71c9e423e79501817b48ee1f005f4c9ca272f302919a1220",
+      "git_blob_sha1": "330d2cd14d0418ac7b046fe969404ade6f79a625",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Resistor_SMD.pretty/R_Shunt_Vishay_WSR2_WSR3_KelvinConnection.kicad_mod"
+    },
+    {
+      "file": "Resistor_THT.pretty/R_Array_SIP10.kicad_mod",
+      "bytes": 2904,
+      "sha256": "04c51e49c032d0c50f1bb5d751a646d61ceaef5c08f7c174fdff21725de82b61",
+      "git_blob_sha1": "31f83c6fa8650b383d188c9ec109d30be775fe25",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Resistor_THT.pretty/R_Array_SIP10.kicad_mod"
+    },
+    {
+      "file": "Resistor_THT.pretty/R_Axial_DIN0204_L3.6mm_D1.6mm_P1.90mm_Vertical.kicad_mod",
+      "bytes": 2058,
+      "sha256": "bfc659d330557d0bf2181933978c3be7a7a74a0a87f40e1dda6d4fe9e6d9482b",
+      "git_blob_sha1": "b7782ef1e14cbb23b1a1054e52812364dd53def6",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Resistor_THT.pretty/R_Axial_DIN0204_L3.6mm_D1.6mm_P1.90mm_Vertical.kicad_mod"
+    },
+    {
+      "file": "Resistor_THT.pretty/R_Axial_DIN0309_L9.0mm_D3.2mm_P2.54mm_Vertical.kicad_mod",
+      "bytes": 2068,
+      "sha256": "ed7ce783618c3bc2577d5317c87058171554302410b934d12af32e32d6a6d131",
+      "git_blob_sha1": "8c44c04de6391be69e2dd4f03c072193d4ecf69e",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Resistor_THT.pretty/R_Axial_DIN0309_L9.0mm_D3.2mm_P2.54mm_Vertical.kicad_mod"
+    },
+    {
+      "file": "Resistor_THT.pretty/R_Axial_DIN0414_L11.9mm_D4.5mm_P20.32mm_Horizontal.kicad_mod",
+      "bytes": 2386,
+      "sha256": "f50ec1598bac6ce0e3a763de085d7014b323a23538864cad4d48dcdd05579355",
+      "git_blob_sha1": "4fcc0d9cc3fcec2475804bec800eeb046b99f1df",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Resistor_THT.pretty/R_Axial_DIN0414_L11.9mm_D4.5mm_P20.32mm_Horizontal.kicad_mod"
+    },
+    {
+      "file": "Resistor_THT.pretty/R_Axial_DIN0614_L14.3mm_D5.7mm_P5.08mm_Vertical.kicad_mod",
+      "bytes": 2089,
+      "sha256": "6bb4b3aff5f2ae2cf7f62e9faeb00248364285d993328ae994781947cf66aadf",
+      "git_blob_sha1": "d4662da8544601f2ca65387114f03d989fec6846",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Resistor_THT.pretty/R_Axial_DIN0614_L14.3mm_D5.7mm_P5.08mm_Vertical.kicad_mod"
+    },
+    {
+      "file": "Resistor_THT.pretty/R_Axial_DIN0922_L20.0mm_D9.0mm_P25.40mm_Horizontal.kicad_mod",
+      "bytes": 2367,
+      "sha256": "b077725786163dc499c65074b9cce563b4c85187e3e2952d33add02022ec99de",
+      "git_blob_sha1": "68bce5ff1776aef5b256fd1576f3b3920bd37812",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Resistor_THT.pretty/R_Axial_DIN0922_L20.0mm_D9.0mm_P25.40mm_Horizontal.kicad_mod"
+    },
+    {
+      "file": "Resistor_THT.pretty/R_Axial_Power_L25.0mm_W9.0mm_P30.48mm.kicad_mod",
+      "bytes": 2371,
+      "sha256": "ca2902df9486f51af498393c930e52b1c368bbfe38d18bf4e9b355f7b8f4549d",
+      "git_blob_sha1": "a8d5f4712f104e3fca01e8db58ba9505d33fbdd1",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Resistor_THT.pretty/R_Axial_Power_L25.0mm_W9.0mm_P30.48mm.kicad_mod"
+    },
+    {
+      "file": "Resistor_THT.pretty/R_Axial_Power_L50.0mm_W9.0mm_P60.96mm.kicad_mod",
+      "bytes": 2371,
+      "sha256": "b027de626b4aa46ec1364d9d39458b957860680c95259a81698cb8e61a718482",
+      "git_blob_sha1": "2d6d4bee2fe5379d0f1f1c432d5ad33b65636880",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Resistor_THT.pretty/R_Axial_Power_L50.0mm_W9.0mm_P60.96mm.kicad_mod"
+    },
+    {
+      "file": "Resistor_THT.pretty/R_Bare_Metal_Element_L16.3mm_W4.8mm_P15.30mm.kicad_mod",
+      "bytes": 2665,
+      "sha256": "a5a2b38c358232cc06cdd0fe7afce4923e7c9b9de8c80a091b5ff6479c05d3df",
+      "git_blob_sha1": "371b69005e5e0151472bdd2af7368bef65660015",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Resistor_THT.pretty/R_Bare_Metal_Element_L16.3mm_W4.8mm_P15.30mm.kicad_mod"
+    },
+    {
+      "file": "Resistor_THT.pretty/R_Radial_Power_L9.0mm_W10.0mm_Px2.70mm_Py2.30mm.kicad_mod",
+      "bytes": 2269,
+      "sha256": "1dadb0812568e8fbb2c87a1da71e11b06bcd8c6526c50d4de2f87d81caac5da8",
+      "git_blob_sha1": "0e03fdf32ea8373641b004eef3c114a962adc84e",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Resistor_THT.pretty/R_Radial_Power_L9.0mm_W10.0mm_Px2.70mm_Py2.30mm.kicad_mod"
+    }
+  ]
+}

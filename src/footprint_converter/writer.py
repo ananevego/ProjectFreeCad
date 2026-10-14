@@ -15,6 +15,7 @@ from .format_rules import (
     pad_shape,
     quote,
     target_point,
+    is_technical_pad,
 )
 from .model_matching import openscad_code, resolve_model_transform
 
@@ -122,6 +123,23 @@ def selection_bounds(fp: Footprint, apertures: list[dict[str, str]] | None = Non
     return min(p[0] for p in points), min(p[1] for p in points), max(p[0] for p in points), max(p[1] for p in points)
 
 
+def native_pad_names(fp: Footprint) -> list[str]:
+    """Stable unique labels for unnamed holes/aperture carriers; source unchanged."""
+    used={pad.name for pad in fp.pads}
+    names=[]
+    for index,pad in enumerate(fp.pads,1):
+        name=pad.name
+        if not name:
+            name=f'__TECH_{index}' if is_technical_pad(pad) else f'__NPTH_{index}'
+            while name in used:
+                name+='_'
+            used.add(name)
+        if len(name)>39:
+            raise ConversionError('Generated pad name exceeds native 39-character limit')
+        names.append(name)
+    return names
+
+
 def write_fpl(fp: Footprint, matches: list[ModelMatch], warnings: list[str],
               model_transform: ModelTransform | None = None,
               text_variables: dict[str, str] | None = None,
@@ -170,15 +188,10 @@ def write_fpl(fp: Footprint, matches: list[ModelMatch], warnings: list[str],
         if poly.closed:
             lines.append('    close_polyline: 0')
     lines.append(f'  n_pins: {len(fp.pads)}')
-    used_names = {pad.name for pad in fp.pads}
-    for index, pad in enumerate(fp.pads, 1):
-        name = pad.name
-        if not name:
-            name = f'__NPTH_{index}'
-            while name in used_names:
-                name += '_'
-            used_names.add(name)
-            warnings.append(f'NPTH_NAME: unnamed hole assigned {name}')
+    for index, (pad,name) in enumerate(zip(fp.pads,native_pad_names(fp)),1):
+        if not pad.name:
+            if is_technical_pad(pad):warnings.append(f'TECHNICAL_PAD_NAME: unnamed aperture assigned non-electrical carrier {name}')
+            else:warnings.append(f'NPTH_NAME: unnamed hole assigned {name}')
         x, y = target_point(pad.x, pad.y)
         lines.append(f'    pin: {quote(name)} {number(pad.drill)} {x} {y} {integer_angle(pad.rotation)} ""')
         sides = copper_sides(pad)

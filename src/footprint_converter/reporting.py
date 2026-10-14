@@ -5,7 +5,8 @@ from dataclasses import asdict
 
 from .model import ApertureSettings, Footprint, ModelMatch, ModelTransform
 from .format_rules import TARGET_REVISION
-from .writer import inherit_apertures
+from .writer import inherit_apertures, native_pad_names
+from .format_rules import is_technical_pad
 
 
 LOSS_CODES = {
@@ -14,6 +15,7 @@ LOSS_CODES = {
     'MODEL_MISSING', 'MODEL_UNRESOLVED', 'FAB_LAYER_APPROXIMATED',
     'APERTURE_ASSUMED_ZERO', 'NPTH_PASTE_SKIPPED', 'USER_LAYER_APPROXIMATED',
     'TEXT_PROPERTY_FLATTENED', 'TEXT_MARKUP_UNSUPPORTED',
+    'TECHNICAL_PAD_CARRIER','CONNECT_PAD_TYPE_FLATTENED',
 }
 
 
@@ -90,4 +92,13 @@ def build_report(fp: Footprint, render_fp: Footprint, matches: list[ModelMatch],
                 'model': 'ideal_round_ended',
             },
         })
+    if any(is_technical_pad(p) or p.kind=='connect' for p in fp.pads):
+        names=native_pad_names(fp)
+        report['pad_roles']=dict(native_netlist_verified=False,manufacturing_validated=False,
+            technical_carriers=[dict(source_pad_index=i,source=asdict(p),target_name=names[i],
+                target_copper=False,target_hole_size_nm=0) for i,p in enumerate(fp.pads) if is_technical_pad(p)],
+            contact_pads=[dict(source_pad_index=i,source=asdict(p),target_name=names[i],
+                native_connector_attribute_transferred=False) for i,p in enumerate(fp.pads) if p.kind=='connect'])
+        report['counts']['technical_carriers']=len(report['pad_roles']['technical_carriers'])
+        report['counts']['contact_pads']=len(report['pad_roles']['contact_pads'])
     return report

@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "kind": "footprint_pad_role_source_research",
+  "target_gui_validated": false,
+  "native_netlist_verified": false,
+  "manufacturing_validated": false,
+  "conclusion_scope": "KiCad technical-only mask/paste pads use their literal shape with zero mask/paste expansion. FreePCB2 padstacks default to no hole/inner copper, allow explicit zero outer copper and separate mask/paste records. Unnamed aperture pads therefore use unique non-copper/hole-free carrier labels, preserved in JSON with a loss. KiCad contact pads have no drill, one outer copper layer and no solder paste; connector attribute remains a loss. Duplicate native pin names can be enumerated, but component exporter still requires unique physical-number mapping. Native GUI/netlist/Gerber behavior remains unverified.",
+  "files": [
+    {
+      "path": "pcbnew/pad.cpp",
+      "revision": "9.0.0",
+      "url": "https://github.com/KiCad/kicad-source-mirror/blob/9.0.0/pcbnew/pad.cpp",
+      "sha256": "c29cebdb56b1a1f93a9328d4a390b5cb27ba4e8903babff02e22e7aa56bcb5c1",
+      "bytes": 93645,
+      "line_anchors": [
+        835,
+        1125,
+        1171,
+        2216
+      ]
+    },
+    {
+      "path": "Shape.cpp",
+      "revision": "3af0f9b9a234c97f2d21455c936abeb8439d2d45",
+      "url": "https://github.com/niconson/FreePCB-2/blob/3af0f9b9a234c97f2d21455c936abeb8439d2d45/Shape.cpp",
+      "sha256": "f247e613a0898862b286faeab29696411ac6bbc059cd05d8fd2d4b4d2b7ce34e",
+      "bytes": 132751,
+      "line_anchors": [
+        40,
+        1410,
+        1438,
+        1477,
+        1999,
+        3099,
+        3150
+      ]
+    }
+  ]
+}

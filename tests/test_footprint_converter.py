@@ -575,7 +575,7 @@ print(json.dumps({'fpl': result.fpl, 'warnings': result.warnings, 'report': resu
                  source_pad(kind='thru_hole', extra='(drill oval 1 2)'),
                  source_pad(kind='thru_hole', extra='(drill 1 (offset 0.2 0))'),
                  source_pad(at='0 0 12.5'), source_pad(kind='connect'),
-                 source_pad(size='-1 2'), source_pad(layers='"F.Mask"'),
+                 source_pad(size='-1 2'), source_pad(layers='"F.SilkS"'),
                  source_pad(size='0.000001 1'), source_pad(at='3000 0')]
         for source in cases:
             with self.subTest(source=source), self.assertRaises(converter.ConversionError):

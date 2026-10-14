@@ -12,7 +12,7 @@ MountingHole NPTH, SOT-23 и численные
 D_SOD-123, пакетный CLI, исходный parser УГО и минимальный writer Схематора;
 добавлен сборщик связей и переносимого комплекта, окружности/дуги УГО
 и профиль обычных электрических типов выводов, простой заливки и текста;
-добавлены disjoint multi-unit layout и power/NC policy; проходят 398 тестов.
+добавлены disjoint multi-unit layout и power/NC policy; проходят 417 тестов.
 Source parser читает `.kicad_sym` и старые `.lib`, сохраняя pins/units/inheritance.
 Writer создаёт `.cds` для R/C/connector, составных resistor packs и физических компонентов с power pins. Проверена цепочка
 symbol → footprint → существующий STL на трёх controls; GUI и физическое
@@ -123,10 +123,18 @@ python3 -B -m src.footprint_converter.batch tests/fixtures output/batches/contro
 GUI и полная библиотека этим прогоном не проверены.
 Подробные правила и параметры: [BATCH_CONVERTER.md](docs/BATCH_CONVERTER.md).
 
+Средняя pinned партия: 120 footprints из 12 категорий, 107 FPL с losses и
+13 явных отказов (89.17% в этой выборке). Technical mask/paste-only pads и
+contact pads добавлены по source/native контракту. Новый read-only audit
+проверяет source/FPL records, hashes и отдельно отмечает ambiguous numbers.
+[Результаты, ограничения и команды](docs/FOOTPRINT_MEDIUM.md).
+
 ## Что поддерживается
 
 | Данные KiCad | Результат |
 |---|---|
+| Technical-only F/B.Mask/Paste SMD pads | Отдельные zero-copper/hole padstack carriers, literal aperture sizes; netlist/Gerber unverified |
+| Contact pads (`connect`) | Одна внешняя copper side, mask/no paste/no hole; connector attribute имеет loss |
 | SMD circle / rect / oval / roundrect | Соответствующая форма и размеры, без перестановки X/Y |
 | F.Cu / B.Cu | Верхняя / нижняя площадка |
 | PTH с круглым drill | Отверстие и площадки; `*.Cu` включает общий inner_pad |

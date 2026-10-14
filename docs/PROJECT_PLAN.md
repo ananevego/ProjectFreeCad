@@ -35,7 +35,7 @@
 | 3 | УГО KiCad → Схематор — parser/writer, curves/pins/fills/text, disjoint/common units, markers и power/NC/hidden policies готовы с losses | src/symbol_converter, target fixtures | Source/native profiles; NC/implicit-net enforcement/repeated pins/alternate modes/hierarchy/geometry, import/connectivity и сравнение выборки |
 | 4 | Связи компонентов и переносимый 3D-комплект — выполнен для малого MVP | src/component_converter, config/manifest | Точные identifiers, pin/pad mapping по source/CDS/FPL; явные unresolved/ambiguous; category tree + уникальные flat STL aliases; hashes и перенос без исходников проверены |
 | 5 | Валидация в целевых программах — ожидает среды | FreePCB2 2.428/Схематор/OpenSCAD, docs | Load/save roundtrip, тексты и слои, NPTH/Gerber, масштабы/положение/ориентация STL; протокол и исправление найденных ошибок |
-| 6 | Масштабирование и итоговая поставка — не начат | Версионированные библиотеки, batch, docs/output | Малая → средняя → полная проверенная партия; измеренное покрытие, журнал исключений, лицензии и руководство; согласованные требования закрыты |
+| 6 | Масштабирование и итоговая поставка — средняя партия проверена, полная поставка открыта | Версионированные библиотеки, batch, docs/output | Малая → средняя → полная проверенная партия; измеренное покрытие, журнал исключений, лицензии и руководство; согласованные требования закрыты |
 
 Блок 5 можно выполнять параллельно разработке при доступной Windows.
 Блок 2 можно разрабатывать до полной поддержки геометрии: ошибки остаются
@@ -99,10 +99,15 @@
 13. **Common pins (выполнено 2026-10-14 для original unit=0).** Explicit
     common view одного physical component, один record на исходный pin,
     loss shared appearance/placement; repeated records остаются отказом.
-14. **Footprint coverage и средняя партия (следующий шаг).** Аудит representative
+14. **Footprint coverage и средняя партия (выполнено 2026-10-14 для 120 pinned files).** Аудит representative
     pinned source footprints, отчёт successful/loss/failed конструкций,
     исправления наиболее частых представимых исключений. Проверить старые
     baselines, source links и переносимость; GUI выполнять отдельным блоком.
+15. **Non-solid graphic strokes (следующий шаг).** Проследить KiCad pattern
+    sizes и native straight outlines; реализовать только подтверждённый
+    bounded profile со style/project/rendering losses. Проверить 4 выявленных
+    refusals, старые baselines и полную среднюю партию. Slots/custom pads
+    не подменять round/rect shapes; GUI/Gerber проверять отдельно.
 
 ## Зависимости и ограничения
 
@@ -417,3 +422,31 @@
   ещё требуют работы.
 - Далее: footprint coverage audit и средняя representative партия; затем
   исправления по диагностике, native GUI/3D validation и масштабирование.
+
+## Результат средней footprint партии — 2026-10-14
+
+- Power/markers/common этапы отправлены в origin/master: 890dc79.
+- Сохранены whole unchanged 120 official footprints в 12 категориях, pinned
+  KiCad51f8a59; 908267 bytes, SHA256/Git blob/license checks. Выбор deterministic,
+  не random; tree metadata на revision содержит 15464 footprint files.
+- Первый результат 85/120 generated_with_loss (70.83%). Подтверждены
+  technical-only mask/paste carriers без copper/hole и contact no-paste pads;
+  source roles/names сохранены в JSON, carrier/connector semantics имеют loss.
+- Итог 107/120 generated_with_loss (89.17%), 13 refusals: 6 oval/offset drill,
+  4 non-solid stroke, 3 custom pads. Source не редактируется; unexpected errors=0.
+- Read-only audit проверил все 107 source/FPL records (2295 padstacks), hashes,
+  provenance и raw feature inventories (2557 source pads). 133 technical
+  carriers сохранены; 13 successful files имеют ambiguous repeated numbers,
+  поэтому complete component chain не объявлена подтверждённой. GUI/netlist/
+  Gerber/3D flags остаются false. Mesh geometry не читалась/не конвертировалась.
+- Fresh-output ~0.455s, resume ~0.233s, audit ~0.227s, peak process RSS ~41.5MiB
+  на Python3.13/macOS arm64. File cache мог быть тёплым; прогноз на full library
+  и Windows из этого числа не делается. Resume reused107/failed retried13.
+- 19 новых tests, всего **417**, проходят; portable clone без STL/STEP — с
+  3 optional integration skips. Восемь прежних bundles неизменны.
+  Rules/results: [FOOTPRINT_MEDIUM.md](FOOTPRINT_MEDIUM.md).
+- **Остаток: 4 блока (1, 3, 5, 6), примерно 15–25% проекта**. Средняя партия
+  начинает масштабирование, но native GUI/manufacturing и полная поставка,
+  slots/custom/alternate/hierarchy/implicit-net exceptions ещё открыты.
+- Далее: restricted non-solid stroke profile, затем дальнейшие исключения,
+  native Windows/Gerber/3D validation и full-library coverage/release.

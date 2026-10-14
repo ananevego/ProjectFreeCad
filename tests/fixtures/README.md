@@ -215,3 +215,9 @@ common pin 1. `components/common.json` использует точные source 
 properties SIP4/SIP5/SIP8. SIP5/SIP8 сохранены целиком из pinned KiCad51f8a59;
 URL/bytes/hashes — `components/common-provenance.json`, license прежняя.
 3 existing STL только копируются/хешируются. [Профиль](../../docs/SYMBOL_COMMON.md).
+
+## Средняя footprint партия
+
+`medium/`: 120 whole official files, 12 categories, pinned revision51f8a59.
+SHA256/Git blobs/license и selection закреплены в `medium/provenance.json`.
+STL отсутствуют. [Результаты](../../docs/FOOTPRINT_MEDIUM.md).

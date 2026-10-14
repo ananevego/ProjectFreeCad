@@ -4,7 +4,8 @@
 SOT-23. Загрузка, сохранение и 3D в GUI FreePCB2 пока не проверены.
 Синтетический FilledCircle_Control проверяет заполненные окружности на обоих silk-слоях.
 Конвертер не читает геометрию моделей, не конвертирует STEP/STL, не копирует модели
-и не изменяет каталоги их хранения. Массовая обработка не реализована.
+и не изменяет каталоги их хранения. Batch/resume и аудит средней партии 120
+footprints реализованы; полный масштаб/GUI ещё не подтверждены.
 
 ## Запуск
 
@@ -398,3 +399,7 @@ markup/property semantics явно диагностируются; точный 
 единичного pipeline. [Контракт batch](BATCH_CONVERTER.md) описывает manifest,
 stable names, per-item reports/state, resume/invalidation и CLI exit codes.
 Прежние способы единичного запуска и API не изменялись.
+
+2026-10-14: technical-only mask/paste padstacks и contact pads добавлены
+с explicit losses; проверены 120 pinned sources, 107 generated with loss /
+13 failed. Audit/fields/geometry scopes: [FOOTPRINT_MEDIUM.md](FOOTPRINT_MEDIUM.md).

@@ -37,7 +37,14 @@ def pad_shape(shape: str) -> int:
     return PAD_SHAPES[shape]
 
 
+def is_technical_pad(pad: Pad) -> bool:
+    """Restricted aperture-only SMD profile; no implicit copper or wildcard layers."""
+    return pad.kind=='smd' and bool(pad.layers) and set(pad.layers)<= {'F.Mask','B.Mask','F.Paste','B.Paste'}
+
+
 def copper_sides(pad: Pad) -> set[str]:
+    if is_technical_pad(pad):
+        return set()
     copper = {layer for layer in pad.layers if layer.endswith('.Cu')}
     if pad.kind == 'np_thru_hole':
         return set()
@@ -47,8 +54,8 @@ def copper_sides(pad: Pad) -> set[str]:
         raise ConversionError(f'Pad {pad.name}: selected inner copper layers cannot be expressed by one inner_pad')
     if not copper:
         raise ConversionError(f'Pad {pad.name}: no copper layers')
-    if pad.kind == 'smd' and len(copper) != 1:
-        raise ConversionError(f'Pad {pad.name}: SMD must have one outer copper layer')
+    if pad.kind in {'smd','connect'} and len(copper) != 1:
+        raise ConversionError(f'Pad {pad.name}: surface pad must have one outer copper layer')
     return {side for layer, side in [('F.Cu', 'top'), ('B.Cu', 'bottom')] if layer in copper}
 
 
