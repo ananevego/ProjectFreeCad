@@ -12,7 +12,8 @@ MountingHole NPTH, SOT-23 и численные
 D_SOD-123, пакетный CLI, исходный parser УГО и минимальный writer Схематора;
 добавлен сборщик связей и переносимого комплекта, окружности/дуги УГО
 и профиль обычных электрических типов выводов, простой заливки и текста;
-добавлены disjoint multi-unit layout и power/NC policy; проходят 417 тестов.
+добавлены disjoint multi-unit layout, power/NC policy и straight dash/dot profile;
+проходят 437 тестов.
 Source parser читает `.kicad_sym` и старые `.lib`, сохраняя pins/units/inheritance.
 Writer создаёт `.cds` для R/C/connector, составных resistor packs и физических компонентов с power pins. Проверена цепочка
 symbol → footprint → существующий STL на трёх controls; GUI и физическое
@@ -123,11 +124,16 @@ python3 -B -m src.footprint_converter.batch tests/fixtures output/batches/contro
 GUI и полная библиотека этим прогоном не проверены.
 Подробные правила и параметры: [BATCH_CONVERTER.md](docs/BATCH_CONVERTER.md).
 
-Средняя pinned партия: 120 footprints из 12 категорий, 107 FPL с losses и
-13 явных отказов (89.17% в этой выборке). Technical mask/paste-only pads и
+Средняя pinned партия: 120 footprints из 12 категорий, 110 FPL с losses и
+10 явных отказов (91.67% в этой выборке). Technical mask/paste-only pads и
 contact pads добавлены по source/native контракту. Новый read-only audit
 проверяет source/FPL records, hashes и отдельно отмечает ambiguous numbers.
 [Результаты, ограничения и команды](docs/FOOTPRINT_MEDIUM.md).
+Тип stroke `default` исправлен как solid. Dash/dot/dash_dot/dash_dot_dot
+для незаполненных линий/прямоугольников/простых полигонов переносятся отдельными
+отрезками по фиксированному KiCad9 PCB editor profile с loss; strict отклоняет
+его. Кривые и filled patterned outlines остаются отказом.
+[Контракт и результаты этапа](docs/FOOTPRINT_STROKES.md).
 
 ## Что поддерживается
 

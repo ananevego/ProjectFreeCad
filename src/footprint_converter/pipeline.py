@@ -11,6 +11,7 @@ from .validation import validate_footprint
 from .model_matching import DEFAULT_STL_ROOT, match_models
 from .writer import write_fpl
 from .reporting import build_report
+from .strokes import expand_strokes
 
 
 def convert_detailed(root: list, footprint_name: str | None = None, *,
@@ -23,7 +24,8 @@ def convert_detailed(root: list, footprint_name: str | None = None, *,
     """In-memory conversion and structured report; does not write any file."""
     fp = parse_footprint(root, footprint_name, curve_tolerance=curve_tolerance)
     warnings = validate_footprint(fp)
-    render_fp = tessellate_fills(fp, fill_tolerance, warnings, curve_tolerance=curve_tolerance)
+    render_fp = expand_strokes(fp, warnings)
+    render_fp = tessellate_fills(render_fp, fill_tolerance, warnings, curve_tolerance=curve_tolerance)
     matches = match_models(fp.models, Path(stl_root), warnings)
     fpl = write_fpl(render_fp, matches, warnings, model_transform, text_variables, aperture_defaults)
     warnings = list(dict.fromkeys(warnings))

@@ -1,0 +1,4903 @@
+{
+  "batch_manifest_sha256": "7887868e2402c7f6440c4893c5ef9db9d2b4e6d731a2cf928e59ce1372d5ec66",
+  "categories": {
+    "Capacitor_SMD.pretty": {
+      "generated_with_loss": 10
+    },
+    "Connector_PinHeader_2.54mm.pretty": {
+      "generated_with_loss": 10
+    },
+    "Connector_USB.pretty": {
+      "failed": 6,
+      "generated_with_loss": 4
+    },
+    "Crystal.pretty": {
+      "generated_with_loss": 10
+    },
+    "Inductor_SMD.pretty": {
+      "generated_with_loss": 10
+    },
+    "MountingHole.pretty": {
+      "generated_with_loss": 10
+    },
+    "Package_DFN_QFN.pretty": {
+      "generated_with_loss": 10
+    },
+    "Package_DIP.pretty": {
+      "failed": 1,
+      "generated_with_loss": 9
+    },
+    "Package_QFP.pretty": {
+      "generated_with_loss": 10
+    },
+    "Package_TO_SOT_SMD.pretty": {
+      "failed": 3,
+      "generated_with_loss": 7
+    },
+    "Resistor_SMD.pretty": {
+      "generated_with_loss": 10
+    },
+    "Resistor_THT.pretty": {
+      "generated_with_loss": 10
+    }
+  },
+  "diagnostic_item_counts": {
+    "APERTURE_EXPLICIT": 110,
+    "CONNECT_PAD_TYPE_FLATTENED": 3,
+    "CURVE_APPROXIMATED": 32,
+    "FAB_LAYER_APPROXIMATED": 100,
+    "FEATURE_SKIPPED": 1,
+    "FILL_APPROXIMATED": 33,
+    "FILL_EXPORT_UNVERIFIED": 33,
+    "FILL_STROKE_MODEL": 33,
+    "GRAPHIC_LAYER_SKIPPED": 110,
+    "MODEL_FOLDER": 74,
+    "MODEL_FRAME_UNVERIFIED": 74,
+    "MODEL_MISSING": 36,
+    "NPTH_LIMIT": 6,
+    "NPTH_NAME": 6,
+    "TECHNICAL_PAD_CARRIER": 20,
+    "TECHNICAL_PAD_NAME": 20,
+    "TEXT_ANCHOR": 110,
+    "TEXT_DYNAMIC": 110,
+    "TEXT_FIELD_LAYER": 110,
+    "TEXT_UPRIGHT_UNVERIFIED": 108,
+    "TEXT_VARIABLE_UNRESOLVED": 110,
+    "USER_LAYER_APPROXIMATED": 9
+  },
+  "feature_totals": {
+    "drills": {
+      "none": 2035,
+      "oval_or_offset": 23,
+      "round": 499
+    },
+    "graphic_stroke_types": {
+      "default": 16,
+      "solid": 3261
+    },
+    "graphics": {
+      "fp_arc": 30,
+      "fp_circle": 35,
+      "fp_line": 3049,
+      "fp_poly": 59,
+      "fp_rect": 104,
+      "fp_text": 124
+    },
+    "pad_kinds": {
+      "connect": 5,
+      "np_thru_hole": 11,
+      "smd": 2030,
+      "thru_hole": 511
+    },
+    "pad_shapes": {
+      "circle": 436,
+      "custom": 3,
+      "oval": 76,
+      "rect": 299,
+      "roundrect": 1743
+    }
+  },
+  "first_failure_categories": {
+    "DRILL_OVAL_OR_OFFSET": 7,
+    "PAD_SHAPE_UNSUPPORTED": 3
+  },
+  "items": [
+    {
+      "features": {
+        "drills": {
+          "none": 2
+        },
+        "graphic_stroke_types": {
+          "solid": 33
+        },
+        "graphics": {
+          "fp_circle": 1,
+          "fp_line": 32,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 2
+        },
+        "pad_shapes": {
+          "roundrect": 2
+        },
+        "pads": 2,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "58f4fb44a6fd35e4c646e19d6d0ea68bcf134ae55897f05283ffda4b1aaed049",
+      "matched_models": 1,
+      "output_sha256": "ab88c149532b36060551b5272a185f9445e212cd2c2432804e9deb1af20472bd",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 2,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 2,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Capacitor_SMD.pretty/CP_Elec_10x10.5.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 2
+        },
+        "graphic_stroke_types": {
+          "solid": 29
+        },
+        "graphics": {
+          "fp_circle": 1,
+          "fp_line": 28,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 2
+        },
+        "pad_shapes": {
+          "rect": 2
+        },
+        "pads": 2,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "5d416dd293c50aa030c95ad3e62dfdb82d7205139128f7bd1b83b0b41f810629",
+      "matched_models": 1,
+      "output_sha256": "b58cac97acc0008500a4a052790c5afc9f4cca5a806719f57a770f712dbeb075",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 2,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 2,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Capacitor_SMD.pretty/CP_Elec_3x5.3.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 2
+        },
+        "graphic_stroke_types": {
+          "solid": 33
+        },
+        "graphics": {
+          "fp_circle": 1,
+          "fp_line": 32,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 2
+        },
+        "pad_shapes": {
+          "roundrect": 2
+        },
+        "pads": 2,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "8280b8a959d5826470ed9e25556e3a05af8dfbc8dec5c1d2635fd7f94a22e6ab",
+      "matched_models": 1,
+      "output_sha256": "63df07cdd90bc0ef3db0e5af681eac8cbe6990e1dddc802ab776142373fb1dc1",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 2,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 2,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Capacitor_SMD.pretty/CP_Elec_5x4.5.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 2
+        },
+        "graphic_stroke_types": {
+          "solid": 33
+        },
+        "graphics": {
+          "fp_circle": 1,
+          "fp_line": 32,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 2
+        },
+        "pad_shapes": {
+          "roundrect": 2
+        },
+        "pads": 2,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "3cae71534d4fd85aa3ec53b958a37c5df2112193baf26ca57c928738516b0c2a",
+      "matched_models": 1,
+      "output_sha256": "0e6fe16da5b0656d88f10f61be4a58c62372a8219f0d129546fe448e83a9503f",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 2,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 2,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Capacitor_SMD.pretty/CP_Elec_6.3x5.3.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 2
+        },
+        "graphic_stroke_types": {
+          "solid": 33
+        },
+        "graphics": {
+          "fp_circle": 1,
+          "fp_line": 32,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 2
+        },
+        "pad_shapes": {
+          "roundrect": 2
+        },
+        "pads": 2,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "a16ac49c1621a1d9dc72ad4c67410e15b42d06cc460de1e31ecfd11384f38206",
+      "matched_models": 1,
+      "output_sha256": "d8cdcb69b4dcb0df5a71eac369618c0b463b0ed47849f553ec9abc8ae80d2022",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 2,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 2,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Capacitor_SMD.pretty/CP_Elec_8x5.4.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 2
+        },
+        "graphic_stroke_types": {
+          "solid": 2
+        },
+        "graphics": {
+          "fp_rect": 2,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 2
+        },
+        "pad_shapes": {
+          "roundrect": 2
+        },
+        "pads": 2,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "11bc2742f7d6b3ed6eeeeb7d9e343ea4576801ca4c860eca5e1508f9f2c18087",
+      "matched_models": 0,
+      "output_sha256": "9deed474233624832ea447ffbdeea617986b9f6946e37c2e4e34d5fd44bacf2f",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 2,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 2,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Capacitor_SMD.pretty/C_0504_1310Metric.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 2
+        },
+        "graphic_stroke_types": {
+          "solid": 4
+        },
+        "graphics": {
+          "fp_line": 2,
+          "fp_rect": 2,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 2
+        },
+        "pad_shapes": {
+          "roundrect": 2
+        },
+        "pads": 2,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "4b7e84fe81ab5a99cc688903ad74bc08b0c3bcabb3c7cf82a6703c73fd918561",
+      "matched_models": 1,
+      "output_sha256": "bae8435834fa88805e48fcc343f36490b2e68c0700ffd439314f916cc86cc0c2",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 2,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 2,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Capacitor_SMD.pretty/C_1808_4520Metric_Pad1.72x2.30mm_HandSolder.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 2
+        },
+        "graphic_stroke_types": {
+          "solid": 29
+        },
+        "graphics": {
+          "fp_circle": 1,
+          "fp_line": 28,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 2
+        },
+        "pad_shapes": {
+          "roundrect": 2
+        },
+        "pads": 2,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "77a93dfb47cde873647a0694c88988bc907282d53904f12e8ef225441e9289c3",
+      "matched_models": 1,
+      "output_sha256": "6af6469960a0bcf495e15bbaf2bad4e7870f4ec07a965ff65f306563e3b31b16",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 2,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 2,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Capacitor_SMD.pretty/C_Elec_10x10.2.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 2
+        },
+        "graphic_stroke_types": {
+          "solid": 28
+        },
+        "graphics": {
+          "fp_circle": 1,
+          "fp_line": 26,
+          "fp_rect": 1,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 2
+        },
+        "pad_shapes": {
+          "rect": 2
+        },
+        "pads": 2,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "2f45ea527ca3c5c5a09f621b21483d817859aece522da6be0852af8d57a3d7f3",
+      "matched_models": 1,
+      "output_sha256": "1b058298d0082a1da9c18bd7e51833698424e4411cf2bac78313e2e601ce0780",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 2,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 2,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Capacitor_SMD.pretty/C_Trimmer_Murata_TZB4-A.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 2
+        },
+        "graphic_stroke_types": {
+          "solid": 20
+        },
+        "graphics": {
+          "fp_circle": 1,
+          "fp_line": 18,
+          "fp_rect": 1,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 2
+        },
+        "pad_shapes": {
+          "rect": 2
+        },
+        "pads": 2,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "c1bbca6e4d1762ea1e942b3a3c8d8a74573afa47a1003fd0fb64bf4c76661861",
+      "matched_models": 1,
+      "output_sha256": "436ff85de91cdcd895ab0e9dc5808a48fabd62b9324996eff06c6829530b2679",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 2,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 2,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Capacitor_SMD.pretty/C_Trimmer_Voltronics_JZ.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "round": 1
+        },
+        "graphic_stroke_types": {
+          "solid": 18
+        },
+        "graphics": {
+          "fp_line": 15,
+          "fp_rect": 3,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "thru_hole": 1
+        },
+        "pad_shapes": {
+          "rect": 1
+        },
+        "pads": 1,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "a7890bade269805c916a5feb41618c0512cbe09e0f6915a8802006dad2db27f5",
+      "matched_models": 1,
+      "output_sha256": "0eec5bd183be2f1030a15e6a8d380b71cc32857d0ed531e1fdbc97143e31ed41",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 1,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 1,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Connector_PinHeader_2.54mm.pretty/PinHeader_1x01_P2.54mm_Horizontal.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "round": 9
+        },
+        "graphic_stroke_types": {
+          "solid": 12
+        },
+        "graphics": {
+          "fp_line": 11,
+          "fp_rect": 1,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "thru_hole": 9
+        },
+        "pad_shapes": {
+          "circle": 8,
+          "rect": 1
+        },
+        "pads": 9,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "39d15d5879276b7358063c0e12600a00ca4ab11732ca325890e9825ea11593c5",
+      "matched_models": 1,
+      "output_sha256": "3d6175ccf7bc42dfcac8b513e0195185789c1aeedb982c08a4b84785bc9e03c1",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 9,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 9,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Connector_PinHeader_2.54mm.pretty/PinHeader_1x09_P2.54mm_Vertical.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "round": 17
+        },
+        "graphic_stroke_types": {
+          "solid": 210
+        },
+        "graphics": {
+          "fp_line": 207,
+          "fp_rect": 3,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "thru_hole": 17
+        },
+        "pad_shapes": {
+          "circle": 16,
+          "rect": 1
+        },
+        "pads": 17,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "5ef44494aae08fe06d0cf19c17a7599f5e6627fcf6bdaa886588960bf42e8ef1",
+      "matched_models": 1,
+      "output_sha256": "5c47f8b1b893f36e6a894ca979b05622b51ddfc5f0c5bc4b8e0acbf71804599f",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 17,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 17,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Connector_PinHeader_2.54mm.pretty/PinHeader_1x17_P2.54mm_Horizontal.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 24
+        },
+        "graphic_stroke_types": {
+          "solid": 107
+        },
+        "graphics": {
+          "fp_line": 106,
+          "fp_rect": 1,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 24
+        },
+        "pad_shapes": {
+          "rect": 24
+        },
+        "pads": 24,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "d35d0d26177841c23f69af74c953ab99b7808d52d849a2b02f314e16c02f36eb",
+      "matched_models": 1,
+      "output_sha256": "73b33979f2f8f03afa0d6da49ea236f2e4aad244700e50173ac2e5daec03ef27",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 24,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 24,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Connector_PinHeader_2.54mm.pretty/PinHeader_1x24_P2.54mm_Vertical_SMD_Pin1Left.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "round": 32
+        },
+        "graphic_stroke_types": {
+          "solid": 12
+        },
+        "graphics": {
+          "fp_line": 11,
+          "fp_rect": 1,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "thru_hole": 32
+        },
+        "pad_shapes": {
+          "circle": 31,
+          "rect": 1
+        },
+        "pads": 32,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "bb849ca1cedc45294543211d1031f88683608a683998b875e812a18621a737bc",
+      "matched_models": 1,
+      "output_sha256": "bfb0974ce55256836f3f935991456979c4d488984f4b5eb31e957d4ae3a545cb",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 32,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 32,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Connector_PinHeader_2.54mm.pretty/PinHeader_1x32_P2.54mm_Vertical.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "round": 40
+        },
+        "graphic_stroke_types": {
+          "solid": 486
+        },
+        "graphics": {
+          "fp_line": 483,
+          "fp_rect": 3,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "thru_hole": 40
+        },
+        "pad_shapes": {
+          "circle": 39,
+          "rect": 1
+        },
+        "pads": 40,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "b3867234626ac8c448d3ddcb228edad228c380ddbf663ce9db99acb8d144fcc3",
+      "matched_models": 1,
+      "output_sha256": "ddca77cf2ac53eba14ed4ba8c9d69e4b06caf18de93329cfd637715a7634a3b8",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 40,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 40,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Connector_PinHeader_2.54mm.pretty/PinHeader_1x40_P2.54mm_Horizontal.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "round": 20
+        },
+        "graphic_stroke_types": {
+          "solid": 146
+        },
+        "graphics": {
+          "fp_line": 143,
+          "fp_rect": 3,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "thru_hole": 20
+        },
+        "pad_shapes": {
+          "circle": 19,
+          "rect": 1
+        },
+        "pads": 20,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "b08bd85fd20070bd7e55b23198100ab4abb82ea78fbd7e6730eda05fea565729",
+      "matched_models": 1,
+      "output_sha256": "fde1bb60719889074a180056a52508a4875cd4cf0443e8b6a95d2a2d72507d10",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 20,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 20,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Connector_PinHeader_2.54mm.pretty/PinHeader_2x10_P2.54mm_Horizontal.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "round": 40
+        },
+        "graphic_stroke_types": {
+          "solid": 286
+        },
+        "graphics": {
+          "fp_line": 283,
+          "fp_rect": 3,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "thru_hole": 40
+        },
+        "pad_shapes": {
+          "circle": 39,
+          "rect": 1
+        },
+        "pads": 40,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "2cfb0cd2e619f632189b6c0d9e515a01762ea2d150b73946686f945064f30014",
+      "matched_models": 1,
+      "output_sha256": "7b559a04f491749b717e7787d03a88985f714f546c8528339a4d0a8890275b59",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 40,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 40,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Connector_PinHeader_2.54mm.pretty/PinHeader_2x20_P2.54mm_Horizontal.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "round": 60
+        },
+        "graphic_stroke_types": {
+          "solid": 14
+        },
+        "graphics": {
+          "fp_line": 13,
+          "fp_rect": 1,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "thru_hole": 60
+        },
+        "pad_shapes": {
+          "circle": 59,
+          "rect": 1
+        },
+        "pads": 60,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "739e80f21ef5269cf1d4a6df7e860889d4dc38735ef9fec164916ddddc7d6be5",
+      "matched_models": 1,
+      "output_sha256": "dbd97cf8e8a079537a388610a155b0c041070cb35236c406ff8119f0d4cab9e3",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 60,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 60,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Connector_PinHeader_2.54mm.pretty/PinHeader_2x30_P2.54mm_Vertical.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 80
+        },
+        "graphic_stroke_types": {
+          "solid": 331
+        },
+        "graphics": {
+          "fp_line": 330,
+          "fp_rect": 1,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 80
+        },
+        "pad_shapes": {
+          "rect": 80
+        },
+        "pads": 80,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "d19b3d47367ebf05516df327f11b3a2e6ee4637151aafe7cedce9b21c4eb5365",
+      "matched_models": 1,
+      "output_sha256": "a07c941aa23527ea01a7d65a88b6f1faf7bafcdd0e14e9c837b349a8f37b2916",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 80,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 80,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Connector_PinHeader_2.54mm.pretty/PinHeader_2x40_P2.54mm_Vertical_SMD.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "error_type": "ConversionError",
+      "errors": [
+        "Pad SH: oval/offset drill is not representable by hole_size"
+      ],
+      "failure_category": "DRILL_OVAL_OR_OFFSET",
+      "features": {
+        "drills": {
+          "oval_or_offset": 4,
+          "round": 9
+        },
+        "graphic_stroke_types": {
+          "default": 3,
+          "solid": 13
+        },
+        "graphics": {
+          "fp_line": 16,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "thru_hole": 13
+        },
+        "pad_shapes": {
+          "circle": 8,
+          "oval": 4,
+          "roundrect": 1
+        },
+        "pads": 13,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "f2045f67f810b6d3ab8b8e066fe6c93464059d127b4105bda0144787e5d9c670",
+      "source": "Connector_USB.pretty/USB3_A_Molex_48393-001.kicad_mod",
+      "status": "failed",
+      "target_records_validated": false,
+      "unexpected_error": false
+    },
+    {
+      "error_type": "ConversionError",
+      "errors": [
+        "Pad SH: oval/offset drill is not representable by hole_size"
+      ],
+      "failure_category": "DRILL_OVAL_OR_OFFSET",
+      "features": {
+        "drills": {
+          "none": 4,
+          "oval_or_offset": 2,
+          "round": 2
+        },
+        "graphic_stroke_types": {
+          "solid": 17
+        },
+        "graphics": {
+          "fp_line": 15,
+          "fp_poly": 1,
+          "fp_rect": 1,
+          "fp_text": 2
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "np_thru_hole": 2,
+          "smd": 4,
+          "thru_hole": 2
+        },
+        "pad_shapes": {
+          "circle": 2,
+          "oval": 2,
+          "roundrect": 4
+        },
+        "pads": 8,
+        "technical_only_pads": 0,
+        "unnamed_pads": 2
+      },
+      "input_sha256": "171c962443e83a88a4e33cf04404f32f539c2b8ee6c5863a25a0d82255a0883d",
+      "source": "Connector_USB.pretty/USB_A_Connfly_DS1098_Horizontal.kicad_mod",
+      "status": "failed",
+      "target_records_validated": false,
+      "unexpected_error": false
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 4,
+          "round": 2
+        },
+        "graphic_stroke_types": {
+          "solid": 55
+        },
+        "graphics": {
+          "fp_line": 55,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 4,
+          "thru_hole": 2
+        },
+        "pad_shapes": {
+          "circle": 2,
+          "roundrect": 4
+        },
+        "pads": 6,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "1fb89d7d76af4ce6b33547ab57c13c396a856cbbf67bbadabf9a58f1b44f1399",
+      "matched_models": 1,
+      "output_sha256": "5ba3f7572392798f63f3371a3ef9f83996b489504880b93f3cb642871b65a7bb",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [
+          "SH"
+        ],
+        "electrical_pad_records": 6,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 6,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": false
+      },
+      "source": "Connector_USB.pretty/USB_A_TE_292303-7_Horizontal.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 18
+        },
+        "graphic_stroke_types": {
+          "default": 1,
+          "solid": 14
+        },
+        "graphics": {
+          "fp_arc": 6,
+          "fp_line": 7,
+          "fp_poly": 1,
+          "fp_rect": 1,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 18
+        },
+        "pad_shapes": {
+          "roundrect": 18
+        },
+        "pads": 18,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "30b437f9348d9dd3255769dbc7531305fe29a23eefd96d0176708951a4b4fa1b",
+      "matched_models": 1,
+      "output_sha256": "45532ce6cb5d39b2491986e9a3a6b804934bf4e625b64e141aa1d04e5990027b",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [
+          "SH"
+        ],
+        "electrical_pad_records": 18,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 18,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": false
+      },
+      "source": "Connector_USB.pretty/USB_C_Plug_ShenzhenJingTuoJin_918-118A2021Y40002_Vertical.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "error_type": "ConversionError",
+      "errors": [
+        "Pad SH: oval/offset drill is not representable by hole_size"
+      ],
+      "failure_category": "DRILL_OVAL_OR_OFFSET",
+      "features": {
+        "drills": {
+          "none": 16,
+          "oval_or_offset": 4,
+          "round": 2
+        },
+        "graphic_stroke_types": {
+          "solid": 13
+        },
+        "graphics": {
+          "fp_line": 13,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "np_thru_hole": 2,
+          "smd": 16,
+          "thru_hole": 4
+        },
+        "pad_shapes": {
+          "circle": 2,
+          "oval": 4,
+          "roundrect": 16
+        },
+        "pads": 22,
+        "technical_only_pads": 0,
+        "unnamed_pads": 2
+      },
+      "input_sha256": "f5b0d469bf30aead721a8f87fcc7662ce857ef13cf65be66ab09c6d7a686c5f2",
+      "source": "Connector_USB.pretty/USB_C_Receptacle_G-Switch_GT-USB-7010ASV.kicad_mod",
+      "status": "failed",
+      "target_records_validated": false,
+      "unexpected_error": false
+    },
+    {
+      "error_type": "ConversionError",
+      "errors": [
+        "Pad SH: oval/offset drill is not representable by hole_size"
+      ],
+      "failure_category": "DRILL_OVAL_OR_OFFSET",
+      "features": {
+        "drills": {
+          "none": 6,
+          "oval_or_offset": 4
+        },
+        "graphic_stroke_types": {
+          "solid": 5
+        },
+        "graphics": {
+          "fp_line": 3,
+          "fp_rect": 2,
+          "fp_text": 2
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 6,
+          "thru_hole": 4
+        },
+        "pad_shapes": {
+          "oval": 4,
+          "roundrect": 6
+        },
+        "pads": 10,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "74e6d9084674ec8091f3153f1d8bcfd24828ac0096ac88bd382fe615145c378c",
+      "source": "Connector_USB.pretty/USB_C_Receptacle_GCT_USB4125-xx-x_6P_TopMnt_Horizontal.kicad_mod",
+      "status": "failed",
+      "target_records_validated": false,
+      "unexpected_error": false
+    },
+    {
+      "error_type": "ConversionError",
+      "errors": [
+        "Pad SH: oval/offset drill is not representable by hole_size"
+      ],
+      "failure_category": "DRILL_OVAL_OR_OFFSET",
+      "features": {
+        "drills": {
+          "none": 24,
+          "oval_or_offset": 4
+        },
+        "graphic_stroke_types": {
+          "solid": 14
+        },
+        "graphics": {
+          "fp_line": 13,
+          "fp_rect": 1,
+          "fp_text": 2
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 24,
+          "thru_hole": 4
+        },
+        "pad_shapes": {
+          "oval": 4,
+          "roundrect": 24
+        },
+        "pads": 28,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "4c0ad553929671d01ad6f9bd6c54004970e6482d62016af39fa7812d5c043540",
+      "source": "Connector_USB.pretty/USB_C_Receptacle_Molex_105450-0101.kicad_mod",
+      "status": "failed",
+      "target_records_validated": false,
+      "unexpected_error": false
+    },
+    {
+      "error_type": "ConversionError",
+      "errors": [
+        "Pad SH: oval/offset drill is not representable by hole_size"
+      ],
+      "failure_category": "DRILL_OVAL_OR_OFFSET",
+      "features": {
+        "drills": {
+          "none": 13,
+          "oval_or_offset": 4
+        },
+        "graphic_stroke_types": {
+          "solid": 18
+        },
+        "graphics": {
+          "fp_line": 18,
+          "fp_text": 2
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 13,
+          "thru_hole": 4
+        },
+        "pad_shapes": {
+          "oval": 8,
+          "roundrect": 9
+        },
+        "pads": 17,
+        "technical_only_pads": 4,
+        "unnamed_pads": 4
+      },
+      "input_sha256": "76e4ab3edd7bbd792b2f677e9ee95f2eb1e773230456f023649139602d244e72",
+      "source": "Connector_USB.pretty/USB_Micro-B_Amphenol_10118194_Horizontal.kicad_mod",
+      "status": "failed",
+      "target_records_validated": false,
+      "unexpected_error": false
+    },
+    {
+      "features": {
+        "drills": {
+          "round": 7
+        },
+        "graphic_stroke_types": {
+          "solid": 18
+        },
+        "graphics": {
+          "fp_line": 18,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "thru_hole": 7
+        },
+        "pad_shapes": {
+          "circle": 6,
+          "roundrect": 1
+        },
+        "pads": 7,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "1b4ca20bd8df3d207a877d9faa8086b858bc806cd888f4b529eea373665f1fe7",
+      "matched_models": 0,
+      "output_sha256": "1917c9d815f2a13fd17bfac1951ecca064ead155874ba68f9b7dc9268d7c7bec",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [
+          "SH"
+        ],
+        "electrical_pad_records": 7,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 7,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": false
+      },
+      "source": "Connector_USB.pretty/USB_Micro-B_Wuerth_614105150721_Vertical_CircularHoles.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 9,
+          "round": 2
+        },
+        "graphic_stroke_types": {
+          "solid": 32
+        },
+        "graphics": {
+          "fp_line": 32,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "np_thru_hole": 2,
+          "smd": 9
+        },
+        "pad_shapes": {
+          "circle": 2,
+          "roundrect": 9
+        },
+        "pads": 11,
+        "technical_only_pads": 0,
+        "unnamed_pads": 2
+      },
+      "input_sha256": "240fc410f94fe42d0ac5f16680116913915f2615c6fc32e7455768d5337547a7",
+      "matched_models": 0,
+      "output_sha256": "a166179173ae81846c99cc6df558b12abf9d6a7e11fcadf082fb8adb780a5ebe",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [
+          "SH"
+        ],
+        "electrical_pad_records": 9,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 11,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": false
+      },
+      "source": "Connector_USB.pretty/USB_Mini-B_Wuerth_65100516121_Horizontal.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "round": 2
+        },
+        "graphic_stroke_types": {
+          "solid": 11
+        },
+        "graphics": {
+          "fp_line": 8,
+          "fp_rect": 3,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "thru_hole": 2
+        },
+        "pad_shapes": {
+          "circle": 2
+        },
+        "pads": 2,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "64e77794fa9b8c55a3bfd67bd4ded1fe43b5d849ac747bf68b8b34f4e088483f",
+      "matched_models": 1,
+      "output_sha256": "4bfb47231b1b77b9efc2cc058fe1915d3f41017d41d9b8c8571edec4da10afa4",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 2,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 2,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Crystal.pretty/Crystal_AT310_D3.0mm_L10.0mm_Horizontal.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 1,
+          "round": 2
+        },
+        "graphic_stroke_types": {
+          "solid": 13
+        },
+        "graphics": {
+          "fp_line": 11,
+          "fp_rect": 2,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 1,
+          "thru_hole": 2
+        },
+        "pad_shapes": {
+          "circle": 2,
+          "roundrect": 1
+        },
+        "pads": 3,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "b7495cbb73fac8c77322da913f8e5407ce7dc4ade2f2be7d066f17c721e8d0c4",
+      "matched_models": 0,
+      "output_sha256": "cff7489ad7974bf36cc6627a4bf66dd2036bf490ba56eac38c0e61a36f688ed1",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 3,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 3,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Crystal.pretty/Crystal_DS26_D2.0mm_L6.0mm_Horizontal_1EP_style1.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "round": 2
+        },
+        "graphic_stroke_types": {
+          "solid": 12
+        },
+        "graphics": {
+          "fp_arc": 6,
+          "fp_line": 6,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "thru_hole": 2
+        },
+        "pad_shapes": {
+          "circle": 2
+        },
+        "pads": 2,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "c8eba36b8177c2f0102148a2fe0951d673ec280b863b68dc097f82c42d3cbb4d",
+      "matched_models": 1,
+      "output_sha256": "e6131e034814711b1b690052c9fff7445847bf50f34bdb282b12b4861d1f9fde",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 2,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 2,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Crystal.pretty/Crystal_HC50_Vertical.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 2
+        },
+        "graphic_stroke_types": {
+          "solid": 6
+        },
+        "graphics": {
+          "fp_circle": 1,
+          "fp_line": 3,
+          "fp_poly": 1,
+          "fp_rect": 1,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 2
+        },
+        "pad_shapes": {
+          "roundrect": 2
+        },
+        "pads": 2,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "af3e2d519dd6179cd7b944c3e2c2c1fdf491bbf683f16a6ed70f419d5708121c",
+      "matched_models": 1,
+      "output_sha256": "3611a3bbe856798b2fb5ddca57cf736baab875949f564846d59ce94ef4ad18b3",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 2,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 2,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Crystal.pretty/Crystal_SMD_0603-2Pin_6.0x3.5mm.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 2
+        },
+        "graphic_stroke_types": {
+          "solid": 6
+        },
+        "graphics": {
+          "fp_circle": 1,
+          "fp_line": 3,
+          "fp_poly": 1,
+          "fp_rect": 1,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 2
+        },
+        "pad_shapes": {
+          "roundrect": 2
+        },
+        "pads": 2,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "7f0f2901b2c9397cf63cac69d411fe7b189cf605f136104e41cb2001fea545d3",
+      "matched_models": 0,
+      "output_sha256": "62a6e233d3ac47164ba7a53c1d57504b3e16bdf5204339d4e7cdc088580cafa4",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 2,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 2,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Crystal.pretty/Crystal_SMD_Abracon_ABM3-2Pin_5.0x3.2mm_HandSoldering.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 2
+        },
+        "graphic_stroke_types": {
+          "solid": 6
+        },
+        "graphics": {
+          "fp_circle": 1,
+          "fp_line": 3,
+          "fp_poly": 1,
+          "fp_rect": 1,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 2
+        },
+        "pad_shapes": {
+          "roundrect": 2
+        },
+        "pads": 2,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "5bb357ca680a3e704cfa32307e598958f9828b15587e91ce6087d0e2fe398067",
+      "matched_models": 0,
+      "output_sha256": "adcd5795c166b1ee5f57e998c82ef2ba3c4083e7d419df5d49695906ebfe15b9",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 2,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 2,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Crystal.pretty/Crystal_SMD_FOX_FE-2Pin_7.5x5.0mm.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 2
+        },
+        "graphic_stroke_types": {
+          "solid": 5
+        },
+        "graphics": {
+          "fp_line": 3,
+          "fp_poly": 1,
+          "fp_rect": 1,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 2
+        },
+        "pad_shapes": {
+          "roundrect": 2
+        },
+        "pads": 2,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "5425a95b11e4526d8e240a14bb7135b9ad25d19c41a81a8c21c52ce67b3d0c0d",
+      "matched_models": 1,
+      "output_sha256": "a0b205a92057944f1b47b979fb055e20bdbf2ec98c54b32b53329247489c3146",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 2,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 2,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Crystal.pretty/Crystal_SMD_MicroCrystal_CM9V-T1A-2Pin_1.6x1.0mm_HandSoldering.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 2
+        },
+        "graphic_stroke_types": {
+          "solid": 5
+        },
+        "graphics": {
+          "fp_line": 3,
+          "fp_poly": 1,
+          "fp_rect": 1,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 2
+        },
+        "pad_shapes": {
+          "roundrect": 2
+        },
+        "pads": 2,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "1c574abbbea7e393b6f7c41559427737de4521c7bea4ff4a8b12d2b5cdf38003",
+      "matched_models": 0,
+      "output_sha256": "26c8b7e019e64c32f858f543b81842d1947a2686ea1aba8e94b869798b2bff31",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 2,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 2,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Crystal.pretty/Crystal_SMD_SeikoEpson_MC405-2Pin_9.6x4.1mm_HandSoldering.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "round": 2
+        },
+        "graphic_stroke_types": {
+          "solid": 12
+        },
+        "graphics": {
+          "fp_arc": 6,
+          "fp_line": 6,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "thru_hole": 2
+        },
+        "pad_shapes": {
+          "circle": 2
+        },
+        "pads": 2,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "89c33d2fa8bd81a49a7c51043afd3e7274de102516ee069dd64fd8cc00ca6696",
+      "matched_models": 1,
+      "output_sha256": "b977a4c824bd23d3ac9d21b3a4bb314745813acf8bac62401789110ce8f09d8b",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 2,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 2,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Crystal.pretty/Resonator-2Pin_W8.0mm_H3.5mm.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 3
+        },
+        "graphic_stroke_types": {
+          "solid": 4
+        },
+        "graphics": {
+          "fp_line": 2,
+          "fp_poly": 1,
+          "fp_rect": 1,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 3
+        },
+        "pad_shapes": {
+          "roundrect": 3
+        },
+        "pads": 3,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "435cd06ce5f9c831c2652d644f1d5d0d47be312321234799d04a983e7bc11a92",
+      "matched_models": 1,
+      "output_sha256": "a36093707e4b39844ffee8248c0760efecb585509947d43dff814b5a8646e7bd",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 3,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 3,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Crystal.pretty/Resonator_SMD_Murata_TPSKA-3Pin_7.9x3.8mm_HandSoldering.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 4
+        },
+        "graphic_stroke_types": {
+          "solid": 2
+        },
+        "graphics": {
+          "fp_rect": 2,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 4
+        },
+        "pad_shapes": {
+          "roundrect": 4
+        },
+        "pads": 4,
+        "technical_only_pads": 2,
+        "unnamed_pads": 2
+      },
+      "input_sha256": "d77aa760f13ac7c16bf20fe48e7f5378646b1fa5c814c841ac97652103633744",
+      "matched_models": 1,
+      "output_sha256": "ac4f6cba6d11bff5e8b69bc50738f08469908c1a1687b4742573da2b03d623c3",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 2,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 4,
+        "technical_carriers": 2,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Inductor_SMD.pretty/L_01005_0402Metric.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 2
+        },
+        "graphic_stroke_types": {
+          "solid": 18
+        },
+        "graphics": {
+          "fp_line": 18,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 2
+        },
+        "pad_shapes": {
+          "rect": 2
+        },
+        "pads": 2,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "12059db60faf95c9b47fbccc2ad3292b8427db164dbacfa8987588dc45be2b2c",
+      "matched_models": 0,
+      "output_sha256": "fcfbc401484bb649d28f50fc91368450842128687c16865c933e590477d77c00",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 2,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 2,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Inductor_SMD.pretty/L_Abracon_ASPI-3012S.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 2
+        },
+        "graphic_stroke_types": {
+          "solid": 4
+        },
+        "graphics": {
+          "fp_line": 2,
+          "fp_rect": 2,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 2
+        },
+        "pad_shapes": {
+          "roundrect": 2
+        },
+        "pads": 2,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "58116c2d71ab7a0c6cff006c256dda3045ed83ae666decc8d999190e6e35570b",
+      "matched_models": 1,
+      "output_sha256": "668c610a29c563d0b4106f4627bff4385cbb92ccaa3f19f975adaf4467bf8144",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 2,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 2,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Inductor_SMD.pretty/L_Changjiang_FTC201208S.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 2
+        },
+        "graphic_stroke_types": {
+          "solid": 15
+        },
+        "graphics": {
+          "fp_line": 14,
+          "fp_rect": 1,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 2
+        },
+        "pad_shapes": {
+          "roundrect": 2
+        },
+        "pads": 2,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "eb9a24aadb8be92cab04e62439d1e5324a72d472b407ee4c87f20b001e2c5a27",
+      "matched_models": 1,
+      "output_sha256": "d36ffaf90f0c7607de4ab77051dd8150ba30feb84cfb59e719c7823cbeb0a5e2",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 2,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 2,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Inductor_SMD.pretty/L_Chilisin_BWVS00606020.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 2
+        },
+        "graphic_stroke_types": {
+          "solid": 6
+        },
+        "graphics": {
+          "fp_line": 4,
+          "fp_rect": 2,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 2
+        },
+        "pad_shapes": {
+          "roundrect": 2
+        },
+        "pads": 2,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "3c20e722a733392d766a3872cebc52ddacd1052d1fd47b0857ab40269f40cbab",
+      "matched_models": 1,
+      "output_sha256": "81dc8ee5829c506c7c6a9b98fdebbf2235feca6d85a817d38a019ca478c49032",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 2,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 2,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Inductor_SMD.pretty/L_Coilcraft_XAL5050-XXX.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 2
+        },
+        "graphic_stroke_types": {
+          "solid": 18
+        },
+        "graphics": {
+          "fp_line": 18,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 2
+        },
+        "pad_shapes": {
+          "rect": 2
+        },
+        "pads": 2,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "a440c923cc63155d2901c9d991d86f0b7452491f16fa42ba16661fafe3cea56a",
+      "matched_models": 0,
+      "output_sha256": "1eaa2659e4e58aac45431c2d50063b9cd5c630fa37859e47551dfd7cc095c975",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 2,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 2,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Inductor_SMD.pretty/L_Neosid_Air-Coil_SML_2turn_HDM0231A.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 2
+        },
+        "graphic_stroke_types": {
+          "solid": 19
+        },
+        "graphics": {
+          "fp_line": 18,
+          "fp_rect": 1,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 2
+        },
+        "pad_shapes": {
+          "roundrect": 2
+        },
+        "pads": 2,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "c7e8f0fbc2db4df41bcc37b72174b02918b646cd3dc211658d7433ab71af3047",
+      "matched_models": 1,
+      "output_sha256": "17226c1db49c388200aad038c3d24e6fb05f94ec957efc6f0d42cb5832106f7c",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 2,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 2,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Inductor_SMD.pretty/L_Sunlord_MWSA0602S.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 2
+        },
+        "graphic_stroke_types": {
+          "solid": 19
+        },
+        "graphics": {
+          "fp_line": 18,
+          "fp_rect": 1,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 2
+        },
+        "pad_shapes": {
+          "roundrect": 2
+        },
+        "pads": 2,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "380590c200565f699d14475471183218eace69b56caea07d47d74f906276b272",
+      "matched_models": 1,
+      "output_sha256": "a372408ffbb54d9b4edae53b1cded62f15ebb668498175aa9f7dcc2ebe8f14ec",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 2,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 2,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Inductor_SMD.pretty/L_Sunlord_SWPA5040S.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 2
+        },
+        "graphic_stroke_types": {
+          "solid": 15
+        },
+        "graphics": {
+          "fp_line": 14,
+          "fp_rect": 1,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 2
+        },
+        "pad_shapes": {
+          "roundrect": 2
+        },
+        "pads": 2,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "f7e88367418f93a01bd6f06cf4a0925fef75fd0da9fcaac6d6d9793c26f57381",
+      "matched_models": 1,
+      "output_sha256": "7218c94e13e31159c4698b6f299c2b5ddf9d9b157a8e9d5580b61f6f62809124",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 2,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 2,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Inductor_SMD.pretty/L_Walsin_WLFM201209x.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 2
+        },
+        "graphic_stroke_types": {
+          "default": 11
+        },
+        "graphics": {
+          "fp_line": 10,
+          "fp_rect": 1,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 2
+        },
+        "pad_shapes": {
+          "roundrect": 2
+        },
+        "pads": 2,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "d419eaecbe6657abb5db7b73752c24c18b42b37f30970e3738680a921d0b685e",
+      "matched_models": 0,
+      "output_sha256": "913c2b405afa91eec4ba51674802e571072da179c529e8a073e6b050a8b452b7",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 2,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 2,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Inductor_SMD.pretty/L_Wurth_WE-CAIR-5910.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "round": 1
+        },
+        "graphic_stroke_types": {
+          "solid": 2
+        },
+        "graphics": {
+          "fp_circle": 2,
+          "fp_text": 1
+        },
+        "model_references": 0,
+        "pad_kinds": {
+          "np_thru_hole": 1
+        },
+        "pad_shapes": {
+          "circle": 1
+        },
+        "pads": 1,
+        "technical_only_pads": 0,
+        "unnamed_pads": 1
+      },
+      "input_sha256": "893472a945d5535997116e5eb9a5464a631c2e4f2ed64cdee45dfbc7f6daa811",
+      "matched_models": 0,
+      "output_sha256": "bd3d52cff1a8efdfb017d9593a3c135dfe7b3c5ad81ca1b4337fb903ffc41c57",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 0,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 1,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "MountingHole.pretty/MountingHole_2.1mm.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "round": 1
+        },
+        "graphic_stroke_types": {
+          "solid": 2
+        },
+        "graphics": {
+          "fp_circle": 2,
+          "fp_text": 1
+        },
+        "model_references": 0,
+        "pad_kinds": {
+          "np_thru_hole": 1
+        },
+        "pad_shapes": {
+          "circle": 1
+        },
+        "pads": 1,
+        "technical_only_pads": 0,
+        "unnamed_pads": 1
+      },
+      "input_sha256": "abd7c2d7d9e66cbc2c6a69a191e295360ad21f072e178c311a9ae96bb322ee89",
+      "matched_models": 0,
+      "output_sha256": "882e5584567516a57a5ec9b49983b9066f8c81d88c88018ea5444f5246a585bf",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 0,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 1,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "MountingHole.pretty/MountingHole_2.5mm.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "round": 1
+        },
+        "graphic_stroke_types": {
+          "solid": 2
+        },
+        "graphics": {
+          "fp_circle": 2,
+          "fp_text": 1
+        },
+        "model_references": 0,
+        "pad_kinds": {
+          "thru_hole": 1
+        },
+        "pad_shapes": {
+          "circle": 1
+        },
+        "pads": 1,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "2c45edc9571e3c3447ce01539c68469f1e0f8cc36c94642b41ba89eeb5ad500f",
+      "matched_models": 0,
+      "output_sha256": "44114847e37eb4a46e73a5517b97023f7e25478016eae86eafd2add1ef085dcc",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 1,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 1,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "MountingHole.pretty/MountingHole_2.7mm_M2.5_Pad.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "round": 1
+        },
+        "graphic_stroke_types": {
+          "solid": 2
+        },
+        "graphics": {
+          "fp_circle": 2,
+          "fp_text": 1
+        },
+        "model_references": 0,
+        "pad_kinds": {
+          "np_thru_hole": 1
+        },
+        "pad_shapes": {
+          "circle": 1
+        },
+        "pads": 1,
+        "technical_only_pads": 0,
+        "unnamed_pads": 1
+      },
+      "input_sha256": "3c7ba94392acc38c1aad8d2f8bb3345be8a043d3cd10786e91244365bc93a2e5",
+      "matched_models": 0,
+      "output_sha256": "78a99e4316e41b8155494c37aa3f5e10eefd1996f1f1883c95a2db169dd13078",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 0,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 1,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "MountingHole.pretty/MountingHole_3.2mm_M3_ISO7380.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "round": 1
+        },
+        "graphic_stroke_types": {
+          "solid": 2
+        },
+        "graphics": {
+          "fp_circle": 2,
+          "fp_text": 1
+        },
+        "model_references": 0,
+        "pad_kinds": {
+          "thru_hole": 1
+        },
+        "pad_shapes": {
+          "circle": 1
+        },
+        "pads": 1,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "31cfbb6551611aa4a78cc3959074a4924c73aa59dc6c968cbe7ba9e4bfe97644",
+      "matched_models": 0,
+      "output_sha256": "decfde4b73143460bad892804963a8e00eb093aff07fa7d55b896f8c623705fb",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 1,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 1,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "MountingHole.pretty/MountingHole_3mm_Pad.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 2,
+          "round": 1
+        },
+        "graphic_stroke_types": {
+          "solid": 2
+        },
+        "graphics": {
+          "fp_circle": 2,
+          "fp_text": 1
+        },
+        "model_references": 0,
+        "pad_kinds": {
+          "connect": 2,
+          "thru_hole": 1
+        },
+        "pad_shapes": {
+          "circle": 3
+        },
+        "pads": 3,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "bd322d7dcebcb2d2223388e29bfbdb8747acd1c2e858a1860fb0df78d33d25c3",
+      "matched_models": 0,
+      "output_sha256": "4a885f08428c9c73f2dbcd8baf941de21b070a81e9a6dc0c917bf71570fd47be",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [
+          "1"
+        ],
+        "electrical_pad_records": 3,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 3,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": false
+      },
+      "source": "MountingHole.pretty/MountingHole_4.3mm_M4_Pad_TopBottom.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 1,
+          "round": 1
+        },
+        "graphic_stroke_types": {
+          "solid": 2
+        },
+        "graphics": {
+          "fp_circle": 2,
+          "fp_text": 1
+        },
+        "model_references": 0,
+        "pad_kinds": {
+          "connect": 1,
+          "thru_hole": 1
+        },
+        "pad_shapes": {
+          "circle": 2
+        },
+        "pads": 2,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "beb9c7c156c5b44419eda5439cfef10043a7caa334db4fa0fdfca61671972a69",
+      "matched_models": 0,
+      "output_sha256": "4d4de1b783c090cbd082c17ace6b5c4b55dee2fd06bdb820ed5af41331b1206c",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [
+          "1"
+        ],
+        "electrical_pad_records": 2,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 2,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": false
+      },
+      "source": "MountingHole.pretty/MountingHole_5.3mm_M5_DIN965_Pad_TopOnly.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "round": 1
+        },
+        "graphic_stroke_types": {
+          "solid": 2
+        },
+        "graphics": {
+          "fp_circle": 2,
+          "fp_text": 1
+        },
+        "model_references": 0,
+        "pad_kinds": {
+          "np_thru_hole": 1
+        },
+        "pad_shapes": {
+          "circle": 1
+        },
+        "pads": 1,
+        "technical_only_pads": 0,
+        "unnamed_pads": 1
+      },
+      "input_sha256": "82b883e8415782a283ea735685c41e18fd8d045d97f30893a9fec48949e306b0",
+      "matched_models": 0,
+      "output_sha256": "dc596fed529e31bc712eb6d74a2f3c917f552112b8c589a69f4bb1822424ec4a",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 0,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 1,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "MountingHole.pretty/MountingHole_5mm.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 2,
+          "round": 1
+        },
+        "graphic_stroke_types": {
+          "solid": 2
+        },
+        "graphics": {
+          "fp_circle": 2,
+          "fp_text": 1
+        },
+        "model_references": 0,
+        "pad_kinds": {
+          "connect": 2,
+          "thru_hole": 1
+        },
+        "pad_shapes": {
+          "circle": 3
+        },
+        "pads": 3,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "fb0ee8be483cda4fb32d1b7fc64ab9075b9e5478dedd0c6914f172d86c54ea5e",
+      "matched_models": 0,
+      "output_sha256": "87da2c55440b5f92374f861e2e40c740015da3d8280fda94ecd0dbf11572460b",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [
+          "1"
+        ],
+        "electrical_pad_records": 3,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 3,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": false
+      },
+      "source": "MountingHole.pretty/MountingHole_6.4mm_M6_Pad_TopBottom.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "round": 1
+        },
+        "graphic_stroke_types": {
+          "solid": 1
+        },
+        "graphics": {
+          "fp_circle": 1,
+          "fp_text": 1
+        },
+        "model_references": 0,
+        "pad_kinds": {
+          "np_thru_hole": 1
+        },
+        "pad_shapes": {
+          "circle": 1
+        },
+        "pads": 1,
+        "technical_only_pads": 0,
+        "unnamed_pads": 1
+      },
+      "input_sha256": "0c1c19dc2951ebd1aee1042b1b30ed66b4f63d1c06be9b8d9ce218ca51bcabd1",
+      "matched_models": 0,
+      "output_sha256": "2a4ea4d9fa090b00f8b9e19a634d20e9c84379be64d6989443a3b70f70e9b085",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 0,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 1,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "MountingHole.pretty/ToolingHole_1.152mm.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 6
+        },
+        "graphic_stroke_types": {
+          "solid": 12
+        },
+        "graphics": {
+          "fp_line": 11,
+          "fp_poly": 1,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 6
+        },
+        "pad_shapes": {
+          "rect": 6
+        },
+        "pads": 6,
+        "technical_only_pads": 1,
+        "unnamed_pads": 1
+      },
+      "input_sha256": "e2303a78dbba037aa2b83cf0dd5499bd2f2ba2d33df842104475dd79d3390b0a",
+      "matched_models": 0,
+      "output_sha256": "a8e252885fe8ed8d933587448bc789b24546f270d6f7eb878387a1cf6795c091",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 5,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 6,
+        "technical_carriers": 1,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Package_DFN_QFN.pretty/AMS_QFN-4-1EP_2x2mm_P0.95mm_EP0.7x1.6mm.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 10
+        },
+        "graphic_stroke_types": {
+          "solid": 20
+        },
+        "graphics": {
+          "fp_line": 18,
+          "fp_poly": 2,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 10
+        },
+        "pad_shapes": {
+          "rect": 1,
+          "roundrect": 9
+        },
+        "pads": 10,
+        "technical_only_pads": 1,
+        "unnamed_pads": 1
+      },
+      "input_sha256": "2fc592a02f0e016e0d93d8da28b7cfca78f969db66962408435218c4c7ff1522",
+      "matched_models": 0,
+      "output_sha256": "de83441252455c728424f6644db8debda6005f31316725717cc76faa2e7222a4",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 9,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 10,
+        "technical_carriers": 1,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Package_DFN_QFN.pretty/DFN-8-1EP_3x3mm_P0.5mm_EP1.7x2.4mm.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 24
+        },
+        "graphic_stroke_types": {
+          "solid": 20
+        },
+        "graphics": {
+          "fp_line": 18,
+          "fp_poly": 2,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 24
+        },
+        "pad_shapes": {
+          "rect": 1,
+          "roundrect": 23
+        },
+        "pads": 24,
+        "technical_only_pads": 9,
+        "unnamed_pads": 9
+      },
+      "input_sha256": "58a11b64843bb195217b4276bee204725426ef0b957d6919512d4f8e61f319b4",
+      "matched_models": 1,
+      "output_sha256": "876fd3806623d02cc6ae8a9b5279ef066f6b7e658b2cf745c51fea08d026f7dd",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 15,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 24,
+        "technical_carriers": 9,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Package_DFN_QFN.pretty/OnSemi_DFN-14-1EP_4x4mm_P0.5mm_EP2.7x3.4mm.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 29
+        },
+        "graphic_stroke_types": {
+          "solid": 30
+        },
+        "graphics": {
+          "fp_line": 28,
+          "fp_poly": 2,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 29
+        },
+        "pad_shapes": {
+          "rect": 1,
+          "roundrect": 28
+        },
+        "pads": 29,
+        "technical_only_pads": 4,
+        "unnamed_pads": 4
+      },
+      "input_sha256": "27ed0bd8da40ddbedf46055bdfc514b5e657586c0dee2546d5433fef4bed800f",
+      "matched_models": 0,
+      "output_sha256": "8faa99c5e0fcfbe6d57fb7ca40ec44934e00ea979138b361bf205d827b799329",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 25,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 29,
+        "technical_carriers": 4,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Package_DFN_QFN.pretty/QFN-24-1EP_5x5mm_P0.65mm_EP3.4x3.4mm.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 59,
+          "round": 16
+        },
+        "graphic_stroke_types": {
+          "solid": 30
+        },
+        "graphics": {
+          "fp_line": 28,
+          "fp_poly": 2,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 59,
+          "thru_hole": 16
+        },
+        "pad_shapes": {
+          "circle": 16,
+          "rect": 2,
+          "roundrect": 57
+        },
+        "pads": 75,
+        "technical_only_pads": 9,
+        "unnamed_pads": 9
+      },
+      "input_sha256": "24f70be71e8bddf4dc8376ef9d62f0ec73a2141c1a00007eaf78aa69a3146792",
+      "matched_models": 0,
+      "output_sha256": "d269e84cfba5a839bdfe7f1784be6c7a468e0dbdda0d43974d6c7f43594c5fe3",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [
+          "49"
+        ],
+        "electrical_pad_records": 66,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 75,
+        "technical_carriers": 9,
+        "unique_number_mapping_possible": false
+      },
+      "source": "Package_DFN_QFN.pretty/QFN-48-1EP_6x6mm_P0.4mm_EP4.4x4.4mm_ThermalVias.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 107,
+          "round": 9
+        },
+        "graphic_stroke_types": {
+          "solid": 30
+        },
+        "graphics": {
+          "fp_line": 28,
+          "fp_poly": 2,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 107,
+          "thru_hole": 9
+        },
+        "pad_shapes": {
+          "circle": 9,
+          "rect": 2,
+          "roundrect": 105
+        },
+        "pads": 116,
+        "technical_only_pads": 25,
+        "unnamed_pads": 25
+      },
+      "input_sha256": "17c3a86a85d9caa525f626295e6b08eaba71ce7bafaed48967eced6b765b86ff",
+      "matched_models": 0,
+      "output_sha256": "e62c95fa37bc061e2430ffc3f7bd5e72df5bb3c91e6f9e4bab5b004dfa71ceb1",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [
+          "81"
+        ],
+        "electrical_pad_records": 91,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 116,
+        "technical_carriers": 25,
+        "unique_number_mapping_possible": false
+      },
+      "source": "Package_DFN_QFN.pretty/QFN-80-1EP_10x10mm_P0.4mm_EP3.4x3.4mm_ThermalVias.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 29
+        },
+        "graphic_stroke_types": {
+          "solid": 30
+        },
+        "graphics": {
+          "fp_line": 28,
+          "fp_poly": 2,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 29
+        },
+        "pad_shapes": {
+          "rect": 1,
+          "roundrect": 28
+        },
+        "pads": 29,
+        "technical_only_pads": 4,
+        "unnamed_pads": 4
+      },
+      "input_sha256": "ad543348247eca2fe989aaa8bf294e6f7cb85976a0f09ecc46b72400d528c9c1",
+      "matched_models": 1,
+      "output_sha256": "255d427158116f0e41a3d660fdf298d3cc31e1e65d9cf555e914eda269bfd269",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 25,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 29,
+        "technical_carriers": 4,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Package_DFN_QFN.pretty/Texas_RGE0024C_VQFN-24-1EP_4x4mm_P0.5mm_EP2.1x2.1mm.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 114
+        },
+        "graphic_stroke_types": {
+          "default": 1,
+          "solid": 17
+        },
+        "graphics": {
+          "fp_line": 17,
+          "fp_poly": 1,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 114
+        },
+        "pad_shapes": {
+          "rect": 114
+        },
+        "pads": 114,
+        "technical_only_pads": 9,
+        "unnamed_pads": 9
+      },
+      "input_sha256": "bcc80618f8379953f734d4af65681fc17b44e0c2b74b214f16d12b7bf6b6f8a8",
+      "matched_models": 0,
+      "output_sha256": "9f72cb0e5aa2f968501260cb22438e1075a1f2a3d8aaca2296795a80517590f7",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 105,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 114,
+        "technical_carriers": 9,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Package_DFN_QFN.pretty/Texas_S-PWQFN-N100_EP5.5x5.5mm.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 38,
+          "round": 9
+        },
+        "graphic_stroke_types": {
+          "solid": 30
+        },
+        "graphics": {
+          "fp_line": 28,
+          "fp_poly": 2,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 38,
+          "thru_hole": 9
+        },
+        "pad_shapes": {
+          "circle": 9,
+          "rect": 2,
+          "roundrect": 36
+        },
+        "pads": 47,
+        "technical_only_pads": 4,
+        "unnamed_pads": 4
+      },
+      "input_sha256": "889d668b4f088dadf2e4ccc96953a8955d4bd681d3938cce293cd71d86082dba",
+      "matched_models": 0,
+      "output_sha256": "943ce116565539c660d3805bd83c6b4c0de4f5b8fd53097357fd49bc457fc648",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [
+          "33"
+        ],
+        "electrical_pad_records": 43,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 47,
+        "technical_carriers": 4,
+        "unique_number_mapping_possible": false
+      },
+      "source": "Package_DFN_QFN.pretty/VQFN-32-1EP_5x5mm_P0.5mm_EP3.5x3.5mm_ThermalVias.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 58,
+          "round": 24
+        },
+        "graphic_stroke_types": {
+          "solid": 29
+        },
+        "graphics": {
+          "fp_line": 27,
+          "fp_poly": 2,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 58,
+          "thru_hole": 24
+        },
+        "pad_shapes": {
+          "circle": 24,
+          "rect": 2,
+          "roundrect": 56
+        },
+        "pads": 82,
+        "technical_only_pads": 14,
+        "unnamed_pads": 14
+      },
+      "input_sha256": "935f80ba0c9dfef0a93594dc1fa2443710e3e8d8466f56d83ebea34436630e52",
+      "matched_models": 0,
+      "output_sha256": "18aae18445491bf3b3db6f0aee8fdee39ef21075d967bc487a97656f375c791a",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [
+          "43"
+        ],
+        "electrical_pad_records": 68,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 82,
+        "technical_carriers": 14,
+        "unique_number_mapping_possible": false
+      },
+      "source": "Package_DFN_QFN.pretty/WQFN-42-1EP_3.5x9mm_P0.5mm_EP2.05x7.55mm_ThermalVias.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "round": 14
+        },
+        "graphic_stroke_types": {
+          "solid": 12
+        },
+        "graphics": {
+          "fp_arc": 1,
+          "fp_line": 10,
+          "fp_rect": 1,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "thru_hole": 14
+        },
+        "pad_shapes": {
+          "circle": 13,
+          "roundrect": 1
+        },
+        "pads": 14,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "6251c64dab5040d994513a2816d18efd19cfd565ff76fa7fd1625f60cfbc2229",
+      "matched_models": 0,
+      "output_sha256": "7c1454f91365903d8b5b1af997abae7e958bf5c1ef2e28fa2b2e6861c8152d62",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 14,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 14,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Package_DIP.pretty/CERDIP-14_W7.62mm_SideBrazed.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "round": 8
+        },
+        "graphic_stroke_types": {
+          "solid": 14
+        },
+        "graphics": {
+          "fp_arc": 1,
+          "fp_line": 10,
+          "fp_rect": 3,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "thru_hole": 8
+        },
+        "pad_shapes": {
+          "circle": 7,
+          "roundrect": 1
+        },
+        "pads": 8,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "5a236bb969f42527afd58e602c9714fc0369635a7f6ebcd54104083f6c010461",
+      "matched_models": 0,
+      "output_sha256": "aee0eb06728077a1bc401b192808de8dbe34c95937b7a3d33ee5adb7aaba8e6f",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 8,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 8,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Package_DIP.pretty/CERDIP-8_W7.62mm_SideBrazed_Socket.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "round": 16
+        },
+        "graphic_stroke_types": {
+          "solid": 14
+        },
+        "graphics": {
+          "fp_arc": 1,
+          "fp_line": 10,
+          "fp_rect": 3,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "thru_hole": 16
+        },
+        "pad_shapes": {
+          "oval": 15,
+          "roundrect": 1
+        },
+        "pads": 16,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "6f0d437cf9daa21d4f03687d193a2c5d98755e27a62490262f44affcc7ee505c",
+      "matched_models": 1,
+      "output_sha256": "cd358b776b80ec5b0f5b75e5718020dbfa6cd17bafa3485993d476636fa3226d",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 16,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 16,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Package_DIP.pretty/DIP-16_W7.62mm_Socket_LongPads.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "round": 24
+        },
+        "graphic_stroke_types": {
+          "solid": 12
+        },
+        "graphics": {
+          "fp_arc": 1,
+          "fp_line": 10,
+          "fp_rect": 1,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "thru_hole": 24
+        },
+        "pad_shapes": {
+          "circle": 23,
+          "roundrect": 1
+        },
+        "pads": 24,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "e351ddf032732595ad2aad869abb5130f1e87aece447d98b0c9684cb5f29c42e",
+      "matched_models": 1,
+      "output_sha256": "e6217913cf2c9065401841a005c706d632ee13adf0a8a7cca9908ac2afc87ecf",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 24,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 24,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Package_DIP.pretty/DIP-24_W10.16mm.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "round": 28
+        },
+        "graphic_stroke_types": {
+          "solid": 12
+        },
+        "graphics": {
+          "fp_arc": 1,
+          "fp_line": 10,
+          "fp_rect": 1,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "thru_hole": 28
+        },
+        "pad_shapes": {
+          "oval": 27,
+          "roundrect": 1
+        },
+        "pads": 28,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "7b9a51a1a15f879d31b3bcb0c45dddd2f2597f3ed3ca995320ee2652a849f616",
+      "matched_models": 1,
+      "output_sha256": "3f74f2f225ebfdb82f7f72a5083c1a775375c54f6037ef1fa699fb06a2acff6b",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 28,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 28,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Package_DIP.pretty/DIP-28_W7.62mm_LongPads.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 48
+        },
+        "graphic_stroke_types": {
+          "solid": 14
+        },
+        "graphics": {
+          "fp_arc": 1,
+          "fp_line": 10,
+          "fp_rect": 3,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 48
+        },
+        "pad_shapes": {
+          "roundrect": 48
+        },
+        "pads": 48,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "9ba22d946b72e03d527b57522fcd8bc276d6cd939236891e46f4834657d38f37",
+      "matched_models": 1,
+      "output_sha256": "949a7d5dab5037ee602a381ed1e5cb439bdb07866cfa698818ed071ed4d4eb6d",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 48,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 48,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Package_DIP.pretty/DIP-48_W15.24mm_SMDSocket_SmallPads.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 64
+        },
+        "graphic_stroke_types": {
+          "solid": 14
+        },
+        "graphics": {
+          "fp_arc": 1,
+          "fp_line": 10,
+          "fp_rect": 3,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 64
+        },
+        "pad_shapes": {
+          "roundrect": 64
+        },
+        "pads": 64,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "e7e77bb752f0e980cf4d3454d969578b71fbc091b4f5816a950655cb7ce28e39",
+      "matched_models": 1,
+      "output_sha256": "d901c13a44795333e9bb796813674820d91e92bb6ae24d8ebc2c0284d4d906ec",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 64,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 64,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Package_DIP.pretty/DIP-64_W24.13mm_SMDSocket_LongPads.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "round": 7
+        },
+        "graphic_stroke_types": {
+          "solid": 15
+        },
+        "graphics": {
+          "fp_arc": 1,
+          "fp_line": 14,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "thru_hole": 7
+        },
+        "pad_shapes": {
+          "oval": 6,
+          "rect": 1
+        },
+        "pads": 7,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "f411c0577f24cc63caa94241076089b9ad44d13798d4f6f75780e95ce0d14516",
+      "matched_models": 1,
+      "output_sha256": "8f8145bc0b95bb1ec139f330441b5499d43b4556f4d023b8488c367f5a06b75e",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 7,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 7,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Package_DIP.pretty/PowerIntegrations_PDIP-8B.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 22
+        },
+        "graphic_stroke_types": {
+          "solid": 12
+        },
+        "graphics": {
+          "fp_arc": 1,
+          "fp_line": 10,
+          "fp_rect": 1,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 22
+        },
+        "pad_shapes": {
+          "roundrect": 22
+        },
+        "pads": 22,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "12a69ab1f15be0aecf6788b28b5e0f1f50a3842ffa26696dc707a927281cc01e",
+      "matched_models": 1,
+      "output_sha256": "332437f0206b8cd75eeca9f9474db2e9c884892e08da89a2ef3efc49b9205917",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 22,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 22,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Package_DIP.pretty/SMDIP-22_W11.48mm.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "error_type": "ConversionError",
+      "errors": [
+        "Pad 1: oval/offset drill is not representable by hole_size"
+      ],
+      "failure_category": "DRILL_OVAL_OR_OFFSET",
+      "features": {
+        "drills": {
+          "oval_or_offset": 1,
+          "round": 3
+        },
+        "graphic_stroke_types": {
+          "solid": 20
+        },
+        "graphics": {
+          "fp_arc": 1,
+          "fp_line": 19,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "thru_hole": 4
+        },
+        "pad_shapes": {
+          "oval": 2,
+          "rect": 2
+        },
+        "pads": 4,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "b9b504cb1d1defcbd28f56c0b4127aeb98ce88063d8bd06f2a6c721f719255fd",
+      "source": "Package_DIP.pretty/Vishay_HVM-DIP-3_W7.62mm.kicad_mod",
+      "status": "failed",
+      "target_records_validated": false,
+      "unexpected_error": false
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 154
+        },
+        "graphic_stroke_types": {
+          "solid": 30
+        },
+        "graphics": {
+          "fp_line": 28,
+          "fp_poly": 2,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 154
+        },
+        "pad_shapes": {
+          "rect": 1,
+          "roundrect": 153
+        },
+        "pads": 154,
+        "technical_only_pads": 9,
+        "unnamed_pads": 9
+      },
+      "input_sha256": "fe9658d25c9a9b63506c204e94d23bcbfec066330c1ac7bfee0ff5f0c3b3cbd7",
+      "matched_models": 0,
+      "output_sha256": "1159f8e4fd73a7eeeba43a9a2735329f1c0d0ce8da80ac8b9f5b0ff019bbb2f5",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 145,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 154,
+        "technical_carriers": 9,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Package_QFP.pretty/EQFP-144-1EP_20x20mm_P0.5mm_EP4x4mm.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 110
+        },
+        "graphic_stroke_types": {
+          "solid": 30
+        },
+        "graphics": {
+          "fp_line": 28,
+          "fp_poly": 2,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 110
+        },
+        "pad_shapes": {
+          "rect": 1,
+          "roundrect": 109
+        },
+        "pads": 110,
+        "technical_only_pads": 9,
+        "unnamed_pads": 9
+      },
+      "input_sha256": "06b574cb73fe49e1a480b05068eb7d047f643568314a12f4511b87cb772c5db8",
+      "matched_models": 0,
+      "output_sha256": "619a9011cedc9785c8b9ebb228cb8d437b4eccc6638190cbe13e77c688655f61",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 101,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 110,
+        "technical_carriers": 9,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Package_QFP.pretty/LQFP-100-1EP_14x14mm_P0.5mm_EP6.9x6.9mm.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 176
+        },
+        "graphic_stroke_types": {
+          "solid": 30
+        },
+        "graphics": {
+          "fp_line": 28,
+          "fp_poly": 2,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 176
+        },
+        "pad_shapes": {
+          "roundrect": 176
+        },
+        "pads": 176,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "384082eca907098d9c2261d9dd7bb4605f918449400e608c79393133523d8a38",
+      "matched_models": 1,
+      "output_sha256": "8a3f4c6bddf36bedd2e00a2eec3045625cab9d99754cdbb597039b3a4d6f2082",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 176,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 176,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Package_QFP.pretty/LQFP-176_20x20mm_P0.4mm.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 63,
+          "round": 16
+        },
+        "graphic_stroke_types": {
+          "solid": 30
+        },
+        "graphics": {
+          "fp_line": 28,
+          "fp_poly": 2,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 63,
+          "thru_hole": 16
+        },
+        "pad_shapes": {
+          "circle": 16,
+          "rect": 2,
+          "roundrect": 61
+        },
+        "pads": 79,
+        "technical_only_pads": 9,
+        "unnamed_pads": 9
+      },
+      "input_sha256": "d7892567cddd9de6f91901c7c79e70364fe2fdc4f59d65b5ddf36e0b3397ae26",
+      "matched_models": 1,
+      "output_sha256": "dd2f07ee3345b9123577b2b2f9aaff67add8d6fe964815f97334f434212136a6",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [
+          "53"
+        ],
+        "electrical_pad_records": 70,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 79,
+        "technical_carriers": 9,
+        "unique_number_mapping_possible": false
+      },
+      "source": "Package_QFP.pretty/LQFP-52-1EP_10x10mm_P0.65mm_EP4.8x4.8mm_ThermalVias.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 80
+        },
+        "graphic_stroke_types": {
+          "solid": 30
+        },
+        "graphics": {
+          "fp_line": 28,
+          "fp_poly": 2,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 80
+        },
+        "pad_shapes": {
+          "roundrect": 80
+        },
+        "pads": 80,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "528e4841fa5e3d778c3ffc9ab43f384b8221535036b462d0b2f82c08d0127b53",
+      "matched_models": 1,
+      "output_sha256": "29e7c98a4c79e6980b177fc8a1448609632ba38e54a29251e490b1b65d7b4c7d",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 80,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 80,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Package_QFP.pretty/LQFP-80_12x12mm_P0.5mm.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 168
+        },
+        "graphic_stroke_types": {
+          "solid": 30
+        },
+        "graphics": {
+          "fp_line": 28,
+          "fp_poly": 2,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 168
+        },
+        "pad_shapes": {
+          "roundrect": 168
+        },
+        "pads": 168,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "66f393f1928207a5f3491dd4cdc1e9f1b13ab80ad393c095b311c9e09d8b7db4",
+      "matched_models": 0,
+      "output_sha256": "299d86a89958a4926b507d457899ef52f0b4b4453c225e5b7b168f87c89fbaad",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 168,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 168,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Package_QFP.pretty/PQFP-168_28x28mm_P0.65mm.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 100
+        },
+        "graphic_stroke_types": {
+          "solid": 30
+        },
+        "graphics": {
+          "fp_line": 28,
+          "fp_poly": 2,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 100
+        },
+        "pad_shapes": {
+          "roundrect": 100
+        },
+        "pads": 100,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "835955f91d4ce7ebad6a7af772c49cf26dff755396b5904e14ab9812575c9cdb",
+      "matched_models": 1,
+      "output_sha256": "a1ec38e2ec5aa363eb1a0ebfde2e69f5810a38e74b1ea3f4004a5c5f60e0cae3",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 100,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 100,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Package_QFP.pretty/TQFP-100_14x14mm_P0.5mm.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 53
+        },
+        "graphic_stroke_types": {
+          "solid": 30
+        },
+        "graphics": {
+          "fp_line": 28,
+          "fp_poly": 2,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 53
+        },
+        "pad_shapes": {
+          "rect": 1,
+          "roundrect": 52
+        },
+        "pads": 53,
+        "technical_only_pads": 4,
+        "unnamed_pads": 4
+      },
+      "input_sha256": "329d3cd8d40260408a07d486c49cb1831662d7d299e1a0f4fc3f2c0a2cdce085",
+      "matched_models": 1,
+      "output_sha256": "5571231a7784af3d5164d6584c0324f8e147f51f7c08a38851bbb438e630e1e4",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 49,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 53,
+        "technical_carriers": 4,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Package_QFP.pretty/TQFP-48-1EP_7x7mm_P0.5mm_EP3.5x3.5mm.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 64
+        },
+        "graphic_stroke_types": {
+          "solid": 30
+        },
+        "graphics": {
+          "fp_line": 28,
+          "fp_poly": 2,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 64
+        },
+        "pad_shapes": {
+          "roundrect": 64
+        },
+        "pads": 64,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "af01ff1d2bea254caf583850cb97e5a1597311d4a094e4cf253c35c952742140",
+      "matched_models": 1,
+      "output_sha256": "732958f33f4e3c1005889f76ccfcbc190501b6fa19a1351037c0c3f0850d11e4",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 64,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 64,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Package_QFP.pretty/TQFP-64_14x14mm_P0.8mm.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 76,
+          "round": 36
+        },
+        "graphic_stroke_types": {
+          "solid": 30
+        },
+        "graphics": {
+          "fp_line": 28,
+          "fp_poly": 2,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 76,
+          "thru_hole": 36
+        },
+        "pad_shapes": {
+          "circle": 36,
+          "rect": 3,
+          "roundrect": 73
+        },
+        "pads": 112,
+        "technical_only_pads": 10,
+        "unnamed_pads": 10
+      },
+      "input_sha256": "dc4b3fa39227b177bad99f4ac05fe23628cdddb5060696bd16ca9cc7bacb1d06",
+      "matched_models": 0,
+      "output_sha256": "bb354b69ea0442f6d3d53415ff3e447eea20f37b127e9c0bf8cb5f549c8b976e",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [
+          "65"
+        ],
+        "electrical_pad_records": 102,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 112,
+        "technical_carriers": 10,
+        "unique_number_mapping_possible": false
+      },
+      "source": "Package_QFP.pretty/Texas_TQFP-64-1EP_10x10mm_P0.5mm_EP8x8mm_Mask5x5mm_ThermalVias.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 7
+        },
+        "graphic_stroke_types": {
+          "solid": 16
+        },
+        "graphics": {
+          "fp_line": 13,
+          "fp_poly": 2,
+          "fp_rect": 1,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 7
+        },
+        "pad_shapes": {
+          "roundrect": 7
+        },
+        "pads": 7,
+        "technical_only_pads": 4,
+        "unnamed_pads": 4
+      },
+      "input_sha256": "7a30fba74c7c1f50f0d56ba1e1092a68b4c3f75d66cffe7bf616ce52a69ed143",
+      "matched_models": 1,
+      "output_sha256": "e7cb9de1b4b25141e5628f340962a9e5677eb77d7301ae8be7806ff6b88eed14",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 3,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 7,
+        "technical_carriers": 4,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Package_TO_SOT_SMD.pretty/ATPAK-2.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "error_type": "ConversionError",
+      "errors": [
+        "Unsupported KiCad pad shape: custom"
+      ],
+      "failure_category": "PAD_SHAPE_UNSUPPORTED",
+      "features": {
+        "drills": {
+          "none": 17
+        },
+        "graphic_stroke_types": {
+          "solid": 16
+        },
+        "graphics": {
+          "fp_line": 15,
+          "fp_poly": 1,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 17
+        },
+        "pad_shapes": {
+          "custom": 1,
+          "roundrect": 16
+        },
+        "pads": 17,
+        "technical_only_pads": 12,
+        "unnamed_pads": 12
+      },
+      "input_sha256": "b49555bae92a0d4c9329b24fe02a3adc6365f5665ab783e66da112e0b2e74cc5",
+      "source": "Package_TO_SOT_SMD.pretty/LFPAK33.kicad_mod",
+      "status": "failed",
+      "target_records_validated": false,
+      "unexpected_error": false
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 4
+        },
+        "graphic_stroke_types": {
+          "solid": 12
+        },
+        "graphics": {
+          "fp_line": 11,
+          "fp_poly": 1,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 4
+        },
+        "pad_shapes": {
+          "roundrect": 4
+        },
+        "pads": 4,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "dc9886b30a63f05dfe31c9ee3cdca926e09fc389e733ef4feda8417fb44eb00e",
+      "matched_models": 1,
+      "output_sha256": "6880d92496a517e9cd539ad48a3cb592ea37a4744ef09bfbeff546b2e14e2cee",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 4,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 4,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Package_TO_SOT_SMD.pretty/SC-82AA.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 8
+        },
+        "graphic_stroke_types": {
+          "solid": 16
+        },
+        "graphics": {
+          "fp_line": 15,
+          "fp_poly": 1,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 8
+        },
+        "pad_shapes": {
+          "roundrect": 8
+        },
+        "pads": 8,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "98abb6aab82b7c98ad66b8655f369d960056b9aced379774d91bc31430f86e7b",
+      "matched_models": 1,
+      "output_sha256": "9e97a31a932059103ecb4394071371fd1ef3a3015b69a6bf91a0bf3998c34d5f",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 8,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 8,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Package_TO_SOT_SMD.pretty/SOT-223-8.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 5
+        },
+        "graphic_stroke_types": {
+          "solid": 25
+        },
+        "graphics": {
+          "fp_line": 23,
+          "fp_poly": 2,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 5
+        },
+        "pad_shapes": {
+          "roundrect": 5
+        },
+        "pads": 5,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "869e17094994ff787b769a2d69512455a2f20950d59dd5c4103026ec413bb88e",
+      "matched_models": 1,
+      "output_sha256": "3a8d9859241d9b00c70deece100d362024e3acbad977ea78ae83121062e6b9a8",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 5,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 5,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Package_TO_SOT_SMD.pretty/SOT-353_SC-70-5.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "error_type": "ConversionError",
+      "errors": [
+        "Unsupported KiCad pad shape: custom"
+      ],
+      "failure_category": "PAD_SHAPE_UNSUPPORTED",
+      "features": {
+        "drills": {
+          "none": 3
+        },
+        "graphic_stroke_types": {
+          "solid": 14
+        },
+        "graphics": {
+          "fp_line": 13,
+          "fp_poly": 1,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 3
+        },
+        "pad_shapes": {
+          "custom": 1,
+          "roundrect": 2
+        },
+        "pads": 3,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "0b8db9f4a8f2547a53e80e3d400798979e84b4e0b2972160ddaca99c1f659b93",
+      "source": "Package_TO_SOT_SMD.pretty/SOT-89-3.kicad_mod",
+      "status": "failed",
+      "target_records_validated": false,
+      "unexpected_error": false
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 10
+        },
+        "graphic_stroke_types": {
+          "solid": 25
+        },
+        "graphics": {
+          "fp_line": 22,
+          "fp_poly": 2,
+          "fp_rect": 1,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 10
+        },
+        "pad_shapes": {
+          "roundrect": 10
+        },
+        "pads": 10,
+        "technical_only_pads": 4,
+        "unnamed_pads": 4
+      },
+      "input_sha256": "b88245799fb0ada0e06b292c0e19a85201fbd7e1227b91d42409d37a5971cb68",
+      "matched_models": 1,
+      "output_sha256": "b95e1b140a3d2db165ba82a7e106f96a0f5b68300c58747d09f20982ccb16f67",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 6,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 10,
+        "technical_carriers": 4,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Package_TO_SOT_SMD.pretty/TO-252-5_TabPin6.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 12
+        },
+        "graphic_stroke_types": {
+          "solid": 13
+        },
+        "graphics": {
+          "fp_line": 12,
+          "fp_poly": 1,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 12
+        },
+        "pad_shapes": {
+          "rect": 1,
+          "roundrect": 11
+        },
+        "pads": 12,
+        "technical_only_pads": 9,
+        "unnamed_pads": 9
+      },
+      "input_sha256": "79d0898cf3133a3b0bad05fb6b9f37c8bd2445e7c20b1d9ff12a4ed4be0bb18b",
+      "matched_models": 1,
+      "output_sha256": "5c216341cf7c5b9fd3b1382dade8a1c68c7e87682275cb9eb18c2da7514bb45a",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 3,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 12,
+        "technical_carriers": 9,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Package_TO_SOT_SMD.pretty/TO-277A.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 8
+        },
+        "graphic_stroke_types": {
+          "solid": 13
+        },
+        "graphics": {
+          "fp_line": 12,
+          "fp_poly": 1,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 8
+        },
+        "pad_shapes": {
+          "roundrect": 8
+        },
+        "pads": 8,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "0815fc720f405e75b78e1667689048c4e3f61849820fec0cc15cf8efd334af48",
+      "matched_models": 1,
+      "output_sha256": "486b54cd7f1efb146782e46c8b85cad73c4fb9d33a8efff3f1fe97c81f01f931",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 8,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 8,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Package_TO_SOT_SMD.pretty/TSOT-23-8_HandSoldering.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "error_type": "ConversionError",
+      "errors": [
+        "Unsupported KiCad pad shape: custom"
+      ],
+      "failure_category": "PAD_SHAPE_UNSUPPORTED",
+      "features": {
+        "drills": {
+          "none": 6
+        },
+        "graphic_stroke_types": {
+          "solid": 13
+        },
+        "graphics": {
+          "fp_line": 12,
+          "fp_poly": 1,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 6
+        },
+        "pad_shapes": {
+          "custom": 1,
+          "roundrect": 5
+        },
+        "pads": 6,
+        "technical_only_pads": 2,
+        "unnamed_pads": 2
+      },
+      "input_sha256": "80a46e985b93d6ec977b9def4456ae63bc0914c03b3b81cc8e02cb6d2b7c2b3d",
+      "source": "Package_TO_SOT_SMD.pretty/Vishay_PowerPAK_SC70-6L_Single.kicad_mod",
+      "status": "failed",
+      "target_records_validated": false,
+      "unexpected_error": false
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 4
+        },
+        "graphic_stroke_types": {
+          "solid": 2
+        },
+        "graphics": {
+          "fp_rect": 2,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 4
+        },
+        "pad_shapes": {
+          "roundrect": 4
+        },
+        "pads": 4,
+        "technical_only_pads": 2,
+        "unnamed_pads": 2
+      },
+      "input_sha256": "8bdf09bd436e0d1ce5f84dfde087c1bdc4bc6935a8aadfe8990e77507ed7cb55",
+      "matched_models": 1,
+      "output_sha256": "ef4d54fdba562f4b232a594b298b2f5934992e63ce178fc96abaddcea9f8a40f",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 2,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 4,
+        "technical_carriers": 2,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Resistor_SMD.pretty/R_01005_0402Metric.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 2
+        },
+        "graphic_stroke_types": {
+          "solid": 2
+        },
+        "graphics": {
+          "fp_rect": 2,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 2
+        },
+        "pad_shapes": {
+          "roundrect": 2
+        },
+        "pads": 2,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "d4f4507ee61a6e9c317f1bbcb2e411da88311cff083a20b78c814b1dd7fb96d2",
+      "matched_models": 0,
+      "output_sha256": "d156ce5eb8d08dbf9918944afdfca54e9e71e962083ba1f7dea2b3a58b8bb4fc",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 2,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 2,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Resistor_SMD.pretty/R_0508_1220Metric_Pad1.12x2.15mm_HandSolder.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 2
+        },
+        "graphic_stroke_types": {
+          "solid": 4
+        },
+        "graphics": {
+          "fp_line": 2,
+          "fp_rect": 2,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 2
+        },
+        "pad_shapes": {
+          "roundrect": 2
+        },
+        "pads": 2,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "0790041aa297eb5bb3b479ac95184868628e6f077e97f03fae5c1e4aa47ca159",
+      "matched_models": 1,
+      "output_sha256": "3848ac0976bcbcd4ed14a27ba4011b418082f9104ab263686e553ff4e718e6b3",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 2,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 2,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Resistor_SMD.pretty/R_0815_2038Metric_Pad1.20x4.05mm_HandSolder.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 2
+        },
+        "graphic_stroke_types": {
+          "solid": 4
+        },
+        "graphics": {
+          "fp_line": 2,
+          "fp_rect": 2,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 2
+        },
+        "pad_shapes": {
+          "roundrect": 2
+        },
+        "pads": 2,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "c03d9f20a382ad6790494313845683d7bfea776569f209deb1000a3f2a4b40e9",
+      "matched_models": 1,
+      "output_sha256": "084486ac2e02ada31e090e7d23ae05679bd6014f3ae5a0540d8c00432f24c962",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 2,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 2,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Resistor_SMD.pretty/R_1218_3246Metric.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 2
+        },
+        "graphic_stroke_types": {
+          "solid": 4
+        },
+        "graphics": {
+          "fp_line": 2,
+          "fp_rect": 2,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 2
+        },
+        "pad_shapes": {
+          "roundrect": 2
+        },
+        "pads": 2,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "a3a9377c90b396f4144cf38cbcc12cf1da01f5c29c5b0a27e0d518361ebee4d2",
+      "matched_models": 1,
+      "output_sha256": "8c66c202c02f76f75cc1e78174672182c39ac6e19abcfc283759bb5e32bc24eb",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 2,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 2,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Resistor_SMD.pretty/R_2010_5025Metric_Pad1.40x2.65mm_HandSolder.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 8
+        },
+        "graphic_stroke_types": {
+          "solid": 10
+        },
+        "graphics": {
+          "fp_line": 10,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 8
+        },
+        "pad_shapes": {
+          "rect": 8
+        },
+        "pads": 8,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "c83ad22a703b603b1c03cc159806ba9ceb90f0d2b3d8617f79cbf8b6c6693257",
+      "matched_models": 1,
+      "output_sha256": "129d69f8f8188dd4c8edc6b5cbbc396d5e45007914fcb48c677fd420b77a5394",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 8,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 8,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Resistor_SMD.pretty/R_Array_Concave_4x0402.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 8
+        },
+        "graphic_stroke_types": {
+          "solid": 10
+        },
+        "graphics": {
+          "fp_line": 10,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 8
+        },
+        "pad_shapes": {
+          "rect": 8
+        },
+        "pads": 8,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "1ca2b4baeb71ccf9590ee2d2586a2e9568af22500398042fcb00642c958f13b6",
+      "matched_models": 1,
+      "output_sha256": "181e04c6230e42df0bcd39a1d57394e2ec0d11912741c31034bc4020c28e6dd7",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 8,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 8,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Resistor_SMD.pretty/R_Array_Convex_4x0603.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 8
+        },
+        "graphic_stroke_types": {
+          "solid": 11
+        },
+        "graphics": {
+          "fp_circle": 1,
+          "fp_line": 10,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 8
+        },
+        "pad_shapes": {
+          "rect": 8
+        },
+        "pads": 8,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "6f49124fea7924ec489b1f39072ded3a8cdb82a0761c1cd59faf6207c76f7417",
+      "matched_models": 1,
+      "output_sha256": "78218fb6e660ea2c60bf60a294eedd96760a735ba6eb6a8cc64604dcc8fda629",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 8,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 8,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Resistor_SMD.pretty/R_Cat16-4.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 4
+        },
+        "graphic_stroke_types": {
+          "solid": 13
+        },
+        "graphics": {
+          "fp_line": 13,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 4
+        },
+        "pad_shapes": {
+          "rect": 4
+        },
+        "pads": 4,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "e6b01c6d721f344a17b66ad6e48387ac950bfa15d6e5d348a0eb0625c9ed8078",
+      "matched_models": 1,
+      "output_sha256": "c1ba4363835dfac628fc547cf8b62fcd0ab425ca6ecd433b949ae2922548ea75",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 4,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 4,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Resistor_SMD.pretty/R_Shunt_Ohmite_LVK24.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "none": 4
+        },
+        "graphic_stroke_types": {
+          "solid": 10
+        },
+        "graphics": {
+          "fp_line": 10,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "smd": 4
+        },
+        "pad_shapes": {
+          "rect": 4
+        },
+        "pads": 4,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "7539da36dca4866d71c9e423e79501817b48ee1f005f4c9ca272f302919a1220",
+      "matched_models": 0,
+      "output_sha256": "cb041c13e72751f89ed943846242d479dfc159e18aab8b5447810fbac59d129d",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [
+          "1",
+          "2"
+        ],
+        "electrical_pad_records": 4,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 4,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": false
+      },
+      "source": "Resistor_SMD.pretty/R_Shunt_Vishay_WSR2_WSR3_KelvinConnection.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "round": 10
+        },
+        "graphic_stroke_types": {
+          "solid": 5
+        },
+        "graphics": {
+          "fp_line": 2,
+          "fp_rect": 3,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "thru_hole": 10
+        },
+        "pad_shapes": {
+          "circle": 9,
+          "rect": 1
+        },
+        "pads": 10,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "04c51e49c032d0c50f1bb5d751a646d61ceaef5c08f7c174fdff21725de82b61",
+      "matched_models": 1,
+      "output_sha256": "6a7bc074f197d34a389ed38b9ed97d791009b116a22888a9e9667bb642015941",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 10,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 10,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Resistor_THT.pretty/R_Array_SIP10.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "round": 2
+        },
+        "graphic_stroke_types": {
+          "solid": 4
+        },
+        "graphics": {
+          "fp_arc": 1,
+          "fp_circle": 1,
+          "fp_line": 1,
+          "fp_rect": 1,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "thru_hole": 2
+        },
+        "pad_shapes": {
+          "circle": 2
+        },
+        "pads": 2,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "bfc659d330557d0bf2181933978c3be7a7a74a0a87f40e1dda6d4fe9e6d9482b",
+      "matched_models": 1,
+      "output_sha256": "4c136c3fab02a64de076ba469bacda1ae15ccee8ffb791fdc793ce1eeb63c772",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 2,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 2,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Resistor_THT.pretty/R_Axial_DIN0204_L3.6mm_D1.6mm_P1.90mm_Vertical.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "round": 2
+        },
+        "graphic_stroke_types": {
+          "solid": 4
+        },
+        "graphics": {
+          "fp_arc": 1,
+          "fp_circle": 1,
+          "fp_line": 1,
+          "fp_rect": 1,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "thru_hole": 2
+        },
+        "pad_shapes": {
+          "circle": 2
+        },
+        "pads": 2,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "ed7ce783618c3bc2577d5317c87058171554302410b934d12af32e32d6a6d131",
+      "matched_models": 1,
+      "output_sha256": "2954b149ce7efeaf6e78dd4107dd11f3e3c5cd3cafc6187138f99a881d8d2c60",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 2,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 2,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Resistor_THT.pretty/R_Axial_DIN0309_L9.0mm_D3.2mm_P2.54mm_Vertical.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "round": 2
+        },
+        "graphic_stroke_types": {
+          "solid": 7
+        },
+        "graphics": {
+          "fp_line": 4,
+          "fp_rect": 3,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "thru_hole": 2
+        },
+        "pad_shapes": {
+          "circle": 2
+        },
+        "pads": 2,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "f50ec1598bac6ce0e3a763de085d7014b323a23538864cad4d48dcdd05579355",
+      "matched_models": 1,
+      "output_sha256": "7bbfc44db608e3b5fb3758a642d8facd7d06db9ab4b34b7fcc7cbf3bc3842087",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 2,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 2,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Resistor_THT.pretty/R_Axial_DIN0414_L11.9mm_D4.5mm_P20.32mm_Horizontal.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "round": 2
+        },
+        "graphic_stroke_types": {
+          "solid": 5
+        },
+        "graphics": {
+          "fp_circle": 2,
+          "fp_line": 2,
+          "fp_rect": 1,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "thru_hole": 2
+        },
+        "pad_shapes": {
+          "circle": 2
+        },
+        "pads": 2,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "6bb4b3aff5f2ae2cf7f62e9faeb00248364285d993328ae994781947cf66aadf",
+      "matched_models": 1,
+      "output_sha256": "0da737e463a8830a106f4065b372c0ac9447a044cacd3f6d90fe0d28ea94a9ed",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 2,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 2,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Resistor_THT.pretty/R_Axial_DIN0614_L14.3mm_D5.7mm_P5.08mm_Vertical.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "round": 2
+        },
+        "graphic_stroke_types": {
+          "solid": 7
+        },
+        "graphics": {
+          "fp_line": 4,
+          "fp_rect": 3,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "thru_hole": 2
+        },
+        "pad_shapes": {
+          "circle": 2
+        },
+        "pads": 2,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "b077725786163dc499c65074b9cce563b4c85187e3e2952d33add02022ec99de",
+      "matched_models": 1,
+      "output_sha256": "d092e59f6902778cad47ecd7e74c7d30dbc8b320c4a813f90c64add42535cf1c",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 2,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 2,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Resistor_THT.pretty/R_Axial_DIN0922_L20.0mm_D9.0mm_P25.40mm_Horizontal.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "round": 2
+        },
+        "graphic_stroke_types": {
+          "solid": 7
+        },
+        "graphics": {
+          "fp_line": 4,
+          "fp_rect": 3,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "thru_hole": 2
+        },
+        "pad_shapes": {
+          "circle": 2
+        },
+        "pads": 2,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "ca2902df9486f51af498393c930e52b1c368bbfe38d18bf4e9b355f7b8f4549d",
+      "matched_models": 1,
+      "output_sha256": "6ba69b3cf0458448871b05d4633563188e5dfc4c3c5c7062288eaaebbf79cc39",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 2,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 2,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Resistor_THT.pretty/R_Axial_Power_L25.0mm_W9.0mm_P30.48mm.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "round": 2
+        },
+        "graphic_stroke_types": {
+          "solid": 7
+        },
+        "graphics": {
+          "fp_line": 4,
+          "fp_rect": 3,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "thru_hole": 2
+        },
+        "pad_shapes": {
+          "circle": 2
+        },
+        "pads": 2,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "b027de626b4aa46ec1364d9d39458b957860680c95259a81698cb8e61a718482",
+      "matched_models": 1,
+      "output_sha256": "3a69ed13e5f18c0e8bf6ed1958f767cceda276276daeac42a3c9d75ed8774995",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 2,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 2,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Resistor_THT.pretty/R_Axial_Power_L50.0mm_W9.0mm_P60.96mm.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "round": 2
+        },
+        "graphic_stroke_types": {
+          "solid": 9
+        },
+        "graphics": {
+          "fp_line": 6,
+          "fp_rect": 3,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "thru_hole": 2
+        },
+        "pad_shapes": {
+          "circle": 2
+        },
+        "pads": 2,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "a5a2b38c358232cc06cdd0fe7afce4923e7c9b9de8c80a091b5ff6479c05d3df",
+      "matched_models": 1,
+      "output_sha256": "42123ab128331e32bb673a1daeb3baf3696b4b0c4fcc0c643185e61b6f0272d6",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 2,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 2,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Resistor_THT.pretty/R_Bare_Metal_Element_L16.3mm_W4.8mm_P15.30mm.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    },
+    {
+      "features": {
+        "drills": {
+          "round": 2
+        },
+        "graphic_stroke_types": {
+          "solid": 6
+        },
+        "graphics": {
+          "fp_line": 4,
+          "fp_rect": 2,
+          "fp_text": 1
+        },
+        "model_references": 1,
+        "pad_kinds": {
+          "thru_hole": 2
+        },
+        "pad_shapes": {
+          "circle": 2
+        },
+        "pads": 2,
+        "technical_only_pads": 0,
+        "unnamed_pads": 0
+      },
+      "input_sha256": "1dadb0812568e8fbb2c87a1da71e11b06bcd8c6526c50d4de2f87d81caac5da8",
+      "matched_models": 1,
+      "output_sha256": "de8cf760aa98d109231193baa9ef4acf5153e31cc7e2ca041a8338fb238db2f1",
+      "pad_readback": {
+        "duplicate_electrical_numbers": [],
+        "electrical_pad_records": 2,
+        "scope": "Pad count, literal electrical labels with multiplicity, copper shape/size/layers, location/drill/angle and technical apertures; GUI/netlist/manufacturing unverified",
+        "source_pad_records": 2,
+        "technical_carriers": 0,
+        "unique_number_mapping_possible": true
+      },
+      "source": "Resistor_THT.pretty/R_Radial_Power_L9.0mm_W10.0mm_Px2.70mm_Py2.30mm.kicad_mod",
+      "status": "generated_with_loss",
+      "target_records_validated": true
+    }
+  ],
+  "kind": "footprint_batch_audit",
+  "manufacturing_validated": false,
+  "model_geometry_validated": false,
+  "native_netlist_verified": false,
+  "options": {
+    "aperture_defaults": {
+      "mask_margin": 0.05,
+      "paste_margin": 0,
+      "paste_ratio": 0
+    },
+    "curve_tolerance": 0.01,
+    "encoding": "cp1251",
+    "fill_tolerance": 0.01,
+    "model_transform": null,
+    "strict": false,
+    "text_variables": {}
+  },
+  "schema_version": 1,
+  "source_provenance_sha256": "f4c0d7c8d5ff12038741b3eae0854525448a1982d4dfa4c2b95ed430cd61e901",
+  "summary": {
+    "ambiguous_number_mapping_items": 14,
+    "failed": 10,
+    "generated": 110,
+    "generated_with_loss": 110,
+    "generation_percent": 91.67,
+    "rejected_loss": 0,
+    "target_records_validated": 110,
+    "total": 120,
+    "unexpected_errors": 0
+  },
+  "target_gui_validated": false
+}

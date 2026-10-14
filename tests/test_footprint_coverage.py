@@ -187,14 +187,14 @@ class FootprintCoverageTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             root_dir=Path(directory);out=root_dir/'batch';models=root_dir/'missing-models'
             m=run_batch(CORPUS,out,stl_root=models,aperture_defaults=DEFAULTS)
-            self.assertEqual((m['summary']['generated'],m['summary']['failed']),(107,13))
+            self.assertEqual((m['summary']['generated'],m['summary']['failed']),(110,10))
             r=audit_batch(CORPUS,out,CORPUS/'provenance.json')
-            self.assertEqual(r['summary']['target_records_validated'],107)
-            self.assertEqual(r['first_failure_categories'],{'DRILL_OVAL_OR_OFFSET':6,'GRAPHIC_STROKE_UNSUPPORTED':4,'PAD_SHAPE_UNSUPPORTED':3})
+            self.assertEqual(r['summary']['target_records_validated'],110)
+            self.assertEqual(r['first_failure_categories'],{'DRILL_OVAL_OR_OFFSET':7,'PAD_SHAPE_UNSUPPORTED':3})
             self.assertEqual(r['summary']['unexpected_errors'],0)
             self.assertEqual(sum(r['feature_totals']['pad_kinds'].values()),2557)
             resumed=run_batch(CORPUS,out,stl_root=models,aperture_defaults=DEFAULTS,resume=True)
-            self.assertEqual(resumed['summary']['reused'],107)
+            self.assertEqual(resumed['summary']['reused'],110)
             self.assertTrue(all(not e['reused'] for e in resumed['entries'] if e['status']=='failed'))
 
     def test_audit_provenance_detects_wrong_inventory_or_blob_hash(self):

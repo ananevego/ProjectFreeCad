@@ -1,12 +1,19 @@
 # Средняя партия footprints и проверка покрытия
 
-Состояние на 2026-10-14: 120 неизменённых официальных KiCad footprints из
+Исторический результат этапа 2026-10-14: 120 неизменённых официальных KiCad footprints из
 12 категорий на revision `51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c`.
 Выбор — 10 evenly spaced sorted paths на категорию, закреплённый provenance.
 908267 source bytes, 2557 raw pad records. Tree metadata на этой revision
 содержит 15464 footprint files; около 20000 в плане остаются ориентиром,
 не размером локальной поставки. Это engineering sample; доля успеха относится
 только к нему. Source provenance/license: `tests/fixtures/medium/`.
+
+Уточнение 2026-10-15: четыре stroke refusals содержали `type default`, а не
+dash/dot; KiCad трактует default как solid. После исправления parser результат
+**110 generated_with_loss /10 failed (91.67%)**, 7 oval/offset-drill и 3 custom-pad
+failures. USB3_A_Molex_48393-001 обнаружил следующий oval-drill refusal.
+Новые scope/audit/benchmark и patterned profile: [FOOTPRINT_STROKES.md](FOOTPRINT_STROKES.md).
+Snapshot 107/13 ниже и его JSON сохранены как результат прошлого этапа.
 
 ## Результат и исправления
 
@@ -56,7 +63,7 @@ Geometry/mask/layers сохраняются как surface pad; connector attrib
 URLs/bytes/SHA256/anchors — `output/footprint-pad-roles.source-evidence.json`.
 
 Оставшиеся **первые причины отказа**: 6 files с oval/offset drills, 4 с
-штриховыми/non-solid strokes, 3 с custom pads. Дополнительные unsupported
+stroke parser refusal (`type default`, исправлено 2026-10-15), 3 с custom pads. Дополнительные unsupported
 features могут обнаружиться после устранения первого отказа. Raw inventory
 считает всё наличие конструкций, включая failed files: 23 oval/offset drill
 records и 3 custom pad records. Они не заменяются round/rect приближением.
@@ -116,7 +123,8 @@ hashes, masks/paste, names/limits, contact refusals, strict, readback corruption
 failed inventories, ambiguous numbers, relocation и resume. Восемь прежних
 component bundles воспроизводятся без изменений; models не переконвертированы.
 
-Далее — source/native contract штриховых strokes и ограниченный профиль;
+На момент этого этапа далее планировался source/native contract штриховых strokes;
+теперь выполнен restricted straight profile, см. новый документ выше. Дальнейшие
 custom pads/oval drills, repeated-number component mapping, native Windows
 GUI/Gerber/3D и полная библиотека остаются открытыми. **Остаток: 15–25% проекта,
 4 крупных блока**; средняя партия начинает блок 6, не завершает поставку.

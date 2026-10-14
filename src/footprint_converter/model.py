@@ -71,6 +71,14 @@ class Polyline:
 
 
 @dataclass(frozen=True)
+class PatternedGraphic:
+    """Unfilled straight source geometry; style is flattened only for rendering."""
+    kind: str
+    style: str
+    outline: Polyline
+
+
+@dataclass(frozen=True)
 class FilledPolygon:
     points: tuple[tuple[float, float], ...]
     width: float
@@ -106,6 +114,7 @@ class Footprint:
     apertures: ApertureSettings = field(default_factory=ApertureSettings)
     filled_polygons: list[FilledPolygon] = field(default_factory=list)
     filled_circles: list[FilledCircle] = field(default_factory=list)
+    patterned_graphics: list[PatternedGraphic] = field(default_factory=list)
 
 
 @dataclass(frozen=True)

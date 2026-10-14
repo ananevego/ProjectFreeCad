@@ -403,3 +403,8 @@ stable names, per-item reports/state, resume/invalidation и CLI exit codes.
 2026-10-14: technical-only mask/paste padstacks и contact pads добавлены
 с explicit losses; проверены 120 pinned sources, 107 generated with loss /
 13 failed. Audit/fields/geometry scopes: [FOOTPRINT_MEDIUM.md](FOOTPRINT_MEDIUM.md).
+
+2026-10-15: `default` подтверждён как solid; ограниченный KiCad9 PCB editor
+default profile добавляет unfilled straight dash/dot patterns с явной потерей
+editable style/project settings/native caps. Medium: 110 generated /10 failed.
+Контракт, numerical checks и snapshots: [FOOTPRINT_STROKES.md](FOOTPRINT_STROKES.md).

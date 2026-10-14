@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "kind": "footprint_stroke_source_research",
+  "profile": "kicad9-pcb-editor-default-strokes-v1",
+  "conclusions": [
+    "KiCad9 EDA_SHAPE DEFAULT resolves to SOLID. All four previous GRAPHIC_STROKE_UNSUPPORTED files in the 120-file sample use DEFAULT, not dash/dot.",
+    "PCB editor default ratios 12/3 with round-cap correction 1 imply centreline dash=11w, dot=.2w, gap=4w. This fixed profile cannot recover project/render settings from .kicad_mod.",
+    "Each rectangle/polygon straight edge is a separate shape; phase restarts at its source start. Last marks clip to the endpoint.",
+    "FreePCB2 2.428 outlines store width/visibility/hatch/layer and corners, with no native dash style. Separate straight outlines require a loss for editable style/render settings and unvalidated caps/joins.",
+    "Inclusive KiCad ClipLine can produce zero-length endpoint point-marks. This restricted profile emits only positive-length marks; isolated endpoint caps are explicitly omitted with loss in diagnostics and JSON."
+  ],
+  "native_gui_validated": false,
+  "manufacturing_validated": false,
+  "files": [
+    {
+      "path": "common/eda_shape.cpp",
+      "revision": "9.0.0",
+      "url": "https://github.com/KiCad/kicad-source-mirror/blob/9.0.0/common/eda_shape.cpp",
+      "bytes": 68289,
+      "sha256": "fc09d06ec63a018148d630c23432f11ec35daa428b11866c1fc5270041bf31b1",
+      "line_anchors": [
+        1404,
+        1479,
+        2061
+      ]
+    },
+    {
+      "path": "common/stroke_params.cpp",
+      "revision": "9.0.0",
+      "url": "https://github.com/KiCad/kicad-source-mirror/blob/9.0.0/common/stroke_params.cpp",
+      "bytes": 12774,
+      "sha256": "3695305cd3767368d4b91ace5e6bce9cbb21ef2f54b6a450c353b6567f9dfb42",
+      "line_anchors": [
+        50,
+        127,
+        303
+      ]
+    },
+    {
+      "path": "common/render_settings.cpp",
+      "revision": "9.0.0",
+      "url": "https://github.com/KiCad/kicad-source-mirror/blob/9.0.0/common/render_settings.cpp",
+      "bytes": 4304,
+      "sha256": "c53ee07454a6d22807d055db6fb23d58401896e85cf309197a0e076e38d73f51",
+      "line_anchors": [
+        57,
+        67,
+        73,
+        81
+      ]
+    },
+    {
+      "path": "pcbnew/pcb_painter.cpp",
+      "revision": "9.0.0",
+      "url": "https://github.com/KiCad/kicad-source-mirror/blob/9.0.0/pcbnew/pcb_painter.cpp",
+      "bytes": 104370,
+      "sha256": "85936b75b9bc1699cf64fe884761dd5486c2573ab619b5b420a468b43799cf02",
+      "line_anchors": [
+        125,
+        557,
+        1853,
+        2093
+      ]
+    },
+    {
+      "path": "Shape.cpp",
+      "revision": "3af0f9b9a234c97f2d21455c936abeb8439d2d45",
+      "url": "https://github.com/niconson/FreePCB-2/blob/3af0f9b9a234c97f2d21455c936abeb8439d2d45/Shape.cpp",
+      "bytes": 132751,
+      "sha256": "f247e613a0898862b286faeab29696411ac6bbc059cd05d8fd2d4b4d2b7ce34e",
+      "line_anchors": [
+        1362,
+        1389,
+        2102
+      ]
+    },
+    {
+      "path": "libs/kimath/src/geometry/geometry_utils.cpp",
+      "revision": "9.0.0",
+      "url": "https://github.com/KiCad/kicad-source-mirror/blob/9.0.0/libs/kimath/src/geometry/geometry_utils.cpp",
+      "bytes": 7128,
+      "sha256": "9a9d37b00bc29250ff50cba3ebe412f576c5c51dc02a6592344c34aad32e77be",
+      "line_anchors": [
+        137,
+        198
+      ]
+    }
+  ]
+}

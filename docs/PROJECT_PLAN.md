@@ -1,6 +1,6 @@
 # План разработки конвертера KiCad → FreePCB2
 
-Обновлён 2026-10-14 по состоянию репозитория и предыдущего чата.
+Обновлён 2026-10-15 по состоянию репозитория и предыдущего чата.
 Цель: перенос библиотечных УГО, footprints и связей с готовыми 3D-моделями.
 Около 20 000 footprints — ориентир масштаба, а не подтверждённый размер
 доступных исходников. Повторно конвертировать ранее полученные 7 225 STL не нужно.
@@ -103,11 +103,17 @@
     pinned source footprints, отчёт successful/loss/failed конструкций,
     исправления наиболее частых представимых исключений. Проверить старые
     baselines, source links и переносимость; GUI выполнять отдельным блоком.
-15. **Non-solid graphic strokes (следующий шаг).** Проследить KiCad pattern
-    sizes и native straight outlines; реализовать только подтверждённый
-    bounded profile со style/project/rendering losses. Проверить 4 выявленных
-    refusals, старые baselines и полную среднюю партию. Slots/custom pads
-    не подменять round/rect shapes; GUI/Gerber проверять отдельно.
+15. **Graphic strokes (выполнено 2026-10-15 для straight unfilled profile).**
+    Исправлен `default` → solid; прошлые 4 stroke refusals оказались default,
+    а не dash/dot. Добавлены dash/dot/dash_dot/dash_dot_dot по KiCad9 PCB
+    defaults с фазой на каждом ребре, лимитом 4096 и explicit style/render loss.
+    Curves/filled patterned outlines остаются отказом. Medium: 110/120;
+    20 новых tests, восемь прежних bundles и 107 FPL/report baselines неизменны.
+16. **Oval/offset drills и custom pads (следующий шаг).** Проследить native
+    представимость семи оставшихся slot/offset cases и трёх custom-pad cases.
+    Разделить tool/library restrictions и возможные подтверждённые extensions;
+    не заменять slot кругом или custom pad прямоугольником для роста coverage.
+    Проверить real controls, loss/refusal policy и весь medium corpus.
 
 ## Зависимости и ограничения
 
@@ -432,8 +438,10 @@
 - Первый результат 85/120 generated_with_loss (70.83%). Подтверждены
   technical-only mask/paste carriers без copper/hole и contact no-paste pads;
   source roles/names сохранены в JSON, carrier/connector semantics имеют loss.
-- Итог 107/120 generated_with_loss (89.17%), 13 refusals: 6 oval/offset drill,
-  4 non-solid stroke, 3 custom pads. Source не редактируется; unexpected errors=0.
+- Итог этого этапа 107/120 generated_with_loss (89.17%), 13 refusals: 6 oval/offset
+  drill, 4 stroke parser refusal, 3 custom pads. Уточнение 2026-10-15: все четыре
+  stroke refusal имели `type default`, не dash/dot. Source не редактируется;
+  unexpected errors=0. Исходный snapshot audit сохранён для истории.
 - Read-only audit проверил все 107 source/FPL records (2295 padstacks), hashes,
   provenance и raw feature inventories (2557 source pads). 133 technical
   carriers сохранены; 13 successful files имеют ambiguous repeated numbers,
@@ -450,3 +458,33 @@
   slots/custom/alternate/hierarchy/implicit-net exceptions ещё открыты.
 - Далее: restricted non-solid stroke profile, затем дальнейшие исключения,
   native Windows/Gerber/3D validation и full-library coverage/release.
+
+## Результат graphic stroke этапа — 2026-10-15
+
+- Предыдущий commit 91da8d2 подтверждён на origin/master; запрос push выполнен.
+- По KiCad9 EDA_SHAPE исправлен `default` → solid без добавления stroke loss.
+  Все четыре прошлых stroke refusals были ошибочно названы non-solid; три
+  теперь проходят, USB3_A_Molex_48393-001 получает следующий oval-drill refusal.
+- `kicad9-pcb-editor-default-strokes-v1`: unfilled line/rect/simple polygon,
+  четыре dash/dot styles, centreline 11w/.2w/4w, phase restart на каждом ребре,
+  clipping endpoint, 10nm grid и общий лимит 4096 marks без truncation.
+  Source typed/raw geometry/style сохраняется; editable style, project/render
+  settings, omitted zero-length endpoint marks и unverified native caps/joins
+  имеют GRAPHIC_STROKE_FLATTENED loss.
+  Strict отклоняет профиль. Curved/filled patterns, zero/collapsed marks,
+  malformed/duplicate/colored strokes остаются явными отказами.
+- Средняя партия: **110/120 generated_with_loss (91.67%)**, 10 failures:
+  7 oval/offset drill, 3 custom pads; unexpected errors=0. Все 110 pad readbacks
+  проверены (2429 pad records), 14 repeated-number bindings остаются ambiguous.
+  Raw inventory: 3261 solid и 16 default, настоящих dash/dot в этой партии нет.
+  Для patterned profile сохранён отдельный явно synthetic контроль с 71 marks.
+- 20 новых проверок, всего **437**, проходят; portable copy без STL/STEP —
+  с тремя optional skips. 107 прежних FPL/reports неизменны, все восемь bundles
+  совпадают byte-for-byte и проходят relocation verification.
+- Rules/source evidence/audit: [FOOTPRINT_STROKES.md](FOOTPRINT_STROKES.md).
+  Старые medium audit/benchmark не переписаны; новые snapshots имеют strokes prefix.
+- **Остаток: 4 блока (1, 3, 5, 6), примерно 15–25% проекта**. Этот профиль
+  расширяет footprint coverage, но не закрывает native GUI, manufacturing,
+  symbol hierarchy/implicit-net exceptions или full-library release.
+- Далее: native slot/offset/custom-pad contract и ограниченные extensions,
+  затем Windows/Gerber/3D validation и полная поставка.

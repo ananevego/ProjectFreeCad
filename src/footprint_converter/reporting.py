@@ -7,6 +7,7 @@ from .model import ApertureSettings, Footprint, ModelMatch, ModelTransform
 from .format_rules import TARGET_REVISION
 from .writer import inherit_apertures, native_pad_names
 from .format_rules import is_technical_pad
+from .strokes import stroke_report
 
 
 LOSS_CODES = {
@@ -16,6 +17,7 @@ LOSS_CODES = {
     'APERTURE_ASSUMED_ZERO', 'NPTH_PASTE_SKIPPED', 'USER_LAYER_APPROXIMATED',
     'TEXT_PROPERTY_FLATTENED', 'TEXT_MARKUP_UNSUPPORTED',
     'TECHNICAL_PAD_CARRIER','CONNECT_PAD_TYPE_FLATTENED',
+    'GRAPHIC_STROKE_FLATTENED',
 }
 
 
@@ -101,4 +103,6 @@ def build_report(fp: Footprint, render_fp: Footprint, matches: list[ModelMatch],
                 native_connector_attribute_transferred=False) for i,p in enumerate(fp.pads) if p.kind=='connect'])
         report['counts']['technical_carriers']=len(report['pad_roles']['technical_carriers'])
         report['counts']['contact_pads']=len(report['pad_roles']['contact_pads'])
+    if fp.patterned_graphics:
+        report['graphic_strokes'] = stroke_report(fp, render_fp)
     return report

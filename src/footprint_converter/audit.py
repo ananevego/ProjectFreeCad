@@ -11,7 +11,7 @@ from pathlib import Path, PurePosixPath
 import sys
 from src.symbol_converter.schemator_format import _tokens
 
-from .parser import parse_sexpr, parse_footprint
+from .parser import parse_sexpr, parse_footprint, children, scalar
 from .batch import SUCCESS, summary
 from .io import atomic_write, validate_output_path
 from .model_matching import DEFAULT_STL_ROOT
@@ -41,6 +41,11 @@ def checked_bytes(path, expected):
 def inventory(root):
     pads=[p for p in root if isinstance(p,list) and p and p[0]=='pad']
     graphics=Counter(p[0] for p in root if isinstance(p,list) and p and p[0].startswith('fp_'))
+    styles=Counter()
+    for p in root:
+        if isinstance(p,list) and p and p[0] in {'fp_line','fp_rect','fp_poly','fp_circle','fp_arc'}:
+            strokes=children(p,'stroke')
+            styles.update([scalar(s,'type','default') for s in strokes] if strokes else ['legacy_solid'])
     def layers(p):return next((v[1:] for v in p if isinstance(v,list) and v and v[0]=='layers'),[])
     def drill(p):
         v=next((v for v in p if isinstance(v,list) and v and v[0]=='drill'),None)
@@ -48,6 +53,7 @@ def inventory(root):
     return dict(pads=len(pads),pad_kinds=dict(sorted(Counter(p[2] for p in pads).items())),
         pad_shapes=dict(sorted(Counter(p[3] for p in pads).items())),
         drills=dict(sorted(Counter(drill(p) for p in pads).items())),graphics=dict(sorted(graphics.items())),
+        graphic_stroke_types=dict(sorted(styles.items())),
         unnamed_pads=sum(not p[1] for p in pads),
         technical_only_pads=sum(bool(layers(p)) and not any(v.endswith('.Cu') for v in layers(p)) and p[2]=='smd' for p in pads),
         model_references=sum(isinstance(p,list) and bool(p) and p[0]=='model' for p in root))
@@ -162,10 +168,10 @@ def audit_batch(source, batch, provenance=None):
         except (ValueError,IndexError,TypeError) as error:
             if e['status'] in SUCCESS:raise ValueError('Successful source cannot be inventoried') from error
             inventory_error=str(error)
-            raw_features=dict(pads=None,pad_kinds={},pad_shapes={},drills={},graphics={},unnamed_pads=None,technical_only_pads=None,model_references=None)
+            raw_features=dict(pads=None,pad_kinds={},pad_shapes={},drills={},graphics={},graphic_stroke_types={},unnamed_pads=None,technical_only_pads=None,model_references=None)
         item=dict(source=e['source'],input_sha256=sha(data),status=e['status'],features=raw_features,target_records_validated=False)
         if inventory_error:item['source_inventory_error']=inventory_error
-        for key in ('pad_kinds','pad_shapes','drills','graphics'):features[key].update(raw_features[key])
+        for key in ('pad_kinds','pad_shapes','drills','graphics','graphic_stroke_types'):features[key].update(raw_features[key])
         category=PurePosixPath(e['source']).parts[0];categories[category][e['status']]+=1
         report_raw=checked_bytes(member(batch,e['report_file']),e['report_sha256']);report=json.loads(report_raw)
         if report['status']!=e['status']:raise ValueError('Report status mismatch')

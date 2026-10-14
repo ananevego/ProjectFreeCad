@@ -1,0 +1,243 @@
+{
+  "schema_version": 1,
+  "status": "generated_with_loss",
+  "footprint": "StrokePatterns_Control",
+  "target": {
+    "application": "FreePCB2",
+    "version": "2.428",
+    "source_revision": "3af0f9b9a234c97f2d21455c936abeb8439d2d45",
+    "format": "fpl",
+    "gui_validated": false
+  },
+  "coordinates": {
+    "units": "NM",
+    "origin_translation_mm": [
+      0,
+      0
+    ],
+    "y_inverted": true,
+    "centroid": "computed_by_target_reader"
+  },
+  "curve_tolerance_mm": 0.01,
+  "counts": {
+    "source_pads": 1,
+    "source_texts": 0,
+    "source_filled_polygons": 0,
+    "written_pins": 1,
+    "written_user_texts": 0,
+    "written_polylines": 71,
+    "matched_models": 0
+  },
+  "source_texts": [],
+  "fills": {
+    "policy": "overlapping_strokes",
+    "tolerance_mm": 0.01,
+    "source_polygons": [],
+    "written_boundary_polylines": 0,
+    "written_scanline_polylines": 0,
+    "stroke_model": "ideal_round_ended",
+    "gui_validated": false,
+    "manufacturing_validated": false
+  },
+  "apertures": {
+    "footprint_settings": {
+      "mask_margin": null,
+      "paste_margin": null,
+      "paste_ratio": null
+    },
+    "defaults": {
+      "mask_margin": 0.05,
+      "paste_margin": 0,
+      "paste_ratio": 0
+    },
+    "pads": [
+      {
+        "name": "1",
+        "source": {
+          "mask_margin": null,
+          "paste_margin": null,
+          "paste_ratio": null
+        },
+        "resolved": {
+          "mask_margin": 0.05,
+          "paste_margin": 0,
+          "paste_ratio": 0
+        }
+      }
+    ]
+  },
+  "text_variable_bindings": {},
+  "models": [],
+  "diagnostics": [
+    {
+      "code": "GRAPHIC_STROKE_FLATTENED",
+      "severity": "loss",
+      "message": "dash/dot style baked into straight records using kicad9-pcb-editor-default-strokes-v1; editable style and renderer/project settings lost; zero-length endpoint marks omitted; native caps/joins unvalidated"
+    },
+    {
+      "code": "MODEL_MISSING",
+      "severity": "loss",
+      "message": "no KiCad model reference; no basename guessing"
+    },
+    {
+      "code": "APERTURE_EXPLICIT",
+      "severity": "info",
+      "message": "pad '1' mask, size 1.1 x 1.1 mm"
+    },
+    {
+      "code": "APERTURE_EXPLICIT",
+      "severity": "info",
+      "message": "pad '1' paste, size 1 x 1 mm"
+    },
+    {
+      "code": "TEXT_MISSING",
+      "severity": "info",
+      "message": "no reference; native field suppressed"
+    },
+    {
+      "code": "TEXT_MISSING",
+      "severity": "info",
+      "message": "no value; native field suppressed"
+    }
+  ],
+  "graphic_strokes": {
+    "profile": "kicad9-pcb-editor-default-strokes-v1",
+    "source_graphics": [
+      {
+        "kind": "fp_line",
+        "style": "dash",
+        "points_mm": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            6.0,
+            0.0
+          ]
+        ],
+        "width_mm": 0.1,
+        "layer": "F.SilkS",
+        "closed": false
+      },
+      {
+        "kind": "fp_line",
+        "style": "dot",
+        "points_mm": [
+          [
+            0.0,
+            1.0
+          ],
+          [
+            6.0,
+            1.0
+          ]
+        ],
+        "width_mm": 0.1,
+        "layer": "B.SilkS",
+        "closed": false
+      },
+      {
+        "kind": "fp_line",
+        "style": "dash_dot",
+        "points_mm": [
+          [
+            0.0,
+            2.0
+          ],
+          [
+            6.0,
+            2.0
+          ]
+        ],
+        "width_mm": 0.1,
+        "layer": "F.SilkS",
+        "closed": false
+      },
+      {
+        "kind": "fp_line",
+        "style": "dash_dot_dot",
+        "points_mm": [
+          [
+            6.0,
+            3.0
+          ],
+          [
+            0.0,
+            3.0
+          ]
+        ],
+        "width_mm": 0.1,
+        "layer": "B.SilkS",
+        "closed": false
+      },
+      {
+        "kind": "fp_rect",
+        "style": "dash_dot",
+        "points_mm": [
+          [
+            0.0,
+            5.0
+          ],
+          [
+            2.0,
+            5.0
+          ],
+          [
+            2.0,
+            6.0
+          ],
+          [
+            0.0,
+            6.0
+          ]
+        ],
+        "width_mm": 0.1,
+        "layer": "F.SilkS",
+        "closed": true
+      },
+      {
+        "kind": "fp_poly",
+        "style": "dot",
+        "points_mm": [
+          [
+            0.0,
+            8.0
+          ],
+          [
+            3.0,
+            8.0
+          ],
+          [
+            3.0,
+            12.0
+          ]
+        ],
+        "width_mm": 0.1,
+        "layer": "B.SilkS",
+        "closed": true
+      }
+    ],
+    "centerline_multipliers": {
+      "dash": 11,
+      "dot": 0.2,
+      "gap": 4
+    },
+    "source_renderer_ratios": {
+      "dash": 12,
+      "gap": 3,
+      "round_cap_correction": 1
+    },
+    "phase": "restart_at_each_source_edge",
+    "clipping": "at_source_endpoint",
+    "zero_length_endpoint_marks": "omitted_with_loss",
+    "coordinate_grid_nm": 10,
+    "segment_limit_per_footprint": 4096,
+    "written_segments": 71,
+    "source_project_settings_available": false,
+    "native_style_transferred": false,
+    "native_caps_joins_validated": false,
+    "gui_validated": false,
+    "manufacturing_validated": false
+  }
+}

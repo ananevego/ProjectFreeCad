@@ -14,6 +14,7 @@ from .model import (
     ModelReference,
     ONE,
     Pad,
+    PatternedGraphic,
     Polyline,
     ZERO,
 )
@@ -234,15 +235,38 @@ def parse_text(node: list) -> FootprintText:
                          node[1] if node[0] == 'property' else None)
 
 
+def stroke_settings(node: list) -> tuple[str, float]:
+    strokes = children(node, 'stroke')
+    if len(strokes) > 1:
+        raise ConversionError('Duplicate graphic stroke')
+    stroke = strokes[0] if strokes else None
+    if stroke is not None:
+        if child(node, 'width') is not None:
+            raise ConversionError('Mixed modern/legacy graphic stroke width')
+        for entry in stroke[1:]:
+            if not isinstance(entry, list) or not entry or entry[0] not in {'type', 'width'}:
+                raise ConversionError('Unsupported graphic stroke field/color')
+    container = stroke if stroke is not None else node
+    for key in ('width', 'type') if stroke is not None else ('width',):
+        entries = children(container, key)
+        if len(entries) > 1:
+            raise ConversionError(f'Duplicate graphic stroke {key}')
+        if entries and (len(entries[0]) != 2 or not isinstance(entries[0][1], str)):
+            raise ConversionError(f'Malformed graphic stroke {key}')
+    style = scalar(stroke, 'type', 'solid') if stroke is not None else 'solid'
+    if style not in {'default', 'solid', 'dash', 'dot', 'dash_dot', 'dash_dot_dot'}:
+        raise ConversionError(f'Non-solid graphic stroke: unsupported type {style}')
+    # EDA_SHAPE::GetLineStyle() resolves DEFAULT to SOLID (KiCad 9.0.0).
+    return ('solid' if style == 'default' else style), float(scalar(container, 'width', 0.15))
+
+
 def stroke_width(node: list) -> float:
-    stroke = child(node, 'stroke')
-    if stroke and scalar(stroke, 'type', 'solid') != 'solid':
-        raise ConversionError('Non-solid graphic stroke is unsupported')
-    return float(scalar(stroke or node, 'width', 0.15))
+    return stroke_settings(node)[1]
 
 
-def parse_graphic(item: list, tolerance: float, warnings: list[str]) -> Polyline | FilledPolygon | FilledCircle:
+def parse_graphic(item: list, tolerance: float, warnings: list[str]) -> Polyline | FilledPolygon | FilledCircle | PatternedGraphic:
     kind, layer = item[0], scalar(item, 'layer', '')
+    style, width = stroke_settings(item)
     fill_nodes = children(item, 'fill')
     if len(fill_nodes) > 1 or fill_nodes and (len(fill_nodes[0]) != 2 or not isinstance(fill_nodes[0][1], str)):
         raise ConversionError('Malformed graphic fill')
@@ -252,13 +276,15 @@ def parse_graphic(item: list, tolerance: float, warnings: list[str]) -> Polyline
         fill = 'solid'
     if fill not in {'no', 'solid'}:
         raise ConversionError(f'Unsupported graphic fill mode: {fill}')
+    if style != 'solid' and (fill != 'no' or kind not in {'fp_line', 'fp_rect', 'fp_poly'}):
+        raise ConversionError(f'Non-solid graphic stroke: {kind} with fill {fill} is outside the straight unfilled profile')
     if fill == 'solid' and kind not in {'fp_poly', 'fp_rect', 'fp_circle'}:
         raise ConversionError(f'Filled {kind} on {layer} is unsupported')
     if fill == 'solid' and kind == 'fp_circle':
         # Do not sample here: fill width constrains the chord tolerance needed
         # to cover the disk, and is only known in the geometry stage.
         circle = FilledCircle(pair(child(item, 'center')), pair(child(item, 'end')),
-                              stroke_width(item), layer)
+                              width, layer)
         if layer in {'F.Fab', 'B.Fab'}:
             warnings.append(f'FAB_LAYER_APPROXIMATED: {layer} exported to FreePCB notes layer')
         if layer in {'Dwgs.User', 'Cmts.User'}:
@@ -312,8 +338,18 @@ def parse_graphic(item: list, tolerance: float, warnings: list[str]) -> Polyline
     if layer in {'Dwgs.User', 'Cmts.User'}:
         warnings.append(f'USER_LAYER_APPROXIMATED: {layer} exported to FreePCB top notes; source layer distinction lost')
     if fill == 'solid':
-        return FilledPolygon(points, stroke_width(item), layer)
-    return Polyline(points, stroke_width(item), layer, closed)
+        return FilledPolygon(points, width, layer)
+    outline = Polyline(points, width, layer, closed)
+    if style != 'solid':
+        # Do not silently discard extra coordinate fields in the new profile.
+        coordinates = children(child(item, 'pts') or [], 'xy') if kind == 'fp_poly' else [child(item, 'start'), child(item, 'end')]
+        if any(p is None or len(p) != 3 or any(not isinstance(v, str) for v in p) for p in coordinates):
+            raise ConversionError('Malformed patterned graphic coordinates')
+        for key in ('start', 'end', 'pts', 'layer'):
+            if len(children(item, key)) > 1:
+                raise ConversionError(f'Duplicate patterned graphic {key}')
+        return PatternedGraphic(kind, style, outline)
+    return outline
 
 
 def parse_footprint(root: list, footprint_name: str | None = None, *,
@@ -358,6 +394,8 @@ def parse_footprint(root: list, footprint_name: str | None = None, *,
                 fp.filled_polygons.append(graphic)
             elif isinstance(graphic, FilledCircle):
                 fp.filled_circles.append(graphic)
+            elif isinstance(graphic, PatternedGraphic):
+                fp.patterned_graphics.append(graphic)
             else:
                 fp.polylines.append(graphic)
         elif kind.startswith('fp_'):
