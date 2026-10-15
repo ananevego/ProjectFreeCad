@@ -616,7 +616,7 @@ print(json.dumps({'fpl': result.fpl, 'warnings': result.warnings, 'report': resu
                                     capture_output=True, text=True)
             self.assertEqual(result.returncode, 1)
             self.assertEqual(destination.read_text(encoding='cp1251'), expected)
-            self.assertIn('Unsupported KiCad pad shape', result.stderr)
+            self.assertIn('custom pad shape', result.stderr)
 
     def test_cli_refuses_output_in_existing_model_storage(self):
         result = subprocess.run([sys.executable, '-B', str(MODULE), str(FIXTURE), str(REAL_STL)],

@@ -6,7 +6,7 @@ import argparse
 import json
 import sys
 
-from .errors import ConversionError, LossyConversionError
+from .errors import ConversionError, LossyConversionError, PadGeometryError
 from .model import ApertureSettings, ModelTransform, ONE, ZERO
 from .format_rules import quote
 from .parser import parse_sexpr
@@ -70,7 +70,7 @@ def main() -> int:
         atomic_write(args.output, data)
     except (ValueError, OSError, LookupError) as exc:
         if args.report and safe_report:
-            report = dict(exc.report) if isinstance(exc, LossyConversionError) else {'schema_version': 1, 'status': 'failed'}
+            report = dict(exc.report) if isinstance(exc, (LossyConversionError, PadGeometryError)) else {'schema_version': 1, 'status': 'failed'}
             report['errors'] = [str(exc)]
             try:
                 atomic_write(args.report, (json.dumps(report, ensure_ascii=False, indent=2) + '\n').encode('utf-8'))

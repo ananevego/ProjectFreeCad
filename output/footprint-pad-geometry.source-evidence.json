@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "kind": "pad_geometry_source_research",
+  "profile": "freepcb2428-exact-pad-reductions-v1",
+  "conclusions": [
+    "Native padstack stores one circular hole_size and centred shape dimensions; its two historic X extent tokens are summed on input. Slots and nonzero shape offsets have no faithful representation in this contract.",
+    "KiCad drill offset is the copper shape offset from the pad/hole anchor, rotated by pad orientation. Moving the target pin would move the hole and source electrical anchor.",
+    "KiCad custom copper combines the anchor and its local primitives. A bounded exact union of a centred rectangular anchor and filled zero-width axis-aligned rectangular polygons can reduce to one centred native rectangle.",
+    "The reducer requires exact 1 nm source coordinates and even-nm anchor dimensions to avoid changing KiCad integer half-size geometry. Rational vertical-slab union area must equal bounding area, with centre at the original anchor, before 10 nm native quantization.",
+    "Only hole-free SMD with one outer copper side, explicit anchor rect/clearance outline, at most 32 rectangular gr_poly primitives and resolved nonnegative aperture margins/zero paste ratio are accepted. Custom editing/zone/thermal semantics remain an explicit loss.",
+    "The unchanged medium corpus retains 110/120 successes. Its 22 slot records occur in six files; one offset record in one file; three custom pads are nonrectangular with bbox excess areas .65, 1.228675 and .245 mm2."
+  ],
+  "native_gui_validated": false,
+  "native_netlist_verified": false,
+  "manufacturing_validated": false,
+  "files": [
+    {
+      "path": "Shape.h",
+      "revision": "3af0f9b9a234c97f2d21455c936abeb8439d2d45",
+      "url": "https://github.com/niconson/FreePCB-2/blob/3af0f9b9a234c97f2d21455c936abeb8439d2d45/Shape.h",
+      "bytes": 6797,
+      "sha256": "12c11ade2217edfd5c17d86cf68818582be3412fa26eb9cd520447177e5b076a",
+      "line_anchors": [
+        17,
+        95,
+        109
+      ]
+    },
+    {
+      "path": "Shape.cpp",
+      "revision": "3af0f9b9a234c97f2d21455c936abeb8439d2d45",
+      "url": "https://github.com/niconson/FreePCB-2/blob/3af0f9b9a234c97f2d21455c936abeb8439d2d45/Shape.cpp",
+      "bytes": 132751,
+      "sha256": "f247e613a0898862b286faeab29696411ac6bbc059cd05d8fd2d4b4d2b7ce34e",
+      "line_anchors": [
+        1439,
+        1454,
+        1461,
+        1493,
+        1540
+      ]
+    },
+    {
+      "path": "PartList.cpp",
+      "revision": "3af0f9b9a234c97f2d21455c936abeb8439d2d45",
+      "url": "https://github.com/niconson/FreePCB-2/blob/3af0f9b9a234c97f2d21455c936abeb8439d2d45/PartList.cpp",
+      "bytes": 151815,
+      "sha256": "67ecb56bbe2dfc2e432aa7c31afbed7843262f1c03370d297af3ada63f0547d8",
+      "line_anchors": [
+        1738,
+        1868
+      ]
+    },
+    {
+      "path": "pcbnew/pad.cpp",
+      "revision": "9.0.0",
+      "url": "https://github.com/KiCad/kicad-source-mirror/blob/9.0.0/pcbnew/pad.cpp",
+      "bytes": 93645,
+      "sha256": "c29cebdb56b1a1f93a9328d4a390b5cb27ba4e8903babff02e22e7aa56bcb5c1",
+      "line_anchors": [
+        635,
+        759,
+        1016,
+        1171,
+        1210,
+        1987
+      ]
+    },
+    {
+      "path": "pcbnew/pcb_io/kicad_sexpr/pcb_io_kicad_sexpr_parser.cpp",
+      "revision": "9.0.0",
+      "url": "https://github.com/KiCad/kicad-source-mirror/blob/9.0.0/pcbnew/pcb_io/kicad_sexpr/pcb_io_kicad_sexpr_parser.cpp",
+      "bytes": 224802,
+      "sha256": "af73c213e39c83c4714b89ab0d09ed9388f35bd77da8d227fe80cb689cfb63dd",
+      "line_anchors": [
+        195,
+        5072,
+        5107,
+        5510
+      ]
+    }
+  ]
+}

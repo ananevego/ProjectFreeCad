@@ -115,6 +115,8 @@ class Footprint:
     filled_polygons: list[FilledPolygon] = field(default_factory=list)
     filled_circles: list[FilledCircle] = field(default_factory=list)
     patterned_graphics: list[PatternedGraphic] = field(default_factory=list)
+    pad_geometry_sources: dict[int, list] = field(default_factory=dict)
+    pad_geometry_results: list[dict] = field(default_factory=list)
 
 
 @dataclass(frozen=True)

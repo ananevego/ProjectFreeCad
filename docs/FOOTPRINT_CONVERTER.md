@@ -408,3 +408,8 @@ stable names, per-item reports/state, resume/invalidation и CLI exit codes.
 default profile добавляет unfilled straight dash/dot patterns с явной потерей
 editable style/project settings/native caps. Medium: 110 generated /10 failed.
 Контракт, numerical checks и snapshots: [FOOTPRINT_STROKES.md](FOOTPRINT_STROKES.md).
+
+2026-10-16: подтверждены native slot/offset ограничения, добавлены точные
+circular drill equivalences и bounded centred rectangular custom unions.
+Medium остаётся 110/120; native refusals имеют structured reasons, original
+source и geometry proof. [Контракт pad geometry](PAD_GEOMETRY.md).

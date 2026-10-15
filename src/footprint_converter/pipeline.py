@@ -12,6 +12,7 @@ from .model_matching import DEFAULT_STL_ROOT, match_models
 from .writer import write_fpl
 from .reporting import build_report
 from .strokes import expand_strokes
+from .pad_geometry import normalize_pad_geometry
 
 
 def convert_detailed(root: list, footprint_name: str | None = None, *,
@@ -23,8 +24,10 @@ def convert_detailed(root: list, footprint_name: str | None = None, *,
                      fill_tolerance: float = 0.01) -> ConversionResult:
     """In-memory conversion and structured report; does not write any file."""
     fp = parse_footprint(root, footprint_name, curve_tolerance=curve_tolerance)
-    warnings = validate_footprint(fp)
-    render_fp = expand_strokes(fp, warnings)
+    geometry_warnings = []
+    geometry_fp = normalize_pad_geometry(fp, aperture_defaults, geometry_warnings)
+    warnings = validate_footprint(geometry_fp) + geometry_warnings
+    render_fp = expand_strokes(geometry_fp, warnings)
     render_fp = tessellate_fills(render_fp, fill_tolerance, warnings, curve_tolerance=curve_tolerance)
     matches = match_models(fp.models, Path(stl_root), warnings)
     fpl = write_fpl(render_fp, matches, warnings, model_transform, text_variables, aperture_defaults)

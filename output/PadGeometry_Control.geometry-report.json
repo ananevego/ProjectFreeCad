@@ -1,0 +1,501 @@
+{
+  "schema_version": 1,
+  "status": "generated_with_loss",
+  "footprint": "PadGeometry_Control",
+  "target": {
+    "application": "FreePCB2",
+    "version": "2.428",
+    "source_revision": "3af0f9b9a234c97f2d21455c936abeb8439d2d45",
+    "format": "fpl",
+    "gui_validated": false
+  },
+  "coordinates": {
+    "units": "NM",
+    "origin_translation_mm": [
+      0,
+      0
+    ],
+    "y_inverted": true,
+    "centroid": "computed_by_target_reader"
+  },
+  "curve_tolerance_mm": 0.01,
+  "counts": {
+    "source_pads": 3,
+    "source_texts": 0,
+    "source_filled_polygons": 0,
+    "written_pins": 3,
+    "written_user_texts": 0,
+    "written_polylines": 0,
+    "matched_models": 0
+  },
+  "source_texts": [],
+  "fills": {
+    "policy": "overlapping_strokes",
+    "tolerance_mm": 0.01,
+    "source_polygons": [],
+    "written_boundary_polylines": 0,
+    "written_scanline_polylines": 0,
+    "stroke_model": "ideal_round_ended",
+    "gui_validated": false,
+    "manufacturing_validated": false
+  },
+  "apertures": {
+    "footprint_settings": {
+      "mask_margin": null,
+      "paste_margin": null,
+      "paste_ratio": null
+    },
+    "defaults": {
+      "mask_margin": 0.05,
+      "paste_margin": 0,
+      "paste_ratio": 0
+    },
+    "pads": [
+      {
+        "name": "1",
+        "source": {
+          "mask_margin": null,
+          "paste_margin": null,
+          "paste_ratio": null
+        },
+        "resolved": {
+          "mask_margin": 0.05,
+          "paste_margin": 0,
+          "paste_ratio": 0
+        }
+      },
+      {
+        "name": "2",
+        "source": {
+          "mask_margin": null,
+          "paste_margin": null,
+          "paste_ratio": null
+        },
+        "resolved": {
+          "mask_margin": 0.05,
+          "paste_margin": 0,
+          "paste_ratio": 0
+        }
+      },
+      {
+        "name": "3",
+        "source": {
+          "mask_margin": null,
+          "paste_margin": null,
+          "paste_ratio": null
+        },
+        "resolved": {
+          "mask_margin": 0.05,
+          "paste_margin": 0,
+          "paste_ratio": 0
+        }
+      }
+    ]
+  },
+  "text_variable_bindings": {},
+  "models": [],
+  "diagnostics": [
+    {
+      "code": "CUSTOM_PAD_RECT_FLATTENED",
+      "severity": "loss",
+      "message": "exact centred rectangular union uses one native padstack; custom primitive editing and zone/thermal settings are not transferred"
+    },
+    {
+      "code": "DRILL_EQUIVALENT_NORMALIZED",
+      "severity": "info",
+      "message": "equal oval axes and/or explicit zero offset use the same circular native hole"
+    },
+    {
+      "code": "MODEL_MISSING",
+      "severity": "loss",
+      "message": "no KiCad model reference; no basename guessing"
+    },
+    {
+      "code": "APERTURE_EXPLICIT",
+      "severity": "info",
+      "message": "pad '1' mask, size 2.1 x 1.1 mm"
+    },
+    {
+      "code": "APERTURE_EXPLICIT",
+      "severity": "info",
+      "message": "pad '1' paste, size 2 x 1 mm"
+    },
+    {
+      "code": "APERTURE_EXPLICIT",
+      "severity": "info",
+      "message": "pad '2' mask, size 1.5 x 1.5 mm"
+    },
+    {
+      "code": "APERTURE_EXPLICIT",
+      "severity": "info",
+      "message": "pad '3' mask, size 1.9 x 1.3 mm"
+    },
+    {
+      "code": "TEXT_MISSING",
+      "severity": "info",
+      "message": "no reference; native field suppressed"
+    },
+    {
+      "code": "TEXT_MISSING",
+      "severity": "info",
+      "message": "no value; native field suppressed"
+    }
+  ],
+  "pad_geometry": {
+    "profile": "freepcb2428-exact-pad-reductions-v1",
+    "normalized_pads": [
+      {
+        "source_pad_index": 0,
+        "source": {
+          "name": "1",
+          "kind": "smd",
+          "shape": "custom",
+          "x": 1.0,
+          "y": 2.0,
+          "rotation": 90.0,
+          "width": 1.0,
+          "height": 1.0,
+          "drill": 0.0,
+          "layers": [
+            "F.Cu",
+            "F.Mask",
+            "F.Paste"
+          ],
+          "radius": 0.0,
+          "apertures": {
+            "mask_margin": null,
+            "paste_margin": null,
+            "paste_ratio": null
+          }
+        },
+        "source_raw": [
+          "pad",
+          "1",
+          "smd",
+          "custom",
+          [
+            "at",
+            "1",
+            "2",
+            "90"
+          ],
+          [
+            "size",
+            "1",
+            "1"
+          ],
+          [
+            "layers",
+            "F.Cu",
+            "F.Mask",
+            "F.Paste"
+          ],
+          [
+            "options",
+            [
+              "anchor",
+              "rect"
+            ],
+            [
+              "clearance",
+              "outline"
+            ]
+          ],
+          [
+            "primitives",
+            [
+              "gr_poly",
+              [
+                "pts",
+                [
+                  "xy",
+                  "-1",
+                  "-0.5"
+                ],
+                [
+                  "xy",
+                  "0",
+                  "-0.5"
+                ],
+                [
+                  "xy",
+                  "0",
+                  "0.5"
+                ],
+                [
+                  "xy",
+                  "-1",
+                  "0.5"
+                ]
+              ],
+              [
+                "width",
+                "0"
+              ],
+              [
+                "fill",
+                "yes"
+              ]
+            ],
+            [
+              "gr_poly",
+              [
+                "pts",
+                [
+                  "xy",
+                  "0",
+                  "-0.5"
+                ],
+                [
+                  "xy",
+                  "1",
+                  "-0.5"
+                ],
+                [
+                  "xy",
+                  "1",
+                  "0.5"
+                ],
+                [
+                  "xy",
+                  "0",
+                  "0.5"
+                ]
+              ],
+              [
+                "width",
+                "0"
+              ],
+              [
+                "fill",
+                "yes"
+              ]
+            ]
+          ]
+        ],
+        "rectangle_proof": {
+          "algorithm": "exact_rational_vertical_slabs",
+          "rectangles": 3,
+          "vertical_slabs": 4,
+          "union_area_mm2": 2.0,
+          "bounding_area_mm2": 2.0,
+          "uncovered_area_mm2": 0.0,
+          "bounds_mm": [
+            -1.0,
+            -0.5,
+            1.0,
+            0.5
+          ],
+          "union_equals_centred_rectangle": true
+        },
+        "native": {
+          "name": "1",
+          "kind": "smd",
+          "shape": "rect",
+          "x": 1.0,
+          "y": 2.0,
+          "rotation": 90.0,
+          "width": 2.0,
+          "height": 1.0,
+          "drill": 0.0,
+          "layers": [
+            "F.Cu",
+            "F.Mask",
+            "F.Paste"
+          ],
+          "radius": 0,
+          "apertures": {
+            "mask_margin": null,
+            "paste_margin": null,
+            "paste_ratio": null
+          }
+        }
+      },
+      {
+        "source_pad_index": 1,
+        "source": {
+          "name": "2",
+          "kind": "thru_hole",
+          "shape": "circle",
+          "x": 4.0,
+          "y": 0.0,
+          "rotation": 0,
+          "width": 1.4,
+          "height": 1.4,
+          "drill": 0.8,
+          "layers": [
+            "*.Cu",
+            "*.Mask"
+          ],
+          "radius": 0.0,
+          "apertures": {
+            "mask_margin": null,
+            "paste_margin": null,
+            "paste_ratio": null
+          }
+        },
+        "source_raw": [
+          "pad",
+          "2",
+          "thru_hole",
+          "circle",
+          [
+            "at",
+            "4",
+            "0"
+          ],
+          [
+            "size",
+            "1.4",
+            "1.4"
+          ],
+          [
+            "drill",
+            "oval",
+            "0.8",
+            "0.8"
+          ],
+          [
+            "layers",
+            "*.Cu",
+            "*.Mask"
+          ]
+        ],
+        "drill_equivalence": {
+          "source_drill": [
+            "drill",
+            "oval",
+            "0.8",
+            "0.8"
+          ],
+          "circular_diameter_mm": 0.8,
+          "shape_offset_mm": [
+            0.0,
+            0.0
+          ],
+          "equivalence": "equal_axes_and_zero_offset"
+        },
+        "native": {
+          "name": "2",
+          "kind": "thru_hole",
+          "shape": "circle",
+          "x": 4.0,
+          "y": 0.0,
+          "rotation": 0,
+          "width": 1.4,
+          "height": 1.4,
+          "drill": 0.8,
+          "layers": [
+            "*.Cu",
+            "*.Mask"
+          ],
+          "radius": 0.0,
+          "apertures": {
+            "mask_margin": null,
+            "paste_margin": null,
+            "paste_ratio": null
+          }
+        }
+      },
+      {
+        "source_pad_index": 2,
+        "source": {
+          "name": "3",
+          "kind": "thru_hole",
+          "shape": "rect",
+          "x": 6.0,
+          "y": 0.0,
+          "rotation": 180.0,
+          "width": 1.8,
+          "height": 1.2,
+          "drill": 0.8,
+          "layers": [
+            "*.Cu",
+            "*.Mask"
+          ],
+          "radius": 0.0,
+          "apertures": {
+            "mask_margin": null,
+            "paste_margin": null,
+            "paste_ratio": null
+          }
+        },
+        "source_raw": [
+          "pad",
+          "3",
+          "thru_hole",
+          "rect",
+          [
+            "at",
+            "6",
+            "0",
+            "180"
+          ],
+          [
+            "size",
+            "1.8",
+            "1.2"
+          ],
+          [
+            "drill",
+            "0.8",
+            [
+              "offset",
+              "0",
+              "0"
+            ]
+          ],
+          [
+            "layers",
+            "*.Cu",
+            "*.Mask"
+          ]
+        ],
+        "drill_equivalence": {
+          "source_drill": [
+            "drill",
+            "0.8",
+            [
+              "offset",
+              "0",
+              "0"
+            ]
+          ],
+          "circular_diameter_mm": 0.8,
+          "shape_offset_mm": [
+            0.0,
+            0.0
+          ],
+          "equivalence": "equal_axes_and_zero_offset"
+        },
+        "native": {
+          "name": "3",
+          "kind": "thru_hole",
+          "shape": "rect",
+          "x": 6.0,
+          "y": 0.0,
+          "rotation": 180.0,
+          "width": 1.8,
+          "height": 1.2,
+          "drill": 0.8,
+          "layers": [
+            "*.Cu",
+            "*.Mask"
+          ],
+          "radius": 0.0,
+          "apertures": {
+            "mask_margin": null,
+            "paste_margin": null,
+            "paste_ratio": null
+          }
+        }
+      }
+    ],
+    "max_custom_primitives": 32,
+    "source_proof_grid_nm": 1,
+    "coordinate_grid_nm": 10,
+    "native_gui_validated": false,
+    "native_netlist_verified": false,
+    "manufacturing_validated": false
+  }
+}

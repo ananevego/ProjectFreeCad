@@ -8,6 +8,7 @@ from .format_rules import TARGET_REVISION
 from .writer import inherit_apertures, native_pad_names
 from .format_rules import is_technical_pad
 from .strokes import stroke_report
+from .pad_geometry import geometry_report
 
 
 LOSS_CODES = {
@@ -18,6 +19,7 @@ LOSS_CODES = {
     'TEXT_PROPERTY_FLATTENED', 'TEXT_MARKUP_UNSUPPORTED',
     'TECHNICAL_PAD_CARRIER','CONNECT_PAD_TYPE_FLATTENED',
     'GRAPHIC_STROKE_FLATTENED',
+    'CUSTOM_PAD_RECT_FLATTENED',
 }
 
 
@@ -105,4 +107,6 @@ def build_report(fp: Footprint, render_fp: Footprint, matches: list[ModelMatch],
         report['counts']['contact_pads']=len(report['pad_roles']['contact_pads'])
     if fp.patterned_graphics:
         report['graphic_strokes'] = stroke_report(fp, render_fp)
+    if render_fp.pad_geometry_results:
+        report['pad_geometry'] = geometry_report(render_fp)
     return report

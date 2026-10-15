@@ -1,6 +1,6 @@
 # План разработки конвертера KiCad → FreePCB2
 
-Обновлён 2026-10-15 по состоянию репозитория и предыдущего чата.
+Обновлён 2026-10-16 по состоянию репозитория и предыдущего чата.
 Цель: перенос библиотечных УГО, footprints и связей с готовыми 3D-моделями.
 Около 20 000 footprints — ориентир масштаба, а не подтверждённый размер
 доступных исходников. Повторно конвертировать ранее полученные 7 225 STL не нужно.
@@ -109,11 +109,20 @@
     defaults с фазой на каждом ребре, лимитом 4096 и explicit style/render loss.
     Curves/filled patterned outlines остаются отказом. Medium: 110/120;
     20 новых tests, восемь прежних bundles и 107 FPL/report baselines неизменны.
-16. **Oval/offset drills и custom pads (следующий шаг).** Проследить native
-    представимость семи оставшихся slot/offset cases и трёх custom-pad cases.
-    Разделить tool/library restrictions и возможные подтверждённые extensions;
-    не заменять slot кругом или custom pad прямоугольником для роста coverage.
-    Проверить real controls, loss/refusal policy и весь medium corpus.
+16. **Oval/offset drills и custom pads (выполнено 2026-10-16 для exact reductions и native refusals).**
+    Подтверждены ограничения centred native padstack: один круглый hole_size,
+    historic X extents reader складывает. 6 slot files, 1 offset file и 3
+    nonrectangular custom files остаются refusal. Добавлены равные oval axes /
+    zero offset и bounded exact centred rectangular unions без изменения anchor;
+    aperture restrictions, primitive editing/zone loss и raw source сохраняются.
+    Medium 110/120 unchanged; 23 новых tests, всего 460, восемь старых bundles
+    byte-identical. Подробности: [PAD_GEOMETRY.md](PAD_GEOMETRY.md).
+17. **Комплект для native validation (следующий шаг).** Подготовить переносимые
+    контроли FPL/CDS/готовых STL и сценарии load/save roundtrip, pin mapping,
+    mask/paste/NPTH/Gerber, fonts/units и 3D alignment. Проверить доступность
+    целевой Windows-среды; записывать только фактически выполненные проверки.
+    При отсутствии среды подготовить проверяемый комплект и протокол без GUI
+    success claims. Затем — исправления по результатам и полная library/release.
 
 ## Зависимости и ограничения
 
@@ -488,3 +497,35 @@
   symbol hierarchy/implicit-net exceptions или full-library release.
 - Далее: native slot/offset/custom-pad contract и ограниченные extensions,
   затем Windows/Gerber/3D validation и полная поставка.
+
+## Результат pad geometry этапа — 2026-10-16
+
+- Master 7f2bbb9 уже был синхронизирован с origin; push проверен до разработки.
+- FreePCB2 2.428 header/reader/rendering подтверждают только circular hole_size
+  и centred native pad shapes. Два исторических X-поля не хранят offset: reader
+  складывает их в size_X. Source drill offset KiCad двигает copper shape, не
+  hole/connection anchor. Nonzero offset и slots не заменяются/не сдвигаются.
+- `freepcb2428-exact-pad-reductions-v1`: равные oval axes и explicit zero offset
+  дают прежнюю круглую геометрию с info. Custom SMD с anchor rect/outline и до
+  32 filled zero-width axis-aligned rectangular gr_poly допускается, только
+  если exact rational union совпал с центрированным прямоугольником. Source
+  1nm grid и even-nm anchor исключают расхождение integer half-size geometry;
+  proof выполняется до target 10nm quantization, исходный pin anchor не меняется.
+- Custom apertures требуют resolved nonnegative margins и zero paste ratio.
+  Primitive editing/zone/thermal settings имеют CUSTOM_PAD_RECT_FLATTENED loss,
+  strict отвергает результат; native GUI/netlist/Gerber/3D остаются unverified.
+  Source raw/typed pad, union proof и proposed native pad записаны в JSON.
+- Средняя партия: **110/120 generated_with_loss (91.67%)**, те же 10 refusals:
+  **6 slot files (22 records), 1 nonzero offset file, 3 nonrectangular custom pads**.
+  Для трёх custom pads bounding-box excess=.65/1.228675/.245 mm² — замена bbox
+  добавила бы лишнюю медь. Unexpected errors=0; все 110 FPL/reports неизменны.
+- 23 новые проверки, всего **460**, проходят; portable copy без STL/STEP —
+  3 optional skips. Проверены synthetic exact reductions, real negative cases,
+  1nm notches, raw immutability, apertures, strict/CLI preservation, audit proof
+  tampering, pin mapping и component relocation. Восемь прежних bundles
+  byte-identical и проходят relocation verification.
+- Source contract/evidence/audit: [PAD_GEOMETRY.md](PAD_GEOMETRY.md). Старые
+  snapshots сохранены; новые используют footprint-pad-geometry prefix.
+- **Остаток: 4 блока (1, 3, 5, 6), примерно 15–25% проекта**. Coverage этой
+  выборки не выросло: установлены native ограничения, расширен точный профиль
+  и улучшена диагностика. Следующий шаг — комплект для native validation.

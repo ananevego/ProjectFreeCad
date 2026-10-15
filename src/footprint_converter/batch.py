@@ -18,7 +18,7 @@ from pathlib import Path, PurePosixPath
 import re
 import sys
 
-from .errors import ConversionError, LossyConversionError
+from .errors import ConversionError, LossyConversionError, PadGeometryError
 from .format_rules import quote
 from .io import atomic_write, validate_output_path
 from .model import ApertureSettings, ModelTransform, ONE, ZERO
@@ -310,7 +310,7 @@ def run_batch(input_dir: Path, output_dir: Path, *, resume: bool = False,
                 # A malformed source can expose a parser TypeError, and a
                 # pipeline bug must not abort unrelated files. Record its type;
                 # interruption/process exit still propagate (BaseException).
-                report = dict(exc.report) if isinstance(exc, LossyConversionError) else {'schema_version': 1, 'status': 'failed'}
+                report = dict(exc.report) if isinstance(exc, (LossyConversionError, PadGeometryError)) else {'schema_version': 1, 'status': 'failed'}
                 report['errors'] = [str(exc)]
                 report['error_type'] = type(exc).__name__
                 report['unexpected_error'] = not isinstance(exc, (ValueError, OSError, LookupError))

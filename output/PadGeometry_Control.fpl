@@ -1,0 +1,32 @@
+name: "PadGeometry_Control"
+author: "KiCad to FreePCB converter"
+package: "PadGeometry_Control"
+  units: NM
+description: "Synthetic exact pad reduction control; not an official library footprint"
+  sel_rect: 450000 -3050000 6950000 750000
+  ref_text: 0 0 0 0 0
+  value_text: 0 0 0 0 0
+  n_pins: 3
+    pin: "1" 0 1000000 -2000000 270 ""
+      top_pad: 3 1000000 1000000 1000000 0
+      bottom_pad: 0 0 0 0 0
+      top_mask: 4 1100000 1050000 1050000 50000
+      top_paste: 3 1000000 1000000 1000000 0
+      bottom_mask: 0 0 0 0 0
+      bottom_paste: 0 0 0 0 0
+    pin: "2" 800000 4000000 0 0 ""
+      top_pad: 1 1400000 700000 700000 0
+      bottom_pad: 1 1400000 700000 700000 0
+      inner_pad: 1 1400000 700000 700000 0 0
+      top_mask: 1 1500000 750000 750000 0
+      top_paste: 0 0 0 0 0
+      bottom_mask: 1 1500000 750000 750000 0
+      bottom_paste: 0 0 0 0 0
+    pin: "3" 800000 6000000 0 180 ""
+      top_pad: 3 1200000 900000 900000 0
+      bottom_pad: 3 1200000 900000 900000 0
+      inner_pad: 3 1200000 900000 900000 0 0
+      top_mask: 4 1300000 950000 950000 50000
+      top_paste: 0 0 0 0 0
+      bottom_mask: 4 1300000 950000 950000 50000
+      bottom_paste: 0 0 0 0 0

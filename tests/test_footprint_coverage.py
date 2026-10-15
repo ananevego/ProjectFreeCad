@@ -137,7 +137,7 @@ class FootprintCoverageTests(unittest.TestCase):
             out=root_dir/'batch';run_batch(source,out,stl_root=root_dir/'missing-models')
             r=audit_batch(source,out)
             self.assertEqual(r['summary']['failed'],2);self.assertEqual(r['summary']['generated'],0)
-            self.assertIn('PAD_SHAPE_UNSUPPORTED',r['first_failure_categories'])
+            self.assertIn('CUSTOM_PAD_PROFILE_UNSUPPORTED',r['first_failure_categories'])
             self.assertTrue(any('source_inventory_error' in i for i in r['items']))
 
     def test_audit_rejects_source_artifact_and_report_checksum_corruption(self):
@@ -190,7 +190,8 @@ class FootprintCoverageTests(unittest.TestCase):
             self.assertEqual((m['summary']['generated'],m['summary']['failed']),(110,10))
             r=audit_batch(CORPUS,out,CORPUS/'provenance.json')
             self.assertEqual(r['summary']['target_records_validated'],110)
-            self.assertEqual(r['first_failure_categories'],{'DRILL_OVAL_OR_OFFSET':7,'PAD_SHAPE_UNSUPPORTED':3})
+            self.assertEqual(r['first_failure_categories'],{'DRILL_SLOT_UNSUPPORTED':6,'PAD_OFFSET_UNSUPPORTED':1,'CUSTOM_PAD_NONRECTANGULAR':3})
+            self.assertEqual(r['pad_geometry_case_counts'],{'DRILL_SLOT_UNSUPPORTED':22,'PAD_OFFSET_UNSUPPORTED':1,'CUSTOM_PAD_NONRECTANGULAR':3})
             self.assertEqual(r['summary']['unexpected_errors'],0)
             self.assertEqual(sum(r['feature_totals']['pad_kinds'].values()),2557)
             resumed=run_batch(CORPUS,out,stl_root=models,aperture_defaults=DEFAULTS,resume=True)

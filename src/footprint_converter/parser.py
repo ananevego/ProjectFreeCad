@@ -20,6 +20,7 @@ from .model import (
 )
 from .format_rules import GRAPHIC_LAYERS
 from .geometry import arc_points, legacy_arc_points, sample_arc
+from .pad_geometry import read_drill
 
 
 TOKEN_RE = re.compile(r'"(?:\\.|[^"\\])*"|[()]|[^\s()"]+')
@@ -100,6 +101,8 @@ def parse_apertures(node: list) -> ApertureSettings:
     keys = ('solder_mask_margin', 'solder_paste_margin',
             'solder_paste_margin_ratio' if node[0] == 'pad' else 'solder_paste_ratio')
     for key in keys:
+        if len(children(node, key)) > 1:
+            raise ConversionError(f'Duplicate {key}')
         item = child(node, key)
         if item is None:
             values.append(None)
@@ -118,9 +121,7 @@ def parse_pad(node: list) -> Pad:
     at = child(node, 'at')
     x, y = pair(at)
     width, height = pair(child(node, 'size'))
-    drill = child(node, 'drill')
-    if drill and (len(drill) != 2 or drill[1] == 'oval'):
-        raise ConversionError(f'Pad {node[1]}: oval/offset drill is not representable by hole_size')
+    drill, _ = read_drill(node)
     radius = 0.0
     if node[3] == 'roundrect':
         ratio = scalar(node, 'roundrect_rratio')
@@ -145,7 +146,7 @@ def parse_pad(node: list) -> Pad:
                 raise ConversionError(f'Pad {node[1]}: unsupported enabled {key}')
     layers = child(node, 'layers')
     return Pad(node[1], node[2], node[3], x, y, float(at[3]) if len(at) > 3 else 0,
-               width, height, float(drill[1]) if drill else 0,
+               width, height, drill,
                tuple(layers[1:]) if layers else (), radius, parse_apertures(node))
 
 
@@ -372,6 +373,9 @@ def parse_footprint(root: list, footprint_name: str | None = None, *,
             require_atoms(item, 2, kind)
         if kind == 'pad':
             fp.pads.append(parse_pad(item))
+            drill = child(item, 'drill')
+            if item[3] == 'custom' or drill and (len(drill) != 2 or drill[1] == 'oval'):
+                fp.pad_geometry_sources[len(fp.pads)-1] = item
         elif kind == 'model':
             hide = child(item, 'hide')
             if 'hide' in item or hide is not None and (len(hide) == 1 or hide[1] != 'no'):

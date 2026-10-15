@@ -13,7 +13,7 @@ D_SOD-123, пакетный CLI, исходный parser УГО и минима�
 добавлен сборщик связей и переносимого комплекта, окружности/дуги УГО
 и профиль обычных электрических типов выводов, простой заливки и текста;
 добавлены disjoint multi-unit layout, power/NC policy и straight dash/dot profile;
-проходят 437 тестов.
+проходят 460 тестов.
 Source parser читает `.kicad_sym` и старые `.lib`, сохраняя pins/units/inheritance.
 Writer создаёт `.cds` для R/C/connector, составных resistor packs и физических компонентов с power pins. Проверена цепочка
 symbol → footprint → существующий STL на трёх controls; GUI и физическое
@@ -134,6 +134,10 @@ contact pads добавлены по source/native контракту. Новы�
 отрезками по фиксированному KiCad9 PCB editor profile с loss; strict отклоняет
 его. Кривые и filled patterned outlines остаются отказом.
 [Контракт и результаты этапа](docs/FOOTPRINT_STROKES.md).
+Добавлен точный перенос custom pads, чьи anchor и прямоугольные примитивы
+доказуемо образуют один центрированный прямоугольник. Slots, nonzero offsets
+и непрямоугольные unions имеют структурированные причины отказа; средняя
+партия остаётся 110/120. [Ограничения native pads](docs/PAD_GEOMETRY.md).
 
 ## Что поддерживается
 
@@ -141,6 +145,7 @@ contact pads добавлены по source/native контракту. Новы�
 |---|---|
 | Technical-only F/B.Mask/Paste SMD pads | Отдельные zero-copper/hole padstack carriers, literal aperture sizes; netlist/Gerber unverified |
 | Contact pads (`connect`) | Одна внешняя copper side, mask/no paste/no hole; connector attribute имеет loss |
+| Custom SMD → exact centred rectangle | До 32 rectangular gr_poly; exact union proof, source anchor сохранён, explicit aperture settings и editing/zone loss |
 | SMD circle / rect / oval / roundrect | Соответствующая форма и размеры, без перестановки X/Y |
 | F.Cu / B.Cu | Верхняя / нижняя площадка |
 | PTH с круглым drill | Отверстие и площадки; `*.Cu` включает общий inner_pad |
@@ -158,10 +163,12 @@ contact pads добавлены по source/native контракту. Новы�
 | Ссылка KiCad `.3dshapes` | Поиск уже существующего STL, код OpenSCAD; без конвертации моделей |
 
 Fab переносится в слой notes как приближение, courtyard пропускается.
-Custom/chamfer/trapezoid pads, oval/offset drills, отдельные InN.Cu,
+Остальные custom/chamfer/trapezoid pads, настоящие slots и nonzero pad offsets, отдельные InN.Cu,
 дробные углы, заполненные дуги, полигоны с отверстиями/самопересечениями,
 legacy model `(at ...)` и асимметричный
 paste roundrect пока не поддерживаются. Непредставимая геометрия вызывает ошибку.
+Oval drill с равными осями и explicit zero offset допускаются как та же
+круглая геометрия; source spelling сохраняется в JSON.
 Полный контракт: [docs/FOOTPRINT_CONVERTER.md](docs/FOOTPRINT_CONVERTER.md).
 
 ## Быстрый запуск

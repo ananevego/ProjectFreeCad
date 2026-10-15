@@ -11,7 +11,10 @@ from pathlib import Path, PurePosixPath
 import sys
 from src.symbol_converter.schemator_format import _tokens
 
-from .parser import parse_sexpr, parse_footprint, children, scalar
+from .parser import parse_sexpr, parse_footprint, parse_pad, children, scalar
+from .pad_geometry import read_drill, custom_rectangle, normalize_pad_geometry, geometry_report
+from .errors import PadGeometryError
+from .model import ApertureSettings
 from .batch import SUCCESS, summary
 from .io import atomic_write, validate_output_path
 from .model_matching import DEFAULT_STL_ROOT
@@ -50,10 +53,27 @@ def inventory(root):
     def drill(p):
         v=next((v for v in p if isinstance(v,list) and v and v[0]=='drill'),None)
         return 'none' if v is None else 'oval_or_offset' if len(v)!=2 or v[1]=='oval' else 'round'
+    cases=[]
+    for index,pad in enumerate(pads):
+        if pad[3]!='custom' and drill(pad) not in {'oval_or_offset'}:continue
+        case=dict(source_pad_index=index,name=pad[1],source_shape=pad[3])
+        try:
+            diameter,equivalent=read_drill(pad)
+            if equivalent:case['drill_equivalence']=equivalent
+            if pad[3]=='custom':
+                normalized,proof=custom_rectangle(parse_pad(pad),pad)
+                case['rectangle_proof']=proof
+            case['geometry_status']='equivalent_geometry'
+        except PadGeometryError as error:
+            case.update(geometry_status='unsupported',code=error.report['diagnostics'][0]['code'],details=error.report['pad_geometry'])
+        except (ValueError,IndexError,TypeError) as error:
+            case.update(geometry_status='invalid_or_outside_profile',error=str(error))
+        cases.append(case)
     return dict(pads=len(pads),pad_kinds=dict(sorted(Counter(p[2] for p in pads).items())),
         pad_shapes=dict(sorted(Counter(p[3] for p in pads).items())),
         drills=dict(sorted(Counter(drill(p) for p in pads).items())),graphics=dict(sorted(graphics.items())),
         graphic_stroke_types=dict(sorted(styles.items())),
+        pad_geometry_cases=cases,
         unnamed_pads=sum(not p[1] for p in pads),
         technical_only_pads=sum(bool(layers(p)) and not any(v.endswith('.Cu') for v in layers(p)) and p[2]=='smd' for p in pads),
         model_references=sum(isinstance(p,list) and bool(p) and p[0]=='model' for p in root))
@@ -182,12 +202,17 @@ def audit_batch(source, batch, provenance=None):
             if (report['counts']['source_pads'],report['counts']['written_pins'])!=(len(pads),len(pads)):
                 raise ValueError('Report/source/FPL pad counts mismatch')
             fp=parse_footprint(tree,e['target_name'],curve_tolerance=m['options']['curve_tolerance'])
+            fp=normalize_pad_geometry(fp,ApertureSettings(**m['options']['aperture_defaults']),[])
+            if fp.pad_geometry_results and json.loads(json.dumps(geometry_report(fp)))!=report.get('pad_geometry'):
+                raise ValueError('Pad normalization source/proof/report mismatch')
             item.update(target_records_validated=True,pad_readback=verify_pad_identity(fp,name,pads,report),
                 output_sha256=e['output_sha256'],matched_models=report['counts']['matched_models'])
         else:
             if e['output_current'] is not False:raise ValueError('Failed artifact incorrectly marked current')
             item.update(errors=e.get('errors',[]),error_type=e.get('error_type'),unexpected_error=e.get('unexpected_error',False))
-            item['failure_category']=failure_category(' '.join(item['errors']));failures[item['failure_category']]+=1
+            codes=[d['code'] for d in report.get('diagnostics',[]) if d.get('severity')=='error']
+            item['failure_category']=codes[0] if codes else failure_category(' '.join(item['errors']))
+            failures[item['failure_category']]+=1
         items.append(item)
     return dict(schema_version=1,kind='footprint_batch_audit',batch_manifest_sha256=sha(raw_manifest),
         source_provenance_sha256=provenance_hash,target_gui_validated=False,model_geometry_validated=False,
@@ -200,6 +225,8 @@ def audit_batch(source, batch, provenance=None):
             unexpected_errors=sum(i.get('unexpected_error',False) for i in items)),
         categories={k:dict(sorted(v.items())) for k,v in sorted(categories.items())},
         feature_totals={k:dict(sorted(v.items())) for k,v in sorted(features.items())},
+        pad_geometry_case_counts=dict(sorted(Counter(c.get('code',c['geometry_status'])
+            for item in items for c in item['features'].get('pad_geometry_cases',[])).items())),
         first_failure_categories=dict(sorted(failures.items())),diagnostic_item_counts=m['summary']['diagnostic_item_counts'],items=items)
 
 
