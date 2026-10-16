@@ -30,6 +30,8 @@ def main(argv=None) -> int:
     parser.add_argument('--no-connect-policy',choices=('reject','connectable-with-loss'),default='reject',
         help='NC pins reject by default; explicit lossy mode emits ordinary connectable terminals')
     parser.add_argument('--strict',action='store_true')
+    parser.add_argument('--pin-name-policy',choices=('reject','plain-overbar-with-loss'),default='reject')
+    parser.add_argument('--alternate-pin-policy',choices=('reject','primary-with-loss'),default='reject')
     parser.add_argument('--hidden-pin-policy',choices=('reject','reveal-with-loss'),default='reject',
         help='Hidden pins reject by default; explicit reveal mode loses hidden/global-net semantics')
     parser.add_argument('--common-pin-policy',choices=('reject','common-view-with-loss'),default='reject',
@@ -56,7 +58,8 @@ def main(argv=None) -> int:
                 default_line_width=args.default_line_width,pin_width=args.pin_width,
                 curve_tolerance=args.curve_tolerance,fill_tolerance=args.fill_tolerance,unit_gap=args.unit_gap,
                 no_connect_policy=args.no_connect_policy,hidden_pin_policy=args.hidden_pin_policy,
-                common_pin_policy=args.common_pin_policy,strict=args.strict)
+                common_pin_policy=args.common_pin_policy,pin_name_policy=args.pin_name_policy,
+                alternate_pin_policy=args.alternate_pin_policy,strict=args.strict)
             report=result.report
         except LossySymbolConversionError as error:
             report=error.report

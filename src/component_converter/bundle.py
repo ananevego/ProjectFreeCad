@@ -31,6 +31,7 @@ from src.symbol_converter.curves import validate_tolerance, DEFAULT_CURVE_TOLERA
 from src.symbol_converter.body_graphics import validate_fill_tolerance, DEFAULT_FILL_TOLERANCE
 from src.symbol_converter.multiunit import validate_unit_gap, DEFAULT_UNIT_GAP, validate_common_pin_policy
 from src.symbol_converter.pin_policy import validate_no_connect_policy
+from src.symbol_converter.pin_labels import validate_pin_name_policy, validate_alternate_pin_policy
 from src.symbol_converter.pin_graphics import validate_hidden_policy
 from .links import LinkError, footprint_identifier, pin_mapping, stable_name
 from .records import read_fpl_links
@@ -73,7 +74,7 @@ def load_config(path: Path) -> tuple[dict, bytes]:
     config = json.loads(data.decode('utf-8-sig'), object_pairs_hook=_unique_pairs,
                         parse_constant=_invalid_constant)
     if not isinstance(config, dict) or set(config) - {
-            'schema_version', 'footprint_libraries', 'components', 'aperture_defaults', 'symbol_curve_tolerance', 'symbol_fill_tolerance', 'symbol_unit_gap', 'symbol_no_connect_policy', 'symbol_hidden_pin_policy', 'symbol_common_pin_policy'}:
+            'schema_version', 'footprint_libraries', 'components', 'aperture_defaults', 'symbol_curve_tolerance', 'symbol_fill_tolerance', 'symbol_unit_gap', 'symbol_no_connect_policy', 'symbol_hidden_pin_policy', 'symbol_common_pin_policy', 'symbol_pin_name_policy', 'symbol_alternate_pin_policy'}:
         raise ValueError('Unknown/invalid component config fields')
     if type(config.get('schema_version')) is not int or config['schema_version'] != 1:
         raise ValueError('Expected component config schema_version 1')
@@ -108,6 +109,8 @@ def load_config(path: Path) -> tuple[dict, bytes]:
     validate_no_connect_policy(config.get('symbol_no_connect_policy','reject'))
     validate_hidden_policy(config.get('symbol_hidden_pin_policy','reject'))
     validate_common_pin_policy(config.get('symbol_common_pin_policy','reject'))
+    validate_pin_name_policy(config.get('symbol_pin_name_policy','reject'))
+    validate_alternate_pin_policy(config.get('symbol_alternate_pin_policy','reject'))
     if not isinstance(aperture, dict) or set(aperture) - {'mask_margin', 'paste_margin', 'paste_ratio'} or any(
             value is not None and (type(value) not in (float, int) or not math.isfinite(value))
             for value in aperture.values()):
@@ -276,7 +279,9 @@ def _convert_item(component: dict, config: dict, base: Path, stage: Path,
             unit_gap=config.get('symbol_unit_gap',DEFAULT_UNIT_GAP),
             no_connect_policy=config.get('symbol_no_connect_policy','reject'),
             hidden_pin_policy=config.get('symbol_hidden_pin_policy','reject'),
-            common_pin_policy=config.get('symbol_common_pin_policy','reject'),strict=strict)
+            common_pin_policy=config.get('symbol_common_pin_policy','reject'),
+            pin_name_policy=config.get('symbol_pin_name_policy','reject'),
+            alternate_pin_policy=config.get('symbol_alternate_pin_policy','reject'),strict=strict)
         visible_references = set(ref.path for ref in fp.models)
         matches, resolutions = [], []
         for ref in fp.models:
@@ -426,6 +431,9 @@ def export_bundle(config_path: Path, output: Path, *, stl_root: Path = DEFAULT_S
             manifest['settings']['symbol_hidden_pin_policy'] = config['symbol_hidden_pin_policy']
         if 'symbol_common_pin_policy' in config:
             manifest['settings']['symbol_common_pin_policy'] = config['symbol_common_pin_policy']
+        for key in ('symbol_pin_name_policy', 'symbol_alternate_pin_policy'):
+            if key in config:
+                manifest['settings'][key] = config[key]
         (stage/'manifest.json').write_bytes(json_bytes(manifest))
         manifest = verify_bundle(stage)
         if output.exists() or output.is_symlink():

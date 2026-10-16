@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "project": "KiCad community / kicad-symbols",
+  "revision": "a9012d8971ef2ea3243ffc9f19a5b4f153d8b334",
+  "modified": false,
+  "selection": "Two unchanged source libraries covering overbar names and alternate pin functions",
+  "source_tree_metadata": {
+    "url": "https://api.github.com/repos/KiCad/kicad-symbols/git/trees/a9012d8971ef2ea3243ffc9f19a5b4f153d8b334?recursive=1",
+    "sha256": "e83d105e517862acb1331ed6399578bd30cbc3bbf0dff1140ea310c8a41a5cc4",
+    "truncated": false,
+    "library_count": 224
+  },
+  "files": [
+    {
+      "file": "CPLD_Renesas.kicad_sym",
+      "bytes": 6829,
+      "sha256": "70c1146b23c6a737b98e4c6e8cb506470a933191875cd48c0d4d2df45b2f6f0d",
+      "git_blob_sha1": "b3fce2668e77c517c3fc3a7641d8c7fe99f5a935",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-symbols/a9012d8971ef2ea3243ffc9f19a5b4f153d8b334/CPLD_Renesas.kicad_sym"
+    },
+    {
+      "file": "MCU_Puya.kicad_sym",
+      "bytes": 6546,
+      "sha256": "6957e9d43909a0f28cb2374c40d25d770c6492ae5f4a77ef0e23ef83fec21246",
+      "git_blob_sha1": "81183d7baaa864a78f456c9dd2842174eec9fe85",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-symbols/a9012d8971ef2ea3243ffc9f19a5b4f153d8b334/MCU_Puya.kicad_sym"
+    }
+  ],
+  "license": {
+    "file": "LICENSE.md",
+    "bytes": 2101,
+    "sha256": "45d2bce75e5a4208f5afb01b8fb2c406e700371c4fe2b5f5cd5c443d46db4d8f",
+    "git_blob_sha1": "314afa8a91e3273f3e90203b8382315bbb40bbfb",
+    "url": "https://raw.githubusercontent.com/KiCad/kicad-symbols/a9012d8971ef2ea3243ffc9f19a5b4f153d8b334/LICENSE.md"
+  }
+}

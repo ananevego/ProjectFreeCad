@@ -22,6 +22,7 @@ from .body_graphics import (
 from .multiunit import DEFAULT_UNIT_GAP, validate_unit_gap, compose_units, validate_common_pin_policy
 from .pin_policy import POWER_TYPES, validate_no_connect_policy, add_power_semantics
 from .pin_graphics import validate_hidden_policy, render_markers, add_presentation_semantics
+from .pin_labels import validate_pin_name_policy, validate_alternate_pin_policy, plain_pin_name
 
 # These types share the native numbered endpoint representation. Their KiCad
 # electrical rules survive in JSON only; power/no-connect need separate policy.
@@ -95,6 +96,7 @@ def convert_symbol(library: Library, name: str, *, footprint_name: str | None = 
                    no_connect_policy: str = 'reject',
                    hidden_pin_policy: str = 'reject',
                    common_pin_policy: str = 'reject',
+                   pin_name_policy: str = 'reject', alternate_pin_policy: str = 'reject',
                    strict: bool = False) -> SymbolConversionResult:
     """Generate one component; physical footprint/GUI verification stays separate.
 
@@ -120,12 +122,15 @@ def convert_symbol(library: Library, name: str, *, footprint_name: str | None = 
     validate_no_connect_policy(no_connect_policy)
     validate_hidden_policy(hidden_pin_policy)
     validate_common_pin_policy(common_pin_policy)
+    validate_pin_name_policy(pin_name_policy)
+    validate_alternate_pin_policy(alternate_pin_policy)
     if symbol.unit_count!=1:
         cds,report,document=compose_units(library,symbol,converter=convert_symbol,unit_gap=unit_gap,
             conversion_settings=dict(footprint_name=footprint_name,reference=reference,project_name=project_name,
                 default_line_width=default_line_width,pin_width=pin_width,curve_tolerance=curve_tolerance,
                 fill_tolerance=fill_tolerance,no_connect_policy=no_connect_policy,hidden_pin_policy=hidden_pin_policy,
-                common_pin_policy=common_pin_policy))
+                common_pin_policy=common_pin_policy, pin_name_policy=pin_name_policy,
+                alternate_pin_policy=alternate_pin_policy))
         if strict:
             report.update(status='rejected_loss',target_output_generated=False)
             report['proposed_artifact_sha256']=report.pop('artifact_sha256')
@@ -274,7 +279,13 @@ def convert_symbol(library: Library, name: str, *, footprint_name: str | None = 
     electrical_counts={}
     for pin in pins:
         if pin.alternates:
-            raise SymbolParseError(f'Pin {pin.number}: alternate pin modes are outside the target profile')
+            if alternate_pin_policy == 'reject':
+                raise SymbolParseError(f'Pin {pin.number}: alternate pin modes are outside the target profile')
+            diagnostic('SYMBOL_ALTERNATE_PINS_PRIMARY_ONLY', 'loss',
+                'Only the source primary pin name/type/style is rendered. Alternate functions and their selection '
+                'are not transferred; all definitions remain in source JSON.', pin_number=pin.number,
+                source_primary_name=pin.name, source_primary_type=pin.electrical_type,
+                source_primary_style=pin.graphic_style, source_alternates=[dict(a) for a in pin.alternates])
         if pin.hidden and hidden_pin_policy=='reject':
             raise SymbolParseError(f'Pin {pin.number}: hidden pin requires explicit reveal-with-loss policy')
         if pin.electrical_type=='no_connect':
@@ -305,7 +316,13 @@ def convert_symbol(library: Library, name: str, *, footprint_name: str | None = 
         if not symbol.pin_names_hidden and pin.name not in ('','~'):
             size=_positive(pin.name_size[1],'Pin name text height')
             distance=_nm(symbol.pin_name_offset)
-            poly.description=TextRecord(_display(pin.name),body[0]+dx*distance,body[1]+dy*distance,
+            displayed, flattened = plain_pin_name(pin.name, pin_name_policy)
+            if flattened:
+                diagnostic('SYMBOL_PIN_OVERBAR_REMOVED', 'loss',
+                    'The overbar/inversion indication in the pin name is omitted from the displayed label. '
+                    'Original name remains in source JSON; number, type, marker and connection point are unchanged.',
+                    pin_number=pin.number, source_name=pin.name, displayed_name=displayed)
+            poly.description=TextRecord(_display(displayed),body[0]+dx*distance,body[1]+dy*distance,
                                         PIN_DESCRIPTION,0,size,max(1,size//10))
         pin_semantics.append(dict(source_pin_number=pin.number,source_pin_name=pin.name,
             source_electrical_type=pin.electrical_type,target_pin_number=label.value,
@@ -425,6 +442,10 @@ def convert_symbol(library: Library, name: str, *, footprint_name: str | None = 
         report['counts']['approximations']=sum(d['severity']=='approximation' for d in diagnostics)
         if any('curve_corners' in m for m in pin_markers):
             report['conversion_settings']['curve_tolerance_mm']=curve_tolerance
+    if any(d['code']=='SYMBOL_PIN_OVERBAR_REMOVED' for d in diagnostics):
+        report['conversion_settings']['pin_name_policy']=pin_name_policy
+    if any(d['code']=='SYMBOL_ALTERNATE_PINS_PRIMARY_ONLY' for d in diagnostics):
+        report['conversion_settings']['alternate_pin_policy']=alternate_pin_policy
     if strict and report['counts']['losses']:
         report.update(status='rejected_loss',target_output_generated=False)
         report['proposed_artifact_sha256']=report.pop('artifact_sha256')

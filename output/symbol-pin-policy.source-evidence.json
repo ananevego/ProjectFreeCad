@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "source_library_revision": "a9012d8971ef2ea3243ffc9f19a5b4f153d8b334",
+  "sources": [
+    {
+      "url": "https://docs.kicad.org/9.0/en/eeschema/eeschema.html#symbol-pins",
+      "finding": "Pin overbar syntax is ~{text}; removal of wrappers is a declared formatting loss."
+    },
+    {
+      "url": "https://docs.kicad.org/9.0/en/eeschema/eeschema.html#alternate-pin-functions",
+      "finding": "Alternate pin definitions change name/electrical type/graphic style and are selectable after placement."
+    }
+  ],
+  "emitted_profile": "Schemator 1.429 single current pin definition; no alternate selection records emitted",
+  "retained": "Original names/alternate definitions in source JSON; primary number/type/style and connection point unchanged",
+  "target_gui_validated": false,
+  "native_netlist_verified": false
+}

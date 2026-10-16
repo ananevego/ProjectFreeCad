@@ -1,4 +1,4 @@
-"""Prepare the complete pinned KiCad footprint corpus from a local archive.
+"""Prepare a complete pinned KiCad footprint/symbol corpus from a local archive.
 
 Only verified footprints and the upstream license are copied. No archive paths
 are extracted directly, no meshes are accessed, and an existing output is never
@@ -23,6 +23,9 @@ ARCHIVE_ROOT = 'kicad-footprints-' + REVISION
 ARCHIVE_URL = 'https://codeload.github.com/KiCad/kicad-footprints/tar.gz/' + REVISION
 TREE_URL = 'https://api.github.com/repos/KiCad/kicad-footprints/git/trees/' + REVISION + '?recursive=1'
 RAW_URL = 'https://raw.githubusercontent.com/KiCad/kicad-footprints/' + REVISION + '/'
+SYMBOLS_REVISION = 'a9012d8971ef2ea3243ffc9f19a5b4f153d8b334'
+SYMBOLS_TREE_SHA256 = 'e83d105e517862acb1331ed6399578bd30cbc3bbf0dff1140ea310c8a41a5cc4'
+SYMBOL_LIBRARY_COUNT = 224
 
 
 def sha256_file(path):
@@ -45,35 +48,46 @@ def safe_path(value):
     return path
 
 
-def prepare_corpus(archive, tree_file, output):
+def prepare_corpus(archive, tree_file, output, *, kind='footprints'):
+    if kind not in {'footprints', 'symbols'}:
+        raise ValueError('Unknown corpus kind')
+    revision = REVISION if kind == 'footprints' else SYMBOLS_REVISION
+    tree_sha = TREE_SHA256 if kind == 'footprints' else SYMBOLS_TREE_SHA256
+    count = FOOTPRINT_COUNT if kind == 'footprints' else SYMBOL_LIBRARY_COUNT
+    suffix = '.kicad_mod' if kind == 'footprints' else '.kicad_sym'
+    project = 'kicad-' + kind
+    archive_root = project + '-' + revision
+    archive_url = 'https://codeload.github.com/KiCad/' + project + '/tar.gz/' + revision
+    tree_url = 'https://api.github.com/repos/KiCad/' + project + '/git/trees/' + revision + '?recursive=1'
+    raw_url = 'https://raw.githubusercontent.com/KiCad/' + project + '/' + revision + '/'
     archive, tree_file, output = Path(archive), Path(tree_file), Path(output)
     validate_output_path(output, archive, DEFAULT_STL_ROOT)
     if output.exists() or output.is_symlink():
         raise ValueError('Corpus output must be a new directory')
     tree_raw = tree_file.read_bytes()
-    if hashlib.sha256(tree_raw).hexdigest() != TREE_SHA256:
+    if hashlib.sha256(tree_raw).hexdigest() != tree_sha:
         raise ValueError('Pinned source tree checksum mismatch')
     tree = json.loads(tree_raw)
-    if tree.get('sha') != REVISION or tree.get('truncated') is not False:
+    if tree.get('sha') != revision or tree.get('truncated') is not False:
         raise ValueError('Source tree must be complete and match the pinned revision')
     selected = {}
     folded = set()
     for item in tree['tree']:
         name = item['path']
-        if not (name.endswith('.kicad_mod') or name == 'LICENSE.md'):
+        if not (name.endswith(suffix) or name == 'LICENSE.md'):
             continue
         safe_path(name)
         if item['type'] != 'blob' or item['mode'] not in {'100644', '100755'} or name.casefold() in folded:
             raise ValueError('Invalid, duplicate or case-colliding source tree member')
         selected[name] = item
         folded.add(name.casefold())
-    if len(selected) != FOOTPRINT_COUNT + 1 or 'LICENSE.md' not in selected:
+    if len(selected) != count + 1 or 'LICENSE.md' not in selected:
         raise ValueError('Pinned footprint/license inventory mismatch')
-    provenance = dict(schema_version=1, project='KiCad community / kicad-footprints',
-                      revision=REVISION, modified=False, selection='all .kicad_mod files in the complete pinned tree',
-                      source_tree_metadata=dict(url=TREE_URL, sha256=TREE_SHA256, truncated=False,
-                                                footprint_count=FOOTPRINT_COUNT),
-                      archive=dict(url=ARCHIVE_URL, sha256=sha256_file(archive), bytes=archive.stat().st_size),
+    provenance = dict(schema_version=1, project='KiCad community / ' + project,
+                      revision=revision, modified=False, selection='all ' + suffix + ' files in the complete pinned tree',
+                      source_tree_metadata=dict(url=tree_url, sha256=tree_sha, truncated=False,
+                                                **{('footprint_count' if kind == 'footprints' else 'library_count'): count}),
+                      archive=dict(url=archive_url, sha256=sha256_file(archive), bytes=archive.stat().st_size),
                       files=[])
     output.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory(prefix='.corpus-', dir=output.parent) as temporary:
@@ -83,7 +97,7 @@ def prepare_corpus(archive, tree_file, output):
         with tarfile.open(archive, 'r:gz') as tar:
             for member in tar:
                 path = safe_path(member.name)
-                if path.parts[0] != ARCHIVE_ROOT or member.name in seen:
+                if path.parts[0] != archive_root or member.name in seen:
                     raise ValueError('Unexpected archive root or duplicate member')
                 seen.add(member.name)
                 if not (member.isdir() or member.isfile()):
@@ -103,7 +117,7 @@ def prepare_corpus(archive, tree_file, output):
                 destination.parent.mkdir(parents=True, exist_ok=True)
                 destination.write_bytes(data)
                 record = dict(file=relative, bytes=len(data), sha256=hashlib.sha256(data).hexdigest(),
-                              git_blob_sha1=blob, url=RAW_URL + relative)
+                              git_blob_sha1=blob, url=raw_url + relative)
                 if relative == 'LICENSE.md':
                     provenance['license'] = record
                 else:
@@ -127,13 +141,14 @@ def main(argv=None):
     parser.add_argument('archive', type=Path)
     parser.add_argument('tree', type=Path)
     parser.add_argument('output', type=Path)
+    parser.add_argument('--kind', choices=('footprints', 'symbols'), default='footprints')
     args = parser.parse_args(argv)
     try:
-        result = prepare_corpus(args.archive, args.tree, args.output)
+        result = prepare_corpus(args.archive, args.tree, args.output, kind=args.kind)
     except (OSError, ValueError, KeyError, TypeError, tarfile.TarError) as error:
         print('Corpus preparation failed: ' + str(error), file=sys.stderr)
         return 1
-    print(f"Verified corpus: {len(result['files'])} footprints, {len(result['category_populations'])} categories; license retained")
+    print(f"Verified corpus: {len(result['files'])} {args.kind} source files; license retained")
     return 0
 
 

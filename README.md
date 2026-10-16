@@ -19,7 +19,7 @@ Writer создаёт `.cds` для R/C/connector, составных resistor p
 symbol → footprint → существующий STL на трёх controls; GUI и физическое
 совмещение 3D ещё впереди. Полная footprint-библиотека закреплена: 15 464 файла
 в 155 категориях: **14 109 FPL (91,24%) с известными losses**, 1 355 явных
-отказов; 501 тест проходит. Исходники и все успешные pad records проверены.
+отказов; 533 теста проходят. Исходники и все успешные pad records проверены.
 [Полный прогон, поставка и воспроизведение](docs/FULL_LIBRARY.md).
 
 ## Исходные УГО KiCad
@@ -53,6 +53,11 @@ rectangles/polylines/circles/arcs, ограниченная foreground
 Сохранены R/C/CONN_01X06 controls. Контракт ограниченного профиля проверен по
 исходникам и реальной записи R3; отдельный reader проверяет emitted records.
 Загрузка и connectivity в Схематоре пока не подтверждены.
+Добавлены batch/audit для полного корпуса **21 806 УГО**, проверяемая preview
+поставка и массовая инвентаризация точных symbol/footprint candidates.
+`--pin-name-policy plain-overbar-with-loss` и `--alternate-pin-policy primary-with-loss`
+передают имя без надчёркивания и основную функцию pin с явными losses; default
+остаётся reject, source definitions сохраняются в JSON. [Команды и ограничения](docs/SYMBOL_BATCH.md).
 Без `--footprint-name` используется placeholder `PART`; назначение имени
 не подтверждает соответствие pads. `--strict` отклоняет известные layout losses.
 Команды, ограничения и коды выхода: [SCHEMATOR_CONVERTER.md](docs/SCHEMATOR_CONVERTER.md).

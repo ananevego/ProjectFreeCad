@@ -107,6 +107,26 @@ class LibraryCorpusTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'checksum mismatch'):
             corpus.prepare_corpus(self.archive, self.tree, self.output)
 
+    def test_symbol_corpus_uses_its_own_pin_and_preserves_library_bytes(self):
+        raw = b'(kicad_symbol_lib (version 20241209))'
+        self.files = {'Demo.kicad_sym': raw, 'LICENSE.md': b'license'}
+        self.metadata = dict(sha=corpus.SYMBOLS_REVISION, truncated=False, tree=[
+            dict(path=name, type='blob', mode='100644', size=len(data),
+                 sha=hashlib.sha1(f'blob {len(data)}\0'.encode() + data).hexdigest()) for name, data in self.files.items()])
+        self.tree.write_text(json.dumps(self.metadata))
+        self.write_archive([('kicad-symbols-' + corpus.SYMBOLS_REVISION + '/' + name, data, tarfile.REGTYPE)
+                            for name, data in self.files.items()])
+        with patch.object(corpus, 'SYMBOL_LIBRARY_COUNT', 1), patch.object(corpus, 'SYMBOLS_TREE_SHA256', corpus.sha256_file(self.tree)):
+            result = corpus.prepare_corpus(self.archive, self.tree, self.output, kind='symbols')
+        self.assertEqual(result['revision'], corpus.SYMBOLS_REVISION)
+        self.assertEqual(result['source_tree_metadata']['library_count'], 1)
+        self.assertEqual((self.output / 'Demo.kicad_sym').read_bytes(), raw)
+
+    def test_unknown_corpus_kind_is_rejected_without_output(self):
+        with self.assertRaisesRegex(ValueError, 'corpus kind'):
+            corpus.prepare_corpus(self.archive, self.tree, self.output, kind='unknown')
+        self.assertFalse(self.output.exists())
+
     def test_truncated_wrong_revision_duplicate_or_case_collision_tree_is_rejected(self):
         self.write_archive()
         original = self.metadata.copy()

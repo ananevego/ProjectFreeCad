@@ -188,6 +188,10 @@ def compose_units(library, symbol, *, converter, unit_gap, conversion_settings):
     report['target'].update(source_units_profile=COMMON_PROFILE if has_common else PROFILE,
         coordinates='nanometres, Y up; each source unit translated by its declared integer-NM offset')
     report['conversion_settings']['unit_gap_mm']=unit_gap
+    for code, key in [('SYMBOL_PIN_OVERBAR_REMOVED', 'pin_name_policy'),
+                      ('SYMBOL_ALTERNATE_PINS_PRIMARY_ONLY', 'alternate_pin_policy')]:
+        if any(d['code'] == code for d in diagnostics):
+            report['conversion_settings'][key] = conversion_settings[key]
     report['unit_layout']=dict(source_units=symbol.unit_count,native_components=1,
         independent_unit_placement_transferred=False,native_hierarchical_merge_generated=False,
         common_pin_policy=policy if has_common else 'reject',unit_order='ascending source unit; X layout from validated geometry/anchor bounds',
