@@ -1,0 +1,40 @@
+{
+  "checked_on": "2026-10-17",
+  "freepcb": {
+    "required_version": "2.428",
+    "status": "not_detected_in_checked_locations"
+  },
+  "host": "macOS-26.2-arm64-arm-64bit-Mach-O",
+  "kind": "native_validation_environment",
+  "native_gui_checks": "not_run",
+  "openscad": {
+    "csg_scenes_passed": 3,
+    "observed_version": "2021.01",
+    "scope": "native CLI CSG script compilation; geometry/GUI/board alignment not checked",
+    "status": "available"
+  },
+  "schema_version": 1,
+  "schemator": {
+    "required_version": "1.429",
+    "status": "not_detected_in_checked_locations"
+  },
+  "scope": "This inventory does not exclude unregistered VMs, remote hosts or software outside the checked locations",
+  "search_scope": [
+    "nonignored workspace executable paths",
+    "/Applications app names",
+    "PATH wine/wine64",
+    "VirtualBox registered VM inventory"
+  ],
+  "virtualbox": {
+    "elevated_readonly_inventory": "succeeded",
+    "registered_guests": [
+      {
+        "configured_os": "Debian (ARM 64-bit)",
+        "state": "poweroff"
+      }
+    ],
+    "registered_windows_guests": 0,
+    "sandbox_inventory": "IPC socket error",
+    "status": "installed"
+  }
+}

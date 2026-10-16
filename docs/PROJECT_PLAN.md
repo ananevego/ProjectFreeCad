@@ -1,6 +1,6 @@
 # План разработки конвертера KiCad → FreePCB2
 
-Обновлён 2026-10-16 по состоянию репозитория и предыдущего чата.
+Обновлён 2026-10-17 по состоянию репозитория и предыдущего чата.
 Цель: перенос библиотечных УГО, footprints и связей с готовыми 3D-моделями.
 Около 20 000 footprints — ориентир масштаба, а не подтверждённый размер
 доступных исходников. Повторно конвертировать ранее полученные 7 225 STL не нужно.
@@ -117,12 +117,19 @@
     aperture restrictions, primitive editing/zone loss и raw source сохраняются.
     Medium 110/120 unchanged; 23 новых tests, всего 460, восемь старых bundles
     byte-identical. Подробности: [PAD_GEOMETRY.md](PAD_GEOMETRY.md).
-17. **Комплект для native validation (следующий шаг).** Подготовить переносимые
-    контроли FPL/CDS/готовых STL и сценарии load/save roundtrip, pin mapping,
-    mask/paste/NPTH/Gerber, fonts/units и 3D alignment. Проверить доступность
-    целевой Windows-среды; записывать только фактически выполненные проверки.
-    При отсутствии среды подготовить проверяемый комплект и протокол без GUI
-    success claims. Затем — исправления по результатам и полная library/release.
+17. **Комплект для native validation (подготовка выполнена 2026-10-17; native GUI открыта).**
+    8 bundles/24 компонента, 5 standalone FPL controls, 15 existing STL aliases,
+    10 negative controls, source/license snapshots, record catalog и 10 manual
+    scenarios. Standalone integrity/evidence checker, isolated relocation и ZIP
+    проверены; три SCAD previews скомпилированы OpenSCAD 2021.01 только в CSG.
+    Native flags false, manual checks not_run; 478 tests проходят. Windows-гость
+    не найден в зарегистрированных VM; FreePCB2/Схематор в проверенных местах
+    не обнаружены. [NATIVE_VALIDATION.md](NATIVE_VALIDATION.md).
+18. **Native roundtrip/connectivity/manufacturing/3D (следующий шаг).** Перенести
+    kit в Windows с FreePCB2 2.428 и Схематором 1.429, пройти protocol.json,
+    записать версии, измерения и evidence в results/. Разделить known losses
+    и новые failures, исправить найденное; library-local CSG не считать board
+    alignment. После фактических native checks — полная library/release.
 
 ## Зависимости и ограничения
 
@@ -529,3 +536,36 @@
 - **Остаток: 4 блока (1, 3, 5, 6), примерно 15–25% проекта**. Coverage этой
   выборки не выросло: установлены native ограничения, расширен точный профиль
   и улучшена диагностика. Следующий шаг — комплект для native validation.
+
+## Результат подготовки native validation — 2026-10-17
+
+- Push до разработки: master 5113886 уже синхронизирован с origin.
+- `src/native_validation` использует существующие component/footprint pipeline:
+  8 прежних bundles (24 компонента), 5 standalone FPL controls, 10 expected
+  refusal source/reports, source/license/provenance snapshots и catalog NM.
+  23 structural model chains доступны, 15 unique global STL aliases (1558560B),
+  23 library-local SCAD previews. Выбранные STL скопированы побайтно.
+- Frozen manifest/index (251 files, 15690240B до manifest) и standalone stdlib
+  checker позволяют перенос без repo/STL store. `results/` предназначен для
+  наблюдений и native exports; template 10 checks=not_run. Passed observation
+  требует operator, target version(s), notes и SHA256 evidence; checker проверяет
+  структуру/identity, но не удостоверяет действия оператора или screenshots.
+- Runtime kit: `output/native-validation-ready`; архив в ignored
+  `output/native-validation-package/native-validation-kit.zip` (1908153B).
+  ZIP CRC, extraction/relocation и standalone Python -I checker выполнены.
+  Восемь bundles byte-identical старым; source snapshots неизменны. STL/ZIP
+  не добавляются в Git; tracked summary содержит hashes/counts/scoped results.
+- OpenSCAD **2021.01** обнаружен: C0805/Header6/R0805 scenes **3/3** native CLI
+  CSG compilation без warnings. Это syntax/CSG, не STL remesh, GUI, native board
+  export или physical frame proof. Native 3D/model/GUI flags остаются false.
+- FreePCB2 2.428/Схематор 1.429 не найдены в checked workspace/Applications/PATH.
+  Sandbox VBox inventory дал IPC error; elevated read-only inventory/showvminfo
+  прошли: один Debian ARM64 guest, poweroff, зарегистрированных Windows guests=0.
+  Это не исключает unregistered/remote environments; native checks не запускались.
+- 18 новых tests, всего **478**, проходят; portable clone без STL/STEP — с 3
+  optional skips. Проверены partial kit, source/model hashes, relocation без
+  imports repo, corruption/paths/symlinks/case, results identity/evidence/versions,
+  bounded CSG execution, warning failures и сохранение предыдущих outputs.
+- **Остаток: 4 блока (1, 3, 5, 6), примерно 15–25% проекта**. Блок 5 подготовлен
+  к выполнению, но не закрыт. Далее — реальные native проверки по протоколу,
+  исправления и full-library coverage/release.

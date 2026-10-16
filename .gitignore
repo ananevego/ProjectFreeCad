@@ -27,3 +27,6 @@ desktop.ini
 
 # Portable component bundles contain copied existing meshes and runtime reports.
 /output/components/
+
+# Native validation kits include selected existing STL copies and runtime evidence.
+/output/native-validation*/

@@ -1,0 +1,102 @@
+{
+  "archive": {
+    "bytes": 1908153,
+    "crc_verified": true,
+    "extraction_relocation_verified": true,
+    "includes_runtime_results": false,
+    "path": "output/native-validation-package/native-validation-kit.zip",
+    "sha256": "eaa9ae83aa24381f0538e8c7cf6f0765ec7fbc10dee654cdae56ec7b898a8012",
+    "standalone_isolated_python_verified": true
+  },
+  "builder_files": {
+    "src/native_validation/__init__.py": "d1a3ad0341d2575e7be5534a8f2978110793825a7a78861f37d6b8ffbcb798a0",
+    "src/native_validation/__main__.py": "71464328f49e4a2b608ab81d2be2d32d2fd8f5f6be3c88f2fc02ce78b9ea6e36",
+    "src/native_validation/kit.py": "907466d959ecc6411b5bce02ed170868b1bfe7c40ab1b71d77e194c4f5a94e61",
+    "src/native_validation/portable.py": "f8dad989ab67952f356f5830ad24510282fbb14ff602d2aa811c1c125ba8b550",
+    "src/native_validation/protocol.py": "6825dc7271bdc0313520d71c8f9485b23201027c9e2a67465f95d80f6f07f264"
+  },
+  "global_selected_model_bytes": 1558560,
+  "gui_validated": false,
+  "immutable_bytes": 15690240,
+  "immutable_files": 251,
+  "kind": "native_validation_preparation_summary",
+  "kit": "output/native-validation-ready",
+  "manifest_sha256": "7056c3f3b59839d2dc2b20519f1b5651da9da60c895acf2093411bee32b21bf5",
+  "manufacturing_validated": false,
+  "model_geometry_validated": false,
+  "native_import_verified": false,
+  "native_netlist_verified": false,
+  "openscad_probe": {
+    "gui_validated": false,
+    "kind": "openscad_csg_probe",
+    "kit_manifest_sha256": "7056c3f3b59839d2dc2b20519f1b5651da9da60c895acf2093411bee32b21bf5",
+    "manufacturing_validated": false,
+    "model_geometry_validated": false,
+    "native_import_verified": false,
+    "native_netlist_verified": false,
+    "scenes": [
+      {
+        "id": "control.C0805",
+        "messages": "",
+        "output": "results/csg-confirmed/control.C0805.csg",
+        "returncode": 0,
+        "sha256": "0677d29666323870f0e2e70eb297d3c5d6f859100b7c7c6aedd4b5781965b79f",
+        "status": "passed"
+      },
+      {
+        "id": "control.Header6",
+        "messages": "",
+        "output": "results/csg-confirmed/control.Header6.csg",
+        "returncode": 0,
+        "sha256": "99c1dba436a73eb324f5aa6b6e7a44dbb9cb1f7a1b970ac2298d116964cc8025",
+        "status": "passed"
+      },
+      {
+        "id": "control.R0805",
+        "messages": "",
+        "output": "results/csg-confirmed/control.R0805.csg",
+        "returncode": 0,
+        "sha256": "7ec11b92ef5294b5b71058544fc2ad8fc324c7597e585d16d2837bbf73eb8447",
+        "status": "passed"
+      }
+    ],
+    "schema_version": 1,
+    "scope": "CSG script compilation only; STL geometry, GUI, board export and physical alignment unverified",
+    "version": "OpenSCAD version 2021.01"
+  },
+  "pending_observations": {
+    "blocked": 0,
+    "failed": 0,
+    "not_run": 10,
+    "passed": 0
+  },
+  "prepared_on": "2026-10-17",
+  "ready_for_3d_checks": true,
+  "schema_version": 1,
+  "summary": {
+    "bundles": 8,
+    "complete_chains": 23,
+    "components": 24,
+    "footprints": 5,
+    "generated_components": 24,
+    "manual_checks": 10,
+    "models": 15,
+    "refusals": 10,
+    "scenes": 23
+  },
+  "unchanged_previous_bundles": [
+    "control",
+    "curves",
+    "electrical",
+    "body",
+    "units",
+    "power",
+    "pins",
+    "common"
+  ],
+  "verification": {
+    "portable_optional_skips": 3,
+    "portable_tests": 478,
+    "unit_tests": 478
+  }
+}

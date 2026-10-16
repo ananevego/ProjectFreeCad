@@ -13,7 +13,7 @@ D_SOD-123, пакетный CLI, исходный parser УГО и минима�
 добавлен сборщик связей и переносимого комплекта, окружности/дуги УГО
 и профиль обычных электрических типов выводов, простой заливки и текста;
 добавлены disjoint multi-unit layout, power/NC policy и straight dash/dot profile;
-проходят 460 тестов.
+проходят 478 тестов.
 Source parser читает `.kicad_sym` и старые `.lib`, сохраняя pins/units/inheritance.
 Writer создаёт `.cds` для R/C/connector, составных resistor packs и физических компонентов с power pins. Проверена цепочка
 symbol → footprint → существующий STL на трёх controls; GUI и физическое
@@ -109,6 +109,21 @@ SHA256 подтверждает неизменность копий; geometry/GU
 Выход должен быть новым каталогом. Missing/ambiguous bindings остаются в manifest;
 STL не конвертируются повторно. Скопированный комплект проверяется без исходников.
 Правила и настройка Windows-папки: [COMPONENT_BUNDLE.md](docs/COMPONENT_BUNDLE.md).
+
+Для проверки в целевых программах добавлен переносимый **native validation kit**:
+8 bundles/24 компонента, 5 standalone FPL controls, 15 aliases существующих STL,
+10 negative controls и 10 manual scenarios. Checker работает без repo и model
+store; original inputs и результаты отделены. Native flags остаются false,
+пока GUI/netlist/Gerber/board 3D не проверены фактически.
+
+```sh
+python3 -B -m src.native_validation output/native-validation-ready
+python3 -B output/native-validation-ready/verify_kit.py
+python3 -B output/native-validation-ready/verify_kit.py --init-results results/run.json
+```
+
+Для копии repo без моделей доступен `--allow-missing-models`: это явно partial
+kit с `ready_for_3d_checks=false`. [Комплект, архив и протокол](docs/NATIVE_VALIDATION.md).
 
 ## Пакетная обработка
 
