@@ -53,8 +53,10 @@ rectangles/polylines/circles/arcs, ограниченная foreground
 Сохранены R/C/CONN_01X06 controls. Контракт ограниченного профиля проверен по
 исходникам и реальной записи R3; отдельный reader проверяет emitted records.
 Загрузка и connectivity в Схематоре пока не подтверждены.
-Добавлены batch/audit для полного корпуса **21 806 УГО**, проверяемая preview
-поставка и массовая инвентаризация точных symbol/footprint candidates.
+Полный batch/audit **21 806 УГО** дал **12 186 CDS (55,88%) с явными losses**;
+независимо проверены 249 254 вывода. Preview ZIP с reports проверен после переноса.
+Найдены **8 210 кандидатов точных symbol/footprint связок**, пока без назначения
+footprints в CDS; исходный placeholder `PART` сохраняется.
 `--pin-name-policy plain-overbar-with-loss` и `--alternate-pin-policy primary-with-loss`
 передают имя без надчёркивания и основную функцию pin с явными losses; default
 остаётся reject, source definitions сохраняются в JSON. [Команды и ограничения](docs/SYMBOL_BATCH.md).

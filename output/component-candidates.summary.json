@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "kind": "audited_component_candidates",
+  "symbol_audit_sha256": "fc9439a39ff3528fa6073ade635bf2b31668b8d7dab64a073f64d0bda1c368cb",
+  "footprint_audit_sha256": "183b53be861af1186d9286698a93430627718cf0b0c375f3d6ed2d797cc50f4a",
+  "target_gui_validated": false,
+  "native_netlist_verified": false,
+  "model_alignment_validated": false,
+  "cds_footprints_assigned": false,
+  "summary": {
+    "total": 21806,
+    "statuses": {
+      "eligible_for_linked_export": 8210,
+      "footprint_absent": 142,
+      "footprint_numbers_ambiguous": 482,
+      "footprint_refused": 343,
+      "footprint_unspecified": 2389,
+      "pin_pad_numbers_differ": 620,
+      "symbol_refused": 9620
+    },
+    "eligible_with_existing_model": 6993
+  },
+  "scope": "Literal fixed footprint identifier and unique CDS/copper-pad number equality; no guesses, assignments, mesh reads or native verification"
+}

@@ -6,6 +6,50 @@
 SHA256, URLs и лицензия сохранены. Метрики этого этапа относятся к библиотечным
 символам, включая наследованные definitions; не к количеству уникальных корпусов.
 
+## Результат 2026-10-17
+
+| Проверка | Результат |
+|---|---|
+| Полный source inventory | **224 библиотеки / 21 806 УГО**, missing inventory = 0 |
+| Первый профиль, без новых label/function policies | 8 779 CDS / 13 027 отказов, **40,26%** |
+| Расширенный профиль с пятью явными loss policies | **12 186 CDS / 9 620 отказов, 55,88%** |
+| Добавлено к первому прогону | **3 407**: 3 045 прежних markup refusals, 362 alternate-function refusals |
+| Прежние successful CDS и reports | Все **8 779 пар byte-identical**, регрессий 0 |
+| Независимый readback | Все **12 186 CDS / 249 254 pin records** |
+| Unexpected errors | **0** |
+| Тесты | **533** проходят; portable copy без STL/STEP — 3 optional skips |
+| Preview ZIP | **107 070 374B**, CRC/extraction/relocation verified |
+
+Все generated outputs имеют explicit losses; native GUI/netlist и physical
+footprint mapping flags false. ZIP SHA256:
+`cfd949d34fc12b0369162809c9fbb18ed62e6b91dd9d47e930942c7b6f39b776`.
+Index содержит 24 379 files / 1 527 633 854B до самого release.json, включая
+полные source/conversion reports. ZIP hash фиксирует эту сохранённую сборку.
+
+3071 successful symbols используют overbar-loss, 376 — primary-function-loss;
+часть использует оба. Это не то же самое, что число rescued первых отказов.
+Главные оставшиеся первые причины: **6114 coincident pin endpoints**, 1062
+native pin identifiers, 908 fill-profile cases, 444 unsupported source widths,
+422 collapsed native graphics. Все 9620 сообщений сохранены в
+[`symbol-full.exceptions.jsonl`](../output/symbol-full.exceptions.jsonl).
+Перечислены первые отказы; после их устранения может проявиться следующий.
+
+Typed normalization отказала пяти библиотекам из-за source stroke widths;
+их symbol names учтены полностью, а resolved pin-feature counts этих библиотек
+не заявляются. Полный native readback successful outputs выполнен.
+
+Локальные наблюдения macOS ARM64: fresh **561,984 с**, independent audit
+**265,380 с**, packaging/CRC/extracted verification **88,960 с**. Peak RSS <500 MB;
+тесты шли одновременно, caches не изолированы. Полный resume timing не измерялся;
+resume/source/options/engine/corruption recovery проверены регрессиями.
+
+Кандидаты следующего этапа: **8210 exact symbol/footprint number matches**,
+из них **6993** имеют model match в footprint-аудите. Ещё 2389 successful УГО
+не содержат фиксированного Footprint, 620 имеют number mismatch, 482 — ambiguous
+pad numbers, 343 ссылаются на refused footprints, 142 — на отсутствующие.
+Назначение footprints в CDS и массовая поставка связанных компонентов остаются
+следующим этапом; кандидаты сейчас по-прежнему имеют `PART`.
+
 ## Подготовка и полный запуск
 
 ```sh

@@ -33,8 +33,8 @@
 |---|---|---|---|
 | 1 | Footprint-конвертер — реализован в заявленном профиле, исключения измерены на полном корпусе | src/footprint_converter, tests/fixtures | Parser/writer, arcs/fills/strokes/texts/pads; графические footprints с нулём pins; явная policy описаний; каталог неподдержанных случаев |
 | 2 | Пакетный CLI и отчёт покрытия — выполнен на полном корпусе | batch/audit, library_corpus | Изолированные ошибки, стабильные имена, manifest/resume, pinned provenance, независимый readback успешных records |
-| 3 | УГО KiCad → Схематор — реализован заявленный профиль с явными losses | src/symbol_converter, target fixtures | Parser/writer, curves/pins/fills/text, disjoint/common units, markers, power/NC/hidden policies; native import/connectivity проверяются в блоке 5 |
-| 4 | Связи компонентов и переносимый 3D-комплект — выполнен для 8 контрольных bundles/24 компонентов | src/component_converter, config/manifest | Точные identifiers/pin-pad numbers, unresolved/ambiguous, aliases существующих STL, hashes и переносимость; physical alignment проверяется в блоке 5 |
+| 3 | УГО KiCad → Схематор — полный pinned корпус измерен, профиль расширен | src/symbol_converter, target fixtures | 12 186/21 806 CDS, 9 620 явных отказов; 249 254 pin records проверены; overbar/primary-function loss policies; native import/connectivity — блок 5 |
+| 4 | Связи — 8 контрольных bundles готовы; массовые кандидаты измерены | src/component_converter, config/manifest | 8 210 exact candidates, 6 993 с model match из footprint audit; массовое назначение/упаковка ещё открыты; native alignment — блок 5 |
 | 5 | Валидация в целевых программах — ожидает среды | FreePCB2 2.428/Схематор/OpenSCAD, docs | Load/save roundtrip, тексты и слои, NPTH/Gerber, масштабы/положение/ориентация STL; протокол и исправление найденных ошибок |
 | 6 | Масштабирование — полный корпус; экспериментальная поставка подготовлена | library_release, docs/output | Полная партия, coverage/исключения, license/provenance, архив и проверка после переноса; production-статус зависит от блока 5 |
 
@@ -135,7 +135,21 @@
     1 355 классифицированных отказов, 354 192 проверенных pad records,
     resume 14 109 reused без изменения FPL/report hashes; **501 тест**.
     Результаты и команды: [FULL_LIBRARY.md](FULL_LIBRARY.md).
-19. **Native roundtrip/connectivity/manufacturing/3D (оставшийся этап приёмки).** Перенести
+19. **Массовые УГО и pin-name/alternate policies (выполнено 2026-10-17).**
+    Закреплены все 224 source libraries / 21 806 УГО. Первый профиль: 8 779 CDS;
+    после explicit overbar removal/primary-function policies — **12 186 CDS**,
+    +3 407, **9 620 refusals**, unexpected=0. Все 8 779 прежних CDS/report pairs
+    byte-identical. Аудит проверил **249 254 pin records**; preview ZIP с полными
+    source/loss reports проверен после распаковки/переноса. **533 теста** проходят.
+    Смысл новых потерь и команды: [SYMBOL_BATCH.md](SYMBOL_BATCH.md).
+20. **Массовая связанная поставка (следующий шаг без Windows).** Использовать
+    8 210 точных candidates; повторно проверить source/current artifacts, назначить
+    реальные target FPL names вместо PART, собрать CDS/FPL и связанные существующие
+    модели с едиными aliases и explicit partial/unresolved. Model matches=6 993
+    по footprint snapshot; это не доказательство полной/совмещённой 3D-цепочки.
+    Не превращать 620 number mismatches, 482 ambiguous и 2 389 unspecified cases
+    в guessed mappings. Проверить hashes/relocation и лицензии полной поставки.
+21. **Native roundtrip/connectivity/manufacturing/3D (внешний этап приёмки).** Перенести
     kit в Windows с FreePCB2 2.428 и Схематором 1.429, пройти protocol.json,
     записать версии, измерения и evidence в results/. Разделить known losses
     и новые failures, исправить найденное; library-local CSG не считать board
@@ -149,8 +163,8 @@
   hierarchy и ERC/implicit global nets остаются явными ограничениями профиля,
   описанными в документации УГО; они не объявляются реализованными.
 - Для блока 5 нужна доступная целевая программа; macOS-разработка продолжается.
-- Полный footprint-корпус закреплён и проверен. Это не полный массовый экспорт
-  всех УГО KiCad и не подтверждение 100% поддержки конструкций KiCad.
+- Полные footprint/symbol corpora закреплены и измерены. Это не подтверждение
+  100% поддержки KiCad: остаются 1 355 footprint и 9 620 symbol refusals.
 - STL/STEP используются как существующие артефакты; тысячи meshes не открываются.
 - Legacy model (at ...) по-прежнему требует отдельного подтверждения единиц;
   поддержка старых дуг не означает поддержку всех исторических model records.
@@ -164,14 +178,21 @@
 прежних оценок; они не описывают текущий статус и не пересчитываются задним числом.
 
 После крупного шага сообщать измеренный результат и оставшиеся критерии.
-Для первой production-поставки **поддержанного профиля** осталось одно внешнее
-приёмочное направление: native load/save, connectivity, Gerber и board 3D по
-10 сценариям готового kit, затем исправление обнаруженных дефектов. Объём этих
-исправлений до выполнения проверки неизвестен. Нужной Windows-среды здесь нет.
+Для малого поддержанного MVP код готов; native load/save/connectivity/Gerber/
+board 3D остаются внешней приёмкой по 10 сценариям kit. Объём исправлений по её
+результатам до проверки неизвестен. Нужной Windows-среды здесь нет.
+
+**Если Windows не считать:** до первой массовой **связанной** поставки остаётся
+один крупный этап — пункт 20 (8 210 точных candidates вместо отдельных PART-CDS
+и FPL). Расширение покрытия — отдельная измеренная очередь: 1 355 footprints
+и 9 620 УГО сейчас отказаны. Самая большая группа УГО — 6 114 совпадающих
+connection endpoints; их нельзя автоматически дедуплицировать с потерей выводов.
+Не все исключения представимы в текущих native-форматах без дополнительного
+профиля/потерь. Количество файлов не переводится в процент трудозатрат.
 
 Coverage полной footprint-библиотеки — отдельная измеренная величина, а не
-процент готовности проекта. Все отказы остаются в каталоге; расширение их
-поддержки и массовое покрытие всех УГО составляют следующую очередь разработки.
+процент готовности проекта. Все отказы остаются в каталогах; расширение их
+поддержки составляет следующую очередь разработки.
 Текущую реализацию нельзя называть конвертером со 100% покрытием KiCad.
 
 ## Журнал текущего цикла
@@ -622,3 +643,39 @@ Coverage полной footprint-библиотеки — отдельная из
   roundtrip/connectivity/Gerber/physical board 3D по 10 сценариям kit и исправления
   по результатам. Среда FreePCB2/Схематор здесь пока недоступна. Полная поддержка
   исключений и всех УГО остаётся следующей явной очередью, не скрытым процентом.
+
+
+### 2026-10-17 — полный корпус УГО, расширение labels/functions и candidates
+
+- В начале push был актуален (7033665). Реализация batch/audit, pin labels и
+  primary alternate functions отправлена отдельным коммитом **66633a2**.
+- Закреплены **224 библиотеки / 21 806 УГО** KiCad 9.0.0, 219 889 181 source
+  bytes; Git blobs/SHA256/tree/license сохранены, source files не редактировались.
+- Первый полный профиль: **8779 generated / 13027 refused (40,26%)**.
+  Добавлены explicit `plain-overbar-with-loss` и `primary-with-loss`; default
+  reject, строгий режим запрещает потери, source/raw/alternates сохраняются.
+- Повторный полный профиль: **12186 generated_with_loss / 9620 refused (55,88%)**,
+  **+3407** (3045 markup-first, 362 alternate-first). Все 8779 предыдущих
+  CDS/report pairs byte-identical. Unexpected errors=0, inventory missing=0.
+- Independent audit: **12186 CDS / 249254 numbered endpoints**, source/current
+  hashes, literal numbers/multiplicity и declared unit translations проверены.
+  Пять библиотек с unsupported source stroke widths остаются typed parse refusals;
+  их raw symbol names полностью учтены, resolved feature counts не заявляются.
+- **533 теста** проходят, portable copy без STL/STEP — 3 optional skips. Новые
+  policies проверены на неизменённых MCU_Puya/CPLD_Renesas и в component bundle.
+- Preview содержит CDS, полные source/conversion/loss reports, все refusals,
+  audit/provenance/tree/license/index; model assets не включены, PART сохранён.
+  ZIP **107070374B**, SHA256
+  `cfd949d34fc12b0369162809c9fbb18ed62e6b91dd9d47e930942c7b6f39b776`.
+  CRC, extraction/relocation выполнены. Native/physical mapping flags false.
+- Прогон 561,984 с, audit 265,380 с, packaging/CRC/relocation 88,960 с;
+  тесты шли одновременно, caches не изолированы; peak process RSS <500 MB.
+- Между двумя audited snapshots найдены **8210 exact candidates**, **6993** с
+  model match по footprint audit. Ещё 2389 successful symbols без фиксированного
+  Footprint, 620 number mismatches, 482 ambiguous, 343 refused FP, 142 absent FP.
+  Никакие guesses/renumbering/dedup/mesh reads/назначения PART не выполнялись.
+- **Без Windows до первой массовой связанной поставки — 1 крупный этап:**
+  назначить actual target footprints и собрать проверяемые linked bundles по
+  candidates, с current source/model checks. До 100% поддержки остаётся очередь
+  1355 FP / 9620 УГО; крупнейшая группа — 6114 совпадающих pin endpoints.
+  Это измеренные отказы, а не субъективный процент оставшейся разработки.
