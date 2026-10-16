@@ -1,0 +1,892 @@
+{
+  "all_model_geometry_unverified": true,
+  "batch_manifest_sha256": "e18c8e292bc80c71251c0461d115cd193c6e6acd7e2b621916f4c7e44094e515",
+  "benchmark": {
+    "audit": {
+      "peak_rss_bytes": 773963776,
+      "seconds": 75.4,
+      "summary": {
+        "ambiguous_number_mapping_items": 2378,
+        "failed": 1355,
+        "generated": 14109,
+        "generated_with_loss": 14109,
+        "generation_percent": 91.24,
+        "rejected_loss": 0,
+        "target_records_validated": 14109,
+        "total": 15464,
+        "unexpected_errors": 0
+      }
+    },
+    "fresh": {
+      "peak_rss_bytes": 935395328,
+      "seconds": 131.017,
+      "summary": {
+        "diagnostic_item_counts": {
+          "APERTURE_EXPLICIT": 14055,
+          "CONNECT_PAD_TYPE_FLATTENED": 114,
+          "CURVE_APPROXIMATED": 3239,
+          "CUSTOM_PAD_NONRECTANGULAR": 20,
+          "CUSTOM_PAD_PROFILE_UNSUPPORTED": 473,
+          "DESCRIPTION_ASCII_ESCAPED": 783,
+          "DRILL_SLOT_UNSUPPORTED": 152,
+          "FAB_LAYER_APPROXIMATED": 13816,
+          "FEATURE_SKIPPED": 120,
+          "FILL_APPROXIMATED": 3441,
+          "FILL_EXPORT_UNVERIFIED": 3441,
+          "FILL_STROKE_MODEL": 3441,
+          "GRAPHIC_LAYER_SKIPPED": 14079,
+          "GRAPHIC_SKIPPED": 1,
+          "MODEL_FOLDER": 7088,
+          "MODEL_FRAME_UNVERIFIED": 7088,
+          "MODEL_HIDDEN": 5,
+          "MODEL_MISSING": 7021,
+          "NPTH_LIMIT": 1902,
+          "NPTH_NAME": 1902,
+          "PADLESS_GRAPHIC": 38,
+          "PAD_OFFSET_UNSUPPORTED": 18,
+          "TECHNICAL_PAD_CARRIER": 1133,
+          "TECHNICAL_PAD_NAME": 1133,
+          "TEXT_ANCHOR": 14109,
+          "TEXT_DYNAMIC": 14109,
+          "TEXT_FIELD_LAYER": 14109,
+          "TEXT_PROPERTY_FLATTENED": 1,
+          "TEXT_UPRIGHT_UNVERIFIED": 13955,
+          "TEXT_VARIABLE_UNRESOLVED": 14029,
+          "USER_LAYER_APPROXIMATED": 602
+        },
+        "failed": 1355,
+        "generated": 14109,
+        "generated_with_loss": 14109,
+        "generated_without_known_loss": 0,
+        "generation_percent": 91.24,
+        "pending": 0,
+        "rejected_loss": 0,
+        "reused": 0,
+        "total": 15464
+      }
+    },
+    "initial": {
+      "peak_rss_bytes": 888848384,
+      "seconds": 75.714,
+      "summary": {
+        "diagnostic_item_counts": {
+          "APERTURE_EXPLICIT": 13277,
+          "CONNECT_PAD_TYPE_FLATTENED": 114,
+          "CURVE_APPROXIMATED": 2897,
+          "CUSTOM_PAD_NONRECTANGULAR": 20,
+          "CUSTOM_PAD_PROFILE_UNSUPPORTED": 473,
+          "DRILL_SLOT_UNSUPPORTED": 152,
+          "FAB_LAYER_APPROXIMATED": 13029,
+          "FEATURE_SKIPPED": 120,
+          "FILL_APPROXIMATED": 3419,
+          "FILL_EXPORT_UNVERIFIED": 3419,
+          "FILL_STROKE_MODEL": 3419,
+          "GRAPHIC_LAYER_SKIPPED": 13293,
+          "GRAPHIC_SKIPPED": 1,
+          "MODEL_FOLDER": 7067,
+          "MODEL_FRAME_UNVERIFIED": 7067,
+          "MODEL_HIDDEN": 5,
+          "MODEL_MISSING": 6226,
+          "NPTH_LIMIT": 1351,
+          "NPTH_NAME": 1351,
+          "PAD_OFFSET_UNSUPPORTED": 18,
+          "TECHNICAL_PAD_CARRIER": 1133,
+          "TECHNICAL_PAD_NAME": 1133,
+          "TEXT_ANCHOR": 13293,
+          "TEXT_DYNAMIC": 13293,
+          "TEXT_FIELD_LAYER": 13293,
+          "TEXT_PROPERTY_FLATTENED": 1,
+          "TEXT_UPRIGHT_UNVERIFIED": 13159,
+          "TEXT_VARIABLE_UNRESOLVED": 13234,
+          "USER_LAYER_APPROXIMATED": 602
+        },
+        "failed": 2171,
+        "generated": 13293,
+        "generated_with_loss": 13293,
+        "generated_without_known_loss": 0,
+        "generation_percent": 85.96,
+        "pending": 0,
+        "rejected_loss": 0,
+        "reused": 0,
+        "total": 15464
+      }
+    },
+    "notes": "Local macOS ARM64 observations; tests ran concurrently, filesystem caches may be warm; per-process ru_maxrss bytes, not an isolated throughput comparison.",
+    "resume": {
+      "peak_rss_bytes": 726974464,
+      "seconds": 96.089,
+      "successful_artifacts_unchanged": true,
+      "summary": {
+        "diagnostic_item_counts": {
+          "APERTURE_EXPLICIT": 14055,
+          "CONNECT_PAD_TYPE_FLATTENED": 114,
+          "CURVE_APPROXIMATED": 3239,
+          "CUSTOM_PAD_NONRECTANGULAR": 20,
+          "CUSTOM_PAD_PROFILE_UNSUPPORTED": 473,
+          "DESCRIPTION_ASCII_ESCAPED": 783,
+          "DRILL_SLOT_UNSUPPORTED": 152,
+          "FAB_LAYER_APPROXIMATED": 13816,
+          "FEATURE_SKIPPED": 120,
+          "FILL_APPROXIMATED": 3441,
+          "FILL_EXPORT_UNVERIFIED": 3441,
+          "FILL_STROKE_MODEL": 3441,
+          "GRAPHIC_LAYER_SKIPPED": 14079,
+          "GRAPHIC_SKIPPED": 1,
+          "MODEL_FOLDER": 7088,
+          "MODEL_FRAME_UNVERIFIED": 7088,
+          "MODEL_HIDDEN": 5,
+          "MODEL_MISSING": 7021,
+          "NPTH_LIMIT": 1902,
+          "NPTH_NAME": 1902,
+          "PADLESS_GRAPHIC": 38,
+          "PAD_OFFSET_UNSUPPORTED": 18,
+          "TECHNICAL_PAD_CARRIER": 1133,
+          "TECHNICAL_PAD_NAME": 1133,
+          "TEXT_ANCHOR": 14109,
+          "TEXT_DYNAMIC": 14109,
+          "TEXT_FIELD_LAYER": 14109,
+          "TEXT_PROPERTY_FLATTENED": 1,
+          "TEXT_UPRIGHT_UNVERIFIED": 13955,
+          "TEXT_VARIABLE_UNRESOLVED": 14029,
+          "USER_LAYER_APPROXIMATED": 602
+        },
+        "failed": 1355,
+        "generated": 14109,
+        "generated_with_loss": 14109,
+        "generated_without_known_loss": 0,
+        "generation_percent": 91.24,
+        "pending": 0,
+        "rejected_loss": 0,
+        "reused": 14109,
+        "total": 15464
+      }
+    }
+  },
+  "categories": {
+    "Audio_Module.pretty": {
+      "generated_with_loss": 2
+    },
+    "Battery.pretty": {
+      "failed": 4,
+      "generated_with_loss": 49
+    },
+    "Button_Switch_Keyboard.pretty": {
+      "generated_with_loss": 29
+    },
+    "Button_Switch_SMD.pretty": {
+      "failed": 38,
+      "generated_with_loss": 133
+    },
+    "Button_Switch_THT.pretty": {
+      "failed": 61,
+      "generated_with_loss": 52
+    },
+    "Buzzer_Beeper.pretty": {
+      "generated_with_loss": 35
+    },
+    "Calibration_Scale.pretty": {
+      "failed": 10,
+      "generated_with_loss": 9
+    },
+    "Capacitor_SMD.pretty": {
+      "generated_with_loss": 103
+    },
+    "Capacitor_THT.pretty": {
+      "failed": 3,
+      "generated_with_loss": 381
+    },
+    "Capacitor_Tantalum_SMD.pretty": {
+      "generated_with_loss": 56
+    },
+    "Connector.pretty": {
+      "failed": 1,
+      "generated_with_loss": 31
+    },
+    "Connector_AMASS.pretty": {
+      "failed": 8,
+      "generated_with_loss": 6
+    },
+    "Connector_Amphenol.pretty": {
+      "generated_with_loss": 1
+    },
+    "Connector_Audio.pretty": {
+      "failed": 12,
+      "generated_with_loss": 199
+    },
+    "Connector_BarrelJack.pretty": {
+      "failed": 8,
+      "generated_with_loss": 7
+    },
+    "Connector_Card.pretty": {
+      "failed": 5,
+      "generated_with_loss": 15
+    },
+    "Connector_Coaxial.pretty": {
+      "failed": 12,
+      "generated_with_loss": 25
+    },
+    "Connector_DIN.pretty": {
+      "generated_with_loss": 94
+    },
+    "Connector_Dsub.pretty": {
+      "generated_with_loss": 104
+    },
+    "Connector_FFC-FPC.pretty": {
+      "failed": 114,
+      "generated_with_loss": 258
+    },
+    "Connector_Harting.pretty": {
+      "generated_with_loss": 33
+    },
+    "Connector_Harwin.pretty": {
+      "failed": 28,
+      "generated_with_loss": 74
+    },
+    "Connector_Hirose.pretty": {
+      "failed": 6,
+      "generated_with_loss": 146
+    },
+    "Connector_Hirose_DF40.pretty": {
+      "generated_with_loss": 70
+    },
+    "Connector_Hirose_FX8.pretty": {
+      "generated_with_loss": 12
+    },
+    "Connector_IDC.pretty": {
+      "failed": 1,
+      "generated_with_loss": 181
+    },
+    "Connector_JAE.pretty": {
+      "generated_with_loss": 44
+    },
+    "Connector_JAE_WP7B.pretty": {
+      "generated_with_loss": 20
+    },
+    "Connector_JST.pretty": {
+      "failed": 54,
+      "generated_with_loss": 504
+    },
+    "Connector_Molex.pretty": {
+      "failed": 54,
+      "generated_with_loss": 758
+    },
+    "Connector_Molex_Milligrid.pretty": {
+      "generated_with_loss": 55
+    },
+    "Connector_PCBEdge.pretty": {
+      "failed": 47,
+      "generated_with_loss": 78
+    },
+    "Connector_Phoenix_GMSTB.pretty": {
+      "generated_with_loss": 88
+    },
+    "Connector_Phoenix_MC.pretty": {
+      "generated_with_loss": 180
+    },
+    "Connector_Phoenix_MC_HighVoltage.pretty": {
+      "generated_with_loss": 66
+    },
+    "Connector_Phoenix_MSTB.pretty": {
+      "generated_with_loss": 180
+    },
+    "Connector_Phoenix_SPT.pretty": {
+      "generated_with_loss": 69
+    },
+    "Connector_Pin.pretty": {
+      "generated_with_loss": 13
+    },
+    "Connector_PinHeader_1.00mm.pretty": {
+      "generated_with_loss": 278
+    },
+    "Connector_PinHeader_1.27mm.pretty": {
+      "generated_with_loss": 278
+    },
+    "Connector_PinHeader_2.00mm.pretty": {
+      "generated_with_loss": 278
+    },
+    "Connector_PinHeader_2.54mm.pretty": {
+      "generated_with_loss": 278
+    },
+    "Connector_PinSocket_1.00mm.pretty": {
+      "generated_with_loss": 156
+    },
+    "Connector_PinSocket_1.27mm.pretty": {
+      "generated_with_loss": 246
+    },
+    "Connector_PinSocket_2.00mm.pretty": {
+      "generated_with_loss": 278
+    },
+    "Connector_PinSocket_2.54mm.pretty": {
+      "generated_with_loss": 278
+    },
+    "Connector_RJ.pretty": {
+      "failed": 3,
+      "generated_with_loss": 35
+    },
+    "Connector_SATA_SAS.pretty": {
+      "generated_with_loss": 2
+    },
+    "Connector_Samtec.pretty": {
+      "generated_with_loss": 27
+    },
+    "Connector_Samtec_EdgeRate.pretty": {
+      "failed": 30,
+      "generated_with_loss": 30
+    },
+    "Connector_Samtec_FSI.pretty": {
+      "generated_with_loss": 90
+    },
+    "Connector_Samtec_HLE_SMD.pretty": {
+      "generated_with_loss": 290
+    },
+    "Connector_Samtec_HLE_THT.pretty": {
+      "generated_with_loss": 141
+    },
+    "Connector_Samtec_HPM_THT.pretty": {
+      "generated_with_loss": 38
+    },
+    "Connector_Samtec_HSEC8.pretty": {
+      "failed": 85,
+      "generated_with_loss": 48
+    },
+    "Connector_Samtec_LTMM.pretty": {
+      "generated_with_loss": 26
+    },
+    "Connector_Samtec_MicroMate.pretty": {
+      "generated_with_loss": 76
+    },
+    "Connector_Samtec_MicroPower.pretty": {
+      "generated_with_loss": 36
+    },
+    "Connector_Stocko.pretty": {
+      "generated_with_loss": 20
+    },
+    "Connector_TE-Connectivity.pretty": {
+      "failed": 2,
+      "generated_with_loss": 72
+    },
+    "Connector_USB.pretty": {
+      "failed": 48,
+      "generated_with_loss": 27
+    },
+    "Connector_Video.pretty": {
+      "failed": 6,
+      "generated_with_loss": 3
+    },
+    "Connector_Wago.pretty": {
+      "generated_with_loss": 34
+    },
+    "Connector_Wire.pretty": {
+      "generated_with_loss": 330
+    },
+    "Connector_Wuerth.pretty": {
+      "generated_with_loss": 46
+    },
+    "Connector_Zhaoxing.pretty": {
+      "generated_with_loss": 9
+    },
+    "Converter_ACDC.pretty": {
+      "generated_with_loss": 44
+    },
+    "Converter_DCDC.pretty": {
+      "failed": 3,
+      "generated_with_loss": 128
+    },
+    "Crystal.pretty": {
+      "generated_with_loss": 192
+    },
+    "Diode_SMD.pretty": {
+      "failed": 5,
+      "generated_with_loss": 78
+    },
+    "Diode_THT.pretty": {
+      "failed": 5,
+      "generated_with_loss": 106
+    },
+    "Display.pretty": {
+      "failed": 9,
+      "generated_with_loss": 35
+    },
+    "Display_7Segment.pretty": {
+      "generated_with_loss": 53
+    },
+    "Ferrite_THT.pretty": {
+      "generated_with_loss": 1
+    },
+    "Fiducial.pretty": {
+      "failed": 10
+    },
+    "Filter.pretty": {
+      "generated_with_loss": 20
+    },
+    "Fuse.pretty": {
+      "failed": 4,
+      "generated_with_loss": 119
+    },
+    "Heatsink.pretty": {
+      "failed": 2,
+      "generated_with_loss": 29
+    },
+    "Inductor_SMD.pretty": {
+      "failed": 11,
+      "generated_with_loss": 681
+    },
+    "Inductor_SMD_Wurth.pretty": {
+      "generated_with_loss": 4
+    },
+    "Inductor_THT.pretty": {
+      "failed": 4,
+      "generated_with_loss": 271
+    },
+    "Inductor_THT_Wurth.pretty": {
+      "failed": 8,
+      "generated_with_loss": 2
+    },
+    "Jumper.pretty": {
+      "failed": 16,
+      "generated_with_loss": 14
+    },
+    "LED_SMD.pretty": {
+      "failed": 5,
+      "generated_with_loss": 94
+    },
+    "LED_THT.pretty": {
+      "generated_with_loss": 81
+    },
+    "Module.pretty": {
+      "failed": 23,
+      "generated_with_loss": 24
+    },
+    "Motors.pretty": {
+      "generated_with_loss": 1
+    },
+    "MountingEquipment.pretty": {
+      "generated_with_loss": 1
+    },
+    "MountingHole.pretty": {
+      "failed": 2,
+      "generated_with_loss": 165
+    },
+    "Mounting_Wuerth.pretty": {
+      "failed": 189,
+      "generated_with_loss": 2
+    },
+    "NetTie.pretty": {
+      "generated_with_loss": 12
+    },
+    "OptoDevice.pretty": {
+      "failed": 8,
+      "generated_with_loss": 95
+    },
+    "Oscillator.pretty": {
+      "failed": 1,
+      "generated_with_loss": 69
+    },
+    "Package_BGA.pretty": {
+      "generated_with_loss": 235
+    },
+    "Package_CSP.pretty": {
+      "generated_with_loss": 179
+    },
+    "Package_DFN_QFN.pretty": {
+      "failed": 74,
+      "generated_with_loss": 705
+    },
+    "Package_DIP.pretty": {
+      "failed": 2,
+      "generated_with_loss": 279
+    },
+    "Package_DirectFET.pretty": {
+      "generated_with_loss": 29
+    },
+    "Package_LCC.pretty": {
+      "generated_with_loss": 25
+    },
+    "Package_LGA.pretty": {
+      "failed": 5,
+      "generated_with_loss": 36
+    },
+    "Package_QFP.pretty": {
+      "generated_with_loss": 102
+    },
+    "Package_SIP.pretty": {
+      "generated_with_loss": 16
+    },
+    "Package_SO.pretty": {
+      "failed": 5,
+      "generated_with_loss": 396
+    },
+    "Package_SON.pretty": {
+      "failed": 16,
+      "generated_with_loss": 97
+    },
+    "Package_SO_J-Lead.pretty": {
+      "generated_with_loss": 1
+    },
+    "Package_TO_SOT_SMD.pretty": {
+      "failed": 18,
+      "generated_with_loss": 119
+    },
+    "Package_TO_SOT_THT.pretty": {
+      "failed": 2,
+      "generated_with_loss": 235
+    },
+    "Panelization.pretty": {
+      "failed": 2,
+      "generated_with_loss": 29
+    },
+    "Potentiometer_SMD.pretty": {
+      "failed": 1,
+      "generated_with_loss": 25
+    },
+    "Potentiometer_THT.pretty": {
+      "failed": 12,
+      "generated_with_loss": 100
+    },
+    "RF.pretty": {
+      "failed": 3
+    },
+    "RF_Antenna.pretty": {
+      "failed": 3,
+      "generated_with_loss": 15
+    },
+    "RF_Converter.pretty": {
+      "generated_with_loss": 7
+    },
+    "RF_GPS.pretty": {
+      "failed": 1,
+      "generated_with_loss": 15
+    },
+    "RF_GSM.pretty": {
+      "failed": 1,
+      "generated_with_loss": 10
+    },
+    "RF_Mini-Circuits.pretty": {
+      "failed": 3,
+      "generated_with_loss": 28
+    },
+    "RF_Module.pretty": {
+      "failed": 17,
+      "generated_with_loss": 52
+    },
+    "RF_Shielding.pretty": {
+      "generated_with_loss": 30
+    },
+    "RF_WiFi.pretty": {
+      "generated_with_loss": 1
+    },
+    "Relay_SMD.pretty": {
+      "generated_with_loss": 21
+    },
+    "Relay_THT.pretty": {
+      "failed": 13,
+      "generated_with_loss": 105
+    },
+    "Resistor_SMD.pretty": {
+      "generated_with_loss": 67
+    },
+    "Resistor_THT.pretty": {
+      "generated_with_loss": 104
+    },
+    "Rotary_Encoder.pretty": {
+      "failed": 18,
+      "generated_with_loss": 5
+    },
+    "Sensor.pretty": {
+      "generated_with_loss": 15
+    },
+    "Sensor_Audio.pretty": {
+      "failed": 8,
+      "generated_with_loss": 1
+    },
+    "Sensor_Current.pretty": {
+      "failed": 4,
+      "generated_with_loss": 31
+    },
+    "Sensor_Distance.pretty": {
+      "generated_with_loss": 2
+    },
+    "Sensor_Humidity.pretty": {
+      "failed": 1,
+      "generated_with_loss": 3
+    },
+    "Sensor_Motion.pretty": {
+      "generated_with_loss": 5
+    },
+    "Sensor_Pressure.pretty": {
+      "failed": 4,
+      "generated_with_loss": 5
+    },
+    "Sensor_Voltage.pretty": {
+      "generated_with_loss": 1
+    },
+    "Socket.pretty": {
+      "generated_with_loss": 15
+    },
+    "Symbol.pretty": {
+      "failed": 188,
+      "generated_with_loss": 21
+    },
+    "TerminalBlock.pretty": {
+      "generated_with_loss": 45
+    },
+    "TerminalBlock_4Ucon.pretty": {
+      "generated_with_loss": 28
+    },
+    "TerminalBlock_Altech.pretty": {
+      "generated_with_loss": 46
+    },
+    "TerminalBlock_CUI.pretty": {
+      "generated_with_loss": 23
+    },
+    "TerminalBlock_Degson.pretty": {
+      "generated_with_loss": 22
+    },
+    "TerminalBlock_Dinkle.pretty": {
+      "generated_with_loss": 29
+    },
+    "TerminalBlock_MetzConnect.pretty": {
+      "generated_with_loss": 61
+    },
+    "TerminalBlock_Ningbo-Kagnex.pretty": {
+      "generated_with_loss": 22
+    },
+    "TerminalBlock_Philmore.pretty": {
+      "generated_with_loss": 2
+    },
+    "TerminalBlock_Phoenix.pretty": {
+      "generated_with_loss": 126
+    },
+    "TerminalBlock_RND.pretty": {
+      "generated_with_loss": 132
+    },
+    "TerminalBlock_TE-Connectivity.pretty": {
+      "generated_with_loss": 11
+    },
+    "TerminalBlock_WAGO.pretty": {
+      "generated_with_loss": 170
+    },
+    "TerminalBlock_Wuerth.pretty": {
+      "generated_with_loss": 14
+    },
+    "TestPoint.pretty": {
+      "generated_with_loss": 57
+    },
+    "Transformer_SMD.pretty": {
+      "failed": 1,
+      "generated_with_loss": 41
+    },
+    "Transformer_THT.pretty": {
+      "failed": 2,
+      "generated_with_loss": 59
+    },
+    "Transistor_Power.pretty": {
+      "failed": 1,
+      "generated_with_loss": 2
+    },
+    "Transistor_Power_Module.pretty": {
+      "generated_with_loss": 14
+    },
+    "Valve.pretty": {
+      "failed": 5,
+      "generated_with_loss": 5
+    },
+    "Varistor.pretty": {
+      "generated_with_loss": 102
+    }
+  },
+  "diagnostic_item_counts": {
+    "APERTURE_EXPLICIT": 14055,
+    "CONNECT_PAD_TYPE_FLATTENED": 114,
+    "CURVE_APPROXIMATED": 3239,
+    "CUSTOM_PAD_NONRECTANGULAR": 20,
+    "CUSTOM_PAD_PROFILE_UNSUPPORTED": 473,
+    "DESCRIPTION_ASCII_ESCAPED": 783,
+    "DRILL_SLOT_UNSUPPORTED": 152,
+    "FAB_LAYER_APPROXIMATED": 13816,
+    "FEATURE_SKIPPED": 120,
+    "FILL_APPROXIMATED": 3441,
+    "FILL_EXPORT_UNVERIFIED": 3441,
+    "FILL_STROKE_MODEL": 3441,
+    "GRAPHIC_LAYER_SKIPPED": 14079,
+    "GRAPHIC_SKIPPED": 1,
+    "MODEL_FOLDER": 7088,
+    "MODEL_FRAME_UNVERIFIED": 7088,
+    "MODEL_HIDDEN": 5,
+    "MODEL_MISSING": 7021,
+    "NPTH_LIMIT": 1902,
+    "NPTH_NAME": 1902,
+    "PADLESS_GRAPHIC": 38,
+    "PAD_OFFSET_UNSUPPORTED": 18,
+    "TECHNICAL_PAD_CARRIER": 1133,
+    "TECHNICAL_PAD_NAME": 1133,
+    "TEXT_ANCHOR": 14109,
+    "TEXT_DYNAMIC": 14109,
+    "TEXT_FIELD_LAYER": 14109,
+    "TEXT_PROPERTY_FLATTENED": 1,
+    "TEXT_UPRIGHT_UNVERIFIED": 13955,
+    "TEXT_VARIABLE_UNRESOLVED": 14029,
+    "USER_LAYER_APPROXIMATED": 602
+  },
+  "electrical_pad_records": 327286,
+  "exceptions_sha256": "cd236394672e2693bcae6042c67dec0b3332e0bbce7f728583f02b239ff93151",
+  "files_with_model_matches": 7088,
+  "first_failure_categories": {
+    "ANGLE_NONINTEGER_UNSUPPORTED": 2,
+    "ARC_DEGENERATE": 2,
+    "CUSTOM_PAD_NONRECTANGULAR": 20,
+    "CUSTOM_PAD_PROFILE_UNSUPPORTED": 473,
+    "DRILL_MALFORMED": 7,
+    "DRILL_SLOT_UNSUPPORTED": 152,
+    "ENCODING_UNREPRESENTABLE": 1,
+    "FILL_COMPLEXITY_LIMIT": 9,
+    "FILL_GEOMETRY_OUTSIDE_PROFILE": 59,
+    "MODEL_TRANSFORM_REQUIRES_OVERRIDE": 85,
+    "NO_SUPPORTED_PAD_OR_GRAPHIC": 129,
+    "PADSTACK_UNSUPPORTED": 3,
+    "PAD_CHAMFER_UNSUPPORTED": 13,
+    "PAD_NAME_UNSUPPORTED": 255,
+    "PAD_OFFSET_UNSUPPORTED": 18,
+    "PAD_SHAPE_UNSUPPORTED": 1,
+    "PAD_TRAPEZOID_UNSUPPORTED": 4,
+    "QUOTED_FIELD_UNREPRESENTABLE": 2,
+    "TEXT_ANISOTROPIC_UNSUPPORTED": 2,
+    "TEXT_FIELD_DUPLICATE": 15,
+    "TEXT_FONT_UNSUPPORTED": 9,
+    "TEXT_JUSTIFICATION_UNSUPPORTED": 94
+  },
+  "full_audit_sha256": "183b53be861af1186d9286698a93430627718cf0b0c375f3d6ed2d797cc50f4a",
+  "improvement": {
+    "changed_previous_fpl_only_description": [
+      "Connector.pretty/Joint-Tech_C5080WR-04P_1x04_P5.08mm_Vertical.kicad_mod",
+      "Connector_Amphenol.pretty/Amphenol_M8S-03PMMR-SF8001.kicad_mod"
+    ],
+    "generated_added": 816,
+    "initial_generated": 13293,
+    "previous_fpl_unchanged": 13291,
+    "regressions": 0,
+    "rescued_first_failure_categories": {
+      "ENCODING_UNREPRESENTABLE": 341,
+      "NO_SUPPORTED_PAD_OR_GRAPHIC": 38,
+      "QUOTED_FIELD_UNREPRESENTABLE": 437
+    }
+  },
+  "kind": "complete_footprint_corpus_summary",
+  "manufacturing_validated": false,
+  "matched_model_references": 7088,
+  "model_geometry_validated": false,
+  "native_netlist_verified": false,
+  "options": {
+    "aperture_defaults": {
+      "mask_margin": 0.05,
+      "paste_margin": 0,
+      "paste_ratio": 0
+    },
+    "curve_tolerance": 0.01,
+    "description_policy": "ascii-escape-with-loss",
+    "encoding": "cp1251",
+    "fill_tolerance": 0.01,
+    "model_transform": null,
+    "strict": false,
+    "text_variables": {}
+  },
+  "package": {
+    "archive": {
+      "bytes": 28452652,
+      "sha256": "1b97442050880c682623ae8e3b36160a9eee40c0e1ed00800c69e57fadca38c5"
+    },
+    "extracted_relocation_verified": true,
+    "generated": 14109,
+    "indexed_bytes": 234428709,
+    "indexed_files": 14116,
+    "omitted": 1355,
+    "peak_rss_bytes": 869548032,
+    "seconds": 30.251,
+    "zip_crc_verified": true
+  },
+  "remaining_acceptance": "Native FreePCB2/Schemator roundtrip, netlist, Gerber and physical board 3D per prepared kit; fix observed defects. Unsupported-source extensions remain explicitly catalogued.",
+  "schema_version": 1,
+  "source": {
+    "archive": {
+      "bytes": 12121540,
+      "sha256": "b47348611cccea0151050a7d88e1a2a7dcd2b403e252cd31abada481044de125",
+      "url": "https://codeload.github.com/KiCad/kicad-footprints/tar.gz/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c"
+    },
+    "categories": 155,
+    "footprint_bytes": 156078015,
+    "footprints": 15464,
+    "license": {
+      "bytes": 2101,
+      "file": "LICENSE.md",
+      "git_blob_sha1": "314afa8a91e3273f3e90203b8382315bbb40bbfb",
+      "sha256": "45d2bce75e5a4208f5afb01b8fb2c406e700371c4fe2b5f5cd5c443d46db4d8f",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/LICENSE.md"
+    },
+    "modified": false,
+    "project": "KiCad community / kicad-footprints",
+    "provenance_sha256": "288f50da0fc0ea04ddc14bf02f9f2044bc96b50cc20887d0c4a354ed7de1cc97",
+    "revision": "51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c",
+    "tree": {
+      "footprint_count": 15464,
+      "sha256": "181483cc4da9a004fb7ab1dc129c1acbbfd12c0ca98e471a5c23491f6f2317de",
+      "truncated": false,
+      "url": "https://api.github.com/repos/KiCad/kicad-footprints/git/trees/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c?recursive=1"
+    }
+  },
+  "source_features": {
+    "drills": {
+      "none": 258236,
+      "oval_or_offset": 808,
+      "round": 128270
+    },
+    "graphic_stroke_types": {
+      "dash": 6,
+      "default": 4875,
+      "solid": 645769
+    },
+    "graphics": {
+      "fp_arc": 13583,
+      "fp_circle": 14577,
+      "fp_line": 587958,
+      "fp_poly": 6079,
+      "fp_rect": 28453,
+      "fp_text": 18630,
+      "fp_text_box": 4
+    },
+    "pad_kinds": {
+      "connect": 8014,
+      "np_thru_hole": 18530,
+      "smd": 250465,
+      "thru_hole": 110305
+    },
+    "pad_shapes": {
+      "circle": 179724,
+      "custom": 2027,
+      "oval": 18758,
+      "rect": 83317,
+      "roundrect": 103479,
+      "trapezoid": 9
+    }
+  },
+  "source_pad_records": 387314,
+  "status": "experimental_2d_preview",
+  "summary": {
+    "ambiguous_number_mapping_items": 2378,
+    "failed": 1355,
+    "generated": 14109,
+    "generated_with_loss": 14109,
+    "generation_percent": 91.24,
+    "rejected_loss": 0,
+    "target_records_validated": 14109,
+    "total": 15464,
+    "unexpected_errors": 0
+  },
+  "target_gui_validated": false,
+  "tests": {
+    "local": "passed",
+    "portable_optional_skips": 3,
+    "portable_without_stl_step": "passed",
+    "total": 501
+  },
+  "written_pad_records": 354192
+}

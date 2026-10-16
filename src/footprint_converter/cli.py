@@ -22,6 +22,8 @@ def main() -> int:
     parser.add_argument('--name')
     parser.add_argument('--stl-root', type=Path, default=DEFAULT_STL_ROOT)
     parser.add_argument('--encoding', default='cp1251', help='Target library encoding (default: cp1251)')
+    parser.add_argument('--description-policy', choices=('preserve', 'ascii-escape-with-loss'), default='preserve',
+                        help='Printable ASCII tokens for Unicode/quotes/controls in descriptions; pad labels and graphic text are unchanged')
     parser.add_argument('--model-translation', type=float, nargs=3)
     parser.add_argument('--model-rotation', type=float, nargs=3)
     parser.add_argument('--model-scale', type=float, nargs=3)
@@ -60,6 +62,7 @@ def main() -> int:
                                   stl_root=args.stl_root, model_transform=transform,
                                   text_variables=variables, curve_tolerance=args.curve_tolerance,
                                   fill_tolerance=args.fill_tolerance,
+                                  description_policy=args.description_policy,
                                   strict=args.strict, aperture_defaults=ApertureSettings(
                                       args.default_mask_margin, args.default_paste_margin, args.default_paste_ratio))
         data = result.fpl.encode(args.encoding)

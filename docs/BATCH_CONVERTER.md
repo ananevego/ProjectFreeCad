@@ -35,6 +35,9 @@ python3 -B -m src.footprint_converter.batch \
 Поддерживаются `--stl-root`, `--encoding`, `--strict`, допуски curve/fill,
 mask/paste defaults, `--text-variable` и полное явное model transform — как
 у одиночного CLI. `--limit N` выбирает первые N путей в стабильном порядке.
+`--description-policy ascii-escape-with-loss` явно преобразует только description
+в printable ASCII tokens с loss; default `preserve`. Режим входит в cache identity.
+Полная партия 15 464 файлов и сборка preview описаны в [FULL_LIBRARY.md](FULL_LIBRARY.md).
 `--name` отсутствует: каждому исходнику назначается собственное уникальное имя.
 Обнаружение рекурсивное, только `.kicad_mod`; symlink-каталоги не обходятся,
 symlink-файлы получают индивидуальный отказ. Пустая выборка — глобальная ошибка.

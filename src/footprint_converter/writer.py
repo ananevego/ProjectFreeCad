@@ -120,6 +120,8 @@ def selection_bounds(fp: Footprint, apertures: list[dict[str, str]] | None = Non
     for poly in fp.polylines:
         for x, y in poly.points:
             points.extend([(x-poly.width/2, -y-poly.width/2), (x+poly.width/2, -y+poly.width/2)])
+    if not points:
+        raise ConversionError('Footprint has no pad or rendered outline bounds')
     return min(p[0] for p in points), min(p[1] for p in points), max(p[0] for p in points), max(p[1] for p in points)
 
 

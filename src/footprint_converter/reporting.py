@@ -20,6 +20,7 @@ LOSS_CODES = {
     'TECHNICAL_PAD_CARRIER','CONNECT_PAD_TYPE_FLATTENED',
     'GRAPHIC_STROKE_FLATTENED',
     'CUSTOM_PAD_RECT_FLATTENED',
+    'DESCRIPTION_ASCII_ESCAPED',
 }
 
 
@@ -109,4 +110,7 @@ def build_report(fp: Footprint, render_fp: Footprint, matches: list[ModelMatch],
         report['graphic_strokes'] = stroke_report(fp, render_fp)
     if render_fp.pad_geometry_results:
         report['pad_geometry'] = geometry_report(render_fp)
+    if render_fp.description != fp.description:
+        report['description'] = dict(policy='ascii-escape-with-loss', source=fp.description,
+                                     written=render_fp.description)
     return report

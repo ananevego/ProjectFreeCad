@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 from pathlib import Path
+from dataclasses import replace
 
 from .errors import LossyConversionError
 from .model import ApertureSettings, ConversionResult, ModelTransform
@@ -21,14 +22,24 @@ def convert_detailed(root: list, footprint_name: str | None = None, *,
                      text_variables: dict[str, str] | None = None,
                      curve_tolerance: float = 0.01, strict: bool = False,
                      aperture_defaults: ApertureSettings | None = None,
-                     fill_tolerance: float = 0.01) -> ConversionResult:
+                     fill_tolerance: float = 0.01,
+                     description_policy: str = 'preserve') -> ConversionResult:
     """In-memory conversion and structured report; does not write any file."""
+    if description_policy not in {'preserve', 'ascii-escape-with-loss'}:
+        raise ValueError('Unknown description policy')
     fp = parse_footprint(root, footprint_name, curve_tolerance=curve_tolerance)
     geometry_warnings = []
     geometry_fp = normalize_pad_geometry(fp, aperture_defaults, geometry_warnings)
     warnings = validate_footprint(geometry_fp) + geometry_warnings
     render_fp = expand_strokes(geometry_fp, warnings)
     render_fp = tessellate_fills(render_fp, fill_tolerance, warnings, curve_tolerance=curve_tolerance)
+    if description_policy == 'ascii-escape-with-loss':
+        description = ''.join(c if 32 <= ord(c) < 128 and c != '"' else f'[U+{ord(c):04X}]' for c in render_fp.description)
+    else:
+        description = render_fp.description
+    if description != render_fp.description:
+        render_fp = replace(render_fp, description=description)
+        warnings.append('DESCRIPTION_ASCII_ESCAPED: Unicode, quote or control characters in description written as printable [U+XXXX] tokens; source text retained in report')
     matches = match_models(fp.models, Path(stl_root), warnings)
     fpl = write_fpl(render_fp, matches, warnings, model_transform, text_variables, aperture_defaults)
     warnings = list(dict.fromkeys(warnings))

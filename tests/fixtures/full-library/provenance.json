@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "project": "KiCad community / kicad-footprints",
+  "revision": "51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c",
+  "modified": false,
+  "selection": "Three unchanged regressions found by the complete library run",
+  "source_tree_metadata": {
+    "url": "https://api.github.com/repos/KiCad/kicad-footprints/git/trees/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c?recursive=1",
+    "sha256": "181483cc4da9a004fb7ab1dc129c1acbbfd12c0ca98e471a5c23491f6f2317de",
+    "truncated": false,
+    "footprint_count": 15464
+  },
+  "files": [
+    {
+      "file": "Battery.pretty/Battery_CR1225.kicad_mod",
+      "bytes": 1412,
+      "sha256": "26f50f727374804d6df855c6b4a0ee1e0ebe56e1d4c499e5aeb727c307940a70",
+      "git_blob_sha1": "d6fef1a56b654aab81e54000820e0e57754fcdf6",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Battery.pretty/Battery_CR1225.kicad_mod"
+    },
+    {
+      "file": "Capacitor_SMD.pretty/CP_Elec_CAP-XX_DMF3Zxxxxxxxx3D.kicad_mod",
+      "bytes": 8323,
+      "sha256": "8816f70f93a9021a8c8d51cee3ddd7b0a7b50a6ca935b1ed321b20c1367c5cf4",
+      "git_blob_sha1": "9c5f7cb0607c9da51ef4e2989b9e1b0e8ed01d6f",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Capacitor_SMD.pretty/CP_Elec_CAP-XX_DMF3Zxxxxxxxx3D.kicad_mod"
+    },
+    {
+      "file": "Connector_Samtec_HLE_SMD.pretty/Samtec_HLE-102-02-xxx-DV-BE_2x02_P2.54mm_Horizontal.kicad_mod",
+      "bytes": 4418,
+      "sha256": "77102731700bc0997a245bd7e914ae6d69b99a77fbd59797d3eeb1db8d146a23",
+      "git_blob_sha1": "12b4d416a2521163801b9a38791702c5f76a4195",
+      "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/Connector_Samtec_HLE_SMD.pretty/Samtec_HLE-102-02-xxx-DV-BE_2x02_P2.54mm_Horizontal.kicad_mod"
+    }
+  ],
+  "license": {
+    "file": "LICENSE.md",
+    "bytes": 2101,
+    "sha256": "45d2bce75e5a4208f5afb01b8fb2c406e700371c4fe2b5f5cd5c443d46db4d8f",
+    "git_blob_sha1": "314afa8a91e3273f3e90203b8382315bbb40bbfb",
+    "url": "https://raw.githubusercontent.com/KiCad/kicad-footprints/51f8a59ed7d5f3bab9bb296c7b767bb033f3ba4c/LICENSE.md"
+  }
+}

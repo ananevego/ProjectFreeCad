@@ -30,3 +30,7 @@ desktop.ini
 
 # Native validation kits include selected existing STL copies and runtime evidence.
 /output/native-validation*/
+
+# Complete upstream corpus and exhaustive audit artifacts are reproducible locally.
+/output/corpus/
+/output/full-library/

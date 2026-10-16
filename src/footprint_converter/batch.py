@@ -176,7 +176,8 @@ def run_batch(input_dir: Path, output_dir: Path, *, resume: bool = False,
               fill_tolerance: float = 0.01, strict: bool = False,
               text_variables: dict[str, str] | None = None,
               aperture_defaults: ApertureSettings | None = None,
-              model_transform: ModelTransform | None = None) -> dict:
+              model_transform: ModelTransform | None = None,
+              description_policy: str = 'preserve') -> dict:
     """Convert selected files; errors are isolated, KeyboardInterrupt propagates.
 
     Global input/path/configuration/manifest failures happen before artifact
@@ -201,6 +202,8 @@ def run_batch(input_dir: Path, output_dir: Path, *, resume: bool = False,
             raise ConversionError('Text bindings must have nonempty string names and string values')
         quote(value)
     defaults = aperture_defaults or ApertureSettings()
+    if description_policy not in {'preserve', 'ascii-escape-with-loss'}:
+        raise ConversionError('Unknown description policy')
     if any(v is not None and not math.isfinite(v) for v in asdict(defaults).values()):
         raise ConversionError('Non-finite aperture defaults')
     if model_transform is not None:
@@ -209,7 +212,7 @@ def run_batch(input_dir: Path, output_dir: Path, *, resume: bool = False,
             raise ConversionError('Invalid target model transform')
     options = dict(stl_root=models, curve_tolerance=curve_tolerance, fill_tolerance=fill_tolerance,
                    strict=strict, text_variables=variables, aperture_defaults=defaults,
-                   model_transform=model_transform)
+                   model_transform=model_transform, description_policy=description_policy)
     config = dict(options, stl_root=str(models), aperture_defaults=asdict(defaults),
                   model_transform=asdict(model_transform) if model_transform else None,
                   encoding=encoding)
@@ -346,6 +349,8 @@ def main() -> int:
     parser.add_argument('--limit', type=int, help='Convert only the first N source paths in stable order')
     parser.add_argument('--stl-root', type=Path, default=DEFAULT_STL_ROOT)
     parser.add_argument('--encoding', default='cp1251')
+    parser.add_argument('--description-policy', choices=('preserve', 'ascii-escape-with-loss'), default='preserve',
+                        help='Printable ASCII tokens for Unicode/quotes/controls in descriptions; pad labels and graphic text are unchanged')
     parser.add_argument('--strict', action='store_true')
     parser.add_argument('--curve-tolerance', type=float, default=0.01)
     parser.add_argument('--fill-tolerance', type=float, default=0.01)
@@ -370,6 +375,7 @@ def main() -> int:
                                        tuple(args.model_rotation or ZERO), tuple(args.model_scale or ONE))
         result = run_batch(args.input, args.output, resume=args.resume, limit=args.limit,
                            stl_root=args.stl_root, encoding=args.encoding, strict=args.strict,
+                           description_policy=args.description_policy,
                            curve_tolerance=args.curve_tolerance, fill_tolerance=args.fill_tolerance,
                            text_variables=variables, model_transform=transform,
                            aperture_defaults=ApertureSettings(args.default_mask_margin,

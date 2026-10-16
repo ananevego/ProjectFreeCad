@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "scope": "Padless graphic footprint reader/bounds support, source inspection only",
+  "target": "FreePCB2 2.428",
+  "revision": "3af0f9b9a234c97f2d21455c936abeb8439d2d45",
+  "source": {
+    "url": "https://github.com/niconson/FreePCB-2/blob/3af0f9b9a234c97f2d21455c936abeb8439d2d45/Shape.cpp",
+    "sha256": "f247e613a0898862b286faeab29696411ac6bbc059cd05d8fd2d4b4d2b7ce34e",
+    "observations": [
+      {
+        "function": "CShape::MakeFromFile",
+        "lines": [
+          1410,
+          1416
+        ],
+        "finding": "n_pins accepts zero; pin records are bounded by declared count"
+      },
+      {
+        "function": "CShape::GetDefaultCentroid / GetAllPadBounds",
+        "lines": [
+          2893,
+          2925
+        ],
+        "finding": "With no padstacks, centroid bounds use outline polygon corner bounds"
+      }
+    ]
+  },
+  "target_gui_validated": false
+}

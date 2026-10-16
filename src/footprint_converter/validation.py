@@ -15,7 +15,9 @@ def validate_footprint(fp: Footprint) -> list[str]:
     if not fp.name.strip() or len(fp.name) > 99:
         raise ConversionError('Footprint name must contain 1..99 characters')
     if not fp.pads:
-        raise ConversionError('This conversion stage requires at least one pad/hole')
+        if not (fp.polylines or fp.filled_polygons or fp.filled_circles or fp.patterned_graphics):
+            raise ConversionError('Footprint requires at least one pad/hole or supported graphic outline')
+        warnings.append('PADLESS_GRAPHIC: graphical footprint has zero native pins; no electrical terminals are created')
     for pad in fp.pads:
         if pad.kind not in {'smd', 'connect', 'thru_hole', 'np_thru_hole'}:
             raise ConversionError(f'Pad {pad.name}: unsupported type {pad.kind}')

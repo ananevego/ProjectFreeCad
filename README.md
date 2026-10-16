@@ -13,11 +13,14 @@ D_SOD-123, пакетный CLI, исходный parser УГО и минима�
 добавлен сборщик связей и переносимого комплекта, окружности/дуги УГО
 и профиль обычных электрических типов выводов, простой заливки и текста;
 добавлены disjoint multi-unit layout, power/NC policy и straight dash/dot profile;
-проходят 478 тестов.
+добавлены полный corpus workflow и проверяемая 2D preview-поставка.
 Source parser читает `.kicad_sym` и старые `.lib`, сохраняя pins/units/inheritance.
 Writer создаёт `.cds` для R/C/connector, составных resistor packs и физических компонентов с power pins. Проверена цепочка
 symbol → footprint → существующий STL на трёх controls; GUI и физическое
-совмещение 3D ещё впереди.
+совмещение 3D ещё впереди. Полная footprint-библиотека закреплена: 15 464 файла
+в 155 категориях: **14 109 FPL (91,24%) с известными losses**, 1 355 явных
+отказов; 501 тест проходит. Исходники и все успешные pad records проверены.
+[Полный прогон, поставка и воспроизведение](docs/FULL_LIBRARY.md).
 
 ## Исходные УГО KiCad
 
@@ -154,10 +157,18 @@ contact pads добавлены по source/native контракту. Новы�
 и непрямоугольные unions имеют структурированные причины отказа; средняя
 партия остаётся 110/120. [Ограничения native pads](docs/PAD_GEOMETRY.md).
 
+Полный корпус обрабатывается через `src.library_corpus`, batch/audit и
+`src.library_release`. Поддержаны графические footprints с нулём pins;
+`--description-policy ascii-escape-with-loss` явно записывает Unicode/кавычки/
+control characters описания как `[U+XXXX]`, сохраняя оригинал в JSON. Номера
+выводов и графические надписи этим режимом не изменяются. Default — `preserve`.
+[Результаты и команды](docs/FULL_LIBRARY.md).
+
 ## Что поддерживается
 
 | Данные KiCad | Результат |
 |---|---|
+| Footprints без площадок с поддержанной графикой | Контуры и `n_pins: 0`, без добавленных electrical terminals |
 | Technical-only F/B.Mask/Paste SMD pads | Отдельные zero-copper/hole padstack carriers, literal aperture sizes; netlist/Gerber unverified |
 | Contact pads (`connect`) | Одна внешняя copper side, mask/no paste/no hole; connector attribute имеет loss |
 | Custom SMD → exact centred rectangle | До 32 rectangular gr_poly; exact union proof, source anchor сохранён, explicit aperture settings и editing/zone loss |
@@ -166,7 +177,7 @@ contact pads добавлены по source/native контракту. Новы�
 | PTH с круглым drill | Отверстие и площадки; `*.Cu` включает общий inner_pad |
 | NPTH с круглым drill | Отверстие без меди; NPTH paste подавляется с диагностикой |
 | Origin | Сохраняется; ось Y приводится к системе FreePCB2 |
-| Centroid | Вычисляет native reader FreePCB2 по bounds площадок |
+| Centroid | Вычисляет native reader FreePCB2 по bounds площадок; без pads — по контурам |
 | F.SilkS / B.SilkS | Раздельные слои 4 / 5 |
 | Dwgs.User / Cmts.User | Контуры и user texts в notes=7 с диагностикой потери различия слоёв |
 | Линии, незаполненные прямоугольники и полигоны | Контуры `.fpl` |
@@ -352,8 +363,9 @@ STL frame по умолчанию identity с `MODEL_FRAME_UNVERIFIED`. Его �
 - STEP → STL скрипты в корне — история предыдущей конвертации;
   запускать их для использования footprint-конвертера не требуется.
 
-[План дальнейшей работы](docs/PROJECT_PLAN.md): расширение небольшой реальной
-выборки, уточнение оставшихся правил, УГО по подтверждённому эталону, затем batch.
-Массовая конвертация 20 000 элементов на текущем этапе не выполняется.
+[Текущий план](docs/PROJECT_PLAN.md): реализация поддержанного профиля,
+полный footprint-корпус и экспериментальная упаковка выполнены. Для production
+нужны native-проверки и исправления по их результатам. Исключения полной партии
+сохранены явно; 100% покрытия KiCad не заявляется.
 
 Правила hide/formatting/unlocked и проверки текстов: [аудит](docs/TEXT_FIELD_AUDIT.md).
