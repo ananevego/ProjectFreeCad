@@ -1,0 +1,58 @@
+{
+  "archive": {
+    "bytes": 307265987,
+    "crc_verified": true,
+    "file": "linked-components-preview.zip",
+    "relocated_verified": true,
+    "sha256": "edf38976a78205886aafa01e8f887c6615ffd6a165df0a9b1bb762fb7b8cdcd8"
+  },
+  "candidates": 8210,
+  "cds_footprints_assigned": true,
+  "complete_model_dependencies": 6993,
+  "errors": {},
+  "excluded_candidate_statuses": {
+    "footprint_absent": 142,
+    "footprint_numbers_ambiguous": 482,
+    "footprint_refused": 343,
+    "footprint_unspecified": 2389,
+    "pin_pad_numbers_differ": 620,
+    "symbol_refused": 9620
+  },
+  "final_component_tests_passed": 51,
+  "footprint_audit_sha256": "183b53be861af1186d9286698a93430627718cf0b0c375f3d6ed2d797cc50f4a",
+  "full_coverage_refusals": {
+    "footprints": 1355,
+    "symbols": 9620
+  },
+  "generated": 8210,
+  "indexed_bytes": 1616369336,
+  "indexed_files": 25560,
+  "kind": "linked_component_preview",
+  "literal_number_mapping_verified": true,
+  "manufacturing_validated": false,
+  "model_alignment_validated": false,
+  "native_netlist_verified": false,
+  "numbered_pin_pad_pairs": 94540,
+  "observations": {
+    "archive_crc_relocated_verify_seconds": 835.44,
+    "build_and_verify_seconds": 1127.76,
+    "caches_isolated": false,
+    "peak_rss_measured": false,
+    "tests_concurrent": true
+  },
+  "partial_or_no_model_dependencies": 1217,
+  "refused": 0,
+  "remaining_required_development_stages_for_supported_linked_preview_excluding_windows": 0,
+  "schema_version": 1,
+  "source_libraries": 149,
+  "source_symbols": 21806,
+  "statuses": {
+    "generated_with_loss": 8210
+  },
+  "symbol_audit_sha256": "fc9439a39ff3528fa6073ade635bf2b31668b8d7dab64a073f64d0bda1c368cb",
+  "target_gui_validated": false,
+  "tests_passed": 542,
+  "unique_existing_models": 461,
+  "unique_footprints": 878,
+  "unique_model_bytes": 353302324
+}

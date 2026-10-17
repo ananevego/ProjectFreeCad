@@ -73,8 +73,13 @@ def load_config(path: Path) -> tuple[dict, bytes]:
     data = path.read_bytes()
     config = json.loads(data.decode('utf-8-sig'), object_pairs_hook=_unique_pairs,
                         parse_constant=_invalid_constant)
+    validate_config(config)
+    return config, data
+
+
+def validate_config(config: dict) -> None:
     if not isinstance(config, dict) or set(config) - {
-            'schema_version', 'footprint_libraries', 'components', 'aperture_defaults', 'symbol_curve_tolerance', 'symbol_fill_tolerance', 'symbol_unit_gap', 'symbol_no_connect_policy', 'symbol_hidden_pin_policy', 'symbol_common_pin_policy', 'symbol_pin_name_policy', 'symbol_alternate_pin_policy'}:
+            'schema_version', 'footprint_libraries', 'components', 'aperture_defaults', 'symbol_curve_tolerance', 'symbol_fill_tolerance', 'symbol_unit_gap', 'symbol_no_connect_policy', 'symbol_hidden_pin_policy', 'symbol_common_pin_policy', 'symbol_pin_name_policy', 'symbol_alternate_pin_policy', 'footprint_description_policy'}:
         raise ValueError('Unknown/invalid component config fields')
     if type(config.get('schema_version')) is not int or config['schema_version'] != 1:
         raise ValueError('Expected component config schema_version 1')
@@ -102,6 +107,8 @@ def load_config(path: Path) -> tuple[dict, bytes]:
             if key in component and not isinstance(component[key], str):
                 raise ValueError(f'{key} must be a string')
         _transform(component.get('model_transform'))
+    if config.get('footprint_description_policy', 'preserve') not in {'preserve', 'ascii-escape-with-loss'}:
+        raise ValueError('Invalid footprint_description_policy')
     aperture = config.get('aperture_defaults', {})
     validate_tolerance(config.get('symbol_curve_tolerance',DEFAULT_CURVE_TOLERANCE))
     validate_fill_tolerance(config.get('symbol_fill_tolerance',DEFAULT_FILL_TOLERANCE))
@@ -115,7 +122,6 @@ def load_config(path: Path) -> tuple[dict, bytes]:
             value is not None and (type(value) not in (float, int) or not math.isfinite(value))
             for value in aperture.values()):
         raise ValueError('Invalid aperture defaults')
-    return config, data
 
 
 def _transform(value) -> ModelTransform | None:
@@ -308,7 +314,8 @@ def _convert_item(component: dict, config: dict, base: Path, stage: Path,
                 node[1] = 'Bundle.3dshapes/'+aliases[node[1]]
         fp_result = convert_detailed(rewritten, target_name, stl_root=stage/'openscad_models',
             model_transform=_transform(component.get('model_transform')),
-            aperture_defaults=ApertureSettings(**config.get('aperture_defaults', {})), strict=strict)
+            aperture_defaults=ApertureSettings(**config.get('aperture_defaults', {})), strict=strict,
+            description_policy=config.get('footprint_description_policy','preserve'))
         # Match deduplication in the existing converter also deduplicates exact
         # repeated model references. Retain the actual emitted import sequence.
         original_by_alias = {(aliases[m.reference.path], m.reference.offset, m.reference.rotation, m.reference.scale):
@@ -393,53 +400,58 @@ def export_bundle(config_path: Path, output: Path, *, stl_root: Path = DEFAULT_S
         entries = [_convert_item(c, config, base, stage, assets, stl_root, cache,
                                  allow_missing_models, strict)
                    for c in sorted(config['components'], key=lambda c:c['id'])]
-        used = {m['source_relative'] for entry in entries for m in entry.get('models', [])}
-        models = assets.retain(used)
-        instructions = ('KiCad -> FreePCB2 / Schemator component bundle\n\n'
-            'Each generated component has symbol.cds, footprint.fpl and report.json.\n'
-            'Native imports, netlist, fonts and 3D alignment are NOT GUI-validated.\n'
-            'Copy the WHOLE directory. Paths in manifest.json are relative to it.\n'
-            'Import the FPL libraries in FreePCB2 2.428 and CDS libraries in Schemator 1.429.\n'
-            'Use project units MM; set the FreePCB2 OpenSCAD folder to:\n  <bundle>/'+RUNTIME_FOLDER+'\n'
-            'Do not select the category tree models/: FPL imports use unique flat aliases.\n'
-            'The category tree preserves original paths; both copies have the same SHA256.\n'
-            'Only selected existing STL bytes were copied; meshes were not converted or inspected.\n'
-            'Verify after copying with: python3 -B -m src.component_converter --verify <bundle>\n')
-        (stage/'README.txt').write_bytes(instructions.encode())
-        files = [dict(path=p.relative_to(stage).as_posix(), bytes=p.stat().st_size,
-                      sha256=file_digest(p)) for p in sorted(stage.rglob('*')) if p.is_file()]
-        summary = dict(Counter(e['status'] for e in entries))
-        summary.update(total=len(entries), generated_components=sum(e['status'] in SUCCESS for e in entries),
-                       complete_chains=sum(e['chain_complete'] for e in entries), models=len(models))
-        manifest = dict(schema_version=1, kind='component_bundle', config_sha256=digest(raw),
-            settings=dict(allow_missing_models=allow_missing_models, strict=strict,
-                          aperture_defaults=config.get('aperture_defaults', {})),
-            native_setup=dict(freepcb_version='2.428', schemator_version='1.429',
-                              project_units='MM', **{'3d_folder':RUNTIME_FOLDER}),
-            components=entries, models=models, files=files, summary=summary,
-            artifact_hashes_verified=True, native_import_verified=False, gui_validated=False,
-            model_geometry_validated=False)
-        if 'symbol_curve_tolerance' in config:
-            manifest['settings']['symbol_curve_tolerance_mm'] = config['symbol_curve_tolerance']
-        if 'symbol_fill_tolerance' in config:
-            manifest['settings']['symbol_fill_tolerance_mm'] = config['symbol_fill_tolerance']
-        if 'symbol_unit_gap' in config:
-            manifest['settings']['symbol_unit_gap_mm'] = config['symbol_unit_gap']
-        if 'symbol_no_connect_policy' in config:
-            manifest['settings']['symbol_no_connect_policy'] = config['symbol_no_connect_policy']
-        if 'symbol_hidden_pin_policy' in config:
-            manifest['settings']['symbol_hidden_pin_policy'] = config['symbol_hidden_pin_policy']
-        if 'symbol_common_pin_policy' in config:
-            manifest['settings']['symbol_common_pin_policy'] = config['symbol_common_pin_policy']
-        for key in ('symbol_pin_name_policy', 'symbol_alternate_pin_policy'):
-            if key in config:
-                manifest['settings'][key] = config[key]
-        (stage/'manifest.json').write_bytes(json_bytes(manifest))
-        manifest = verify_bundle(stage)
+        manifest = finish_bundle(stage, config, digest(raw), entries, assets, allow_missing_models, strict)
         if output.exists() or output.is_symlink():
             raise ValueError('Output appeared while staging; refusing replacement')
         stage.rename(output)
     return manifest
+
+
+def finish_bundle(stage, config, config_sha256, entries, assets, allow_missing_models, strict):
+    """Write the common portable index and independently verify generated records."""
+    used = {m['source_relative'] for entry in entries for m in entry.get('models', [])}
+    models = assets.retain(used)
+    instructions = ('KiCad -> FreePCB2 / Schemator component bundle\n\n'
+        'Each generated component has symbol.cds, footprint.fpl and report.json.\n'
+        'Native imports, netlist, fonts and 3D alignment are NOT GUI-validated.\n'
+        'Copy the WHOLE directory. Paths in manifest.json are relative to it.\n'
+        'Import the FPL libraries in FreePCB2 2.428 and CDS libraries in Schemator 1.429.\n'
+        'Use project units MM; set the FreePCB2 OpenSCAD folder to:\n  <bundle>/'+RUNTIME_FOLDER+'\n'
+        'Do not select the category tree models/: FPL imports use unique flat aliases.\n'
+        'The category tree preserves original paths; both copies have the same SHA256.\n'
+        'Only selected existing STL bytes were copied; meshes were not converted or inspected.\n'
+        'Verify after copying with: python3 -B -m src.component_converter --verify <bundle>\n')
+    (stage/'README.txt').write_bytes(instructions.encode())
+    files = [dict(path=p.relative_to(stage).as_posix(), bytes=p.stat().st_size,
+                  sha256=file_digest(p)) for p in sorted(stage.rglob('*')) if p.is_file()]
+    summary = dict(Counter(e['status'] for e in entries))
+    summary.update(total=len(entries), generated_components=sum(e['status'] in SUCCESS for e in entries),
+                   complete_chains=sum(e['chain_complete'] for e in entries), models=len(models))
+    manifest = dict(schema_version=1, kind='component_bundle', config_sha256=config_sha256,
+        settings=dict(allow_missing_models=allow_missing_models, strict=strict,
+                      aperture_defaults=config.get('aperture_defaults', {})),
+        native_setup=dict(freepcb_version='2.428', schemator_version='1.429',
+                          project_units='MM', **{'3d_folder':RUNTIME_FOLDER}),
+        components=entries, models=models, files=files, summary=summary,
+        artifact_hashes_verified=True, native_import_verified=False, gui_validated=False,
+        model_geometry_validated=False)
+    if 'symbol_curve_tolerance' in config:
+        manifest['settings']['symbol_curve_tolerance_mm'] = config['symbol_curve_tolerance']
+    if 'symbol_fill_tolerance' in config:
+        manifest['settings']['symbol_fill_tolerance_mm'] = config['symbol_fill_tolerance']
+    if 'symbol_unit_gap' in config:
+        manifest['settings']['symbol_unit_gap_mm'] = config['symbol_unit_gap']
+    if 'symbol_no_connect_policy' in config:
+        manifest['settings']['symbol_no_connect_policy'] = config['symbol_no_connect_policy']
+    if 'symbol_hidden_pin_policy' in config:
+        manifest['settings']['symbol_hidden_pin_policy'] = config['symbol_hidden_pin_policy']
+    if 'symbol_common_pin_policy' in config:
+        manifest['settings']['symbol_common_pin_policy'] = config['symbol_common_pin_policy']
+    for key in ('symbol_pin_name_policy', 'symbol_alternate_pin_policy', 'footprint_description_policy'):
+        if key in config:
+            manifest['settings'][key] = config[key]
+    (stage/'manifest.json').write_bytes(json_bytes(manifest))
+    return verify_bundle(stage)
 
 
 def verify_bundle(root: Path) -> dict:

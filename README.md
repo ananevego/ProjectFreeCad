@@ -19,7 +19,7 @@ Writer создаёт `.cds` для R/C/connector, составных resistor p
 symbol → footprint → существующий STL на трёх controls; GUI и физическое
 совмещение 3D ещё впереди. Полная footprint-библиотека закреплена: 15 464 файла
 в 155 категориях: **14 109 FPL (91,24%) с известными losses**, 1 355 явных
-отказов; 533 теста проходят. Исходники и все успешные pad records проверены.
+отказов; 542 теста проходят. Исходники и все успешные pad records проверены.
 [Полный прогон, поставка и воспроизведение](docs/FULL_LIBRARY.md).
 
 ## Исходные УГО KiCad
@@ -55,8 +55,11 @@ rectangles/polylines/circles/arcs, ограниченная foreground
 Загрузка и connectivity в Схематоре пока не подтверждены.
 Полный batch/audit **21 806 УГО** дал **12 186 CDS (55,88%) с явными losses**;
 независимо проверены 249 254 вывода. Preview ZIP с reports проверен после переноса.
-Найдены **8 210 кандидатов точных symbol/footprint связок**, пока без назначения
-footprints в CDS; исходный placeholder `PART` сохраняется.
+Собрана **массовая связанная preview-поставка: 8 210 CDS с назначенными FPL**,
+878 разных корпусов и 461 существующий STL. У 6 993 найдены все model dependencies;
+1 217 имеют partial/no-model. Проверены 94 540 pin/pad pairs и перенос ZIP.
+[Поставка и команды](docs/MASS_COMPONENTS.md). Отдельная unlinked symbol preview
+по-прежнему сохраняет `PART`.
 `--pin-name-policy plain-overbar-with-loss` и `--alternate-pin-policy primary-with-loss`
 передают имя без надчёркивания и основную функцию pin с явными losses; default
 остаётся reject, source definitions сохраняются в JSON. [Команды и ограничения](docs/SYMBOL_BATCH.md).
@@ -371,7 +374,7 @@ STL frame по умолчанию identity с `MODEL_FRAME_UNVERIFIED`. Его �
   запускать их для использования footprint-конвертера не требуется.
 
 [Текущий план](docs/PROJECT_PLAN.md): реализация поддержанного профиля,
-полный footprint-корпус и экспериментальная упаковка выполнены. Для production
+полные footprint/symbol-корпуса и массовая связанная preview-поставка выполнены. Для production
 нужны native-проверки и исправления по их результатам. Исключения полной партии
 сохранены явно; 100% покрытия KiCad не заявляется.
 

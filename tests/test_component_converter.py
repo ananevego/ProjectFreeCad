@@ -4,6 +4,7 @@ import hashlib
 import json
 import os
 from pathlib import Path
+import re
 import shutil
 import subprocess
 import sys
@@ -352,6 +353,30 @@ class ComponentConverterTests(unittest.TestCase):
         self.assertEqual(result['summary']['rejected_loss'],3)
         self.assertFalse(list(self.output.rglob('*.cds')))
         self.assertEqual(result['models'],[])
+
+    def test_description_escape_is_explicit_and_retains_source_text(self):
+        self.r_only()
+        self.edit_r(lambda s: re.sub(r'\(descr "(?:\\.|[^"\\])*"\)',
+                                    lambda _: '(descr "quote \\\" and Ω")', s, count=1))
+        default = self.run_bundle()
+        self.assertEqual(default['summary']['generated_components'], 0)
+        self.settings['footprint_description_policy'] = 'ascii-escape-with-loss'
+        self.save()
+        result = export_bundle(self.config, self.base/'escaped', stl_root=self.models)
+        self.assertEqual(result['summary']['generated_components'], 1)
+        self.assertEqual(result['settings']['footprint_description_policy'], 'ascii-escape-with-loss')
+        entry = result['components'][0]
+        fpl = (self.base/'escaped'/entry['footprint']).read_text(encoding='cp1251')
+        self.assertIn('[U+0022]', fpl)
+        self.assertIn('[U+03A9]', fpl)
+        report = json.loads((self.base/'escaped'/entry['report']).read_bytes())
+        self.assertIn('Ω', json.dumps(report['footprint_conversion'], ensure_ascii=False))
+
+    def test_unknown_description_policy_is_rejected_before_output(self):
+        self.settings['footprint_description_policy'] = 'silently-strip'
+        with self.assertRaisesRegex(ValueError, 'footprint_description_policy'):
+            self.run_bundle()
+        self.assertFalse(self.output.exists())
 
     def test_io_failure_after_symbol_write_removes_partial_target(self):
         self.r_only();original=Path.write_bytes

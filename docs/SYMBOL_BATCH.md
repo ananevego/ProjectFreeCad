@@ -43,12 +43,13 @@ Typed normalization отказала пяти библиотекам из-за s
 тесты шли одновременно, caches не изолированы. Полный resume timing не измерялся;
 resume/source/options/engine/corruption recovery проверены регрессиями.
 
-Кандидаты следующего этапа: **8210 exact symbol/footprint number matches**,
+Для связанного экспорта найдены **8210 exact symbol/footprint number matches**,
 из них **6993** имеют model match в footprint-аудите. Ещё 2389 successful УГО
 не содержат фиксированного Footprint, 620 имеют number mismatch, 482 — ambiguous
 pad numbers, 343 ссылаются на refused footprints, 142 — на отсутствующие.
-Назначение footprints в CDS и массовая поставка связанных компонентов остаются
-следующим этапом; кандидаты сейчас по-прежнему имеют `PART`.
+Все 8210 кандидатов теперь экспортированы в отдельную [массовую связанную
+поставку](MASS_COMPONENTS.md), с назначенными FPL и 461 существующим STL.
+Исходная unlinked batch/preview остаётся неизменной и сохраняет `PART`.
 
 ## Подготовка и полный запуск
 
