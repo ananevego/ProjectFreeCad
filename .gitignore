@@ -36,3 +36,6 @@ desktop.ini
 /output/full-library/
 /output/symbol-batches/
 /output/full-symbols/
+
+# Isolated STEP -> STL acceptance samples and generated mesh previews.
+/output/step-stl-demo/

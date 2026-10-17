@@ -1,0 +1,206 @@
+{
+  "kind": "step_stl_demo_audit",
+  "schema_version": 1,
+  "gmsh_version": "4.15.2",
+  "bbox_tolerance_mm": 0.01,
+  "volume_tolerance_fraction": 0.01,
+  "summary": {
+    "sources": 4,
+    "passed": 4,
+    "failed": 0
+  },
+  "items": [
+    {
+      "source": "Capacitor_SMD.3dshapes/C_0805_2012Metric.step",
+      "source_sha256": "9a669c1a2f1ea25b88b401acef6efeaa80a067bd7da9db6993de719a7fbe155c",
+      "generated": "Capacitor_SMD.3dshapes/C_0805_2012Metric.stl",
+      "mesh": {
+        "bytes": 14484,
+        "sha256": "8b0cfac929ab8e6c2a8cf31193afe193393a5929b6f2e6458fd2cd3f16532c83",
+        "triangles": 288,
+        "bbox_mm": [
+          -1.0,
+          -0.625,
+          0.0,
+          1.0,
+          0.625,
+          1.25
+        ],
+        "signed_volume_mm3": 2.888400758364687,
+        "degenerate_triangles": 0,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "inconsistent_edges": 0
+      },
+      "cad_bbox_mm": [
+        -1.0000001,
+        -0.6250001,
+        -1e-07,
+        1.0000001,
+        0.6250001,
+        1.2500001
+      ],
+      "cad_volume_mm3": 2.889933096491487,
+      "bbox_max_abs_error_mm": 1.0000000005838672e-07,
+      "volume_relative_error": 0.0005302330800184651,
+      "passed": true,
+      "existing_stl": {
+        "sha256": "2d212d4bdd55a180a45bca750a3ea509b9bf6e2413bfbfb5ee15556567e64c94",
+        "triangles": 426,
+        "bbox_mm": [
+          -1.0,
+          -0.625,
+          0.0,
+          1.0,
+          0.625,
+          1.25
+        ],
+        "bbox_max_abs_difference_mm": 0.0
+      }
+    },
+    {
+      "source": "Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x06_P2.54mm_Vertical.step",
+      "source_sha256": "d6113af109a14a67c50dcefd1cfc7b43b59b59afa85d808b2319e2452da91318",
+      "generated": "Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x06_P2.54mm_Vertical.stl",
+      "mesh": {
+        "bytes": 115084,
+        "sha256": "939219b2408e0e87925f2e9b74b31ea82b12c7294449c9bf72d4b02bcf9f95ba",
+        "triangles": 2300,
+        "bbox_mm": [
+          -1.2699999809265137,
+          -13.970000267028809,
+          -3.0,
+          1.2699999809265137,
+          1.2699999809265137,
+          8.539999961853027
+        ],
+        "signed_volume_mm3": 118.14665053055575,
+        "degenerate_triangles": 0,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "inconsistent_edges": 0
+      },
+      "cad_bbox_mm": [
+        -1.2700001000000003,
+        -13.9700001,
+        -3.0000001000024428,
+        1.2700001000000007,
+        1.2700001,
+        8.540000100002443
+      ],
+      "cad_volume_mm3": 118.14665632000555,
+      "bbox_max_abs_error_mm": 1.6702880856200863e-07,
+      "volume_relative_error": 4.900223147797023e-08,
+      "passed": true,
+      "existing_stl": {
+        "sha256": "0ce7ac295621dba994dcdb549dd436c7ca28466aae7dad82ad1d45934f505dc1",
+        "triangles": 5162,
+        "bbox_mm": [
+          -1.2699999809265137,
+          -13.970000267028809,
+          -3.0,
+          1.2699999809265137,
+          1.2699999809265137,
+          8.539999961853027
+        ],
+        "bbox_max_abs_difference_mm": 0.0
+      }
+    },
+    {
+      "source": "Package_SO.3dshapes/SOIC-8_3.9x4.9mm_P1.27mm.step",
+      "source_sha256": "07f46cff378d30e6c27dfd5a03092c795323f86d91c71fc7e743f4f418dc553a",
+      "generated": "Package_SO.3dshapes/SOIC-8_3.9x4.9mm_P1.27mm.stl",
+      "mesh": {
+        "bytes": 59884,
+        "sha256": "4345f04265f42177ef0b2d2deef88b331799741244a5b9253dc755e0cb9f834f",
+        "triangles": 1196,
+        "bbox_mm": [
+          -3.0,
+          -2.450000047683716,
+          -1.6653345369377348e-16,
+          3.0,
+          2.450000047683716,
+          1.75
+        ],
+        "signed_volume_mm3": 30.166578077340372,
+        "degenerate_triangles": 0,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "inconsistent_edges": 0
+      },
+      "cad_bbox_mm": [
+        -3.0000001,
+        -2.4500001000000005,
+        -1.0000000016653345e-07,
+        3.0000001,
+        2.4500001000000005,
+        1.7500001
+      ],
+      "cad_volume_mm3": 30.187110332571724,
+      "bbox_max_abs_error_mm": 1.0000000005838672e-07,
+      "volume_relative_error": 0.0006801663029401538,
+      "passed": true,
+      "existing_stl": {
+        "sha256": "14dbca442517c855427b819003a12fd6b90e8d60c20b2c06a5dbba92d2b20bef",
+        "triangles": 1786,
+        "bbox_mm": [
+          -3.0,
+          -2.450000047683716,
+          -1.6653345369377348e-16,
+          3.0,
+          2.450000047683716,
+          1.75
+        ],
+        "bbox_max_abs_difference_mm": 0.0
+      }
+    },
+    {
+      "source": "Resistor_SMD.3dshapes/R_0805_2012Metric.step",
+      "source_sha256": "ded342cdb394fb45395227beaaa75cc390613cf2581b29cd6d22c12abd6103b2",
+      "generated": "Resistor_SMD.3dshapes/R_0805_2012Metric.stl",
+      "mesh": {
+        "bytes": 9784,
+        "sha256": "7c6e174ecf29ae6f9f8730fddb9d389a8fd040d6a89e7e60c3f3527bcc7f8118",
+        "triangles": 194,
+        "bbox_mm": [
+          -1.0,
+          -0.6000000238418579,
+          -2.7755575615628914e-17,
+          1.0,
+          0.6000000238418579,
+          0.44999998807907104
+        ],
+        "signed_volume_mm3": 0.9973641116497938,
+        "degenerate_triangles": 0,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "inconsistent_edges": 0
+      },
+      "cad_bbox_mm": [
+        -1.0000001,
+        -0.6000000999999999,
+        -1.0000000002775557e-07,
+        1.0000001,
+        0.6000000999999999,
+        0.4500001
+      ],
+      "cad_volume_mm3": 1.000228140296446,
+      "bbox_max_abs_error_mm": 1.1192092896905592e-07,
+      "volume_relative_error": 0.00286337539534061,
+      "passed": true,
+      "existing_stl": {
+        "sha256": "81dcf6f1fad25c50fe6cc6d68758b3dbd555a99b42373a00e767568dce1571fd",
+        "triangles": 300,
+        "bbox_mm": [
+          -1.0,
+          -0.6000000238418579,
+          -2.7755575615628914e-17,
+          1.0,
+          0.6000000238418579,
+          0.44999998807907104
+        ],
+        "bbox_max_abs_difference_mm": 0.0
+      }
+    }
+  ]
+}

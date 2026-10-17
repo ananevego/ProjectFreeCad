@@ -21,6 +21,8 @@ symbol → footprint → существующий STL на трёх controls; GU
 в 155 категориях: **14 109 FPL (91,24%) с известными losses**, 1 355 явных
 отказов; 542 теста проходят. Исходники и все успешные pad records проверены.
 [Полный прогон, поставка и воспроизведение](docs/FULL_LIBRARY.md).
+[Порядок передачи другу для Windows-проверки](docs/WINDOWS_HANDOFF.md).
+[Критерии приёмки рабочего конвертера и STEP → STL-проба](docs/WORKING_CONVERTER_ACCEPTANCE.md).
 
 ## Исходные УГО KiCad
 
